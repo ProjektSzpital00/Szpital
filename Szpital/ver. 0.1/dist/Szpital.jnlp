@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Szpital.jnlp">
+  <information>
+    <title>Szpital</title>
+    <vendor>Krzysiek</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Szpital.jar" size="13709" download="eager" />
+    <jar href="lib\mysql-connector-java-6.0.6-sources.jar" size="1271995" download="eager" />
+    <jar href="lib\mysql-connector-java-6.0.6.jar" size="2001778" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Szpital" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="szpital.MainProgram"  name="Szpital" />
+  <update check="always"/>
+</jnlp>
