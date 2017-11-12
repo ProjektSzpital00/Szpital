@@ -79,6 +79,7 @@ public class LoginController
                 }
                 else
                 {
+                    userId.clear();
                     password.clear();
                     alertWyswietl("Błąd podczas logowania!", "Podano błędne dane logowania lub konto nie istnieje!");    
                 }
@@ -153,103 +154,123 @@ public class LoginController
 
     private void setRejestracjaController(Account account)
     {
-        FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("RejestracjaScreen.fxml"));
-        AnchorPane anchorPane = null;
         try
         {
-            anchorPane = loader.load();
-        }
-        catch(IOException ioe)
-        {
-            ioe.printStackTrace();
-        }
-        RejestracjaController rejestracjaController = loader.getController();
-        rejestracjaController.setAccount(account);
-        rejestracjaController.setLoginController(this);
-        try 
-        {
+            FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("RejestracjaScreen.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            RejestracjaController rejestracjaController = loader.getController();
+            rejestracjaController.setAccount(account);
+            rejestracjaController.setLoginController(this);
             rejestracjaController.setPacjentList(ListaPacjentow.get());
-        } 
-        catch (SQLException | ClassNotFoundException exc) 
-        {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Błąd!");
-            alert.setContentText(exc.getMessage());
-            alert.showAndWait();
+            
+            setScreen(anchorPane);
         }
-        setScreen(anchorPane);
+        catch(IllegalStateException ex)
+        {
+            alertWyswietl(ex);
+            exit();
+        }
+        catch (IOException | SQLException | ClassNotFoundException exc) 
+        {
+            alertWyswietl(exc);
+        }
     }
 
     private void setLekarzController(Account account)
     {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LekarzScreen.fxml"));
-        AnchorPane anchorPane = null;
         try
         {
-            anchorPane = loader.load();
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LekarzScreen.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            LekarzController lekarzController = loader.getController();
+            lekarzController.setAccount(account);
+            lekarzController.setLoginController(this);
+            
+            setScreen(anchorPane);
         }
-        catch(IOException ioe)
+        catch(IllegalStateException ex)
         {
-            ioe.printStackTrace();
+            alertWyswietl(ex);
+            exit();
         }
-        LekarzController lekarzController = loader.getController();
-        lekarzController.setAccount(account);
-        lekarzController.setLoginController(this);
-        setScreen(anchorPane);
+        catch (IOException exc) 
+        {
+            alertWyswietl(exc);
+        }
     }
 
     private void setOrdynatorController(Account account)
     {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("OrdynatorScreen.fxml"));
-        AnchorPane anchorPane = null;
         try
         {
-            anchorPane = loader.load();
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("OrdynatorScreen.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            LekarzController lekarzController = loader.getController();
+            lekarzController.setAccount(account);
+            lekarzController.setLoginController(this);
+            
+            setScreen(anchorPane);
         }
-        catch(IOException ioe)
+        catch(IllegalStateException ex)
         {
-            ioe.printStackTrace();
+            alertWyswietl(ex);
+            exit();
         }
-        OrdynatorController ordynatorController = loader.getController();
-        ordynatorController.setAccount(account);
-        ordynatorController.setLoginController(this);
-        setScreen(anchorPane);
+        catch (IOException exc) 
+        {
+            alertWyswietl(exc);
+        }
     }
 
     private void setPielegniarkaController(Account account)
     {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PielegniarkaScreen.fxml"));
-        AnchorPane anchorPane = null;
         try
         {
-            anchorPane = loader.load();
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PielegniarkaScreen.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            LekarzController lekarzController = loader.getController();
+            lekarzController.setAccount(account);
+            lekarzController.setLoginController(this);
+            
+            setScreen(anchorPane);
         }
-        catch(IOException ioe)
+        catch(IllegalStateException ex)
         {
-            ioe.printStackTrace();
+            alertWyswietl(ex);
+            exit();
         }
-        PielegniarkaController pielegniarkaController = loader.getController();
-        pielegniarkaController.setAccount(account);
-        pielegniarkaController.setLoginController(this);
-        setScreen(anchorPane);
+        catch (IOException exc) 
+        {
+            alertWyswietl(exc);
+        }
     }
 
     private void setAdministracjaController(Account account)
     {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("AdministracjaScreen.fxml"));
-        AnchorPane anchorPane = null;
         try
         {
-            anchorPane = loader.load();
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("AdministracjaScreen.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            LekarzController lekarzController = loader.getController();
+            lekarzController.setAccount(account);
+            lekarzController.setLoginController(this);
+            
+            setScreen(anchorPane);
         }
-        catch(IOException ioe)
+        catch(IllegalStateException ex)
         {
-            ioe.printStackTrace();
+            alertWyswietl(ex);
+            exit();
         }
-        AdministracjaController administracjaController = loader.getController();
-        administracjaController.setAccount(account);
-        administracjaController.setLoginController(this);
-        setScreen(anchorPane);
+        catch (IOException exc) 
+        {
+            alertWyswietl(exc);
+        }
     }
     
     public void setStage(Stage primaryStage)
@@ -271,20 +292,23 @@ public class LoginController
     
     public void setLoginScreen()
     {
-        
-        FXMLLoader loader = new FXMLLoader(MainProgram.class.getResource("view/LoginScreen.fxml"));
-        AnchorPane anchorPane = null;
         try
         {
-            anchorPane = loader.load();
+            FXMLLoader loader = new FXMLLoader(MainProgram.class.getResource("view/LoginScreen.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            LoginController loginController = loader.getController();
+            loginController.setStage(primaryStage); 
+            loginController.setScreen(anchorPane);
         }
-        catch(IOException ioe)
+        catch(IllegalStateException ex)
         {
-            ioe.printStackTrace();
+            alertWyswietl(ex);
+            exit();
         }
-        
-        LoginController loginController = loader.getController();
-        loginController.setStage(primaryStage); 
-        loginController.setScreen(anchorPane);
+        catch (IOException exc) 
+        {
+            alertWyswietl(exc);
+        }
     }
 }
