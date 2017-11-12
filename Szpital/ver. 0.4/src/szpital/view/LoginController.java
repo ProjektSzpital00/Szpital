@@ -284,8 +284,6 @@ public class LoginController
         
         Scene scene = new Scene(anchorPane);
         primaryStage.centerOnScreen();
-        primaryStage.sizeToScene();
-        primaryStage.centerOnScreen();
         primaryStage.setScene(scene);
         primaryStage.show();
     }
