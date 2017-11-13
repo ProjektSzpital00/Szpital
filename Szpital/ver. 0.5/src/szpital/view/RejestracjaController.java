@@ -14,10 +14,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Account;
 import szpital.model.Pacjent;
-import szpital.util.ListaLekarzy;
-import szpital.util.ListaOddzialy;
-import szpital.util.ListaPacjentow;
+import szpital.util.LekarzUtil;
+import szpital.util.PacjentUtil;
 import szpital.util.MyAlert;
+import szpital.util.OddzialUtil;
 
 public class RejestracjaController 
 {
@@ -103,7 +103,7 @@ public class RejestracjaController
     @FXML
     public void logout()
     {
-        ListaPacjentow.clear();
+        PacjentUtil.clearPacjentList();
         log.setLoginScreen();
     }
     
@@ -124,8 +124,8 @@ public class RejestracjaController
             addPacjentController.setRejestracjaController(this);
             addPacjentController.setStage(dialogStage);
             addPacjentController.setPacjent(pacjent);
-            addPacjentController.setLekarzList(ListaLekarzy.get());
-            addPacjentController.setOddzialyList(ListaOddzialy.get());
+            addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
+            addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
             addPacjentController.setGrKrwii();
             dialogStage.showAndWait();
         }

@@ -1,6 +1,9 @@
 package szpital.view;
 
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -12,8 +15,11 @@ import javafx.stage.Stage;
 import szpital.model.Lekarz;
 import szpital.model.Oddzial;
 import szpital.model.Pacjent;
-import szpital.util.ListaPacjentow;
+import szpital.util.Laczenie;
+import szpital.util.LekarzUtil;
 import szpital.util.MyAlert;
+import szpital.util.OddzialUtil;
+import szpital.util.PacjentUtil;
 
 public class AddPacjentController 
 {
@@ -54,39 +60,51 @@ public class AddPacjentController
     @FXML
     private void ok()
     {
-        Integer idLekarza = null;
-        Integer idOddzialu = null;
-        if(pacjent != null)
-        {
-            pacjent.setIdPacjenta(new SimpleIntegerProperty(new Integer(idPacjentaField.getText())));
-            pacjent.setImie(new SimpleStringProperty(imieField.getText()));
-            pacjent.setNazwisko(new SimpleStringProperty(nazwiskoField.getText()));
-            pacjent.setPesel(new SimpleStringProperty(peselField.getText()));
-            
-           
-            // idLekarza = pacjent.setIdLekarza(idLekarza); <- wczytać z bazy
-            
-            pacjent.setLekarz(new SimpleStringProperty(lekarz.getSelectionModel().getSelectedItem()));
-            
-            // idOddzialu = pacjent.setIdOddzialu(idOddzialu); <- wczytać z bazy
-            
-            pacjent.setOddzial(new SimpleStringProperty(oddzial.getSelectionModel().getSelectedItem()));
-            pacjent.setGrKrwii(new SimpleStringProperty(grKrwii.getSelectionModel().getSelectedItem()));
-        }
-        else
-        {
-            pacjent = new Pacjent(new Integer(idPacjentaField.getText()), imieField.getText(), nazwiskoField.getText(), peselField.getText(), idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem());
-        }
-        
-        // zrób insert do bazy
-        
+        Integer idLekarza;
+        Integer idOddzialu;
         try 
         {
-            rejestracjaController.setPacjentList(ListaPacjentow.get());
-        }
-        catch (SQLException | ClassNotFoundException exc) 
+            if(pacjent != null)
+            {
+                pacjent.setIdPacjenta(new SimpleIntegerProperty(new Integer(idPacjentaField.getText())));
+                pacjent.setImie(new SimpleStringProperty(imieField.getText()));
+                pacjent.setNazwisko(new SimpleStringProperty(nazwiskoField.getText()));
+                pacjent.setPesel(new SimpleStringProperty(peselField.getText()));
+
+                String temp = lekarz.getSelectionModel().getSelectedItem();
+                String [] t = temp.split(" ");
+                idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(),t[0] , t[1]);
+                pacjent.setIdLekarza(new SimpleIntegerProperty(idLekarza));
+                pacjent.setLekarz(new SimpleStringProperty(temp));
+
+                temp = oddzial.getSelectionModel().getSelectedItem();
+                idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
+                pacjent.setIdOddzialu(new SimpleIntegerProperty(idOddzialu));
+                pacjent.setOddzial(new SimpleStringProperty(oddzial.getSelectionModel().getSelectedItem()));
+
+                pacjent.setGrKrwii(new SimpleStringProperty(grKrwii.getSelectionModel().getSelectedItem()));
+
+                PacjentUtil.updatePacjent(Laczenie.getStatement(), pacjent);
+            }
+            else
+            {
+                String temp = lekarz.getSelectionModel().getSelectedItem();
+                String [] t = temp.split(" ");
+                idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(),t[0] , t[1]);
+
+                temp = oddzial.getSelectionModel().getSelectedItem();
+                idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
+
+                pacjent = new Pacjent(new Integer(idPacjentaField.getText()), imieField.getText(), nazwiskoField.getText(), peselField.getText(), idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem());
+
+                PacjentUtil.addPacjent(Laczenie.getStatement(), pacjent);
+            }
+            
+            rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
+        }  
+        catch (SQLException | ClassNotFoundException ex) 
         {
-            MyAlert.alertWyswietl(exc);
+            MyAlert.alertWyswietl(ex);
         }
     }
     

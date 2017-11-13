@@ -3,19 +3,20 @@ package szpital.util;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Pacjent;
 
-public class ListaPacjentow 
+public class PacjentUtil
 {
     private static ObservableList<Pacjent> pacjentList = FXCollections.observableArrayList();
     
-    public static ObservableList<Pacjent> get() throws SQLException, ClassNotFoundException
+    public static ObservableList<Pacjent> getPacjentList() throws SQLException, ClassNotFoundException
     { 
         try 
         {
-            Statement stmt = Laczenie.connect();
+            Statement stmt = Laczenie.getStatement();
             
             try 
             {
@@ -40,16 +41,35 @@ public class ListaPacjentow
         {
             throw ex;
         }
-        finally
-        {
-            Laczenie.disconnect();
-        }
         
         return pacjentList;
     }
     
-    public static void clear()
+    public static void clearPacjentList()
     {
         pacjentList.clear();
+    }
+    
+    public static void addPacjent(Statement statement, Pacjent pacjent)
+    {
+        
+    }
+    
+    public static void updatePacjent(Statement statement, Pacjent pacjent)
+    {
+        
+    }
+    
+    public static void deletePacjent(Statement statement, IntegerProperty idPacjenta)
+    {
+        
+    }
+    
+    public static Integer searchPacjentId(Statement statement, String imie, String nazwisko)
+    {
+        Integer ip = null;
+        
+        
+        return ip;
     }
 }

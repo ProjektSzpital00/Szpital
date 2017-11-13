@@ -16,9 +16,9 @@ import javafx.stage.Stage;
 import szpital.MainProgram;
 import szpital.model.Account;
 import szpital.util.Laczenie;
-import szpital.util.ListaPacjentow;
 import szpital.util.MyAlert;
 import szpital.util.Uwierzytelnianie;
+import szpital.util.PacjentUtil;
 
 public class LoginController 
 {
@@ -44,7 +44,7 @@ public class LoginController
     {
         try
         {
-            Statement stmt = Laczenie.connect();
+            Statement stmt = Laczenie.getStatement();
             if(walidacjaPola(userId, "login") && walidacjaPola(password, "haslo"))
             {
                 String id = userId.getText();
@@ -53,7 +53,6 @@ public class LoginController
                 if(Uwierzytelnianie.walidacja(id, haslo, stmt))
                 {
                     Account account = new Account(id, haslo, stmt);
-                    Laczenie.disconnect();
                     switch(account.getStanowisko())
                     {
                         case "rejestracja":
@@ -86,7 +85,7 @@ public class LoginController
         }
         catch(SQLException | ClassNotFoundException exc)
         {
-            Laczenie.disconnect();
+            Laczenie.closeConnection();
             MyAlert.alertWyswietl(exc);
         }
     }
@@ -94,6 +93,7 @@ public class LoginController
     @FXML
     public void exit()
     {
+        Laczenie.closeConnection();
         Platform.exit();
     }
 
@@ -145,7 +145,7 @@ public class LoginController
             RejestracjaController rejestracjaController = loader.getController();
             rejestracjaController.setAccount(account);
             rejestracjaController.setLoginController(this);
-            rejestracjaController.setPacjentList(ListaPacjentow.get());
+            rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
             
             setScreen(anchorPane);
         }

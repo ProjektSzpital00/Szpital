@@ -13,39 +13,72 @@ public class Laczenie
     private static final String password = "tutaj wpisz haslo";
     private static Connection dbConnection;
     private static Statement stmt;
-
-    public static Statement connect() throws SQLException, ClassNotFoundException
+    
+    private static void getConnection() throws ClassNotFoundException, SQLException
     {
-        try 
-        {
-            Class.forName(driver);
-            dbConnection = (Connection) DriverManager.getConnection(databaseUrl1+"?useSSL=false", user, password);
-            stmt = dbConnection.createStatement();
-        } 
-        catch (ClassNotFoundException ex) 
-        {
-            throw new ClassNotFoundException("Błąd sterownika MySQL JDBC", ex);
-        } 
-        catch (SQLException exc) 
-        { 
-            throw new SQLException("Nie udalo się nawiązać połączenia", exc);
+        if(dbConnection == null)
+        {    
+            try 
+            {
+                Class.forName(driver);
+                dbConnection = (Connection) DriverManager.getConnection(databaseUrl1+"?useSSL=false", user, password);
+            } 
+            catch (ClassNotFoundException ex) 
+            {
+                throw new ClassNotFoundException("Błąd sterownika MySQL JDBC", ex);
+            } 
+            catch (SQLException exc) 
+            { 
+                throw new SQLException("Nie udalo się nawiązać połączenia", exc);
+            }
         }
-
-        return stmt;
     }
-     
-    public static void disconnect()
+    
+    public static void closeConnection()
     {
-        if(stmt != null)
+        if(dbConnection != null)
         {
             try 
             {
-                stmt.close();
+                dbConnection.close();
             } 
             catch (SQLException ex) 
             {
                 System.out.println("Blad przy zamykaniu polaczenia!");
             }
+        }
+    }
+            
+    public static Statement getStatement() throws SQLException, ClassNotFoundException
+    {
+        if(stmt != null)
+        {
+            return stmt;
+        }
+        else
+        {
+            try 
+            {
+                if(dbConnection != null)
+                {
+                    stmt = dbConnection.createStatement();
+                }
+                else
+                {
+                    getConnection();
+                    stmt = dbConnection.createStatement();
+                }   
+            } 
+            catch (ClassNotFoundException ex) 
+            {
+                throw new ClassNotFoundException("Błąd sterownika MySQL JDBC", ex);
+            } 
+            catch (SQLException exc) 
+            { 
+                throw new SQLException("Nie udalo się nawiązać połączenia", exc);
+            }
+
+            return stmt;
         }
     }
 }
