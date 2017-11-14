@@ -3,15 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="242.0" layoutY="160.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -49,35 +49,80 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label text="Lekarz" GridPane.rowIndex="5">
+            <Label text="ID Lekarza" GridPane.rowIndex="5">
                <padding>
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label text="Oddział" GridPane.rowIndex="6">
+            <Label text="ID Oddziału" GridPane.rowIndex="6">
                <padding>
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <TextField fx:id="idPacjentaField" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="1">
+            <TextField prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="120.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="imieField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="90.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="nazwiskoField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="70.0" />
                </GridPane.margin>
             </TextField>
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets right="20.0" />
+               </GridPane.margin>
+            </TextField>
+            <RadioButton mnemonicParsing="false" text="A Rh+" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets top="-30.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="AB Rh+" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets top="30.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="B Rh+" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="130.0" top="-30.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="0 Rh+" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="130.0" top="30.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="A Rh-" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <padding>
+                  <Insets left="70.0" top="-30.0" />
+               </padding>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="AB Rh-" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <padding>
+                  <Insets left="70.0" top="30.0" />
+               </padding>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="B Rh-" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="200.0" top="-30.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="0 Rh-" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets left="200.0" top="30.0" />
+               </GridPane.margin>
+            </RadioButton>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
               <buttons>
-                <Button mnemonicParsing="false" onAction="#ok" text="OK" />
-                  <Button mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+                <Button mnemonicParsing="false" text="OK" />
+                  <Button mnemonicParsing="false" text="Cancel" />
               </buttons>
                <padding>
                   <Insets right="20.0" />
@@ -88,14 +133,12 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <TextField fx:id="peselField" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets right="70.0" />
                </GridPane.margin>
             </TextField>
-            <ChoiceBox fx:id="grKrwii" prefHeight="37.0" prefWidth="139.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ChoiceBox fx:id="lekarz" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ChoiceBox fx:id="oddzial" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
    </children>
