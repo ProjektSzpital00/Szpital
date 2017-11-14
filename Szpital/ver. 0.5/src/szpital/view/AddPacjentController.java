@@ -58,7 +58,7 @@ public class AddPacjentController
     }
     
     @FXML
-    private void ok()
+    private void ok() throws Exception
     {
         Integer idLekarza;
         Integer idOddzialu;

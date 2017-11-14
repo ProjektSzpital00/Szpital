@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="ver. 0.1/src"/>
+	<classpathentry kind="src" path="ver. 0.2/src"/>
+	<classpathentry kind="src" path="ver. 0.3/src"/>
+	<classpathentry kind="src" path="ver. 0.4/src"/>
+	<classpathentry kind="src" path="ver. 0.5/src"/>
+	<classpathentry kind="lib" path="ver. 0.1/dist/lib/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.1/dist/lib/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.1/dist/Szpital.jar"/>
+	<classpathentry kind="lib" path="ver. 0.1/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.1/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.2/dist/lib/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.2/dist/lib/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.2/dist/Szpital.jar"/>
+	<classpathentry kind="lib" path="ver. 0.2/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.2/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.3/dist/lib/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.3/dist/lib/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.3/dist/Szpital.jar"/>
+	<classpathentry kind="lib" path="ver. 0.3/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.3/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.4/dist/lib/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.4/dist/lib/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.4/dist/Szpital.jar"/>
+	<classpathentry kind="lib" path="ver. 0.4/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.4/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.5/dist/lib/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.5/dist/lib/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="lib" path="ver. 0.5/dist/Szpital.jar"/>
+	<classpathentry kind="lib" path="ver. 0.5/mysql-connector-java-6.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="ver. 0.5/mysql-connector-java-6.0.6.jar"/>
+	<classpathentry kind="output" path="ver. 0.1/build/classes"/>
+</classpath>

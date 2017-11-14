@@ -8,9 +8,9 @@ import java.sql.Statement;
 public class Laczenie 
 {
     private static final String driver = "com.mysql.cj.jdbc.Driver";
-    private static final String databaseUrl1 = "jdbc:mysql://adresSerwera:port/nazwaBazyDanych";
-    private static final String user = "wpisz tutaj nazwe uzytkownika";
-    private static final String password = "tutaj wpisz haslo";
+    private static final String databaseUrl1 = "jdbc:mysql://80.211.205.68:3306/Szpital2";
+    private static final String user = "szpital";
+    private static final String password = "haslo";
     private static Connection dbConnection;
     private static Statement stmt;
     
