@@ -34,7 +34,7 @@ public class PacjentUtil
             }
             catch(SQLException ex)
             {
-                throw new SQLException("B³¹d zapytania", ex);
+                throw new SQLException("BÅ‚Ä…d zapytania", ex);
             }
         } 
         catch (SQLException | ClassNotFoundException ex) 
@@ -50,47 +50,19 @@ public class PacjentUtil
         pacjentList.clear();
     }
     
-    public static void addPacjent(Statement statement, Pacjent pacjent) throws Exception
+    public static void addPacjent(Statement statement, Pacjent pacjent)
     {
-        try {
-        	Statement stmt = Laczenie.getStatement();
-        	
-        	try {
-        	
-        		String query="insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) Values('"+
-        	pacjent.getImie()+"', '"+pacjent.getNazwisko()+"', '"+pacjent.getPesel()+"',"+pacjent.getIdLekarza()+" , "+pacjent.getIdOddzialu()+", '"+pacjent.getGrKrwii()+"');";
-        	
-        	ResultSet rs =stmt.executeQuery(query);
-        	}catch(SQLException ex){
-        		throw new SQLException("B³¹d zapytania", ex);
-        	}
-        }catch (SQLException | ClassNotFoundException ex) {
-			throw ex;
-		}
+        
     }
     
     public static void updatePacjent(Statement statement, Pacjent pacjent)
     {
-
+        
     }
     
-    public static void deletePacjent(Statement statement, IntegerProperty idPacjenta) throws Exception
+    public static void deletePacjent(Statement statement, IntegerProperty idPacjenta)
     {
-        try {
-        	Statement stmt = Laczenie.getStatement();
-        	
-        	try {
-        		
-        		String querty="delete from Pacjenci where id = " + idPacjenta;
-        		
-        		ResultSet rs =stmt.executeQuery(querty);
-        	}catch (SQLException ex) {
-				throw new SQLException("B³¹d zapytania", ex);
-			}
-        	
-        }catch(SQLException | ClassNotFoundException ex){
-        	throw ex;
-        }
+        
     }
     
     public static Integer searchPacjentId(Statement statement, String imie, String nazwisko)
