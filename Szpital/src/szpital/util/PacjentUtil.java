@@ -52,15 +52,18 @@ public class PacjentUtil
     
     public static void addPacjent(Statement statement, Pacjent pacjent)
     {
+    	String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "+ 
+        		"Values('"+pacjent.getImie().toString()+"', '"+pacjent.getNazwisko().toString()+"', '"+ 
+    		pacjent.getPesel().toString()+"', "+pacjent.getIdLekarza().toString()+", "+pacjent.getIdOddzialu().toString()+", '" +pacjent.getGrKrwii().toString()+"');";
+    	 System.out.println(query);
+    	
     	try 
         {
             Statement stmt = Laczenie.getStatement();
             
             try 
             {
-                String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "+ 
-                		"Values('"+pacjent.getImie()+"', '"+pacjent.getNazwisko()+"', '"+ 
-            		pacjent.getPesel()+"', "+pacjent.getIdLekarza()+", "+pacjent.getIdOddzialu()+", '" +pacjent.getGrKrwii()+"');";
+
                 ResultSet rs = stmt.executeQuery(query);
             }
             catch(SQLException ex)
