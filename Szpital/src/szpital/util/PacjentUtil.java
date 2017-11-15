@@ -59,8 +59,8 @@ public class PacjentUtil
             try 
             {
                 String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "+ 
-                		"Values('"+pacjent.getImie()+"', '"+pacjent.getNazwisko()+"', "+ 
-            		pacjent.getPesel()+", "+pacjent.getIdLekarza()+", "+pacjent.getIdOddzialu()+", '" +pacjent.getGrKrwii()+"');";
+                		"Values('"+pacjent.getImie()+"', '"+pacjent.getNazwisko()+"', '"+ 
+            		pacjent.getPesel()+"', "+pacjent.getIdLekarza()+", "+pacjent.getIdOddzialu()+", '" +pacjent.getGrKrwii()+"');";
                 ResultSet rs = stmt.executeQuery(query);
             }
             catch(SQLException ex)
