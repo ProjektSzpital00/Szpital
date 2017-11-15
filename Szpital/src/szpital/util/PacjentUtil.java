@@ -52,10 +52,6 @@ public class PacjentUtil
     
     public static void addPacjent(Statement statement, Pacjent pacjent)
     {
-    	String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "+ 
-        		"Values('"+pacjent.getImie().toString()+"', '"+pacjent.getNazwisko().toString()+"', '"+ 
-    		pacjent.getPesel().toString()+"', "+pacjent.getIdLekarza().toString()+", "+pacjent.getIdOddzialu().toString()+", '" +pacjent.getGrKrwii().toString()+"');";
-    	 System.out.println(query);
     	
     	try 
         {
@@ -63,7 +59,9 @@ public class PacjentUtil
             
             try 
             {
-
+            	String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "+ 
+                		"Values('"+pacjent.getImie().toString()+"', '"+pacjent.getNazwisko().toString()+"', '"+ 
+            		pacjent.getPesel().toString()+"', "+pacjent.getIdLekarza().toString()+", "+pacjent.getIdOddzialu().toString()+", '" +pacjent.getGrKrwii().toString()+"');";
                 ResultSet rs = stmt.executeQuery(query);
             }
             catch(SQLException ex)
@@ -83,7 +81,31 @@ public class PacjentUtil
     
     public static void updatePacjent(Statement statement, Pacjent pacjent)
     {
-
+    	try 
+        {
+            Statement stmt = Laczenie.getStatement();
+            
+            try 
+            {
+            	String query = "UPDATE Pacjenci" + 
+            			"SET imie='"+pacjent.getImie().toString()+"', nazwisko='"+pacjent.getNazwisko().toString()+"', pesel='"+pacjent.getPesel().toString()+
+            			"', id_lekarza="+pacjent.getIdLekarza().toString()+", id_oddzialu="+pacjent.getIdOddzialu().toString()+", gr_krwi='"+pacjent.getGrKrwii().toString()+"'" + 
+            			"WHERE id="+pacjent.getIdPacjenta().toString()+";";
+                ResultSet rs = stmt.executeQuery(query);
+            }
+            catch(SQLException ex)
+            {
+                throw new SQLException("Błąd zapytania", ex);
+            }
+        } 
+        catch (SQLException | ClassNotFoundException ex) 
+        {
+            try {
+				throw ex;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        }
     }
     
     public static void deletePacjent(Statement statement, IntegerProperty idPacjenta)
