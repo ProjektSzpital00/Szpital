@@ -44,7 +44,7 @@ public class PacjentUtil {
 
 		try {
 			Statement stmt = Laczenie.getStatement();
-			//stmt.executeUpdate("SET NAMES 'utf8'");
+			
 			String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "
 					+ "Values('" + pacjent.getImie().getValue() + "', '" + pacjent.getNazwisko().getValue() + "', '"
 					+ pacjent.getPesel().getValue() + "', " + pacjent.getIdLekarza().getValue() + ", "
