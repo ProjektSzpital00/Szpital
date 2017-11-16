@@ -1,11 +1,9 @@
 package szpital.util;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Lekarz;
@@ -16,31 +14,34 @@ public class LekarzUtil
     
     public static ObservableList<Lekarz> getLekarzList() throws SQLException, ClassNotFoundException
     { 
-        try 
+        if(lekarzList.isEmpty())
         {
-            Statement stmt = Laczenie.getStatement();
-            
             try 
             {
-                String query = "SELECT Lekarze.id, Lekarze.imie, Lekarze.nazwisko, Lekarze.pesel, Stanowiska.id, Stanowiska.nazwa, Oddzialy.id, Oddzialy.nazwa\n" +
-                                "FROM Lekarze\n" +
-                                "JOIN Stanowiska ON Lekarze.id_stanowiska = Stanowiska.id\n" +
-                                "JOIN Oddzialy ON Lekarze.id_oddzialu = Oddzialy.id";
-                ResultSet rs = stmt.executeQuery(query);
-                while (rs.next())
+                Statement stmt = Laczenie.getStatement();
+
+                try 
                 {
-                    Lekarz l = new Lekarz(rs.getInt("Lekarze.id"), rs.getString("Lekarze.imie"), rs.getString("Lekarze.nazwisko"), rs.getString("Lekarze.pesel"), rs.getInt("Stanowiska.id"), rs.getString("Stanowiska.nazwa"), rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"));
-                    lekarzList.add(l);
+                    String query = "SELECT Lekarze.id, Lekarze.imie, Lekarze.nazwisko, Lekarze.pesel, Stanowiska.id, Stanowiska.nazwa, Oddzialy.id, Oddzialy.nazwa\n" +
+                                    "FROM Lekarze\n" +
+                                    "JOIN Stanowiska ON Lekarze.id_stanowiska = Stanowiska.id\n" +
+                                    "JOIN Oddzialy ON Lekarze.id_oddzialu = Oddzialy.id";
+                    ResultSet rs = stmt.executeQuery(query);
+                    while (rs.next())
+                    {
+                        Lekarz l = new Lekarz(rs.getInt("Lekarze.id"), rs.getString("Lekarze.imie"), rs.getString("Lekarze.nazwisko"), rs.getString("Lekarze.pesel"), rs.getInt("Stanowiska.id"), rs.getString("Stanowiska.nazwa"), rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"));
+                        lekarzList.add(l);
+                    }
                 }
-            }
-            catch(SQLException ex)
+                catch(SQLException ex)
+                {
+                    throw new SQLException("Błąd zapytania", ex);
+                }
+            } 
+            catch (SQLException | ClassNotFoundException ex) 
             {
-                throw new SQLException("Błąd zapytania", ex);
+                throw ex;
             }
-        } 
-        catch (SQLException | ClassNotFoundException ex) 
-        {
-            throw ex;
         }
         
         return lekarzList;
@@ -70,6 +71,30 @@ public class LekarzUtil
     {
         Integer ip = null;
         
+        try 
+        {
+            Statement stmt = Laczenie.getStatement();
+            
+            try 
+            {
+                String query = "SELECT id FROM Lekarze WHERE imie = '"+imie+"' AND nazwisko = '"+nazwisko+"'";
+                
+                ResultSet rs = stmt.executeQuery(query);
+                
+                if(rs.next())
+                {
+                    ip = rs.getInt("id");
+                }
+            }
+            catch(SQLException ex)
+            {
+                throw new SQLException("Błąd zapytania", ex);
+            }
+        } 
+        catch (SQLException | ClassNotFoundException ex) 
+        {
+            Utils.alertWyswietl(ex);
+	}
         
         return ip;
     }

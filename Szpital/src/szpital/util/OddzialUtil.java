@@ -1,11 +1,9 @@
 package szpital.util;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Oddzial;
@@ -16,28 +14,31 @@ public class OddzialUtil
     
     public static ObservableList<Oddzial> getOddzialList() throws SQLException, ClassNotFoundException
     { 
-        try 
+        if(oddzialList.isEmpty())
         {
-            Statement stmt = Laczenie.getStatement();
-            
             try 
             {
-                String query = "SELECT * FROM Oddzialy";
-                ResultSet rs = stmt.executeQuery(query);
-                while (rs.next())
+                Statement stmt = Laczenie.getStatement();
+
+                try 
                 {
-                    Oddzial o = new Oddzial(rs.getInt("id"), rs.getString("nazwa"), rs.getInt("l_mijesc"), rs.getInt("l_wolnych_miejsc"));
-                    oddzialList.add(o);
+                    String query = "SELECT * FROM Oddzialy";
+                    ResultSet rs = stmt.executeQuery(query);
+                    while (rs.next())
+                    {
+                        Oddzial o = new Oddzial(rs.getInt("id"), rs.getString("nazwa"), rs.getInt("l_mijesc"), rs.getInt("l_wolnych_miejsc"));
+                        oddzialList.add(o);
+                    }
                 }
-            }
-            catch(SQLException ex)
+                catch(SQLException ex)
+                {
+                    throw new SQLException("Błąd zapytania", ex);
+                }
+            } 
+            catch (SQLException | ClassNotFoundException ex) 
             {
-                throw new SQLException("Błąd zapytania", ex);
+                throw ex;
             }
-        } 
-        catch (SQLException | ClassNotFoundException ex) 
-        {
-            throw ex;
         }
         
         return oddzialList;
@@ -67,6 +68,30 @@ public class OddzialUtil
     {
         Integer ip = null;
         
+        try 
+        {
+            Statement stmt = Laczenie.getStatement();
+            
+            try 
+            {
+                String query = "SELECT id FROM Oddzialy WHERE nazwa = '"+nazwaOddzialu+"'";
+                
+                ResultSet rs = stmt.executeQuery(query);
+                
+                if(rs.next())
+                {
+                    ip = rs.getInt("id");
+                }
+            }
+            catch(SQLException ex)
+            {
+                throw new SQLException("Błąd zapytania", ex);
+            }
+        } 
+        catch (SQLException | ClassNotFoundException ex) 
+        {
+            Utils.alertWyswietl(ex);
+	}
         
         return ip;
     }

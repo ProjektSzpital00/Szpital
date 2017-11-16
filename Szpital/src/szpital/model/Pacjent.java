@@ -1,6 +1,5 @@
 package szpital.model;
 
-import java.sql.Connection;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -20,7 +19,8 @@ public class Pacjent
     
     public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz, Integer idOddzialu, String oddzial, String grKrwii) 
     {
-        this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
+        if(idPacjenta != null)
+            this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
         this.imie = new SimpleStringProperty(imie);
         this.nazwisko = new SimpleStringProperty(nazwisko);
         this.pesel = new SimpleStringProperty(pesel);

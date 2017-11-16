@@ -60,23 +60,20 @@ public class PacjentUtil
             try 
             {
             	String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "+ 
-                		"Values('"+pacjent.getImie().toString()+"', '"+pacjent.getNazwisko().toString()+"', '"+ 
-            		pacjent.getPesel().toString()+"', "+pacjent.getIdLekarza().toString()+", "+pacjent.getIdOddzialu().toString()+", '" +pacjent.getGrKrwii().toString()+"');";
+                		"Values('"+pacjent.getImie().getValue()+"', '"+pacjent.getNazwisko().getValue()+"', '"+ 
+            		pacjent.getPesel().getValue()+"', "+pacjent.getIdLekarza().getValue()+", "+pacjent.getIdOddzialu().getValue()+", '" +pacjent.getGrKrwii().getValue()+"');";
+                System.out.println(query);
                 ResultSet rs = stmt.executeQuery(query);
             }
             catch(SQLException ex)
             {
-                throw new SQLException("Błąd zapytania", ex);
+                throw new SQLException("Błąd zapytania (add pacjent)", ex);
             }
         } 
         catch (SQLException | ClassNotFoundException ex) 
         {
-            try {
-				throw ex;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
+            Utils.alertWyswietl(ex);
+	}
     }
     
     public static void updatePacjent(Statement statement, Pacjent pacjent)
@@ -88,24 +85,21 @@ public class PacjentUtil
             try 
             {
             	String query = "UPDATE Pacjenci" + 
-            			"SET imie='"+pacjent.getImie().toString()+"', nazwisko='"+pacjent.getNazwisko().toString()+"', pesel='"+pacjent.getPesel().toString()+
-            			"', id_lekarza="+pacjent.getIdLekarza().toString()+", id_oddzialu="+pacjent.getIdOddzialu().toString()+", gr_krwi='"+pacjent.getGrKrwii().toString()+"'" + 
-            			"WHERE id="+pacjent.getIdPacjenta().toString()+";";
+            			"SET imie='"+pacjent.getImie().getValue()+"', nazwisko='"+pacjent.getNazwisko().getValue()+"', pesel='"+pacjent.getPesel().getValue()+
+            			"', id_lekarza="+pacjent.getIdLekarza().getValue()+", id_oddzialu="+pacjent.getIdOddzialu().getValue()+", gr_krwi='"+pacjent.getGrKrwii().getValue()+"'" + 
+            			"WHERE id="+pacjent.getIdPacjenta().getValue()+";";
+                System.out.println(query);
                 ResultSet rs = stmt.executeQuery(query);
             }
             catch(SQLException ex)
             {
-                throw new SQLException("Błąd zapytania", ex);
+                throw new SQLException("Błąd zapytania (update pacjent)", ex);
             }
         } 
         catch (SQLException | ClassNotFoundException ex) 
         {
-            try {
-				throw ex;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
+            Utils.alertWyswietl(ex);
+	}
     }
     
     public static void deletePacjent(Statement statement, IntegerProperty idPacjenta)
@@ -116,28 +110,49 @@ public class PacjentUtil
             
             try 
             {
-                String query = "delete from Pacjenci where id =" + idPacjenta;;
+                String query = "delete from Pacjenci where id =" + idPacjenta.getValue();
+                System.out.println(query);
                 ResultSet rs = stmt.executeQuery(query);
             }
             catch(SQLException ex)
             {
-                throw new SQLException("Błąd zapytania", ex);
+                throw new SQLException("Błąd zapytania (delete pacjent)", ex);
             }
         } 
         catch (SQLException | ClassNotFoundException ex) 
         {
-            try {
-				throw ex;
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
+            Utils.alertWyswietl(ex);
+	}
     }
     
-    public static Integer searchPacjentId(Statement statement, String imie, String nazwisko)
+    public static Integer searchPacjentId(Statement statement, String Pesel)
     {
         Integer ip = null;
         
+        try 
+        {
+            Statement stmt = Laczenie.getStatement();
+            
+            try 
+            {
+                String query = "SELECT id FROM Pacjenci WHERE Pesel = "+Pesel;
+                
+                ResultSet rs = stmt.executeQuery(query);
+                
+                if(rs.next())
+                {
+                    ip = rs.getInt("id");
+                }
+            }
+            catch(SQLException ex)
+            {
+                throw new SQLException("Błąd zapytania (search id pacjenta)", ex);
+            }
+        } 
+        catch (SQLException | ClassNotFoundException ex) 
+        {
+            Utils.alertWyswietl(ex);
+	}
         
         return ip;
     }

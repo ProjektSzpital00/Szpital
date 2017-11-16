@@ -2,6 +2,9 @@ package szpital.view;
 
 import javafx.fxml.FXML;
 import szpital.model.Account;
+import szpital.util.LekarzUtil;
+import szpital.util.OddzialUtil;
+import szpital.util.PacjentUtil;
 
 public class AdministracjaController 
 {
@@ -11,6 +14,9 @@ public class AdministracjaController
     @FXML
     public void logout()
     {
+        PacjentUtil.clearPacjentList();
+        LekarzUtil.clearLekarzList();
+        OddzialUtil.clearOddzialyList();
         log.setLoginScreen();
     }
     
