@@ -115,7 +115,7 @@ public class LoginController
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("RejestracjaScreen2.fxml"));
+            FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("RejestracjaScreen.fxml"));
             AnchorPane anchorPane = loader.load();
             
             RejestracjaController rejestracjaController = loader.getController();

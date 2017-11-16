@@ -67,7 +67,7 @@ public class AddPacjentController
         {
             if(pacjent != null)
             {
-                if(Utils.walidacjaPolaNumerycznego(idPacjentaField,"ID") && Utils.walidacjaPola(imieField, "Imie") && Utils.walidacjaPola(nazwiskoField, "Nazwisko") && Utils.walidacjaPolaNumerycznego(peselField, "Pesel"))
+                if(Utils.walidacjaPola(imieField, "Imie") && Utils.walidacjaPola(nazwiskoField, "Nazwisko") && Utils.walidacjaPolaNumerycznego(peselField, "Pesel"))
                 {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Potwierdzenie operacji");
@@ -84,14 +84,13 @@ public class AddPacjentController
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.get() == ButtonType.OK)
                     {
-                        //pacjent.setIdPacjenta(new SimpleIntegerProperty(new Integer(idPacjentaField.getText())));
                         pacjent.setImie(new SimpleStringProperty(imieField.getText()));
                         pacjent.setNazwisko(new SimpleStringProperty(nazwiskoField.getText()));
                         pacjent.setPesel(new SimpleStringProperty(peselField.getText()));
 
                         String temp = lekarz.getSelectionModel().getSelectedItem();
                         String [] t = temp.split(" ");
-                        idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(),t[0] , t[1]);
+                        idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(),t[1] , t[0]);
                         pacjent.setIdLekarza(new SimpleIntegerProperty(idLekarza));
                         pacjent.setLekarz(new SimpleStringProperty(temp));
 
@@ -105,6 +104,7 @@ public class AddPacjentController
                         PacjentUtil.updatePacjent(Laczenie.getStatement(), pacjent);
                         PacjentUtil.clearPacjentList();
                         rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
+                        dialoStage.close();
                     }
                     else
                     {
@@ -114,13 +114,12 @@ public class AddPacjentController
             }
             else
             {
-                if(/*Utils.walidacjaPolaNumerycznego(idPacjentaField,"ID") && */Utils.walidacjaPola(imieField, "Imie") && Utils.walidacjaPola(nazwiskoField, "Nazwisko") && Utils.walidacjaPolaNumerycznego(peselField, "Pesel") && Utils.walidacjaPola(grKrwii, "Gr Krwi") && Utils.walidacjaPola(lekarz, "Lekarz") && Utils.walidacjaPola(oddzial, "Oddzial"))
+                if(Utils.walidacjaPola(imieField, "Imie") && Utils.walidacjaPola(nazwiskoField, "Nazwisko") && Utils.walidacjaPolaNumerycznego(peselField, "Pesel") && Utils.walidacjaPola(grKrwii, "Gr Krwi") && Utils.walidacjaPola(lekarz, "Lekarz") && Utils.walidacjaPola(oddzial, "Oddzial"))
                 {    
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                     alert.setTitle("Potwierdzenie operacji");
                     alert.setHeaderText("Dodanie nowego pacjenta");
                     alert.setContentText("Dodać pacjenta o następujących danych:\n\n"
-                            /*+ "ID:\t\t\t\t"+idPacjentaField.getText()+"\n"*/
                             + "Imie:\t\t\t\t"+imieField.getText()+"\n"
                             + "Nazwisko:\t\t"+nazwiskoField.getText()+"\n"
                             + "Pesel:\t\t\t"+peselField.getText()+"\n"
@@ -137,12 +136,13 @@ public class AddPacjentController
 
                         temp = oddzial.getSelectionModel().getSelectedItem();
                         idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);  
-                        //pacjent = new Pacjent(new Integer(idPacjentaField.getText()), imieField.getText(), nazwiskoField.getText(), peselField.getText(), idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem());
+                        
                         pacjent = new Pacjent(null, imieField.getText(), nazwiskoField.getText(), peselField.getText(), idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem());
                         
                         PacjentUtil.addPacjent(Laczenie.getStatement(), pacjent);
                         PacjentUtil.clearPacjentList();
                         rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
+                        dialoStage.close();
                     }
                     else
                     {
