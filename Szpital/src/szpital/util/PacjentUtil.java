@@ -62,8 +62,7 @@ public class PacjentUtil
             	String query = "insert into Pacjenci "+ 
                 		"Values('"+pacjent.getImie().getValue()+"', '"+pacjent.getNazwisko().getValue()+"', '"+ 
             		pacjent.getPesel().getValue()+"', "+pacjent.getIdLekarza().getValue()+", "+pacjent.getIdOddzialu().getValue()+", '" +pacjent.getGrKrwii().getValue()+"');";
-                System.out.println(query);
-                ResultSet rs = stmt.executeQuery(query);
+                stmt.executeUpdate(query);
             }
             catch(SQLException ex)
             {
@@ -85,11 +84,10 @@ public class PacjentUtil
             try 
             {
             	String query = "UPDATE Pacjenci" + 
-            			"SET imie='"+pacjent.getImie().getValue()+"', nazwisko='"+pacjent.getNazwisko().getValue()+"', pesel='"+pacjent.getPesel().getValue()+
+            			" SET imie='"+pacjent.getImie().getValue()+"', nazwisko='"+pacjent.getNazwisko().getValue()+"', pesel='"+pacjent.getPesel().getValue()+
             			"', id_lekarza="+pacjent.getIdLekarza().getValue()+", id_oddzialu="+pacjent.getIdOddzialu().getValue()+", gr_krwi='"+pacjent.getGrKrwii().getValue()+"'" + 
-            			"WHERE id="+pacjent.getIdPacjenta().getValue()+";";
-                System.out.println(query);
-                ResultSet rs = stmt.executeQuery(query);
+            			" WHERE id="+pacjent.getIdPacjenta().getValue()+";";
+                stmt.executeUpdate(query);
             }
             catch(SQLException ex)
             {
@@ -111,8 +109,7 @@ public class PacjentUtil
             try 
             {
                 String query = "delete from Pacjenci where id =" + idPacjenta.getValue();
-                System.out.println(query);
-                ResultSet rs = stmt.executeQuery(query);
+                stmt.executeUpdate(query);
             }
             catch(SQLException ex)
             {

@@ -195,7 +195,7 @@ public class RejestracjaController
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("AddPacjentScreen2.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("AddPacjentScreen.fxml"));
             AnchorPane anchorPane = loader.load();
             
             Stage dialogStage = new Stage();
