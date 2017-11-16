@@ -1,0 +1,79 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-10-29, 20:30:33
+    Author     : Olya Lebert
+*/
+.backgroud {
+    
+     -fx-background-color: white;
+     
+}
+.label {
+    -fx-font-size: 12pt;
+    -fx-text-fill: black;
+    -fx-opacity: 0.6;
+}
+.table-view{
+    -fx-base: #87CEFA;
+    -fx-outline: solid #000;
+    -fx-control-inner-background:whitesmoke;
+    -fx-background-color: whitesmoke;
+    -fx-border-color:#87CEFA;
+    -fx-padding: 5;
+    
+}
+.table-view .column-header .label {
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: black;
+    -fx-alignment: center;
+    -fx-opacity: 1;
+} 
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+}
+
+
+.button {
+    -fx-padding: 5 22 5 22;   
+    -fx-background-radius: 10;
+    -fx-background-color: white;
+    -fx-border-color: #6495ED;
+    -fx-border-radius:10;
+    -fx-font-size: 8pt;
+    -fx-text-fill: black;
+    -fx-background-insets: 0 0 0 0, 0, 1,2 ;
+}
+
+.button:hover {
+    -fx-background-color:white;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-size: 9pt;
+}
+
+.button:pressed, .button:default:hover:pressed {
+  -fx-background-color: white;
+  -fx-text-fill: black;
+}
+
+
+.text-field {
+    -fx-font-size: 8pt;
+    -fx-font-family: "Segoe UI Semibold";
+}
+
+.choice-box{
+    -fx-background-color: white;
+   
+    }
+.choice-box .label{
+    -fx-text-fill:black;
+    -fx-font-size:10px;
+    -fx-font-family:'Arial Narrow';
+    -fx-font-weight: bold;
+    }
