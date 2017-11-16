@@ -59,7 +59,7 @@ public class PacjentUtil
             
             try 
             {
-            	String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "+ 
+            	String query = "insert into Pacjenci "+ 
                 		"Values('"+pacjent.getImie().getValue()+"', '"+pacjent.getNazwisko().getValue()+"', '"+ 
             		pacjent.getPesel().getValue()+"', "+pacjent.getIdLekarza().getValue()+", "+pacjent.getIdOddzialu().getValue()+", '" +pacjent.getGrKrwii().getValue()+"');";
                 System.out.println(query);
