@@ -61,7 +61,7 @@
             </Label>
             <TextField fx:id="idPacjentaField" prefHeight="25.0" prefWidth="211.0" GridPane.columnIndex="1">
                <GridPane.margin>
-                  <Insets right="120.0" />
+                  <Insets right="90.0" />
                </GridPane.margin>
             </TextField>
             <TextField fx:id="imieField" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -71,7 +71,7 @@
             </TextField>
             <TextField fx:id="nazwiskoField" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets right="70.0" />
+                  <Insets right="90.0" />
                </GridPane.margin>
             </TextField>
             <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
@@ -90,12 +90,33 @@
             </Label>
             <TextField fx:id="peselField" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets right="70.0" />
+                  <Insets right="90.0" />
                </GridPane.margin>
             </TextField>
-            <ChoiceBox fx:id="grKrwii" prefHeight="37.0" prefWidth="139.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ChoiceBox fx:id="lekarz" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ChoiceBox fx:id="oddzial" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ChoiceBox fx:id="lekarz" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </ChoiceBox>
+            <ChoiceBox fx:id="oddzial" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </ChoiceBox>
+            <ChoiceBox fx:id="grKrwii" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </ChoiceBox>
          </children>
       </GridPane>
    </children>
