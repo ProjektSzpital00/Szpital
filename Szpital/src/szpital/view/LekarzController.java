@@ -113,7 +113,7 @@ public class LekarzController
         this.pacjentList = FXCollections.observableArrayList();
         
         for(Pacjent p : pacjentList)
-            if(p.getIdLekarza().getValue().equals(account.getId_personel()))
+            if(p.getIdLekarza().getValue().equals(account.getId_lekarza()))
                 this.pacjentList.add(p);
         
         //this.pacjentList = pacjentList;

@@ -11,29 +11,53 @@ public class Account
     private Integer id_stanowiska;
     private String stanowisko;
     private Integer id_personel;
+    private Integer id_lekarza;
     private String imie;
     private String nazwisko;
         
     public Account(String login, String haslo, Statement stmt)
     {
-        this.pesel = login;
+        pesel = login;
         this.haslo = haslo;
         
         try 
         {
-            String query = "SELECT Stanowiska.id AS 'id_stanowiska', nazwa, Personel.id AS 'id_personel', imie, nazwisko\n" +
+            String query = "SELECT Stanowiska.id AS 'id_stanowiska', nazwa\n" +
                             "FROM Konta\n" +
                             "JOIN Stanowiska ON Konta.id_stanowiska = Stanowiska.id\n" +
-                            "JOIN Personel ON Stanowiska.id = Personel.id_stanowiska\n" +
-                            "WHERE Konta.pesel = "+login+" AND Konta.haslo = '"+haslo+"'";
+                            "WHERE Konta.pesel = "+pesel+" AND Konta.haslo = '"+this.haslo+"'";
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next())
             {
-                this.id_stanowiska = rs.getInt("id_stanowiska");
-                this.stanowisko = rs.getString("nazwa");
-                this.id_personel = rs.getInt("id_personel");
-                this.imie = rs.getString("imie");
-                this.nazwisko = rs.getString("nazwisko");
+                id_stanowiska = rs.getInt("id_stanowiska");
+                stanowisko = rs.getString("nazwa");
+                
+                if(stanowisko.equals("lekarz") || stanowisko.equals("ordyantor"))
+                {
+                    query = "SELECT id, imie, nazwisko\n" +
+                            "FROM Lekarze\n" +
+                            "WHERE pesel = "+pesel;
+                    rs = stmt.executeQuery(query);
+                    if (rs.next())
+                    {
+                        id_lekarza = rs.getInt("id");
+                        imie = rs.getString("imie");
+                        nazwisko = rs.getString("nazwisko");
+                    }
+                }
+                else
+                {
+                    query = "SELECT id, imie, nazwisko\n" +
+                            "FROM Personel\n" +
+                            "WHERE pesel = "+pesel;
+                    rs = stmt.executeQuery(query);
+                    if (rs.next())
+                    {
+                        id_personel = rs.getInt("id");
+                        imie = rs.getString("imie");
+                        nazwisko = rs.getString("nazwisko");
+                    }
+                }
             }
         } 
         catch (SQLException ex) 
@@ -62,6 +86,11 @@ public class Account
         return id_personel;
     }
 
+    public Integer getId_lekarza() 
+    {
+        return id_lekarza;
+    }
+    
     public String getImie() 
     {
         return imie;
