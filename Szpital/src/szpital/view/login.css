@@ -1,9 +1,10 @@
 /*
  * Empty Stylesheet file.
  */
+
 .backgroud {
     
-     -fx-background-color: white;
+     -fx-background-color:#FAF0E6;
      
 }
 .label {
@@ -23,26 +24,23 @@
 }
 
 .button {
-    -fx-padding: 5 22 5 22;   
-    -fx-background-radius: 10;
-    -fx-background-color: white;
-    -fx-border-color: #6495ED;
-    -fx-border-radius:10;
-    -fx-font-size: 8pt;
-    -fx-text-fill: black;
-    -fx-background-insets: 0 0 0 0, 0, 1,2 ;
+   -fx-background-color: #2F4F4F;
+    -fx-background-radius: 5,4,3,5;
+    -fx-background-insets: 0,1,2,0;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+    -fx-font-family: "Arial";
+    -fx-text-fill: linear-gradient(white, #d0d0d0);
+    -fx-font-size: 11px;
+    -fx-padding: 10 20 10 20;
 }
 
 .button:hover {
-    -fx-background-color:white;
-    -fx-border-color: black;
-    -fx-text-fill: black;
-    -fx-font-size: 9pt;
+    -fx-background-color:#5F9EA0;
 }
 
 .button:pressed, .button:default:hover:pressed {
-  -fx-background-color: white;
+  -fx-background-color: #B0E0E6;
   -fx-text-fill: black;
 }
-
 
