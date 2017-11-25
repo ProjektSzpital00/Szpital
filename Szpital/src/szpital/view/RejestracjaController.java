@@ -278,6 +278,7 @@ public class RejestracjaController
         });
     }
     
+	
     public void setLoginController(LoginController log)
     {
         this.log = log;
