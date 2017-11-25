@@ -167,14 +167,14 @@ public class AddPacjentController
         if(pacjent != null)
         {    
             this.pacjent = pacjent;
-            idPacjentaField.setText(pacjent.getIdPacjenta().getValue().toString());
+            //idPacjentaField.setText(pacjent.getIdPacjenta().getValue().toString());
             imieField.setText(pacjent.getImie().getValue());
             nazwiskoField.setText(pacjent.getNazwisko().getValue());
             peselField.setText(pacjent.getPesel().getValue());
         }
         else
         {
-           idPacjentaField.setText("");
+          // idPacjentaField.setText("");
            imieField.setText("");
            nazwiskoField.setText("");
            peselField.setText("");

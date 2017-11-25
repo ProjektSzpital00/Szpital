@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -141,14 +142,19 @@ public class LoginController
         try
         {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LekarzScreen.fxml"));
-            AnchorPane anchorPane = loader.load();
+            SplitPane splitPane = loader.load();
             
             LekarzController lekarzController = loader.getController();
             lekarzController.setAccount(account);
             lekarzController.setLoginController(this);
             lekarzController.setPacjentList(PacjentUtil.getPacjentList());
             
-            setScreen(anchorPane);
+            primaryStage.close();
+        
+             Scene scene = new Scene(splitPane);
+            primaryStage.centerOnScreen();
+            primaryStage.setScene(scene);
+            primaryStage.show();
         }
         catch(IllegalStateException ex)
         {

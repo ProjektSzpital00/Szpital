@@ -66,10 +66,17 @@ public class LekarzController
     
     
     @FXML
-    public void dodajRecepte()
+    public void wyswietlBadania()
     {
-        wczytajAddPacjentScreen();
+        System.out.println("Badania");
     }
+    
+    @FXML
+    public void wyswietlLeki()
+    {
+        System.out.println("Leki");
+    }
+    
     
     
     
