@@ -32,7 +32,7 @@ public class Account
                 id_stanowiska = rs.getInt("id_stanowiska");
                 stanowisko = rs.getString("nazwa");
                 
-                if(stanowisko.equals("lekarz") || stanowisko.equals("ordyantor"))
+                if(stanowisko.equals("lekarz") || stanowisko.equals("ordynator"))
                 {
                     query = "SELECT id, imie, nazwisko\n" +
                             "FROM Lekarze\n" +
