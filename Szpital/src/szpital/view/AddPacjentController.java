@@ -20,7 +20,7 @@ import szpital.util.LekarzUtil;
 import szpital.util.Utils;
 import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
-
+//sialalalall
 public class AddPacjentController 
 {
     private Stage dialoStage;
