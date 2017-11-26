@@ -1,6 +1,8 @@
 package szpital.view;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -65,11 +67,6 @@ public class LekarzController
     }
     
     
-    @FXML
-    public void dodajRecepte()
-    {
-        wczytajAddPacjentScreen();
-    }
     
     
     
@@ -91,6 +88,30 @@ public class LekarzController
     {
         this.log = log;
     }
+    
+    
+    @FXML
+    public void badania()
+    {
+         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
+         AnchorPane anchorPane = new AnchorPane();
+        try {
+            anchorPane = loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(LekarzController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("asdasdas");
+        
+            Scene scene = new Scene(anchorPane);
+            dialogStage.setScene(scene);
+            dialogStage.showAndWait();
+    }
+    
+    
+    
+    
     
     public void setPacjentList(ObservableList<Pacjent> pacjentList) 
     {
@@ -120,7 +141,7 @@ public class LekarzController
         tabelaPacjentow.setItems(this.pacjentList);
     }
     
-    
+    /*
     private void wczytajAddPacjentScreen()
     {
         try
@@ -135,7 +156,7 @@ public class LekarzController
             dialogStage.setScene(scene);
             dialogStage.showAndWait();
         }
-            /*
+            
             AddPacjentController addPacjentController = loader.getController();
             addPacjentController.setRejestracjaController(this);
             addPacjentController.setStage(dialogStage);
@@ -145,12 +166,12 @@ public class LekarzController
             addPacjentController.setGrKrwii();
             dialogStage.showAndWait();
         }
-*/
+
         catch (IllegalStateException | IOException exc) 
         {
             Utils.alertWyswietl(exc);
         }
             
     }
-    
+    */
 }

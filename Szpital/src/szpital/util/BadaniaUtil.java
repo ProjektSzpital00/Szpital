@@ -12,14 +12,14 @@ import szpital.model.Pacjent;
 public class BadaniaUtil {
 	private static ObservableList<Badania> badanieList = FXCollections.observableArrayList();
 
-	public ObservableList<Badania> getBadaniaList(Integer id) throws ClassNotFoundException, SQLException {
+	public static ObservableList<Badania> getBadaniaList(Integer id) throws ClassNotFoundException, SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
 
-			String query = "select BadaniaPacjentow.id, Pacjenci.imie, Pacjenci.nazwisko, Badania.nazwa, BadaniaPacjentow.data, BadaniaPacjentow.wynik from"
-					+ "BadaniaPacjentow join (Badania, Pacjenci)"
-					+ "on BadaniaPacjentow.id_badania=Badania.id AND BadaniaPacjentow.id_pacjenta=Pacjenci.id"
-					+ "where Pacjenci.id =" + id + "order by BadaniaPacjentow.id";
+			String query = "select BadaniaPacjentow.id, Pacjenci.imie, Pacjenci.nazwisko, Badania.nazwa, BadaniaPacjentow.data, BadaniaPacjentow.wynik from "
+					+ "BadaniaPacjentow join (Badania, Pacjenci) "
+					+ "on BadaniaPacjentow.id_badania=Badania.id AND BadaniaPacjentow.id_pacjenta=Pacjenci.id "
+					+ "where Pacjenci.id = " + id.toString() + " order by BadaniaPacjentow.id";
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
 				Badania badania = new Badania(rs.getInt("BadaniaPacjentow.id"), rs.getString("Pacjenci.imie"),
