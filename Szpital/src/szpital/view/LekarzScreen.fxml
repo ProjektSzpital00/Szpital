@@ -76,7 +76,7 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="698.0" prefWidth="316.0">
          <children>
-            <Button layoutX="69.0" layoutY="632.0" mnemonicParsing="false" prefWidth="130.0" text="Wyloguj się" />
+            <Button layoutX="69.0" layoutY="632.0" mnemonicParsing="false" onAction="#logout" prefWidth="130.0" text="Wyloguj się" />
             <Button layoutX="69.0" layoutY="7.0" mnemonicParsing="false" onAction="#badania" prefWidth="130.0" text="Badania" />
             <Button layoutX="69.0" layoutY="67.0" mnemonicParsing="false" prefWidth="130.0" text="Przyjmowane leki" />
          </children></AnchorPane>
