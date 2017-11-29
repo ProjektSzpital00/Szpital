@@ -22,7 +22,7 @@
       <ButtonBar layoutX="457.0" layoutY="453.0" prefHeight="40.0" prefWidth="229.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#dodajBadanie" prefWidth="100.0" text="Dodaj" />
-            <Button mnemonicParsing="false" prefWidth="100.0" text="Edit.." />
+            <Button mnemonicParsing="false" onAction="#editBadanie" prefWidth="100.0" text="Edit.." />
         </buttons>
       </ButtonBar>
    </children>

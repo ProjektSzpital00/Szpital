@@ -13,8 +13,12 @@ public class Badania {
 		private IntegerProperty id;
 		private StringProperty imiePacjenta;
 		private StringProperty nazwiskoPacjenta;
+                
+                private StringProperty imieNazwisko;
+                
 		private StringProperty nazwaBadania;
 		private Date dataBadania;
+                private StringProperty dataBadaniaS;
 		private StringProperty wynikBadania;
 		
 		public Badania(int id, String imiePacjenta,String nazwiskoPacjenta, String nazwaBadania, Date dataBadania, String wynikBadania) {
@@ -23,6 +27,8 @@ public class Badania {
 			this.nazwiskoPacjenta=new SimpleStringProperty(nazwiskoPacjenta);
 			this.nazwaBadania=new SimpleStringProperty(nazwaBadania);
 			this.dataBadania=dataBadania;
+                        dataBadaniaS = new SimpleStringProperty(dataBadania.toString());
+                        
 			this.wynikBadania=new SimpleStringProperty(wynikBadania);
 		}
 
@@ -57,11 +63,16 @@ public class Badania {
 		public void setNazwaBadania(StringProperty nazwaBadania) {
 			this.nazwaBadania = nazwaBadania;
 		}
-
+                /*
 		public Date getDataBadania() {
 			return dataBadania;
 		}
-
+                */
+                
+                public StringProperty getDataBadania() {
+			return dataBadaniaS;
+		}
+                
 		public void setDataBadania(Date dataBadania) {
 			this.dataBadania = dataBadania;
 		}
@@ -73,6 +84,20 @@ public class Badania {
 		public void setWynikBadania(StringProperty wynikBadania) {
 			this.wynikBadania = wynikBadania;
 		}
+
+    /**
+     * @return the imieNazwisko
+     */
+    public StringProperty getImieNazwisko() {
+        return imieNazwisko;
+    }
+
+    /**
+     * @param imieNazwisko the imieNazwisko to set
+     */
+    public void setImieNazwisko(StringProperty imieNazwisko) {
+        this.imieNazwisko = imieNazwisko;
+    }
 		
 		
 }

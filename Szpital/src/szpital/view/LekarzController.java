@@ -1,6 +1,7 @@
 package szpital.view;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Account;
+import szpital.model.Badania;
 import szpital.model.Pacjent;
 import szpital.util.LekarzUtil;
 import szpital.util.OddzialUtil;
@@ -24,7 +26,6 @@ public class LekarzController
     private Account account;
     private LoginController log;
     private ObservableList<Pacjent> pacjentList;
-    
     
     @FXML
     TableView<Pacjent> tabelaPacjentow;
@@ -53,7 +54,6 @@ public class LekarzController
     @FXML
     private TableColumn<Pacjent, Integer> ColumnLeki;
     
-    
     @FXML
     private void initialize()
     {
@@ -65,10 +65,6 @@ public class LekarzController
         ColumnOddzial.setCellValueFactory(cellData->cellData.getValue().getOddzial());
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
     }
-    
-    
-    
-    
     
     @FXML
     public void logout()
@@ -89,29 +85,48 @@ public class LekarzController
         this.log = log;
     }
     
-    
     @FXML
     public void badania()
     {
-         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
-         AnchorPane anchorPane = new AnchorPane();
-        try {
-            anchorPane = loader.load();
-        } catch (IOException ex) {
-            Logger.getLogger(LekarzController.class.getName()).log(Level.SEVERE, null, ex);
+        Pacjent wybranyPacjent = tabelaPacjentow.getSelectionModel().getSelectedItem();
+        if(wybranyPacjent != null)
+        {
+            try
+            {
+
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
+
+
+
+                AnchorPane anchorPane = loader.load();
+
+                Stage dialogStage = new Stage();
+                dialogStage.setTitle("Badania");
+
+                Scene scene = new Scene(anchorPane);
+                dialogStage.setScene(scene);
+
+                BadaniaController badaniaController = loader.getController();
+                badaniaController.setRejestracjaController(this);
+                badaniaController.setStage(dialogStage);
+                badaniaController.setWybranyPacjent(wybranyPacjent);
+                System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
+                badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
+                
+                dialogStage.showAndWait();
+            }
+            catch (IllegalStateException | IOException exc) 
+            {
+                Utils.alertWyswietl(exc);
+            }
         }
-            
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("asdasdas");
+        else
         
-            Scene scene = new Scene(anchorPane);
-            dialogStage.setScene(scene);
-            dialogStage.showAndWait();
+        {
+            Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego badania chcesz wyświetlić.");
+        }
+        
     }
-    
-    
-    
-    
     
     public void setPacjentList(ObservableList<Pacjent> pacjentList) 
     {
@@ -140,38 +155,4 @@ public class LekarzController
         //this.pacjentList = pacjentList;
         tabelaPacjentow.setItems(this.pacjentList);
     }
-    
-    /*
-    private void wczytajAddPacjentScreen()
-    {
-        try
-        {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("DodajRecept.fxml"));
-            AnchorPane anchorPane = loader.load();
-            
-            Stage dialogStage = new Stage();
-            dialogStage.setTitle("Dodaj recepte");
-        
-            Scene scene = new Scene(anchorPane);
-            dialogStage.setScene(scene);
-            dialogStage.showAndWait();
-        }
-            
-            AddPacjentController addPacjentController = loader.getController();
-            addPacjentController.setRejestracjaController(this);
-            addPacjentController.setStage(dialogStage);
-            addPacjentController.setPacjent(pacjent);
-            addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
-            addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
-            addPacjentController.setGrKrwii();
-            dialogStage.showAndWait();
-        }
-
-        catch (IllegalStateException | IOException exc) 
-        {
-            Utils.alertWyswietl(exc);
-        }
-            
-    }
-    */
 }

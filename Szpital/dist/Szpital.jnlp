@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Szpital.jar" size="50346" download="eager" />
+    <jar href="Szpital.jar" size="53956" download="eager" />
     <jar href="lib\mysql-connector-java-6.0.6-sources.jar" size="1271995" download="eager" />
     <jar href="lib\mysql-connector-java-6.0.6.jar" size="2001778" download="eager" />
   </resources>
