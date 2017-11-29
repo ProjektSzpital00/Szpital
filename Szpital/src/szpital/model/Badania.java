@@ -11,6 +11,7 @@ import javafx.scene.chart.PieChart.Data;
 public class Badania {
 	
 		private IntegerProperty id;
+		private IntegerProperty idPacjenta;
 		private StringProperty imiePacjenta;
 		private StringProperty nazwiskoPacjenta;
                 
@@ -38,6 +39,14 @@ public class Badania {
 
 		public void setId(IntegerProperty id) {
 			this.id = id;
+		}
+		
+		public IntegerProperty getId_Pacjenta() {
+			return idPacjenta;
+		}
+
+		public void setId_Pacjenta(IntegerProperty id_Pacjenta) {
+			this.idPacjenta = id_Pacjenta;
 		}
 
 		public StringProperty getImiePacjenta() {
