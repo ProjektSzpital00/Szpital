@@ -24,6 +24,7 @@ public class Badania {
 		
 		public Badania(int id, String imiePacjenta,String nazwiskoPacjenta, String nazwaBadania, Date dataBadania, String wynikBadania) {
 			this.id=new SimpleIntegerProperty(id);
+                       // this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
 			this.imiePacjenta=new SimpleStringProperty(imiePacjenta);
 			this.nazwiskoPacjenta=new SimpleStringProperty(nazwiskoPacjenta);
 			this.nazwaBadania=new SimpleStringProperty(nazwaBadania);

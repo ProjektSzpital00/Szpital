@@ -3,6 +3,7 @@ package szpital.util;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.beans.property.SimpleIntegerProperty;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -41,10 +42,12 @@ public class BadaniaUtil {
 	public static void addBadanie(Statement statement, Badania badania) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
-			
+			badania.setId_Pacjenta(new SimpleIntegerProperty(2));
 			String query = "insert BadaniaPacjentow (id_badania, id_pacjenta, data, wynik) " + 
 					"values ('"+badania.getId().getValue()+"','"+ badania.getId_Pacjenta().getValue() +"','"+badania.getDataBadania().getValue()+"','"+badania.getWynikBadania().getValue()+"');";
-			stmt.executeUpdate(query);
+			
+                        //System.out.println(badania.getId().getValue());
+                    stmt.executeUpdate(query);
 		} catch (SQLException ex) {
 			throw new SQLException("Błąd zapytania", ex);
 		} catch (ClassNotFoundException ex) {

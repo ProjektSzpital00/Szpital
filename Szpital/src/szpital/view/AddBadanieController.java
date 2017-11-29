@@ -76,7 +76,7 @@ public class AddBadanieController
         */
         
        //System.out.println(wybranyPacjent.getImie());
-        Badania noweBadanie = new Badania(wybranyPacjent.getIdPacjenta().getValue(), wybranyPacjent.getImie().toString(),
+        Badania noweBadanie = new Badania(2, wybranyPacjent.getImie().toString(),
                 wybranyPacjent.getNazwisko().toString(), nazwaBadania.getValue(), new Date(10000), opisBadania.getText());
         
         BadaniaUtil.addBadanie(Laczenie.getStatement(),noweBadanie);
