@@ -44,7 +44,7 @@ public class BadaniaUtil {
 			
 			String query = "insert BadaniaPacjentow (id_badania, id_pacjenta, data, wynik)\r\n" + 
 					"values ('"+badania.getId().getValue()+"','1','"+badania.getDataBadania().toString()+"','"+badania.getWynikBadania().getValue()+"');";
-			stmt.executeUpdate(query);
+			//stmt.executeUpdate(query);
 		} catch (SQLException ex) {
 			throw new SQLException("Błąd zapytania", ex);
 		} catch (ClassNotFoundException ex) {

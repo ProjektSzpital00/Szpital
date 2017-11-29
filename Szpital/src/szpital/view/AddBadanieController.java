@@ -69,13 +69,13 @@ public class AddBadanieController
     
     public void ok() throws SQLException, ClassNotFoundException
     {
-        
+        /*
         System.out.println(nazwaBadania.getValue());
         System.out.println(dataBadania.getValue());
         System.out.println(opisBadania.getText());
+        */
         
-        
-        System.out.println(wybranyPacjent.getImie());
+       //System.out.println(wybranyPacjent.getImie());
         Badania noweBadanie = new Badania(wybranyPacjent.getIdPacjenta().getValue(), wybranyPacjent.getImie().toString(),
                 wybranyPacjent.getNazwisko().toString(), nazwaBadania.getValue(), new Date(10000), opisBadania.getText());
         

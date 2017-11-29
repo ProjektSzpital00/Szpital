@@ -110,7 +110,7 @@ public class LekarzController
                 badaniaController.setRejestracjaController(this);
                 badaniaController.setStage(dialogStage);
                 badaniaController.setWybranyPacjent(wybranyPacjent);
-                System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
+                //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
                 badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
                 
                 dialogStage.showAndWait();
@@ -130,29 +130,13 @@ public class LekarzController
     
     public void setPacjentList(ObservableList<Pacjent> pacjentList) 
     {
-        //ObservableList<Pacjent> listaFiltrowana;
-        /*
-        IntegerProperty i = new SimpleIntegerProperty(1);
-        
-        ArrayList<Pacjent> ss = new ArrayList<>(pacjentList);
-        
-        for(Pacjent p: ss)
-        {
-            if(!p.getIdLekarza().equals(i))
-            {
-                ss.remove(p);
-            }
-            
-        }
-        */
-        //ObservableList<Pacjent> listaFiltrowana = FXCollections.observableArrayList(ss);
         this.pacjentList = FXCollections.observableArrayList();
         
         for(Pacjent p : pacjentList)
             if(p.getIdLekarza().getValue().equals(account.getId_lekarza()))
                 this.pacjentList.add(p);
         
-        //this.pacjentList = pacjentList;
+       
         tabelaPacjentow.setItems(this.pacjentList);
     }
 }

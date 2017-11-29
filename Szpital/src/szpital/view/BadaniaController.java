@@ -56,32 +56,7 @@ public class BadaniaController
     
     private LekarzController lekarzController;
     
-    public void initialize()
-    {
-        
-       /*
-        if(badaniaList == null)
-        {
-            System.out.println("weszloo");
-            try {    
-                System.out.println("Przekazuje do funkcji " + idPacjenta);
-                badaniaList = BadaniaUtil.getBadaniaList(idPacjenta);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (SQLException ex) {
-                Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-       
-        
-        nazwaBadania.setCellValueFactory(cellData->cellData.getValue().getNazwaBadania());
-        imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImiePacjenta());
-        dataBadania.setCellValueFactory(cellData->cellData.getValue().getDataBadania());
-        wynikBadania.setCellValueFactory(cellData->cellData.getValue().getWynikBadania());
-        
-        tabela.setItems(badaniaList);
-        */
-    }
+    
     
     
     public void ladujListe(Integer i)
