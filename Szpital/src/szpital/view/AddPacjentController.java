@@ -20,7 +20,7 @@ import szpital.util.LekarzUtil;
 import szpital.util.Utils;
 import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
-//sialalalall
+
 public class AddPacjentController 
 {
     private Stage dialoStage;
@@ -29,9 +29,6 @@ public class AddPacjentController
     private ObservableList <String> lekarzList;
     private ObservableList <String> oddzialyList;
     private ObservableList <String> grKrwiiList;
-    
-    @FXML
-    private TextField idPacjentaField;
     
     @FXML
     private TextField imieField;
@@ -73,7 +70,7 @@ public class AddPacjentController
                     alert.setTitle("Potwierdzenie operacji");
                     alert.setHeaderText("Edycja danych pacjenta");
                     alert.setContentText("Zmienić poprzednie dane pacjenta na następujące:\n\n"
-                                + "ID:\t\t\t\t"+idPacjentaField.getText()+"\n"
+                                + "ID:\t\t\t\t"+pacjent.getIdPacjenta().getValue()+"\n"
                                 + "Imie:\t\t\t\t"+imieField.getText()+"\n"
                                 + "Nazwisko:\t\t"+nazwiskoField.getText()+"\n"
                                 + "Pesel:\t\t\t"+peselField.getText()+"\n"
@@ -90,7 +87,10 @@ public class AddPacjentController
 
                         String temp = lekarz.getSelectionModel().getSelectedItem();
                         String [] t = temp.split(" ");
-                        idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(),t[1] , t[0]);
+                        if(t.length < 2)
+                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), " ", t[0]);
+                        else
+                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), t[1], t[0]);
                         pacjent.setIdLekarza(new SimpleIntegerProperty(idLekarza));
                         pacjent.setLekarz(new SimpleStringProperty(temp));
 
@@ -132,7 +132,10 @@ public class AddPacjentController
                     {
                         String temp = lekarz.getSelectionModel().getSelectedItem();
                         String [] t = temp.split(" ");
-                        idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(),t[1] , t[0]);
+                        if(t.length < 2)
+                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), " ", t[0]);
+                        else
+                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), t[1], t[0]);
 
                         temp = oddzial.getSelectionModel().getSelectedItem();
                         idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);  
@@ -173,7 +176,6 @@ public class AddPacjentController
         }
         else
         {
-           
            imieField.setText("");
            nazwiskoField.setText("");
            peselField.setText("");
@@ -192,7 +194,9 @@ public class AddPacjentController
             this.lekarzList.add(l.getNazwisko().getValue()+" "+l.getImie().getValue());
         lekarz.setItems(this.lekarzList);
         if(pacjent != null)
-            lekarz.getSelectionModel().select(pacjent.getLekarz().getValue());
+            lekarz.getSelectionModel().select(pacjent.getLekarz().getValue());   
+        else
+            lekarz.getSelectionModel().select(this.lekarzList.get(0));
     }
 
     public void setOddzialyList(ObservableList<Oddzial> oddzialyList) 
@@ -203,14 +207,18 @@ public class AddPacjentController
         oddzial.setItems(this.oddzialyList);
         if(pacjent != null)
             oddzial.getSelectionModel().select(pacjent.getOddzial().getValue());
+        else
+            oddzial.getSelectionModel().select(this.oddzialyList.get(0));
     }
     
     public void setGrKrwii()
     {
         grKrwiiList = FXCollections.observableArrayList();
-        grKrwiiList.addAll("A rh+", "A rh-", "B rh+", "B rh-", "AB rh+", "AB rh-", "0 rh+", "0 rh-");
+        grKrwiiList.addAll("nieznana", "A rh+", "A rh-", "B rh+", "B rh-", "AB rh+", "AB rh-", "0 rh+", "0 rh-");
         grKrwii.setItems(grKrwiiList);
         if(pacjent != null)
             grKrwii.getSelectionModel().select(pacjent.getGrKrwii().getValue());
+        else
+            grKrwii.getSelectionModel().select(grKrwiiList.get(0));
     }
 }

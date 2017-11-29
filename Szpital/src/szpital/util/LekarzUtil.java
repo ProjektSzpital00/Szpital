@@ -7,12 +7,10 @@ import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Lekarz;
-import szpital.model.Pacjent;
 
 public class LekarzUtil 
 {
     private static ObservableList<Lekarz> lekarzList = FXCollections.observableArrayList();
-    private static ObservableList<Pacjent> pacjentList = FXCollections.observableArrayList();
     
     public static ObservableList<Lekarz> getLekarzList() throws SQLException, ClassNotFoundException
     { 
@@ -31,13 +29,19 @@ public class LekarzUtil
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next())
                     {
-                        Lekarz l = new Lekarz(rs.getInt("Lekarze.id"), rs.getString("Lekarze.imie"), rs.getString("Lekarze.nazwisko"), rs.getString("Lekarze.pesel"), rs.getInt("Stanowiska.id"), rs.getString("Stanowiska.nazwa"), rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"));
+                        String imie = rs.getString("Lekarze.imie");
+                        String pesel = rs.getString("Lekarze.pesel");
+                        Lekarz l;
+                        if(imie.equals(" ") || pesel.equals(" "))
+                            l = new Lekarz(rs.getInt("Lekarze.id"), rs.getString("Lekarze.nazwisko"), rs.getInt("Stanowiska.id"), rs.getString("Stanowiska.nazwa"), rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa")); 
+                        else
+                            l = new Lekarz(rs.getInt("Lekarze.id"), imie, rs.getString("Lekarze.nazwisko"),pesel, rs.getInt("Stanowiska.id"), rs.getString("Stanowiska.nazwa"), rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"));
                         lekarzList.add(l);
                     }
                 }
                 catch(SQLException ex)
                 {
-                    throw new SQLException("Błąd zapytania", ex);
+                    throw new SQLException("Błąd zapytania lekarz Util", ex);
                 }
             } 
             catch (SQLException | ClassNotFoundException ex) 

@@ -16,6 +16,17 @@ public class Lekarz
     private IntegerProperty idOddzialu;
     private StringProperty oddzial;
     
+    public Lekarz(Integer idLekarza, String nazwa, Integer idStanowiska, String stanowisko, Integer idOddzialu, String oddzial)
+    {
+        this.idLekarza = new SimpleIntegerProperty(idLekarza);
+        this.imie = new SimpleStringProperty("");
+        this.nazwisko = new SimpleStringProperty(nazwa);
+        this.idStanowiska = new SimpleIntegerProperty(idStanowiska);
+        this.stanowisko = new SimpleStringProperty(stanowisko);
+        this.idOddzialu = new SimpleIntegerProperty(idOddzialu);
+        this.oddzial = new SimpleStringProperty(oddzial);
+    }
+    
     public Lekarz(Integer idLekarza, String imie, String nazwisko, String pesel, Integer idStanowiska, String stanowisko, Integer idOddzialu, String oddzial)
     {
         this.idLekarza = new SimpleIntegerProperty(idLekarza);
