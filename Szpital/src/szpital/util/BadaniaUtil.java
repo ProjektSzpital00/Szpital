@@ -42,9 +42,10 @@ public class BadaniaUtil {
 	public static void addBadanie(Statement statement, Badania badania) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
-			badania.setId_Pacjenta(new SimpleIntegerProperty(2));
+			//badania.setId_Pacjenta(new SimpleIntegerProperty(2));
 			String query = "insert BadaniaPacjentow (id_badania, id_pacjenta, data, wynik) " + 
-					"values ('"+badania.getId().getValue()+"','"+ badania.getId_Pacjenta().getValue() +"','"+badania.getDataBadania().getValue()+"','"+badania.getWynikBadania().getValue()+"');";
+					"values ('"+badania.getId().getValue()+"','"+ badania.getId_Pacjenta().getValue() +"',"
+                                        + "'"+badania.getDataBadania().getValue()+"','"+badania.getWynikBadania().getValue()+"');";
 			
                         //System.out.println(badania.getId().getValue());
                     stmt.executeUpdate(query);

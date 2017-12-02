@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddBadanieController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddBadanieController">
    <children>
       <GridPane layoutY="34.0" prefHeight="350.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -45,7 +45,7 @@
             <ButtonBar prefHeight="66.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
               <buttons>
                 <Button mnemonicParsing="false" onAction="#ok" prefHeight="28.0" prefWidth="86.0" text="OK" />
-                  <Button mnemonicParsing="false" prefWidth="70.0" text="Cancel" />
+                  <Button mnemonicParsing="false" onAction="#cancel" prefWidth="70.0" text="Cancel" />
               </buttons>
                <GridPane.margin>
                   <Insets right="10.0" />
