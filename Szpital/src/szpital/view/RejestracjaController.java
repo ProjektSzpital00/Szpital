@@ -27,6 +27,7 @@ import szpital.util.OddzialUtil;
 
 public class RejestracjaController 
 {
+    /*test */
     private Account account;
     private LoginController log;
     private ObservableList<Pacjent> pacjentList;
