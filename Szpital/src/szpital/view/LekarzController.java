@@ -96,8 +96,6 @@ public class LekarzController
 
                 FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
 
-
-
                 AnchorPane anchorPane = loader.load();
 
                 Stage dialogStage = new Stage();
@@ -121,11 +119,39 @@ public class LekarzController
             }
         }
         else
-        
         {
             Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego badania chcesz wyświetlić.");
         }
         
+    }
+    
+    @FXML
+    public void dodajRezerwacjeSali()
+    {
+        try
+            {
+
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("RezerwacjaSaliScreen.fxml"));
+
+                AnchorPane anchorPane = loader.load();
+
+                Stage dialogStage = new Stage();
+                dialogStage.setTitle("Rezerwacja sali");
+
+                Scene scene = new Scene(anchorPane);
+                dialogStage.setScene(scene);
+                
+                RezerwacjaSaliController rezerwacjaSaliController = loader.getController();
+                rezerwacjaSaliController.setLekarzController(this);
+                rezerwacjaSaliController.setStage(dialogStage);
+                //rezerwacjaSaliController.setRezerwacje()
+                
+                dialogStage.showAndWait();
+            }
+            catch (IllegalStateException | IOException exc) 
+            {
+                Utils.alertWyswietl(exc);
+            }
     }
     
     public void setPacjentList(ObservableList<Pacjent> pacjentList) 
