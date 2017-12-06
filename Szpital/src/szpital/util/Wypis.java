@@ -19,8 +19,6 @@ import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 import javafx.collections.ObservableList;
 import szpital.model.Badania;
 import szpital.model.Leki;
@@ -32,10 +30,10 @@ import szpital.model.Pacjent;
  */
 public class Wypis {
      
-  public static void wydrukuj(Pacjent pacjent,ObservableList<Badania> badania, ObservableList<Leki> leki) throws FileNotFoundException { 
+  public static void wydrukuj(Pacjent pacjent,ObservableList<Badania> badania, ObservableList<Leki> leki) throws FileNotFoundException 
+    { 
         CreateDocument wypis= new CreateDocument ();
         wypis.CreateDocument(pacjent,badania,leki);
-        
     }
 }
 
@@ -47,7 +45,7 @@ class CreateDocument{
        Document document = new Document(PageSize.A4, 36, 20, 36, 20);  
         try 
         {
-            PdfWriter.getInstance(document,new FileOutputStream("Wypis.pdf"));
+            PdfWriter.getInstance(document,new FileOutputStream("Wypis_"+pacjent.getNazwisko().getValue()+"_"+pacjent.getImie().getValue()+".pdf"));
             document.open();
  
             Font font = new Font(Font.FontFamily.COURIER, 14,Font.BOLD);
@@ -108,19 +106,15 @@ class CreateDocument{
         } 
         catch (Exception e) 
         {
-               // handle exception
+            // handle exception
         }
 
 
         document.close();
         return document;
-       }
-   }
- 
-
-
-      
-
+        }
+    }
+  
 class CreateTable 
 {
  
@@ -212,8 +206,7 @@ class CreateTable
         t.addCell(p2);
         return t;
     }
-       
- 
+
     public PdfPTable createOddzial(Pacjent pacjent)
     {
         Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
@@ -246,7 +239,8 @@ class CreateTable
         t.addCell(p1);
        
         return t;
-    }    
+    }  
+    
     public PdfPTable getBadania(ObservableList<Badania> badania)
     {
         Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
@@ -266,8 +260,7 @@ class CreateTable
         }
         return t;
     }       
-             
-             
+
     public PdfPTable createZalecenia()
     {
          Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
@@ -283,7 +276,7 @@ class CreateTable
         return t;
     }   
     
-      public PdfPTable getZalecenia(ObservableList<Leki> leki)
+    public PdfPTable getZalecenia(ObservableList<Leki> leki)
     {
         Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
         float[] widths1 = {5,5};
