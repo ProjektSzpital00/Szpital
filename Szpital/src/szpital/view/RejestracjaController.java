@@ -1,5 +1,6 @@
 package szpital.view;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -19,11 +20,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Account;
 import szpital.model.Pacjent;
+import szpital.util.BadaniaUtil;
 import szpital.util.Laczenie;
 import szpital.util.LekarzUtil;
+import szpital.util.LekiUtil;
 import szpital.util.PacjentUtil;
 import szpital.util.Utils;
 import szpital.util.OddzialUtil;
+import szpital.util.Wypis;
 
 public class RejestracjaController 
 {
@@ -189,6 +193,27 @@ public class RejestracjaController
         LekarzUtil.clearLekarzList();
         OddzialUtil.clearOddzialyList();
         log.setLoginScreen();
+    }
+    
+    @FXML
+    public void drukuj()
+    {
+        Pacjent wybranyPacjent = tabela.getSelectionModel().getSelectedItem();
+        if(wybranyPacjent != null)
+        {
+            try 
+            {
+                Wypis.wydrukuj(wybranyPacjent, BadaniaUtil.getBadaniaList(wybranyPacjent.getIdPacjenta().getValue()), LekiUtil.getLekiList(wybranyPacjent.getIdPacjenta().getValue()));
+            } 
+            catch(FileNotFoundException | SQLException | ClassNotFoundException exc)
+            {
+                Utils.alertWyswietl(exc);
+            }
+        }
+        else
+        {
+            Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta dla którego chcesz wydrukować");
+        }
     }
     
     private void wczytajAddPacjentScreen(Pacjent pacjent, String stageTitle)

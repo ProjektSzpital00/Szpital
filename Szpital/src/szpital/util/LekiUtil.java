@@ -25,9 +25,9 @@ public class LekiUtil {
 			ResultSet rs;
 			rs = stmt.executeQuery(query);
 			while (rs.next()) {
-				Leki leki = new Leki(rs.getInt("LekiPacjentow.id"),rs.getString("Badania.nazwa"),
-						rs.getDate("BadaniaPacjentow.data"),rs.getDate("BadaniaPacjentow.data"), 
-						rs.getString("Badania.nazwa"));
+				Leki leki = new Leki(rs.getInt("LekiPacjentow.id"),rs.getString("Leki.nazwa"),
+						rs.getDate("LekiPacjentow.od_termin"),rs.getDate("LekiPacjentow.do_temin"), 
+						rs.getString("LekiPacjentow.dawkowanie"));
 				lekiList.add(leki);
 			}
 		} catch (SQLException e) {

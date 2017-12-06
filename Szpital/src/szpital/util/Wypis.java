@@ -19,6 +19,7 @@ import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import javafx.collections.ObservableList;
 import szpital.model.Badania;
 import szpital.model.Leki;
 import szpital.model.Pacjent;
@@ -28,25 +29,23 @@ import szpital.model.Pacjent;
  * @author Olya Lebert
  */
 public class Wypis {
-      private Pacjent pacjent;
-      private Badania badanie;
-      private Leki leki;
-  public void main(String[] args) throws FileNotFoundException { 
+     
+  public static void wydrukuj(Pacjent pacjent,ObservableList<Badania> badania, ObservableList<Leki> leki) throws FileNotFoundException 
+    { 
         CreateDocument wypis= new CreateDocument ();
-        wypis.CreateDocument(pacjent,badanie,leki);
-        
+        wypis.CreateDocument(pacjent,badania,leki);
     }
 }
 
 class CreateDocument{
    
        
-       public Document CreateDocument(Pacjent pacjent,Badania badanie,Leki leki) throws FileNotFoundException
+       public Document CreateDocument(Pacjent pacjent,ObservableList<Badania> badania, ObservableList<Leki> leki) throws FileNotFoundException
        {
        Document document = new Document(PageSize.A4, 36, 20, 36, 20);  
         try 
         {
-            PdfWriter.getInstance(document,new FileOutputStream("Wypis.pdf"));
+            PdfWriter.getInstance(document,new FileOutputStream("Wypis_"+pacjent.getNazwisko().getValue()+"_"+pacjent.getImie().getValue()+".pdf"));
             document.open();
  
             Font font = new Font(Font.FontFamily.COURIER, 14,Font.BOLD);
@@ -90,7 +89,7 @@ class CreateDocument{
         
             document.add( Chunk.NEWLINE );
             document.add(obj.createBadania());
-            document.add(obj.getBadania(badanie));
+            document.add(obj.getBadania(badania));
            
           
             document.add( Chunk.NEWLINE );
@@ -107,19 +106,15 @@ class CreateDocument{
         } 
         catch (Exception e) 
         {
-               // handle exception
+            // handle exception
         }
 
 
         document.close();
         return document;
-       }
-   }
- 
-
-
-      
-
+        }
+    }
+  
 class CreateTable 
 {
  
@@ -211,8 +206,7 @@ class CreateTable
         t.addCell(p2);
         return t;
     }
-       
- 
+
     public PdfPTable createOddzial(Pacjent pacjent)
     {
         Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
@@ -245,25 +239,28 @@ class CreateTable
         t.addCell(p1);
        
         return t;
-    }    
-    public PdfPTable getBadania(Badania badanie)
+    }  
+    
+    public PdfPTable getBadania(ObservableList<Badania> badania)
     {
-         Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
+        Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
         float[] widths1 = {5,5};
         PdfPTable t = new PdfPTable(widths1);
        
         t.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
         t.getDefaultCell().setPaddingBottom(3);
         t.getDefaultCell().setPaddingRight(3);
-
+       
+        for(Badania badanie: badania)
+        {
         Phrase p1 = new Phrase(badanie.getNazwaBadania().getValue(),f);
-        Phrase p2 = new Phrase(badanie.getWynikBadania().getValue(),f);
+        Phrase p2 = new Phrase(badanie.getWynikBadania().getValue(),f);   
         t.addCell(p1);
         t.addCell(p2);
+        }
         return t;
     }       
-             
-             
+
     public PdfPTable createZalecenia()
     {
          Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
@@ -279,7 +276,7 @@ class CreateTable
         return t;
     }   
     
-      public PdfPTable getZalecenia(Leki leki)
+    public PdfPTable getZalecenia(ObservableList<Leki> leki)
     {
         Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
         float[] widths1 = {5,5};
@@ -288,11 +285,13 @@ class CreateTable
         t.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
         t.getDefaultCell().setPaddingBottom(5);
         t.getDefaultCell().setPaddingRight(3);
-
-        Phrase p1 = new Phrase(leki.getNazwa().getValue(),f);
-        Phrase p2 = new Phrase(leki.getDawkowanie().getValue(),f);
+        for(Leki lek : leki)
+        {
+        Phrase p1 = new Phrase(lek.getNazwa().getValue(),f);
+        Phrase p2 = new Phrase(lek.getDawkowanie().getValue(),f);
         t.addCell(p1);  
-        t.addCell(p2);  
+        t.addCell(p2); 
+        }
         return t;
     } 
 }
