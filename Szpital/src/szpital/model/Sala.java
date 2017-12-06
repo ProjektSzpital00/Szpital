@@ -1,11 +1,11 @@
 package szpital.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
 
 public class Sala 
 {
@@ -13,9 +13,9 @@ public class Sala
     private StringProperty nazwa;
     private StringProperty opis;
     private IntegerProperty idOddzialu;
-    //private HashMap<Rezerwacja> salaList; 
+    private ArrayList<HashMap<Rezerwacja, String>> wszystkieRezerwacje; 
 
-    public Sala(Integer idSali, String nazwa, String opis, Integer idOddzialu, Boolean czyZarezerwowana, Rezerwacja rezerwacja) 
+    public Sala(Integer idSali, String nazwa, String opis, Integer idOddzialu) 
     {
         this.idSali = new SimpleIntegerProperty(idSali);
         this.nazwa = new SimpleStringProperty(nazwa);
@@ -64,24 +64,4 @@ public class Sala
     {
         this.idOddzialu = idOddzialu;
     }
-/*
-    public Boolean getCzyZarezerwowana() 
-    {
-        return czyZarezerwowana;
-    }
-
-    public void setCzyZarezerwowana(Boolean czyZarezerwowana) 
-    {
-        this.czyZarezerwowana = czyZarezerwowana;
-    }
-
-    public Lekarz getLekarzRezerwujacy() 
-    {
-        return lekarzRezerwujacy;
-    }
-
-    public void setLekarzRezerwujacy(Lekarz lekarzRezerwujacy) 
-    {
-        this.lekarzRezerwujacy = lekarzRezerwujacy;
-    } */
 }

@@ -25,7 +25,7 @@ public class SalaUtil
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next())
                     {
-                        Sala s = new Sala(rs.getInt("id"), rs.getString("nazwa"), rs.getString("opis"), rs.getInt("id_oddzialu"), rs.getBoolean("czy_zarezerowana"), null);
+                        Sala s = new Sala(rs.getInt("id"), rs.getString("nazwa"), rs.getString("opis"), rs.getInt("id_oddzialu"));
                         salaList.add(s);
                     }
                 }
