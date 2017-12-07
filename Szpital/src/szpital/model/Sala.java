@@ -1,7 +1,5 @@
 package szpital.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,7 +11,6 @@ public class Sala
     private StringProperty nazwa;
     private StringProperty opis;
     private IntegerProperty idOddzialu;
-    private ArrayList<HashMap<Rezerwacja, String>> wszystkieRezerwacje; 
 
     public Sala(Integer idSali, String nazwa, String opis, Integer idOddzialu) 
     {
@@ -21,8 +18,6 @@ public class Sala
         this.nazwa = new SimpleStringProperty(nazwa);
         this.opis = new SimpleStringProperty(opis);
         this.idOddzialu = new SimpleIntegerProperty(idOddzialu);
-        //if(lekarzRezerwujacy != null)
-            //this.lekarzRezerwujacy = lekarzRezerwujacy;
     }
 
     public IntegerProperty getIdSali() 

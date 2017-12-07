@@ -19,6 +19,7 @@ import szpital.model.Pacjent;
 import szpital.util.LekarzUtil;
 import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
+import szpital.util.SalaUtil;
 import szpital.util.Utils;
 
 public class LekarzController 
@@ -129,29 +130,31 @@ public class LekarzController
     public void dodajRezerwacjeSali()
     {
         try
-            {
+        {
 
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("RezerwacjaSaliScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("RezerwacjaSaliScreen.fxml"));
 
-                AnchorPane anchorPane = loader.load();
+            AnchorPane anchorPane = loader.load();
 
-                Stage dialogStage = new Stage();
-                dialogStage.setTitle("Rezerwacja sali");
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Rezerwacja sali");
 
-                Scene scene = new Scene(anchorPane);
-                dialogStage.setScene(scene);
-                
-                RezerwacjaSaliController rezerwacjaSaliController = loader.getController();
-                rezerwacjaSaliController.setLekarzController(this);
-                rezerwacjaSaliController.setStage(dialogStage);
-                //rezerwacjaSaliController.setRezerwacje()
-                
-                dialogStage.showAndWait();
-            }
-            catch (IllegalStateException | IOException exc) 
-            {
-                Utils.alertWyswietl(exc);
-            }
+            Scene scene = new Scene(anchorPane);
+            dialogStage.setScene(scene);
+
+            RezerwacjaSaliController rezerwacjaSaliController = loader.getController();
+            rezerwacjaSaliController.setLekarzController(this);
+            rezerwacjaSaliController.setStage(dialogStage);
+            rezerwacjaSaliController.setSaleList(SalaUtil.getSalaList());
+            rezerwacjaSaliController.setDate();
+            //rezerwacjaSaliController.setRezerwacje()
+
+            dialogStage.showAndWait();
+        }
+        catch (SQLException | ClassNotFoundException | IllegalStateException | IOException exc) 
+        {
+            Utils.alertWyswietl(exc);
+        }
     }
     
     public void setPacjentList(ObservableList<Pacjent> pacjentList) 
