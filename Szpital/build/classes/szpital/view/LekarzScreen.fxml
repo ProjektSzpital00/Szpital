@@ -27,11 +27,11 @@
                   <TableColumn prefWidth="75.0" text="Miejsce" />
                </columns>
             </TableView>
-            <TableView layoutX="527.0" layoutY="495.0" prefHeight="167.0" prefWidth="558.0" AnchorPane.topAnchor="495.0">
+            <TableView fx:id="tabelaRezerwacji" layoutX="527.0" layoutY="495.0" prefHeight="167.0" prefWidth="558.0" AnchorPane.topAnchor="495.0">
                <columns>
-                  <TableColumn prefWidth="75.0" text="Sala" />
-                  <TableColumn prefWidth="75.0" text="Termin" />
-                  <TableColumn prefWidth="75.0" text="Informacja" />
+                  <TableColumn fx:id="ColumnSalaR" prefWidth="75.0" text="Sala" />
+                  <TableColumn fx:id="ColumnDataR" prefWidth="75.0" text="Termin" />
+                  <TableColumn fx:id="ColumnInformacjaR" prefWidth="75.0" text="Informacja" />
                </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -52,7 +52,7 @@
             </TableView>
             <Label layoutX="227.0" layoutY="469.0" text="Dyżury" />
             <Label layoutX="390.0" layoutY="2.0" prefHeight="25.0" prefWidth="176.0" text="Aktualnie zalogowany:" />
-            <Label layoutX="566.0" layoutY="2.0" text="Label" />
+            <Label fx:id="ktoZalogowany" layoutX="566.0" layoutY="2.0" text="Label" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="698.0" prefWidth="316.0">
          <children>

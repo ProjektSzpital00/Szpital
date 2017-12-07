@@ -9,16 +9,18 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Account;
-import szpital.model.Badania;
 import szpital.model.Pacjent;
+import szpital.model.Rezerwacja;
 import szpital.util.LekarzUtil;
 import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
+import szpital.util.RezerwacjaUtil;
 import szpital.util.SalaUtil;
 import szpital.util.Utils;
 
@@ -27,6 +29,7 @@ public class LekarzController
     private Account account;
     private LoginController log;
     private ObservableList<Pacjent> pacjentList;
+    private ObservableList <Rezerwacja> rezerwacjaList;
     
     @FXML
     TableView<Pacjent> tabelaPacjentow;
@@ -55,6 +58,23 @@ public class LekarzController
     @FXML
     private TableColumn<Pacjent, Integer> ColumnLeki;
     
+    
+    @FXML
+    private TableView<Rezerwacja> tabelaRezerwacji;
+    
+    @FXML
+    private TableColumn<Rezerwacja, String> ColumnSalaR;
+    
+    @FXML
+    private TableColumn<Rezerwacja, String> ColumnDataR;
+    
+    @FXML
+    private TableColumn<Rezerwacja, String> ColumnInformacjaR;
+    
+    @FXML
+    private Label ktoZalogowany;
+    
+    
     @FXML
     private void initialize()
     {
@@ -65,6 +85,10 @@ public class LekarzController
         
         ColumnOddzial.setCellValueFactory(cellData->cellData.getValue().getOddzial());
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
+        
+        ColumnSalaR.setCellValueFactory(cellData -> cellData.getValue().getSala());
+        ColumnDataR.setCellValueFactory(cellData->cellData.getValue().getTermin());
+        ColumnInformacjaR.setCellValueFactory(cellData->cellData.getValue().getInformacja());
     }
     
     @FXML
@@ -79,6 +103,7 @@ public class LekarzController
     public void setAccount(Account account)
     {
         this.account = account;
+        ktoZalogowany.setText(account.getImie()+" "+account.getNazwisko());
     }
     
     public void setLoginController(LoginController log)
@@ -131,7 +156,6 @@ public class LekarzController
     {
         try
         {
-
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("RezerwacjaSaliScreen.fxml"));
 
             AnchorPane anchorPane = loader.load();
@@ -147,7 +171,8 @@ public class LekarzController
             rezerwacjaSaliController.setStage(dialogStage);
             rezerwacjaSaliController.setSaleList(SalaUtil.getSalaList());
             rezerwacjaSaliController.setDate();
-            //rezerwacjaSaliController.setRezerwacje()
+            rezerwacjaSaliController.setRezerwacjeList();
+            rezerwacjaSaliController.init();
 
             dialogStage.showAndWait();
         }
@@ -167,5 +192,19 @@ public class LekarzController
         
        
         tabelaPacjentow.setItems(this.pacjentList);
+    }
+    
+    public void setRezerwacjeSal()
+    {
+        try
+        {
+            rezerwacjaList = RezerwacjaUtil.getRezerwacjaList(account.getId_lekarza());
+            tabelaRezerwacji.setItems(rezerwacjaList);
+           
+        }
+        catch(SQLException | ClassNotFoundException ex)
+        {
+            Utils.alertWyswietl(ex);
+        } 
     }
 }

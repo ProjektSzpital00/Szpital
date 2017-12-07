@@ -63,7 +63,6 @@ public class PacjentUtil
 
     public static void addPacjent(Statement statement, Pacjent pacjent) throws SQLException 
     {
-
         try 
         {
             Statement stmt = Laczenie.getStatement();

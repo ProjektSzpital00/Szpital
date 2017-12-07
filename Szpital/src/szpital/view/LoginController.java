@@ -148,6 +148,7 @@ public class LoginController
             lekarzController.setAccount(account);
             lekarzController.setLoginController(this);
             lekarzController.setPacjentList(PacjentUtil.getPacjentList());
+            lekarzController.setRezerwacjeSal();
             
            // setScreen(anchorPane);
             primaryStage.close();

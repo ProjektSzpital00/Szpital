@@ -203,7 +203,28 @@ public class RejestracjaController
         {
             try 
             {
-                Wypis.wydrukuj(wybranyPacjent, BadaniaUtil.getBadaniaList(wybranyPacjent.getIdPacjenta().getValue()), LekiUtil.getLekiList(wybranyPacjent.getIdPacjenta().getValue()));
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Potwierdzenie operacji");
+                alert.setHeaderText("Drukowanie");
+                alert.setContentText("Wydrukować kartę informacyjną dla danego pacjenta:\n\n"
+                            + "ID:\t\t\t\t"+wybranyPacjent.getIdPacjenta().getValue()+"\n"
+                            + "Imie:\t\t\t\t"+wybranyPacjent.getImie().getValue()+"\n"
+                            + "Nazwisko:\t\t"+wybranyPacjent.getNazwisko().getValue()+"\n"
+                            + "Pesel:\t\t\t"+wybranyPacjent.getPesel().getValue()+"\n");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK)
+                {
+                    Wypis.wydrukuj(wybranyPacjent, BadaniaUtil.getBadaniaList(wybranyPacjent.getIdPacjenta().getValue()), LekiUtil.getLekiList(wybranyPacjent.getIdPacjenta().getValue()));
+                    Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                    alert2.setTitle("Potwierdzenie operacji");
+                    alert2.setHeaderText("Pomyślnie wydrukowano");
+                    alert2.showAndWait();
+                }
+                else
+                {
+                    alert.close();
+                }
             } 
             catch(FileNotFoundException | SQLException | ClassNotFoundException exc)
             {
