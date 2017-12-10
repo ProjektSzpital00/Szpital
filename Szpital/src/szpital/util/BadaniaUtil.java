@@ -14,9 +14,9 @@ public class BadaniaUtil {
 	private static ObservableList<Badania> badanieList = FXCollections.observableArrayList();
 
 	public static ObservableList<Badania> getBadaniaList(Integer id) throws ClassNotFoundException, SQLException {
-		
-            try {
-                    badanieList.removeAll(badanieList);
+
+		try {
+			badanieList.removeAll(badanieList);
 			Statement stmt = Laczenie.getStatement();
 
 			String query = "select BadaniaPacjentow.id, Pacjenci.imie, Pacjenci.nazwisko, Badania.nazwa, BadaniaPacjentow.data, BadaniaPacjentow.wynik from "
@@ -35,43 +35,65 @@ public class BadaniaUtil {
 		} catch (SQLException ex) {
 			throw new SQLException("Błąd zapytania", ex);
 		}
-                
+
+		return badanieList;
+	}
+
+	public static ObservableList<Badania> getRodzajeBadanList() throws ClassNotFoundException, SQLException {
+
+		try {
+			badanieList.removeAll(badanieList);
+			Statement stmt = Laczenie.getStatement();
+
+			String query = "select * from Badania;";
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				Badania badania = new Badania(rs.getInt("BadaniaPacjentow.id"), rs.getString("Pacjenci.imie"),
+						rs.getString("Pacjenci.nazwisko"), rs.getString("Badania.nazwa"),
+						rs.getDate("BadaniaPacjentow.data"), rs.getString("BadaniaPacjentow.wynik"));
+				badanieList.add(badania);
+			}
+		} catch (ClassNotFoundException ex) {
+			throw ex;
+		} catch (SQLException ex) {
+			throw new SQLException("Błąd zapytania", ex);
+		}
+
 		return badanieList;
 	}
 	
-	public static ObservableList<Badania> getRodzajeBadanList() throws ClassNotFoundException, SQLException {
-		
-        try {
-                badanieList.removeAll(badanieList);
-		Statement stmt = Laczenie.getStatement();
+    public static void updateBadaniePacjenta(Badania badania) throws SQLException 
+    {
+        try 
+        {
+            Statement stmt = Laczenie.getStatement();
 
-		String query = "select * from Badania;";
-		ResultSet rs = stmt.executeQuery(query);
-		while (rs.next()) {
-			Badania badania = new Badania(rs.getInt("BadaniaPacjentow.id"), rs.getString("Pacjenci.imie"),
-					rs.getString("Pacjenci.nazwisko"), rs.getString("Badania.nazwa"),
-					rs.getDate("BadaniaPacjentow.data"), rs.getString("BadaniaPacjentow.wynik"));
-			badanieList.add(badania);
-		}
-	} catch (ClassNotFoundException ex) {
-		throw ex;
-	} catch (SQLException ex) {
-		throw new SQLException("Błąd zapytania", ex);
-	}
-            
-	return badanieList;
-}
-	
+            String query = "update BadaniaPacjentow set id_badania = (select id from Badania where nazwa = '"+badania.getNazwaBadania()+"')"+" , id_pacjenta =" +badania.getId_Pacjenta()
+            +", data ='"+ badania.getDataBadania()+"', wynik = '"+badania.getWynikBadania()
+            +"' where id ="+ badania.getId()+";";
+            stmt.executeUpdate(query);
+
+        } 
+        catch (SQLException ex) 
+        {
+            throw new SQLException("Błąd zapytania (update pacjent)", ex);
+        } 
+        catch (ClassNotFoundException ex) 
+        {
+            Utils.alertWyswietl(ex);
+        }
+    }
+
 	public static void addBadanie(Statement statement, Badania badania) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
-			//badania.setId_Pacjenta(new SimpleIntegerProperty(2));
-			String query = "insert BadaniaPacjentow (id_badania, id_pacjenta, data, wynik) " + 
-					"values ('"+badania.getId().getValue()+"','"+ badania.getId_Pacjenta().getValue() +"',"
-                                        + "'"+badania.getDataBadania().getValue()+"','"+badania.getWynikBadania().getValue()+"');";
-			
-                        //System.out.println(badania.getId().getValue());
-                    stmt.executeUpdate(query);
+			// badania.setId_Pacjenta(new SimpleIntegerProperty(2));
+			String query = "insert BadaniaPacjentow (id_badania, id_pacjenta, data, wynik) " + "values ('"
+					+ badania.getId().getValue() + "','" + badania.getId_Pacjenta().getValue() + "'," + "'"
+					+ badania.getDataBadania().getValue() + "','" + badania.getWynikBadania().getValue() + "');";
+
+			// System.out.println(badania.getId().getValue());
+			stmt.executeUpdate(query);
 		} catch (SQLException ex) {
 			throw new SQLException("Błąd zapytania", ex);
 		} catch (ClassNotFoundException ex) {
