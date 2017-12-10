@@ -44,7 +44,7 @@ public class RezerwacjaUtil
                             }
                         }
                     }
-                    
+
                     for(Rezerwacja r : rezerwcjaList)
                     {
                         for(Sala s : SalaUtil.getSalaList())
@@ -115,9 +115,14 @@ public class RezerwacjaUtil
         return rezerwcjaList2;
     }
     
-    public static void clearSalaList()
+    public static void clearRezerwacjaList()
     {
         rezerwcjaList.clear();
+    }
+    
+    public static void clearRezerwacjaList2()
+    {
+        rezerwcjaList2.clear();
     }
     
     public static void addRezerwacja(Statement statement, Rezerwacja rezerwacja) throws SQLException

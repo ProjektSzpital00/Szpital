@@ -2,6 +2,7 @@ package szpital.view;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -25,6 +26,9 @@ public class RezerwacjaSaliController
     private ObservableList <String> salaNazwyList;
     private HashMap <String, Integer> salaIdList;
     private ObservableList <Rezerwacja> rezerwacjaList;
+    private ObservableList <Rezerwacja> tempList1;
+    private ObservableList <Rezerwacja> tempList2;
+    private ArrayList <String> godzinyList;
     
     @FXML
     private DatePicker datePicker;
@@ -50,6 +54,18 @@ public class RezerwacjaSaliController
         ColumnData.setCellValueFactory(cellData -> cellData.getValue().getTerminData());
         ColumnCzas.setCellValueFactory(cellData->cellData.getValue().getTerminCzas());
         ColumnRezerwujacy.setCellValueFactory(cellData->cellData.getValue().getRezerwujacy());
+        
+        godzinyList = new ArrayList<String>();
+        rezerwacjaList = FXCollections.observableArrayList();
+        tempList1 = FXCollections.observableArrayList();
+
+        for(int i = 0; i < 24; i++)
+        {
+            if(i < 10)
+                godzinyList.add("0"+i+":00:00");
+            else
+                godzinyList.add(i+":00:00");
+        }     
     }
     
     public void init()
@@ -59,6 +75,7 @@ public class RezerwacjaSaliController
             @Override
             public void changed(ObservableValue observable, LocalDate oldValue, LocalDate newValue)
             {
+                RezerwacjaUtil.clearRezerwacjaList();
                 rezerwacjaList.clear();
                 setRezerwacjeList();
             }
@@ -69,6 +86,7 @@ public class RezerwacjaSaliController
             @Override
             public void changed(ObservableValue observable, String oldValue, String newValue)
             {
+                RezerwacjaUtil.clearRezerwacjaList();
                 rezerwacjaList.clear();
                 setRezerwacjeList();
             }
@@ -102,11 +120,41 @@ public class RezerwacjaSaliController
     {
         try
         {
-            Integer id;
-            id = salaIdList.get(choiceBoxSale.getSelectionModel().getSelectedItem().toString());
-            if(id != null)
+            String data = datePicker.getValue().toString();
+            String sala = choiceBoxSale.getSelectionModel().getSelectedItem().toString();
+            Integer idSali = salaIdList.get(sala);
+            
+            if(idSali != null)
             {
-                rezerwacjaList = RezerwacjaUtil.getRezerwacjaList(datePicker.getValue().toString(), id);
+                for(String godzina : godzinyList)
+                    tempList1.add(new Rezerwacja(data, godzina, idSali, sala));
+                tempList2 = RezerwacjaUtil.getRezerwacjaList(data, idSali);
+                
+                if(tempList2.isEmpty())
+                {
+                    for(Rezerwacja r1 : tempList1)
+                        rezerwacjaList.add(r1);
+                }
+                else
+                {
+                    for(Rezerwacja r1 : tempList1)
+                    {
+                        for(Rezerwacja r2 : tempList2)
+                        {
+                            if(r1.getTerminCzas().getValue().equals(r2.getTerminCzas().getValue()))
+                            {
+                                rezerwacjaList.add(r2);
+                            }
+                            else
+                            {
+                                rezerwacjaList.add(r1);
+                            }
+                        }
+                    }
+                }
+                
+                tempList1.clear();
+                tempList2.clear();
                 tabela.setItems(rezerwacjaList);
             }
             else
