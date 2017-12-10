@@ -17,8 +17,15 @@ public class Rezerwacja
     StringProperty terminCzas;
     StringProperty informacja;
 
-    public Rezerwacja(String data, String czas)
+    public Rezerwacja(String czas)
     {
+        this.terminCzas = new SimpleStringProperty(czas);
+    }
+    
+    public Rezerwacja(String data, String czas, Integer idSali, String sala)
+    {
+        this.idSali = new SimpleIntegerProperty(idSali);
+        this.sala = new SimpleStringProperty(sala);
         this.terminData = new SimpleStringProperty(data);
         this.terminCzas = new SimpleStringProperty(czas);
         this.termin = new SimpleStringProperty(data+" "+czas);
