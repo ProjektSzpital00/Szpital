@@ -73,11 +73,11 @@ public class Badania {
 		public void setNazwaBadania(StringProperty nazwaBadania) {
 			this.nazwaBadania = nazwaBadania;
 		}
-                /*
-		public Date getDataBadania() {
+                
+		public Date SQLgetDataBadania() {
 			return dataBadania;
 		}
-                */
+                
                 
                 public StringProperty getDataBadania() {
 			return dataBadaniaS;

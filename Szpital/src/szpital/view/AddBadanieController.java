@@ -7,6 +7,7 @@ package szpital.view;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.Optional;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,7 +67,21 @@ public class AddBadanieController
 
     public void setBadanie(Badania badanie) 
     {
-        this.badanie = badanie;
+        System.err.println(badanie != null);
+        if(badanie != null)
+        {
+            this.badanie = badanie;
+            
+            Date d = badanie.SQLgetDataBadania();
+            LocalDate ld = d.toLocalDate();
+            
+            dataBadania.setValue(ld);
+            opisBadania.setText(badanie.getWynikBadania().getValue());
+        }
+        else
+        {
+            
+        }
     }
     
     
@@ -79,7 +94,6 @@ public class AddBadanieController
         StringBuffer komunikat = new StringBuffer();
         
         
-        System.out.println(nazwaBadania.getValue() != null);
         if(nazwaBadania.getValue() != null)
         {
             walidacja_nazwaBadania = true;
@@ -89,7 +103,6 @@ public class AddBadanieController
             komunikat.append("- Nazwa badania nie zostala wybrana\n");
         }
         
-        System.out.println(dataBadania.getValue() != null);
         if(dataBadania.getValue() != null)
         {
             walidacja_data = true;
@@ -100,7 +113,6 @@ public class AddBadanieController
         }
         
         
-        System.out.println(!opisBadania.getText().isEmpty());
         if(!opisBadania.getText().isEmpty())
         {
             walidacja_opis = true;
@@ -157,8 +169,6 @@ public class AddBadanieController
     
     public void setListaBadan()
     {
-        
-        
         
         listaBadan = FXCollections.observableArrayList();
         listaBadan.addAll("Badanie 1", "Badanie 2", "Badanie 3", "Badanie 4");
