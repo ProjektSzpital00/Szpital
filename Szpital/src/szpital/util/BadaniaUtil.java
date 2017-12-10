@@ -39,6 +39,29 @@ public class BadaniaUtil {
 		return badanieList;
 	}
 	
+	public static ObservableList<Badania> getRodzajeBadanList() throws ClassNotFoundException, SQLException {
+		
+        try {
+                badanieList.removeAll(badanieList);
+		Statement stmt = Laczenie.getStatement();
+
+		String query = "select * from Badania;";
+		ResultSet rs = stmt.executeQuery(query);
+		while (rs.next()) {
+			Badania badania = new Badania(rs.getInt("BadaniaPacjentow.id"), rs.getString("Pacjenci.imie"),
+					rs.getString("Pacjenci.nazwisko"), rs.getString("Badania.nazwa"),
+					rs.getDate("BadaniaPacjentow.data"), rs.getString("BadaniaPacjentow.wynik"));
+			badanieList.add(badania);
+		}
+	} catch (ClassNotFoundException ex) {
+		throw ex;
+	} catch (SQLException ex) {
+		throw new SQLException("Błąd zapytania", ex);
+	}
+            
+	return badanieList;
+}
+	
 	public static void addBadanie(Statement statement, Badania badania) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
