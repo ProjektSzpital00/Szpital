@@ -64,7 +64,7 @@ public class BadaniaController
         if(badaniaList == null)
         {
             try {    
-                System.out.println("Przekazuje do funkcji " + idPacjenta);
+                
                 badaniaList = BadaniaUtil.getBadaniaList(i);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
@@ -93,7 +93,10 @@ public class BadaniaController
     @FXML
     public void editBadanie()
     {
+        Badania badanie = tabela.getSelectionModel().getSelectedItem();
+       // System.out.println(tabela.getSelectionModel().getSelectedItem());
         
+        wczytajAddBadanieScreen(badanie, "Edytuj badanie");
     }
     
     public void setRejestracjaController(LekarzController lekarzController) 
