@@ -29,7 +29,7 @@ public class Badania {
 			this.nazwaBadania=new SimpleStringProperty(nazwaBadania);
 			this.dataBadania=dataBadania;
                         dataBadaniaS = new SimpleStringProperty(dataBadania.toString());
-                        
+                        this.imieNazwisko = new SimpleStringProperty(imiePacjenta + " " + nazwiskoPacjenta);
 			this.wynikBadania=new SimpleStringProperty(wynikBadania);
 		}
                 
@@ -53,6 +53,9 @@ public class Badania {
 		public StringProperty getImiePacjenta() {
 			return imiePacjenta;
 		}
+                
+            
+                
 
 		public void setImiePacjenta(StringProperty imiePacjenta) {
 			this.imiePacjenta = imiePacjenta;

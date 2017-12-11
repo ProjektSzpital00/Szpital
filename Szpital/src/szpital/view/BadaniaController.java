@@ -75,7 +75,7 @@ public class BadaniaController
        
         
         nazwaBadania.setCellValueFactory(cellData->cellData.getValue().getNazwaBadania());
-        imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImiePacjenta());
+        imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImieNazwisko());
         dataBadania.setCellValueFactory(cellData->cellData.getValue().getDataBadania());
         wynikBadania.setCellValueFactory(cellData->cellData.getValue().getWynikBadania());
         

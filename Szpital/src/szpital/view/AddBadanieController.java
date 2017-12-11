@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -39,9 +41,10 @@ public class AddBadanieController
     private DatePicker dataBadania;
     @FXML
     private TextArea opisBadania;
-    
     @FXML
     private ChoiceBox<String> nazwaBadania;
+    
+    private ObservableList<Badania> rodzajeBadanList;
     
     private ObservableList <String> listaBadan;
     
@@ -169,10 +172,25 @@ public class AddBadanieController
     
     public void setListaBadan()
     {
-        
-        listaBadan = FXCollections.observableArrayList();
-        listaBadan.addAll("Badanie 1", "Badanie 2", "Badanie 3", "Badanie 4");
-        nazwaBadania.setItems(listaBadan);
+        try {
+            rodzajeBadanList = BadaniaUtil.getRodzajeBadanList();
+            /*
+            for(Badania b:  rodzajeBadanList)
+            {
+                
+            }
+            */
+            listaBadan = FXCollections.observableArrayList();
+            listaBadan.addAll("Badanie 1", "Badanie 2", "Badanie 3", "Badanie 4");
+            nazwaBadania.setItems(listaBadan);
+            
+            
+            
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     
     }
