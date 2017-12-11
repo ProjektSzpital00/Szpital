@@ -9,10 +9,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Badania;
 import szpital.model.Pacjent;
+import szpital.model.RodzajeBadan;
 
 public class BadaniaUtil {
 	private static ObservableList<Badania> badanieList = FXCollections.observableArrayList();
-
+	private static ObservableList<RodzajeBadan> rodzajeBadanieList = FXCollections.observableArrayList();
 	public static ObservableList<Badania> getBadaniaList(Integer id) throws ClassNotFoundException, SQLException {
 
 		try {
@@ -39,7 +40,7 @@ public class BadaniaUtil {
 		return badanieList;
 	}
 
-	public static ObservableList<Badania> getRodzajeBadanList() throws ClassNotFoundException, SQLException {
+	public static ObservableList<RodzajeBadan> getRodzajeBadanList() throws ClassNotFoundException, SQLException {
 
 		try {
 			badanieList.removeAll(badanieList);
@@ -48,10 +49,8 @@ public class BadaniaUtil {
 			String query = "select * from Badania;";
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
-				Badania badania = new Badania(rs.getInt("BadaniaPacjentow.id"), rs.getString("Pacjenci.imie"),
-						rs.getString("Pacjenci.nazwisko"), rs.getString("Badania.nazwa"),
-						rs.getDate("BadaniaPacjentow.data"), rs.getString("BadaniaPacjentow.wynik"));
-				badanieList.add(badania);
+				RodzajeBadan badania = new RodzajeBadan(rs.getInt("RodzajeBadan.id"), rs.getString("RodzajeBadan.nazwa"));
+				rodzajeBadanieList.add(badania);
 			}
 		} catch (ClassNotFoundException ex) {
 			throw ex;
@@ -59,7 +58,7 @@ public class BadaniaUtil {
 			throw new SQLException("Błąd zapytania", ex);
 		}
 
-		return badanieList;
+		return rodzajeBadanieList;
 	}
 	
     public static void updateBadaniePacjenta(Badania badania) throws SQLException 
