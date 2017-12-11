@@ -23,7 +23,7 @@ public class Badania {
                 
 		public Badania(int id, String imiePacjenta,String nazwiskoPacjenta, String nazwaBadania, Date dataBadania, String wynikBadania) {
 			this.id=new SimpleIntegerProperty(id);
-                        this.idPacjenta = new SimpleIntegerProperty(id); 
+                        //this.idPacjenta = new SimpleIntegerProperty(id); 
 			this.imiePacjenta=new SimpleStringProperty(imiePacjenta);
 			this.nazwiskoPacjenta=new SimpleStringProperty(nazwiskoPacjenta);
 			this.nazwaBadania=new SimpleStringProperty(nazwaBadania);
@@ -32,6 +32,15 @@ public class Badania {
                         this.imieNazwisko = new SimpleStringProperty(imiePacjenta + " " + nazwiskoPacjenta);
 			this.wynikBadania=new SimpleStringProperty(wynikBadania);
 		}
+                
+                public Badania(int id, int idPacjenta, Date dataBadania, String wynikBadania)
+                {
+                    this.id=new SimpleIntegerProperty(id);
+                    this.idPacjenta = new SimpleIntegerProperty(idPacjenta); 
+                    this.dataBadania=dataBadania;
+                    dataBadaniaS = new SimpleStringProperty(dataBadania.toString());
+                    this.wynikBadania=new SimpleStringProperty(wynikBadania);
+                }
                 
                 
 		public IntegerProperty getId() {

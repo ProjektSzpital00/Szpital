@@ -57,6 +57,11 @@ public class BadaniaController
     private LekarzController lekarzController;
     
     
+    public void setBadaniaList()
+    {
+    
+    }
+    
     
     
     public void ladujListe(Integer i)
@@ -94,9 +99,14 @@ public class BadaniaController
     public void editBadanie()
     {
         Badania badanie = tabela.getSelectionModel().getSelectedItem();
-       // System.out.println(tabela.getSelectionModel().getSelectedItem());
-        
-        wczytajAddBadanieScreen(badanie, "Edytuj badanie");
+        if(badanie != null)
+        {
+            wczytajAddBadanieScreen(badanie, "Edytuj badanie");
+        }
+        else
+        {
+            Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego badania chcesz wyświetlić.");
+        }
     }
     
     public void setRejestracjaController(LekarzController lekarzController) 

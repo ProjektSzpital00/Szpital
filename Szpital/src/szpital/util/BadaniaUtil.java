@@ -43,13 +43,13 @@ public class BadaniaUtil {
 	public static ObservableList<RodzajeBadan> getRodzajeBadanList() throws ClassNotFoundException, SQLException {
 
 		try {
-			badanieList.removeAll(badanieList);
+			rodzajeBadanieList.removeAll(rodzajeBadanieList);
 			Statement stmt = Laczenie.getStatement();
 
 			String query = "select * from Badania;";
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) {
-				RodzajeBadan badania = new RodzajeBadan(rs.getInt("RodzajeBadan.id"), rs.getString("RodzajeBadan.nazwa"));
+				RodzajeBadan badania = new RodzajeBadan(rs.getInt("Badania.id"), rs.getString("Badania.nazwa"));
 				rodzajeBadanieList.add(badania);
 			}
 		} catch (ClassNotFoundException ex) {

@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
@@ -22,8 +23,10 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import szpital.model.Badania;
 import szpital.model.Pacjent;
+import szpital.model.RodzajeBadan;
 import szpital.util.BadaniaUtil;
 import szpital.util.Laczenie;
+import szpital.util.Utils;
 
 /**
  *
@@ -44,7 +47,7 @@ public class AddBadanieController
     @FXML
     private ChoiceBox<String> nazwaBadania;
     
-    private ObservableList<Badania> rodzajeBadanList;
+    private ObservableList<RodzajeBadan> rodzajeBadanList;
     
     private ObservableList <String> listaBadan;
     
@@ -70,7 +73,7 @@ public class AddBadanieController
 
     public void setBadanie(Badania badanie) 
     {
-        System.err.println(badanie != null);
+        //System.err.println(badanie != null);
         if(badanie != null)
         {
             this.badanie = badanie;
@@ -80,6 +83,7 @@ public class AddBadanieController
             
             dataBadania.setValue(ld);
             opisBadania.setText(badanie.getWynikBadania().getValue());
+            nazwaBadania.setValue(badanie.getNazwaBadania().getValue());
         }
         else
         {
@@ -138,11 +142,34 @@ public class AddBadanieController
             if(result.get() == ButtonType.OK)
             {
                 //tutaj bedzie inny konstruktor
-                Badania noweBadanie = new Badania(3, wybranyPacjent.getImie().toString(),
-                        wybranyPacjent.getNazwisko().toString(), nazwaBadania.getValue(), new Date(10000), opisBadania.getText());
+                
+                LocalDate locald = dataBadania.getValue();
+                Date date = Date.valueOf(locald);
+                
+                int tmp = 0;
+                
+                String s = nazwaBadania.getValue();
+                
+                
+                for(RodzajeBadan rb: rodzajeBadanList)
+                {
+                    if(rb.getNazwa().getValue().equals(s))
+                    {
+                        System.err.println("Wpisuje");
+                        tmp = rb.getId().intValue();
+                    }
+                }
+                System.out.println(tmp);
+                Badania noweBadanie = new Badania(tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
 
                 BadaniaUtil.addBadanie(Laczenie.getStatement(),noweBadanie);
                 
+                ////////////////////////////////////////////////////////
+                /*
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
+                BadaniaController badaniaController = loader.getController();
+                badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().intValue());
+                */
                
                 
                 dialoStage.close();
@@ -174,25 +201,21 @@ public class AddBadanieController
     {
         try {
             rodzajeBadanList = BadaniaUtil.getRodzajeBadanList();
-            /*
-            for(Badania b:  rodzajeBadanList)
-            {
-                
-            }
-            */
             listaBadan = FXCollections.observableArrayList();
-            listaBadan.addAll("Badanie 1", "Badanie 2", "Badanie 3", "Badanie 4");
+            for(RodzajeBadan b:  rodzajeBadanList)
+            {
+                listaBadan.addAll(b.getNazwa().getValue());
+            }
+
             nazwaBadania.setItems(listaBadan);
-            
-            
-            
+
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    
+
+
     }
     
     
