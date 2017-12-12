@@ -18,7 +18,8 @@ public class PacjentUtil
         {
             Statement stmt = Laczenie.getStatement();
 
-            String query = "SELECT Pacjenci.id, Pacjenci.imie, Pacjenci.nazwisko, Pacjenci.pesel, Lekarze.id, Lekarze.imie, Lekarze.nazwisko, Oddzialy.id, Oddzialy.nazwa, gr_krwi\n"
+            String query = "SELECT Pacjenci.id, Pacjenci.imie, Pacjenci.nazwisko, Pacjenci.pesel, Lekarze.id, Lekarze.imie, Lekarze.nazwisko,"
+            		+ " Oddzialy.id, Oddzialy.nazwa, gr_krwi, nr_sali, nr_lozka\n"
                             + "FROM Pacjenci\n" + "JOIN Lekarze ON Pacjenci.id_lekarza = Lekarze.id\n"
                             + "JOIN Oddzialy ON Lekarze.id_oddzialu = Oddzialy.id\n" + "ORDER BY Pacjenci.id";
             ResultSet rs = stmt.executeQuery(query);
@@ -31,14 +32,14 @@ public class PacjentUtil
                     p = new Pacjent(rs.getInt("Pacjenci.id"), rs.getString("Pacjenci.imie"),
                                     rs.getString("Pacjenci.nazwisko"), rs.getString("Pacjenci.pesel"), rs.getInt("Lekarze.id"),
                                     (lekarzNazwisko+" "),
-                                    rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"), rs.getString("gr_krwi"));
+                                    rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"), rs.getString("gr_krwi"), rs.getInt("nr_sali"), rs.getInt("nr_lozka"));
                 }
                 else
                 {
                     p = new Pacjent(rs.getInt("Pacjenci.id"), rs.getString("Pacjenci.imie"),
                                     rs.getString("Pacjenci.nazwisko"), rs.getString("Pacjenci.pesel"), rs.getInt("Lekarze.id"),
                                     (lekarzNazwisko + " " + rs.getString("Lekarze.imie")),
-                                    rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"), rs.getString("gr_krwi"));
+                                    rs.getInt("Oddzialy.id"), rs.getString("Oddzialy.nazwa"), rs.getString("gr_krwi"),rs.getInt("nr_sali"), rs.getInt("nr_lozka"));
                 }
                 pacjentList.add(p);
             }
@@ -67,10 +68,11 @@ public class PacjentUtil
         {
             Statement stmt = Laczenie.getStatement();
 
-            String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi) "
+            String query = "insert into Pacjenci (imie, nazwisko, pesel, id_lekarza, id_oddzialu, gr_krwi, nr_sali, nr_lozka) "
                             + "Values('" + pacjent.getImie().getValue() + "', '" + pacjent.getNazwisko().getValue() + "', '"
                             + pacjent.getPesel().getValue() + "', " + pacjent.getIdLekarza().getValue() + ", "
-                            + pacjent.getIdOddzialu().getValue() + ", '" + pacjent.getGrKrwii().getValue() + "');";
+                            + pacjent.getIdOddzialu().getValue() + ", '" + pacjent.getGrKrwii().getValue() + "', "
+                            +pacjent.getNr_sali().getValue()+","+pacjent.getNr_lozka().getValue()+");";
             stmt.executeUpdate(query);
 
         } 
@@ -93,8 +95,8 @@ public class PacjentUtil
             String query = "UPDATE Pacjenci" + " SET imie='" + pacjent.getImie().getValue() + "', nazwisko='"
                             + pacjent.getNazwisko().getValue() + "', pesel='" + pacjent.getPesel().getValue() + "', id_lekarza="
                             + pacjent.getIdLekarza().getValue() + ", id_oddzialu=" + pacjent.getIdOddzialu().getValue()
-                            + ", gr_krwi='" + pacjent.getGrKrwii().getValue() + "'" + " WHERE id="
-                            + pacjent.getIdPacjenta().getValue() + ";";
+                            + ", gr_krwi='" + pacjent.getGrKrwii().getValue() + "', nr_sali="+ pacjent.getNr_sali().getValue()+",nr_lozka="+pacjent.getNr_lozka().getValue()
+                            + " WHERE id=" + pacjent.getIdPacjenta().getValue() + ";";
             stmt.executeUpdate(query);
 
         } 

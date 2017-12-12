@@ -16,8 +16,11 @@ public class Pacjent
     private IntegerProperty idOddzialu;
     private StringProperty oddzial;
     private StringProperty grKrwii;
+    private IntegerProperty nr_sali;
+    private IntegerProperty nr_lozka;
     
-    public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz, Integer idOddzialu, String oddzial, String grKrwii) 
+    public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz, Integer idOddzialu, String oddzial, String grKrwii,
+    		Integer nr_sali, Integer nr_lozka) 
     {
         if(idPacjenta != null)
             this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
@@ -29,6 +32,8 @@ public class Pacjent
         this.idOddzialu = new SimpleIntegerProperty(idOddzialu);
         this.oddzial = new SimpleStringProperty(oddzial);
         this.grKrwii = new SimpleStringProperty(grKrwii);
+        this.nr_sali = new SimpleIntegerProperty(nr_sali);
+        this.nr_lozka = new SimpleIntegerProperty(nr_lozka);
     }
     
     public IntegerProperty getIdPacjenta() 
@@ -120,4 +125,21 @@ public class Pacjent
     {
         this.grKrwii = grKrwii;
     }
+
+	public IntegerProperty getNr_sali() {
+		return nr_sali;
+	}
+
+	public void setNr_sali(IntegerProperty nr_sali) {
+		this.nr_sali = nr_sali;
+	}
+
+	public IntegerProperty getNr_lozka() {
+		return nr_lozka;
+	}
+
+	public void setNr_lozka(IntegerProperty nr_lozka) {
+		this.nr_lozka = nr_lozka;
+	}
+    
 }
