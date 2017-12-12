@@ -78,6 +78,8 @@ public class AddBadanieController
         {
             this.badanie = badanie;
             
+            //System.out.println(badanie.getId());
+            
             Date d = badanie.SQLgetDataBadania();
             LocalDate ld = d.toLocalDate();
             
@@ -130,6 +132,9 @@ public class AddBadanieController
         }
         
         
+    
+        
+            
         
         if(walidacja_nazwaBadania && walidacja_data  && walidacja_opis)
         {
@@ -141,7 +146,6 @@ public class AddBadanieController
             
             if(result.get() == ButtonType.OK)
             {
-                //tutaj bedzie inny konstruktor
                 
                 LocalDate locald = dataBadania.getValue();
                 Date date = Date.valueOf(locald);
@@ -160,17 +164,27 @@ public class AddBadanieController
                     }
                 }
                 System.out.println(tmp);
-                Badania noweBadanie = new Badania(tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
-
-                BadaniaUtil.addBadanie(Laczenie.getStatement(),noweBadanie);
                 
-                ////////////////////////////////////////////////////////
-                /*
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
-                BadaniaController badaniaController = loader.getController();
-                badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().intValue());
-                */
                
+               
+                
+                if(this.badanie == null)
+                {
+                     Badania noweBadanie = new Badania(-1,tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
+                    System.out.println("Nowe");
+                    BadaniaUtil.addBadanie(Laczenie.getStatement(),noweBadanie);
+                }
+                else
+                {
+                    Badania noweBadanie = new Badania(badanie.getId().intValue(),tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
+                    System.out.println("Edycja");
+                    BadaniaUtil.updateBadaniePacjenta(noweBadanie);
+                }
+                
+                
+               // FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
+               // badaniaController = loader.getController();
+                badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().intValue());
                 
                 dialoStage.close();
             }

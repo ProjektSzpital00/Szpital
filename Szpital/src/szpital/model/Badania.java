@@ -15,6 +15,9 @@ public class Badania {
 		private StringProperty imiePacjenta;
 		private StringProperty nazwiskoPacjenta;
                 private StringProperty imieNazwisko;
+                
+                private IntegerProperty IdNazwaBadania;
+                
 		private StringProperty nazwaBadania;
 		private Date dataBadania;
                 private StringProperty dataBadaniaS;
@@ -33,9 +36,10 @@ public class Badania {
 			this.wynikBadania=new SimpleStringProperty(wynikBadania);
 		}
                 
-                public Badania(int id, int idPacjenta, Date dataBadania, String wynikBadania)
+                public Badania(int id,int idNazwaBadania, int idPacjenta, Date dataBadania, String wynikBadania)
                 {
-                    this.id=new SimpleIntegerProperty(id);
+                    this.id = new SimpleIntegerProperty(id);
+                    this.IdNazwaBadania=new SimpleIntegerProperty(idNazwaBadania);
                     this.idPacjenta = new SimpleIntegerProperty(idPacjenta); 
                     this.dataBadania=dataBadania;
                     dataBadaniaS = new SimpleStringProperty(dataBadania.toString());
@@ -63,9 +67,6 @@ public class Badania {
 			return imiePacjenta;
 		}
                 
-            
-                
-
 		public void setImiePacjenta(StringProperty imiePacjenta) {
 			this.imiePacjenta = imiePacjenta;
 		}
@@ -119,6 +120,20 @@ public class Badania {
      */
     public void setImieNazwisko(StringProperty imieNazwisko) {
         this.imieNazwisko = imieNazwisko;
+    }
+
+    /**
+     * @return the IdNazwaBadania
+     */
+    public IntegerProperty getIdNazwaBadania() {
+        return IdNazwaBadania;
+    }
+
+    /**
+     * @param IdNazwaBadania the IdNazwaBadania to set
+     */
+    public void setIdNazwaBadania(IntegerProperty IdNazwaBadania) {
+        this.IdNazwaBadania = IdNazwaBadania;
     }
 		
 		

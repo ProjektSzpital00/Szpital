@@ -67,9 +67,11 @@ public class BadaniaUtil {
         {
             Statement stmt = Laczenie.getStatement();
 
-            String query = "update BadaniaPacjentow set id_badania = (select id from Badania where nazwa = '"+badania.getNazwaBadania()+"')"+" , id_pacjenta =" +badania.getId_Pacjenta()
-            +", data ='"+ badania.getDataBadania()+"', wynik = '"+badania.getWynikBadania()
-            +"' where id ="+ badania.getId()+";";
+            String query = "update BadaniaPacjentow set id_badania ='"+ badania.getIdNazwaBadania().getValue() +"' , "
+            + "id_pacjenta =" +badania.getId_Pacjenta().getValue()
+            +", data ='"+ badania.getDataBadania().getValue()+"', wynik = '"+badania.getWynikBadania().getValue()
+            +"' where id ="+ badania.getId().getValue()+";";
+            
             stmt.executeUpdate(query);
 
         } 
@@ -88,7 +90,7 @@ public class BadaniaUtil {
 			Statement stmt = Laczenie.getStatement();
 			// badania.setId_Pacjenta(new SimpleIntegerProperty(2));
 			String query = "insert BadaniaPacjentow (id_badania, id_pacjenta, data, wynik) " + "values ('"
-					+ badania.getId().getValue() + "','" + badania.getId_Pacjenta().getValue() + "'," + "'"
+					+ badania.getIdNazwaBadania().getValue() + "','" + badania.getId_Pacjenta().getValue() + "'," + "'"
 					+ badania.getDataBadania().getValue() + "','" + badania.getWynikBadania().getValue() + "');";
 
 			// System.out.println(badania.getId().getValue());
