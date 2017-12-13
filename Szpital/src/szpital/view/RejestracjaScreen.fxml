@@ -21,6 +21,8 @@
             <TableColumn fx:id="ColumnGrKrwii" prefWidth="75.0" text="Gr_Krwi" />
             <TableColumn fx:id="ColumnLekarz" prefWidth="75.0" text=" Lekarz" />
             <TableColumn fx:id="ColumnOddzial" prefWidth="75.0" text="Oddział" />
+            <TableColumn prefWidth="75.0" text="Sala" />
+            <TableColumn prefWidth="75.0" text="Miejsce" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
