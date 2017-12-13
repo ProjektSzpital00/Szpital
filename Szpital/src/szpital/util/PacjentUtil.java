@@ -72,7 +72,7 @@ public class PacjentUtil
                             + "Values('" + pacjent.getImie().getValue() + "', '" + pacjent.getNazwisko().getValue() + "', '"
                             + pacjent.getPesel().getValue() + "', " + pacjent.getIdLekarza().getValue() + ", "
                             + pacjent.getIdOddzialu().getValue() + ", '" + pacjent.getGrKrwii().getValue() + "', "
-                            +pacjent.getNr_sali().getValue()+","+pacjent.getNr_lozka().getValue()+");";
+                            + pacjent.getNr_sali().getValue()+","+pacjent.getNr_lozka().getValue()+");";
             stmt.executeUpdate(query);
 
         } 

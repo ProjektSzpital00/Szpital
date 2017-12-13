@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="557.0" prefWidth="350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
    <children>
       <GridPane layoutX="242.0" layoutY="160.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -25,6 +25,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
@@ -68,7 +70,7 @@
                   <Insets right="80.0" />
                </GridPane.margin>
             </TextField>
-            <ButtonBar prefHeight="71.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <ButtonBar prefHeight="71.0" prefWidth="204.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
               <buttons>
                 <Button mnemonicParsing="false" onAction="#ok" prefHeight="28.0" text="OK" />
                   <Button mnemonicParsing="false" onAction="#cancel" prefHeight="28.0" prefWidth="99.0" text="Cancel" />
@@ -106,6 +108,10 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
+            <Label text="     Sala" GridPane.rowIndex="6" />
+            <Label text="     Nr łóżka" GridPane.rowIndex="7" />
+            <ChoiceBox fx:id="sala" prefHeight="23.0" prefWidth="158.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <ChoiceBox fx:id="nrLozka" prefHeight="23.0" prefWidth="158.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
          </children>
       </GridPane>
    </children>

@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.8071216617210683" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LekarzController">
+<SplitPane dividerPositions="0.8071216617210683" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LekarzController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -23,8 +23,8 @@
                   <TableColumn fx:id="ColumnPesel" prefWidth="75.0" text="Pesel" />
                   <TableColumn fx:id="ColumnGrKrwii" prefWidth="75.0" text="Gr_Krwi" />
                   <TableColumn fx:id="ColumnOddzial" prefWidth="75.0" text="Oddział" />
-                  <TableColumn prefWidth="75.0" text="Sala" />
-                  <TableColumn prefWidth="75.0" text="Miejsce" />
+                  <TableColumn fx:id="ColumnSala" prefWidth="75.0" text="Sala" />
+                  <TableColumn fx:id="ColumnMiejsce" prefWidth="75.0" text="Miejsce" />
                </columns>
             </TableView>
             <TableView fx:id="tabelaRezerwacji" layoutX="527.0" layoutY="495.0" prefHeight="167.0" prefWidth="558.0" AnchorPane.topAnchor="495.0">

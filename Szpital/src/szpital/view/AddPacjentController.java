@@ -29,6 +29,8 @@ public class AddPacjentController
     private ObservableList <String> lekarzList;
     private ObservableList <String> oddzialyList;
     private ObservableList <String> grKrwiiList;
+    private ObservableList <String> salaList;
+    private ObservableList <String> nrLozkaList;
     
     @FXML
     private TextField imieField;
@@ -47,7 +49,15 @@ public class AddPacjentController
     
     @FXML
     private ChoiceBox <String> grKrwii;
-
+    
+    @FXML
+    private ChoiceBox <String> sala;
+    
+    @FXML
+    private ChoiceBox <String> nrLozka;
+            
+    
+    
     @FXML
     private void cancel()
     {
@@ -140,7 +150,10 @@ public class AddPacjentController
                         temp = oddzial.getSelectionModel().getSelectedItem();
                         idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);  
                         
-                        pacjent = new Pacjent(null, imieField.getText(), nazwiskoField.getText(), peselField.getText(), idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem());
+                        pacjent = new Pacjent(null, imieField.getText(), nazwiskoField.getText(), peselField.getText(), 
+                                idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, 
+                                oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem(),
+                                Integer.valueOf(sala.getSelectionModel().getSelectedItem()),Integer.valueOf(nrLozka.getSelectionModel().getSelectedItem()));
                         
                         PacjentUtil.addPacjent(Laczenie.getStatement(), pacjent);
                         PacjentUtil.clearPacjentList();
@@ -220,5 +233,22 @@ public class AddPacjentController
             grKrwii.getSelectionModel().select(pacjent.getGrKrwii().getValue());
         else
             grKrwii.getSelectionModel().select(grKrwiiList.get(0));
+    }
+    
+    public void setSala()
+    {
+        salaList = FXCollections.observableArrayList();
+        salaList.addAll("nieznana", "1","2","3","4","5","6","7","8","9","10");
+        sala.setItems(salaList);
+        
+        
+    }
+    
+    public void setNrMiejsce()
+    {
+        nrLozkaList = FXCollections.observableArrayList();
+        nrLozkaList.addAll("nieznany", "1","2","3","4","5","6","7");
+        nrLozka.setItems(salaList);
+        
     }
 }

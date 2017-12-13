@@ -51,10 +51,10 @@ public class LekarzController
     private TableColumn<Pacjent, String> ColumnGrKrwii;
     
     @FXML
-    private TableColumn<Pacjent, Integer> ColumnRecepty;
+    private TableColumn<Pacjent, Integer> ColumnSala;
     
     @FXML
-    private TableColumn<Pacjent, Integer> ColumnLeki;
+    private TableColumn<Pacjent, Integer> ColumnMiejsce;
     
     
     @FXML
@@ -69,6 +69,8 @@ public class LekarzController
     @FXML
     private TableColumn<Rezerwacja, String> ColumnInformacjaR;
     
+    
+    
     @FXML
     private Label ktoZalogowany;
     
@@ -80,9 +82,11 @@ public class LekarzController
         ColumnImie.setCellValueFactory(cellData->cellData.getValue().getImie());
         ColumnNazwisko.setCellValueFactory(cellData->cellData.getValue().getNazwisko());
         ColumnPesel.setCellValueFactory(cellData->cellData.getValue().getPesel());
-        
         ColumnOddzial.setCellValueFactory(cellData->cellData.getValue().getOddzial());
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
+        ColumnSala.setCellValueFactory(cellData->cellData.getValue().getNr_sali().asObject());
+        ColumnMiejsce.setCellValueFactory(cellData->cellData.getValue().getNr_lozka().asObject());
+        
         
         ColumnSalaR.setCellValueFactory(cellData -> cellData.getValue().getSala());
         ColumnDataR.setCellValueFactory(cellData->cellData.getValue().getTermin());

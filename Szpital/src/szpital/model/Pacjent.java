@@ -19,11 +19,11 @@ public class Pacjent
     private IntegerProperty nr_sali;
     private IntegerProperty nr_lozka;
     
-    public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz, Integer idOddzialu, String oddzial, String grKrwii,
-    		Integer nr_sali, Integer nr_lozka) 
+    public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz, 
+            Integer idOddzialu, String oddzial, String grKrwii,Integer nr_sali, Integer nr_lozka) 
     {
         if(idPacjenta != null)
-            this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
+        this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
         this.imie = new SimpleStringProperty(imie);
         this.nazwisko = new SimpleStringProperty(nazwisko);
         this.pesel = new SimpleStringProperty(pesel);

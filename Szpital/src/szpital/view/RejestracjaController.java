@@ -62,7 +62,14 @@ public class RejestracjaController
     
     @FXML
     private TableColumn<Pacjent, String> ColumnGrKrwii;
-
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnSala;
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnNrLozka;
+    
+    
     @FXML
     private void initialize()
     {
@@ -74,6 +81,8 @@ public class RejestracjaController
         ColumnLekarz.setCellValueFactory(cellData->cellData.getValue().getLekarz());
         ColumnOddzial.setCellValueFactory(cellData->cellData.getValue().getOddzial());
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
+        ColumnSala.setCellValueFactory(cellData -> cellData.getValue().getNr_sali().asObject());
+        ColumnNrLozka.setCellValueFactory(cellData -> cellData.getValue().getNr_lozka().asObject());
     }
     
     @FXML
@@ -257,6 +266,9 @@ public class RejestracjaController
             addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
             addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
             addPacjentController.setGrKrwii();
+            addPacjentController.setSala();
+            addPacjentController.setNrMiejsce();
+            
             dialogStage.showAndWait();
         }
         catch (IllegalStateException | IOException | SQLException | ClassNotFoundException exc) 
