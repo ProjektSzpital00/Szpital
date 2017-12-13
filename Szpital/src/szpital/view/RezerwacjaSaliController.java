@@ -73,7 +73,6 @@ public class RezerwacjaSaliController
         tempList4 = FXCollections.observableArrayList();
         tabela.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         
-
         for(int i = 0; i < 24; i++)
         {
             if(i < 10)
