@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RejestracjaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RejestracjaController">
    <children>
-      <TableView fx:id="tabela" layoutX="160.0" layoutY="97.0" prefHeight="591.0" prefWidth="1057.0" AnchorPane.bottomAnchor="79.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="288.0" AnchorPane.topAnchor="30.0">
+      <TableView fx:id="tabela" layoutX="160.0" layoutY="97.0" prefHeight="590.0" prefWidth="1059.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="30.0">
         <columns>
           <TableColumn fx:id="ColumnIdPacjenta" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="ColumnImie" prefWidth="75.0" text="Imie" />
@@ -24,18 +26,34 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <VBox alignment="TOP_RIGHT" layoutX="1170.0" layoutY="105.0" prefHeight="144.0" prefWidth="120.0" spacing="30.0">
+      <VBox alignment="BASELINE_RIGHT" layoutX="1170.0" layoutY="105.0" prefHeight="144.0" prefWidth="120.0" spacing="30.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="1170.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="105.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addPacjent" prefWidth="120.0" text="Nowy pacjent" />
-            <Button mnemonicParsing="false" onAction="#editPacjent" prefWidth="120.0" text="Edit.." />
-            <Button mnemonicParsing="false" onAction="#deletePacjent" prefWidth="120.0" text="Usuń" />
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#addPacjent" prefWidth="120.0" text="Nowy pacjent" />
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#editPacjent" prefWidth="120.0" text="Edit.." />
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#deletePacjent" prefWidth="120.0" text="Usuń" />
          </children>
       </VBox>
-      <Label layoutX="275.0" layoutY="6.0" prefHeight="17.0" prefWidth="80.0" text="Pacjenci" AnchorPane.leftAnchor="500.0" />
-      <TextField fx:id="searchTextField" layoutX="1165.0" layoutY="36.0" prefWidth="120.0" />
-      <Label layoutX="1108.0" layoutY="35.0" text="Szukaj" />
-      <Button layoutX="1170.0" layoutY="654.0" mnemonicParsing="false" onAction="#logout" prefWidth="120.0" text="Wyloguj się" />
-      <Label layoutX="712.0" layoutY="656.0" text="Drukowanie wypisu pacjenta" />
-      <Button layoutX="942.0" layoutY="654.0" mnemonicParsing="false" onAction="#drukuj" prefHeight="28.0" prefWidth="120.0" text="Drukuj" />
+      <Label layoutX="275.0" layoutY="6.0" prefHeight="17.0" prefWidth="80.0" text="Pacjenci" AnchorPane.bottomAnchor="670.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="770.0" AnchorPane.topAnchor="5.0" />
+      <HBox alignment="BASELINE_RIGHT" layoutX="1107.0" layoutY="39.0" prefHeight="700.0" prefWidth="1350.0" spacing="20.0" AnchorPane.bottomAnchor="640.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="35.0">
+         <children>
+            <Label minWidth="50.0" prefWidth="50.0" text="Szukaj" textAlignment="CENTER" />
+            <TextField fx:id="searchTextField" minWidth="100.0" prefWidth="120.0" />
+         </children>
+      </HBox>
+      <VBox alignment="BOTTOM_RIGHT" layoutX="1170.0" layoutY="655.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="1170.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="655.0">
+         <children>
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#logout" prefWidth="120.0" text="Wyloguj się">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <Label alignment="CENTER_RIGHT" layoutX="712.0" layoutY="656.0" minWidth="120.0" prefHeight="25.0" prefWidth="210.0" text="Drukowanie wypisu pacjenta" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="712.0" AnchorPane.rightAnchor="428.0" AnchorPane.topAnchor="656.0" />
+      <HBox alignment="BOTTOM_RIGHT" layoutX="942.0" layoutY="654.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="942.0" AnchorPane.rightAnchor="288.0" AnchorPane.topAnchor="654.0">
+         <children>
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#drukuj" prefWidth="120.0" text="Drukuj" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
