@@ -22,6 +22,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import szpital.model.Badania;
 import szpital.model.Pacjent;
+import szpital.model.RodzajeBadan;
 import szpital.util.BadaniaUtil;
 import szpital.util.Laczenie;
 
@@ -44,7 +45,7 @@ public class AddBadanieController
     @FXML
     private ChoiceBox<String> nazwaBadania;
     
-    private ObservableList<Badania> rodzajeBadanList;
+    private ObservableList<RodzajeBadan> rodzajeBadanList;
     
     private ObservableList <String> listaBadan;
     

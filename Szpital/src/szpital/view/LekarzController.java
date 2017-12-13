@@ -205,4 +205,9 @@ public class LekarzController
             Utils.alertWyswietl(ex);
         } 
     }
+
+    public Account getAccount() 
+    {
+        return account;
+    }
 }

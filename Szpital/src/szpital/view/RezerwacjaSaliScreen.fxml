@@ -23,7 +23,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="497.0" layoutY="75.0" mnemonicParsing="false" prefWidth="130.0" text="Rezerwuj" />
-      <Button layoutX="497.0" layoutY="125.0" mnemonicParsing="false" prefWidth="130.0" text="Usuń" />
+      <Button layoutX="497.0" layoutY="75.0" mnemonicParsing="false" onAction="#dodajRezerwacje" prefWidth="130.0" text="Rezerwuj" />
+      <Button layoutX="497.0" layoutY="125.0" mnemonicParsing="false" onAction="#usunRezerwacje" prefWidth="130.0" text="Usuń" />
    </children>
 </AnchorPane>
