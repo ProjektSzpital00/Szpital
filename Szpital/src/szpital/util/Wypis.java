@@ -86,7 +86,10 @@ class CreateDocument{
             document.add(obj.createPesel(pacjent));
             document.add(obj.createGrKrwi(pacjent));
             document.add(obj.createOddzial(pacjent));
-        
+             document.add( Chunk.NEWLINE );
+             
+             //Dodac Diagnoze (Pacjent)
+            document.add(obj.createDiagnoza(pacjent));
             document.add( Chunk.NEWLINE );
             document.add(obj.createBadania());
             document.add(obj.getBadania(badania));
@@ -187,6 +190,24 @@ class CreateTable
 
         t.addCell(p1);
         t.addCell(p2);
+        return t;
+    }
+    
+     public PdfPTable createDiagnoza(Pacjent pacjent)
+    {
+         Font f = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
+        float[] widths1 = {5,10};
+        PdfPTable t = new PdfPTable(widths1);
+       
+        t.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+        t.getDefaultCell().setPaddingBottom(3);
+        t.getDefaultCell().setPaddingRight(3);
+
+        Phrase p1 = new Phrase("Diagnoza:",f);
+        //Phrase p2 = new Phrase(pacjent.getDiagnoza().getValue(),f);
+
+        t.addCell(p1);
+        //t.addCell(p2);
         return t;
     }
     
