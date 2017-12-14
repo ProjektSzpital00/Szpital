@@ -228,6 +228,7 @@ public class RejestracjaController
                     Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
                     alert2.setTitle("Potwierdzenie operacji");
                     alert2.setHeaderText("Pomyślnie wydrukowano");
+                    alert2.setContentText("");
                     alert2.showAndWait();
                 }
                 else

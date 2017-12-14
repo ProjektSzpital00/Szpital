@@ -142,7 +142,7 @@ public class LoginController
         try
         {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LekarzScreen.fxml"));
-            SplitPane splitPane = loader.load();
+            AnchorPane splitPane = loader.load();
             
             LekarzController lekarzController = loader.getController();
             lekarzController.setAccount(account);

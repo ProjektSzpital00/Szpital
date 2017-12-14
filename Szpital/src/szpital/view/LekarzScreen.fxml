@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="1350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LekarzController">
+<AnchorPane prefHeight="700.0" prefWidth="1350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LekarzController">
    <children>
       <VBox alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="41.0" AnchorPane.bottomAnchor="223.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="245.0" AnchorPane.topAnchor="41.0">
          <children>
@@ -70,10 +69,10 @@
       </VBox>
       <VBox alignment="BOTTOM_RIGHT" layoutX="1170.0" layoutY="645.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="1170.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="645.0">
          <children>
-            <Button minWidth="100.0" mnemonicParsing="false" prefWidth="130.0" text="Wyloguj się" />
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#logout" prefWidth="130.0" text="Wyloguj się" />
          </children>
       </VBox>
-      <Label alignment="BASELINE_LEFT" layoutX="610.0" layoutY="16.0" prefHeight="26.0" prefWidth="69.0" text="Label" AnchorPane.bottomAnchor="667.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="671.0" AnchorPane.topAnchor="16.0" />
+      <Label fx:id="ktoZalogowany" alignment="BASELINE_LEFT" layoutX="610.0" layoutY="16.0" prefHeight="26.0" prefWidth="200.0" text="Label" AnchorPane.bottomAnchor="667.0" AnchorPane.leftAnchor="610.0" AnchorPane.rightAnchor="540.0" AnchorPane.topAnchor="16.0" />
       <Label alignment="BASELINE_LEFT" layoutX="242.0" layoutY="489.0" prefHeight="26.0" prefWidth="58.0" text="Dyżury" AnchorPane.bottomAnchor="194.0" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="1050.0" AnchorPane.topAnchor="489.0" />
       <Label alignment="BASELINE_LEFT" layoutX="820.0" layoutY="489.0" prefHeight="26.0" prefWidth="117.0" text="Rezerwacja sali" AnchorPane.bottomAnchor="194.0" AnchorPane.leftAnchor="820.0" AnchorPane.rightAnchor="413.0" AnchorPane.topAnchor="489.0" />
    </children>
