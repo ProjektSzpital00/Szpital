@@ -2,6 +2,7 @@ package szpital.view;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import szpital.model.Account;
 import szpital.model.Pacjent;
 import szpital.model.Rezerwacja;
@@ -87,6 +89,8 @@ public class LekarzController
         ColumnSalaR.setCellValueFactory(cellData -> cellData.getValue().getSala());
         ColumnDataR.setCellValueFactory(cellData->cellData.getValue().getTermin());
         ColumnInformacjaR.setCellValueFactory(cellData->cellData.getValue().getInformacja());
+        
+        ColumnDataR.setSortType(TableColumn.SortType.ASCENDING);
     }
     
     @FXML
@@ -198,7 +202,7 @@ public class LekarzController
         {
             rezerwacjaList = RezerwacjaUtil.getRezerwacjaList(account.getId_lekarza());
             tabelaRezerwacji.setItems(rezerwacjaList);
-           
+            tabelaRezerwacji.getSortOrder().add(ColumnDataR);
         }
         catch(SQLException | ClassNotFoundException ex)
         {

@@ -5,8 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Optional;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -38,7 +37,7 @@ public class RezerwacjaSaliController
     private ObservableList <Rezerwacja> tempList3;
     private ObservableList <Rezerwacja> tempList4;
     private ArrayList <String> godzinyList;
-    private TreeMap<String, Integer> godzinyMap;
+    //private TreeMap<String, Integer> godzinyMap;
     
     @FXML
     private DatePicker datePicker;
@@ -66,7 +65,7 @@ public class RezerwacjaSaliController
         ColumnRezerwujacy.setCellValueFactory(cellData->cellData.getValue().getRezerwujacy());
         
         godzinyList = new ArrayList<String>();
-        godzinyMap = new TreeMap<String, Integer>();
+        //godzinyMap = new TreeMap<String, Integer>();
         rezerwacjaList = FXCollections.observableArrayList();
         tempList1 = FXCollections.observableArrayList();
         tempList3 = FXCollections.observableArrayList();
@@ -78,12 +77,12 @@ public class RezerwacjaSaliController
             if(i < 10)
             {
                 godzinyList.add("0"+i+":00:00");
-                godzinyMap.put("0"+i+":00:00", i);
+                //godzinyMap.put("0"+i+":00:00", i);
             }
             else
             {
                 godzinyList.add(i+":00:00");
-                godzinyMap.put(i+":00:00", i);
+                //godzinyMap.put(i+":00:00", i);
             }
         }     
     }
@@ -97,14 +96,75 @@ public class RezerwacjaSaliController
         {
             if(tempList3.get(h).getRezerwujacy() != null) 
             {
-                if(tempList3.get(h).getRezerwujacy().getValue().isEmpty() || (tempList3.get(h).getRezerwujacy().getValue().equals(lekarzController.getAccount().getNazwisko()+" "+lekarzController.getAccount().getImie())))
+                if(tempList3.get(h).getRezerwujacy().getValue().isEmpty())
                     tempList4.add(tempList3.get(h));
             }
             else
                 tempList4.add(tempList3.get(h));
         }
         tempList3 = tempList4;
+        
+        if(tempList3.isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błąd operacji");
+            alert.setHeaderText("Wybrano niedostępne pola");
+            alert.showAndWait();
+        }
+        else
+        {
+            try
+            {
+                for(Rezerwacja r : tempList3)
+                {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Potwierdzenie operacji");
+                    alert.setHeaderText("Dokonanie rezerwacji");
+                    alert.setContentText("Czy chcesz dokonać następującej rezerwacji: \n\n"
+                            + "Data:\t\t\t\t"+r.getTerminData().getValue()+"\n"
+                            + "Godzina:\t\t\t\t"+r.getTerminCzas().getValue()+"\n"
+                            + "Sala:\t\t\t\t\t"+r.getSala().getValue()+"\n");
 
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK)
+                    {
+                        r.setIdRezerwującego(new SimpleIntegerProperty(lekarzController.getAccount().getId_lekarza()));
+                        RezerwacjaUtil.addRezerwacja(Laczenie.getStatement(), r);
+                        RezerwacjaUtil.clearRezerwacjaList();
+                        setRezerwacjeList();
+                        RezerwacjaUtil.clearRezerwacjaList2();
+                        lekarzController.setRezerwacjeSal();
+                        alert.close();
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Potwierdzenie dokonania operacji");
+                        alert.setHeaderText("Pomyślnie dodano rezerwacje");
+                        alert.showAndWait();   
+                    }
+                    else
+                    {
+                        alert.close();
+                    }  
+                }
+                dialoStage.close();
+            }
+            catch (SQLException | ClassNotFoundException  ex) 
+            {
+                Utils.alertWyswietl(ex);
+            }
+        }
+        /*for(int h = 0; h < tempList3.size(); h++)
+        {
+            if(tempList3.get(h).getRezerwujacy() != null) 
+            {
+                if(tempList3.get(h).getRezerwujacy().getValue().isEmpty() || (tempList3.get(h).getRezerwujacy().getValue().equals(lekarzController.getAccount().getNazwisko()+" "+lekarzController.getAccount().getImie())))
+                    tempList4.add(tempList3.get(h));
+            }
+            else
+                tempList4.add(tempList3.get(h));
+        }*/
+        //tempList3 = tempList4;
+        
+        /*
         ArrayList<String> tempBlock = new ArrayList<String>();
         ArrayList<String> tempBlock2 = new ArrayList<String>();
         TreeSet<Integer> temp1 = new TreeSet<Integer>();
@@ -210,7 +270,7 @@ public class RezerwacjaSaliController
                     for(int o : k)
                         tempList1.add(new Rezerwacja(tempList3.get(0).getTerminData().getValue(), Integer.toString(o), tempList3.get(0).getIdSali().getValue(), tempList3.get(0).getSala().getValue()));
                     
-                    /* dokończ tutaj */
+                    dokończ tutaj
                     
                     for(Rezerwacja r : tempList3)
                         RezerwacjaUtil.addRezerwacja(Laczenie.getStatement(), r);
@@ -228,53 +288,71 @@ public class RezerwacjaSaliController
         catch (SQLException | ClassNotFoundException  ex) 
         {
             Utils.alertWyswietl(ex);
-        }
-                
-            for(Rezerwacja r : tempList3)
-            {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Potwierdzenie operacji");
-                alert.setHeaderText("Dokonanie rezerwacji");
-                alert.setContentText("Czy chcesz dokonać następującej rezerwacji: \n\n"
-                        + "Data:\t\t\t\t"+r.getTerminData().getValue()+"\n"
-                        + "Godzina:\t\t\t\t"+r.getTerminCzas().getValue()+"\n"
-                        + "Sala:\t\t\t\t\t"+r.getSala().getValue()+"\n");
-            /*
-                        + "ID:\t\t\t\t"+pacjent.getIdPacjenta().getValue()+"\n"
-                        + "Imie:\t\t\t\t"+imieField.getText()+"\n"
-                        + "Nazwisko:\t\t"+nazwiskoField.getText()+"\n"
-                        + "Pesel:\t\t\t"+peselField.getText()+"\n"
-                        + "Gr Krwi:\t\t\t"+grKrwii.getSelectionModel().getSelectedItem()+"\n"
-                        + "Lekarz:\t\t\t"+lekarz.getSelectionModel().getSelectedItem()+"\n"
-                        + "Oddzial:\t\t\t"+oddzial.getSelectionModel().getSelectedItem());*/
-                        //alert.showAndWait();
-            }
-            
-            /*
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK)
-            {
-                for(Rezerwacja r : tempList3)
-                    RezerwacjaUtil.addRezerwacja(Laczenie.getStatement(), r);
-                RezerwacjaUtil.clearRezerwacjaList();
-                setRezerwacjeList();
-                dialoStage.close();
-            }
-            else
-            {
-                alert.close();
-            }
-        } 
-        catch (SQLException | ClassNotFoundException  ex) 
-        {
-            Utils.alertWyswietl(ex);
-        }*/
+        } */
     }
     
     @FXML
     public void usunRezerwacje()
     {
+        tempList3 = tabela.getSelectionModel().getSelectedItems();
+
+        for(int h = 0; h < tempList3.size(); h++)
+        {
+            if(tempList3.get(h).getRezerwujacy() != null) 
+            {
+                if(!(tempList3.get(h).getRezerwujacy().getValue().isEmpty()) || (tempList3.get(h).getRezerwujacy().getValue().equals(lekarzController.getAccount().getNazwisko()+" "+lekarzController.getAccount().getImie())))
+                    tempList4.add(tempList3.get(h));
+            }
+        }
+        tempList3 = tempList4;
         
+        if(tempList3.isEmpty())
+        {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Błąd operacji");
+            alert.setHeaderText("Wybrano niedostępne pola");
+            alert.showAndWait();
+        }
+        else
+        {
+            try
+            {
+                for(Rezerwacja r : tempList3)
+                {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Potwierdzenie operacji");
+                    alert.setHeaderText("Usunięcie rezerwacji");
+                    alert.setContentText("Czy chcesz usunąć następującą rezerwację: \n\n"
+                            + "Data:\t\t\t\t"+r.getTerminData().getValue()+"\n"
+                            + "Godzina:\t\t\t\t"+r.getTerminCzas().getValue()+"\n"
+                            + "Sala:\t\t\t\t\t"+r.getSala().getValue()+"\n");
+
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK)
+                    {
+                        RezerwacjaUtil.deleteRezerwacja(Laczenie.getStatement(), RezerwacjaUtil.searchRezerwacjaId(Laczenie.getStatement(), r.getTermin().getValue()));
+                        RezerwacjaUtil.clearRezerwacjaList();
+                        setRezerwacjeList();
+                        RezerwacjaUtil.clearRezerwacjaList2();
+                        lekarzController.setRezerwacjeSal();
+                        alert.close();
+                        alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Potwierdzenie dokonania operacji");
+                        alert.setHeaderText("Pomyślnie usunięto rezerwacje");
+                        alert.showAndWait();   
+                    }
+                    else
+                    {
+                        alert.close();
+                    }  
+                }
+                dialoStage.close();
+            }
+            catch (SQLException | ClassNotFoundException  ex) 
+            {
+                Utils.alertWyswietl(ex);
+            }
+        }
     }
     
     public void init()
@@ -346,6 +424,7 @@ public class RezerwacjaSaliController
                 }
                 else
                 {
+                    boolean znacznik = true;
                     for(Rezerwacja r1 : tempList1)
                     {
                         for(Rezerwacja r2 : tempList2)
@@ -353,12 +432,15 @@ public class RezerwacjaSaliController
                             if(r1.getTerminCzas().getValue().equals(r2.getTerminCzas().getValue()))
                             {
                                 rezerwacjaList.add(r2);
-                            }
-                            else
-                            {
-                                rezerwacjaList.add(r1);
+                                znacznik = false;
+                                break;
                             }
                         }
+                        if(znacznik)
+                        {
+                            rezerwacjaList.add(r1);
+                        }
+                        znacznik = true;
                     }
                 }
                 
