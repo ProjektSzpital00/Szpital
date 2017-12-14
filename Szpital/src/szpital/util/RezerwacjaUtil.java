@@ -131,9 +131,13 @@ public class RezerwacjaUtil
         {
             Statement stmt = Laczenie.getStatement();
 
-            String query = "insert into RezerwacjeSali (id_sali, id_rezerwujacego, termin, informacja) "
+            /*String query = "insert into RezerwacjeSali (id_sali, id_rezerwujacego, termin, informacja) "
                             + "Values(" + rezerwacja.getIdSali().getValue() + ", " + rezerwacja.getIdRezerwującego().getValue() + ", '"
-                            + rezerwacja.getTermin().getValue() + "', '" + rezerwacja.getInformacja().getValue() + "');";
+                            + rezerwacja.getTermin().getValue() + "', '" + rezerwacja.getInformacja().getValue() + "');"; */
+            String query = "insert into RezerwacjeSali (id_sali, id_rezerwujacego, termin) "
+                            + "Values(" + rezerwacja.getIdSali().getValue() + ", " + rezerwacja.getIdRezerwującego().getValue() + ", '"
+                            + rezerwacja.getTermin().getValue() + "');";
+            
             stmt.executeUpdate(query);
 
         } 
@@ -177,7 +181,7 @@ public class RezerwacjaUtil
 
             try 
             {
-                String query = "delete from RezrwacjeSali where id =" + idRezerwacji;
+                String query = "delete from RezerwacjeSali where id =" + idRezerwacji;
                 stmt.executeUpdate(query);
             } 
             catch (SQLException ex) 
