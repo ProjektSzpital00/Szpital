@@ -37,7 +37,6 @@ public class RezerwacjaSaliController
     private ObservableList <Rezerwacja> tempList3;
     private ObservableList <Rezerwacja> tempList4;
     private ArrayList <String> godzinyList;
-    //private TreeMap<String, Integer> godzinyMap;
     
     @FXML
     private DatePicker datePicker;
@@ -65,7 +64,6 @@ public class RezerwacjaSaliController
         ColumnRezerwujacy.setCellValueFactory(cellData->cellData.getValue().getRezerwujacy());
         
         godzinyList = new ArrayList<String>();
-        //godzinyMap = new TreeMap<String, Integer>();
         rezerwacjaList = FXCollections.observableArrayList();
         tempList1 = FXCollections.observableArrayList();
         tempList3 = FXCollections.observableArrayList();
@@ -77,12 +75,10 @@ public class RezerwacjaSaliController
             if(i < 10)
             {
                 godzinyList.add("0"+i+":00:00");
-                //godzinyMap.put("0"+i+":00:00", i);
             }
             else
             {
                 godzinyList.add(i+":00:00");
-                //godzinyMap.put(i+":00:00", i);
             }
         }     
     }
@@ -152,143 +148,6 @@ public class RezerwacjaSaliController
                 Utils.alertWyswietl(ex);
             }
         }
-        /*for(int h = 0; h < tempList3.size(); h++)
-        {
-            if(tempList3.get(h).getRezerwujacy() != null) 
-            {
-                if(tempList3.get(h).getRezerwujacy().getValue().isEmpty() || (tempList3.get(h).getRezerwujacy().getValue().equals(lekarzController.getAccount().getNazwisko()+" "+lekarzController.getAccount().getImie())))
-                    tempList4.add(tempList3.get(h));
-            }
-            else
-                tempList4.add(tempList3.get(h));
-        }*/
-        //tempList3 = tempList4;
-        
-        /*
-        ArrayList<String> tempBlock = new ArrayList<String>();
-        ArrayList<String> tempBlock2 = new ArrayList<String>();
-        TreeSet<Integer> temp1 = new TreeSet<Integer>();
-        int [] temp2 = new int[tempList3.size()];
-        int j = 0;
-        for(Rezerwacja rr : tempList3)
-        {
-            temp2[j] = godzinyMap.get(rr.getTerminCzas().getValue());
-            j++;
-        }
-
-        for(int i = 0; i < temp2.length; i++)
-        {
-            if(i == temp2.length - 1)
-            {
-                if(temp2[i] != temp2[i-1])
-                {
-                    temp1.add(temp2[i]);
-                    tempBlock.add(temp1.toString());
-                    temp1.clear();
-                    break;
-                }
-                else
-                    break;
-            }
-
-            if(temp2[i+1] == temp2[i]+1)
-            {
-                temp1.add(temp2[i]);
-                temp1.add(temp2[i+1]);
-                for(int k = i; k < temp2.length; k++)
-                {
-                    if(k == temp2.length - 1)
-                    {
-                        if(temp2[k] == temp2[k-1])
-                        {
-                            temp1.add(temp2[k]);
-                            break;
-                        }
-                        else
-                        {
-                            i = k;
-                            break;
-                        }
-                    }
-
-                    if(temp2[k+1] == temp2[k]+1)
-                    {
-                        temp1.add(temp2[k+1]);
-                    }
-                    else
-                    {
-                        i = k;
-                        break;
-                    }
-                }
-                tempBlock.add(temp1.toString());
-                temp1.clear();
-            }
-            else
-            {
-                temp1.add(temp2[i]);
-                tempBlock.add(temp1.toString());
-                temp1.clear();
-            }
-        }
-
-        int[][] results = new int[tempBlock.size()][];
-        int g = 0;
-        for(String s : tempBlock)
-        {
-            String[] items = s.replaceAll("\\[", "").replaceAll("\\]", "").replaceAll("\\s", "").split(",");
-            results[g] = new int[items.length];
-
-            for (int i = 0; i < items.length; i++) 
-            {
-                try 
-                {
-                    results[g][i] = Integer.parseInt(items[i]);
-                } 
-                catch (NumberFormatException nfe) 
-                {
-
-                }
-            }   
-            g++;
-        }
-          
-        try
-        {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            for(int [] k : results)
-            {
-                alert.setTitle("Potwierdzenie operacji");
-                alert.setHeaderText("Dokonanie rezerwacji");
-                alert.setContentText("Czy chcesz dokonać następującej rezerwacji: \n\n"
-                        + "Data:\t\t\t\t"+tempList3.get(0).getTerminData().getValue()+"\n"
-                        + "Godziny:\t\t\t\t"+k[0]+(k[k.length-1]+1)+"\n"
-                        + "Sala:\t\t\t\t\t"+tempList3.get(0).getSala().getValue()+"\n");
-                Optional<ButtonType> result = alert.showAndWait();
-                if (result.get() == ButtonType.OK)
-                {
-                    for(int o : k)
-                        tempList1.add(new Rezerwacja(tempList3.get(0).getTerminData().getValue(), Integer.toString(o), tempList3.get(0).getIdSali().getValue(), tempList3.get(0).getSala().getValue()));
-                    
-                    dokończ tutaj
-                    
-                    for(Rezerwacja r : tempList3)
-                        RezerwacjaUtil.addRezerwacja(Laczenie.getStatement(), r);
-                    RezerwacjaUtil.clearRezerwacjaList();
-                    setRezerwacjeList();
-                    dialoStage.close();
-                }
-                else
-                {
-                    alert.close();
-                }
-            }
-            
-        } 
-        catch (SQLException | ClassNotFoundException  ex) 
-        {
-            Utils.alertWyswietl(ex);
-        } */
     }
     
     @FXML
