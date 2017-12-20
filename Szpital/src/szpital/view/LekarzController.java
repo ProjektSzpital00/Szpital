@@ -27,7 +27,7 @@ import szpital.util.Utils;
 public class LekarzController 
 {
     private Account account;
-	private Account a2; /* uwaga */
+	private Account a1; /* uwaga */
     private LoginController log;
     private ObservableList<Pacjent> pacjentList;
     private ObservableList <Rezerwacja> rezerwacjaList;
