@@ -14,6 +14,7 @@ import szpital.model.RodzajeBadan;
 public class BadaniaUtil {
 	private static ObservableList<Badania> badanieList = FXCollections.observableArrayList();
 	private static ObservableList<RodzajeBadan> rodzajeBadanieList = FXCollections.observableArrayList();
+        
 	public static ObservableList<Badania> getBadaniaList(Integer id) throws ClassNotFoundException, SQLException {
 
 		try {

@@ -6,14 +6,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RezerwacjaSaliController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RezerwacjaSaliController">
    <children>
-      <Label layoutX="226.0" layoutY="6.0" text="Rezerwacja sal zabiegowych" />
-      <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="32.0" />
-      <ChoiceBox fx:id="choiceBoxSale" layoutX="226.0" layoutY="32.0" prefWidth="150.0" />
-      <TableView fx:id="tabela" layoutX="14.0" layoutY="75.0" prefHeight="366.0" prefWidth="463.0">
+      <Label layoutX="226.0" layoutY="6.0" text="Rezerwacja sal zabiegowych" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="6.0" />
+      <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="32.0" AnchorPane.bottomAnchor="394.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="32.0" />
+      <ChoiceBox fx:id="choiceBoxSale" layoutX="226.0" layoutY="32.0" prefWidth="150.0" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="32.0" />
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="75.0" prefHeight="366.0" prefWidth="463.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="173.0" AnchorPane.topAnchor="75.0">
         <columns>
           <TableColumn fx:id="ColumnData" prefWidth="75.0" text="Data" />
           <TableColumn fx:id="ColumnCzas" prefWidth="75.0" text="Godzina" />
@@ -23,7 +27,27 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button layoutX="497.0" layoutY="75.0" mnemonicParsing="false" onAction="#dodajRezerwacje" prefWidth="130.0" text="Rezerwuj" />
-      <Button layoutX="497.0" layoutY="125.0" mnemonicParsing="false" onAction="#usunRezerwacje" prefWidth="130.0" text="Usuń" />
+      <VBox alignment="BOTTOM_RIGHT" layoutX="505.0" layoutY="91.0" spacing="20.0" AnchorPane.bottomAnchor="295.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="91.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#dodajRezerwacje" prefHeight="32.0" prefWidth="120.0" text="Rezerwuj">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/rezerwacja.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#usunRezerwacje" prefHeight="32.0" prefWidth="120.0" text="Usuń">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/delete.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

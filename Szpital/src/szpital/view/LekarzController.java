@@ -158,6 +158,48 @@ public class LekarzController
     }
     
     @FXML
+    public void leki()
+    {
+        Pacjent wybranyPacjent = tabelaPacjentow.getSelectionModel().getSelectedItem();
+        if(wybranyPacjent != null)
+        {
+            try
+            {
+
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Leki.fxml"));
+
+                AnchorPane anchorPane = loader.load();
+
+                Stage dialogStage = new Stage();
+                dialogStage.setTitle("Leki");
+
+                Scene scene = new Scene(anchorPane);
+                dialogStage.setScene(scene);
+
+                LekiController lekiController = loader.getController();
+                lekiController.setRejestracjaController(this);
+                lekiController.setStage(dialogStage);
+                lekiController.setWybranyPacjent(wybranyPacjent);
+                //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
+                lekiController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
+                
+                dialogStage.showAndWait();
+            }
+            catch (IllegalStateException | IOException exc) 
+            {
+                exc.printStackTrace();
+                Utils.alertWyswietl(exc);
+                //System.out.println(exc);
+            }
+        }
+        else
+        {
+            Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego badania chcesz wyświetlić.");
+        }
+    }
+    
+    
+    @FXML
     public void dodajRezerwacjeSali()
     {
         try
