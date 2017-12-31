@@ -13,13 +13,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import szpital.model.Lekarz;
+import szpital.model.Miejsca;
 import szpital.model.Oddzial;
 import szpital.model.Pacjent;
-import szpital.util.Laczenie;
-import szpital.util.LekarzUtil;
-import szpital.util.Utils;
-import szpital.util.OddzialUtil;
-import szpital.util.PacjentUtil;
+import szpital.util.*;
 
 public class AddPacjentController 
 {
@@ -55,8 +52,7 @@ public class AddPacjentController
     
     @FXML
     private ChoiceBox <String> nrLozka;
-            
-    
+
     
     @FXML
     private void cancel()
@@ -86,7 +82,10 @@ public class AddPacjentController
                                 + "Pesel:\t\t\t"+peselField.getText()+"\n"
                                 + "Gr Krwi:\t\t\t"+grKrwii.getSelectionModel().getSelectedItem()+"\n"
                                 + "Lekarz:\t\t\t"+lekarz.getSelectionModel().getSelectedItem()+"\n"
-                                + "Oddzial:\t\t\t"+oddzial.getSelectionModel().getSelectedItem());
+                                + "Oddzial:\t\t\t"+oddzial.getSelectionModel().getSelectedItem()+"\n"
+                                + "nr sali:\t\t\t"+sala.getSelectionModel().getSelectedItem()+"\n"
+                                + "nr lóżka:\t\t\t"+nrLozka.getSelectionModel().getSelectedItem()+"\n"
+                    );
 
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.get() == ButtonType.OK)
@@ -110,6 +109,9 @@ public class AddPacjentController
                         pacjent.setOddzial(new SimpleStringProperty(oddzial.getSelectionModel().getSelectedItem()));
 
                         pacjent.setGrKrwii(new SimpleStringProperty(grKrwii.getSelectionModel().getSelectedItem()));
+
+                        pacjent.setNr_sali(new SimpleIntegerProperty(Integer.valueOf(sala.getValue())));
+                        pacjent.setNr_lozka(new SimpleIntegerProperty(Integer.valueOf(nrLozka.getValue())));
 
                         PacjentUtil.updatePacjent(Laczenie.getStatement(), pacjent);
                         PacjentUtil.clearPacjentList();
@@ -235,20 +237,21 @@ public class AddPacjentController
             grKrwii.getSelectionModel().select(grKrwiiList.get(0));
     }
     
-    public void setSala()
-    {
+    public void setSala() throws SQLException, ClassNotFoundException {
+        MiejscaUtil miejscaUtil = new MiejscaUtil();
+        sala.getItems().clear();
         salaList = FXCollections.observableArrayList();
-        salaList.addAll("nieznana", "1","2","3","4","5","6","7","8","9","10");
+        salaList.clear();
+        salaList.addAll(miejscaUtil.getSaleList(1));
         sala.setItems(salaList);
-        
-        
     }
-    
-    public void setNrMiejsce()
-    {
+
+    public void setNrMiejsce() throws SQLException, ClassNotFoundException {
+        MiejscaUtil miejscaUtil = new MiejscaUtil();
+        nrLozka.getItems().clear();
         nrLozkaList = FXCollections.observableArrayList();
-        nrLozkaList.addAll("nieznany", "1","2","3","4","5","6","7");
-        nrLozka.setItems(salaList);
-        
+        nrLozkaList.clear();
+        nrLozkaList.addAll(miejscaUtil.getLozkaList(sala.getValue()));
+        nrLozka.setItems(nrLozkaList);
     }
 }

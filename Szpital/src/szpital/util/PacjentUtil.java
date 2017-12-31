@@ -97,6 +97,7 @@ public class PacjentUtil
                             + pacjent.getIdLekarza().getValue() + ", id_oddzialu=" + pacjent.getIdOddzialu().getValue()
                             + ", gr_krwi='" + pacjent.getGrKrwii().getValue() + "', nr_sali="+ pacjent.getNr_sali().getValue()+",nr_lozka="+pacjent.getNr_lozka().getValue()
                             + " WHERE id=" + pacjent.getIdPacjenta().getValue() + ";";
+            System.out.println(query);
             stmt.executeUpdate(query);
 
         } 

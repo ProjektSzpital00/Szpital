@@ -9,15 +9,11 @@ public class Miejsca {
     private IntegerProperty IdOddzialu;
     private IntegerProperty IdSali;
     private IntegerProperty IdLozka;
-    private StringProperty NrSali;
-    private StringProperty NrLozka;
 
-    public Miejsca(Integer idOddzialu, Integer idSali, Integer idLozka, String nrSali, String nrLozka) {
+    public Miejsca(Integer idOddzialu, Integer idSali, Integer idLozka) {
         IdOddzialu = new SimpleIntegerProperty(idOddzialu);
         IdSali = new SimpleIntegerProperty(idSali);
         IdLozka = new SimpleIntegerProperty(idLozka);
-        NrSali = new SimpleStringProperty(nrSali);
-        NrLozka = new SimpleStringProperty(nrLozka);
     }
 
     public int getIdOddzialu() {
@@ -54,29 +50,5 @@ public class Miejsca {
 
     public void setIdLozka(int idLozka) {
         this.IdLozka.set(idLozka);
-    }
-
-    public String getNrSali() {
-        return NrSali.get();
-    }
-
-    public StringProperty nrSaliProperty() {
-        return NrSali;
-    }
-
-    public void setNrSali(String nrSali) {
-        this.NrSali.set(nrSali);
-    }
-
-    public String getNrLozka() {
-        return NrLozka.get();
-    }
-
-    public StringProperty nrLozkaProperty() {
-        return NrLozka;
-    }
-
-    public void setNrLozka(String nrLozka) {
-        this.NrLozka.set(nrLozka);
     }
 }
