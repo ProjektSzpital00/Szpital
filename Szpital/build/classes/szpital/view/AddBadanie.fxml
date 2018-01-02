@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddBadanieController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddBadanieController">
    <children>
       <GridPane layoutY="34.0" prefHeight="350.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -23,9 +23,9 @@
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="114.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="129.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="133.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Nazwa badania">
@@ -35,26 +35,26 @@
             </Label>
             <Label text="Data" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="30.0" />
+                  <Insets left="70.0" />
                </GridPane.margin>
             </Label>
             <Label text="Opis" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="30.0" />
+                  <Insets left="70.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="nazwaBadania" prefWidth="150.0" GridPane.columnIndex="1" />
-            <TextArea fx:id="opisBadania" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <ChoiceBox fx:id="nazwaBadania" prefHeight="34.0" prefWidth="150.0" GridPane.columnIndex="1" />
+            <TextArea fx:id="opisBadania" prefHeight="200.0" prefWidth="200.0" promptText="Dodaj opis" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="20.0" right="30.0" top="20.0" />
+                  <Insets bottom="10.0" right="40.0" top="10.0" />
                </GridPane.margin></TextArea>
-            <DatePicker fx:id="dataBadania" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <DatePicker fx:id="dataBadania" prefHeight="31.0" prefWidth="163.0" promptText="Data" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></DatePicker>
             <HBox prefHeight="89.0" prefWidth="206.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Button mnemonicParsing="false" onAction="#ok" prefHeight="12.0" prefWidth="80.0" text="Ok">
+                  <Button mnemonicParsing="false" onAction="#ok" prefHeight="12.0" prefWidth="80.0" styleClass="buttonOK" text="Ok">
                      <graphic>
                         <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -63,11 +63,11 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#cancel" prefHeight="12.0" prefWidth="92.0" text="Cancel">
+                  <Button mnemonicParsing="false" onAction="#cancel" prefHeight="12.0" prefWidth="92.0" styleClass="buttonCANCEL" text="Cancel">
                      <graphic>
                         <ImageView fitHeight="14.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@image/cancel.jpg" />
+                              <Image url="@image/cancel.png" />
                            </image>
                         </ImageView>
                      </graphic>

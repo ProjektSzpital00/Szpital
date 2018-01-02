@@ -11,38 +11,38 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RezerwacjaSaliController">
    <children>
       <Label layoutX="226.0" layoutY="6.0" text="Rezerwacja sal zabiegowych" AnchorPane.bottomAnchor="419.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="6.0" />
-      <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="32.0" AnchorPane.bottomAnchor="394.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="32.0" />
-      <ChoiceBox fx:id="choiceBoxSale" layoutX="226.0" layoutY="32.0" prefWidth="150.0" AnchorPane.bottomAnchor="397.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="32.0" />
-      <TableView fx:id="tabela" layoutX="14.0" layoutY="75.0" prefHeight="366.0" prefWidth="463.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="173.0" AnchorPane.topAnchor="75.0">
+      <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="39.0" prefHeight="32.0" prefWidth="163.0" promptText="Wybierz datę" AnchorPane.bottomAnchor="379.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="473.0" AnchorPane.topAnchor="39.0" />
+      <ChoiceBox fx:id="choiceBoxSale" layoutX="226.0" layoutY="39.0" prefHeight="32.0" prefWidth="150.0" AnchorPane.bottomAnchor="379.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="274.0" AnchorPane.topAnchor="39.0" />
+      <TableView fx:id="tabela" layoutX="14.0" layoutY="80.0" prefHeight="361.0" prefWidth="463.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="173.0" AnchorPane.topAnchor="80.0">
         <columns>
           <TableColumn fx:id="ColumnData" prefWidth="75.0" text="Data" />
           <TableColumn fx:id="ColumnCzas" prefWidth="75.0" text="Godzina" />
+            <TableColumn prefWidth="75.0" text="Sala" />
             <TableColumn fx:id="ColumnRezerwujacy" prefWidth="75.0" text="Kto rezerwował" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <VBox alignment="BOTTOM_RIGHT" layoutX="505.0" layoutY="91.0" spacing="20.0" AnchorPane.bottomAnchor="295.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="91.0">
+      <VBox alignment="BOTTOM_RIGHT" layoutX="505.0" layoutY="107.0" spacing="20.0" AnchorPane.bottomAnchor="279.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="107.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#dodajRezerwacje" prefHeight="32.0" prefWidth="120.0" text="Rezerwuj">
+            <Button mnemonicParsing="false" onAction="#dodajRezerwacje" prefHeight="32.0" prefWidth="120.0" styleClass="buttonOK" text="Rezerwuj">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="25.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@image/rezerwacja.png" />
+                        <Image url="@image/rezerwacja3.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#usunRezerwacje" prefHeight="32.0" prefWidth="120.0" text="Usuń">
+            <Button mnemonicParsing="false" onAction="#usunRezerwacje" prefHeight="32.0" prefWidth="120.0" styleClass="buttonCANCEL" text="Usuń">
                <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="21.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@image/delete.png" />
+                        <Image url="@image/delete2.png" />
                      </image>
                   </ImageView>
                </graphic>

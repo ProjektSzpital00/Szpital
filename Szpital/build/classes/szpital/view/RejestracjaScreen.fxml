@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RejestracjaController">
    <children>
-      <TableView fx:id="tabela" layoutX="160.0" layoutY="45.0" prefHeight="575.0" prefWidth="1059.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="45.0">
+      <TableView fx:id="tabela" layoutX="160.0" layoutY="132.0" prefHeight="507.0" prefWidth="1059.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="132.0">
         <columns>
           <TableColumn fx:id="ColumnIdPacjenta" prefWidth="52.00006103515625" text="ID" />
           <TableColumn fx:id="ColumnImie" prefWidth="245.99996948242188" text="Imie" />
@@ -33,7 +33,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <GridPane alignment="BASELINE_RIGHT" layoutX="1124.0" layoutY="127.0" prefHeight="167.0" prefWidth="160.0" AnchorPane.bottomAnchor="406.0" AnchorPane.leftAnchor="1124.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="127.0">
+      <GridPane alignment="BASELINE_RIGHT" layoutX="1100.0" layoutY="196.0" prefHeight="180.0" prefWidth="183.0" AnchorPane.bottomAnchor="324.0" AnchorPane.leftAnchor="1100.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="196.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="59.0" minWidth="10.0" prefWidth="30.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="125.0" minWidth="10.0" prefWidth="125.0" />
@@ -47,24 +47,24 @@
             <Button minWidth="100.0" mnemonicParsing="false" onAction="#addPacjent" prefWidth="120.0" text="Nowy pacjent" GridPane.columnIndex="1" />
             <Button minWidth="100.0" mnemonicParsing="false" onAction="#editPacjent" prefWidth="120.0" text="Edit.." GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button minWidth="100.0" mnemonicParsing="false" onAction="#deletePacjent" prefWidth="120.0" text="Usuń" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@image/create.png" />
+                  <Image url="@image/add.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+            <ImageView fitHeight="36.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                <image>
                   <Image url="@image/edit.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+            <ImageView fitHeight="33.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                <image>
-                  <Image url="@image/delete.png" />
+                  <Image url="@image/delete2.png" />
                </image>
             </ImageView>
          </children>
       </GridPane>
-      <VBox alignment="BOTTOM_RIGHT" layoutX="1153.0" layoutY="650.0" prefHeight="32.0" prefWidth="130.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="1153.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="650.0">
+      <VBox alignment="BOTTOM_RIGHT" layoutX="1153.0" layoutY="651.0" prefHeight="32.0" prefWidth="130.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="1153.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="651.0">
          <children>
             <Button minWidth="100.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="131.0" text="Wyloguj się">
                <graphic>
@@ -82,7 +82,7 @@
          <children>
             <Button minWidth="100.0" mnemonicParsing="false" onAction="#drukuj" prefHeight="22.0" prefWidth="120.0" text="Drukuj">
                <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="22.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/print.png" />
                      </image>
@@ -93,25 +93,30 @@
                </graphic></Button>
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" layoutX="1133.0" layoutY="48.0" spacing="10.0" AnchorPane.bottomAnchor="624.0" AnchorPane.leftAnchor="1133.0" AnchorPane.rightAnchor="59.0" AnchorPane.topAnchor="48.0">
+      <HBox alignment="BASELINE_RIGHT" layoutX="1091.0" layoutY="132.0" prefHeight="37.0" prefWidth="183.0" spacing="10.0" AnchorPane.bottomAnchor="531.0" AnchorPane.leftAnchor="1091.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="132.0">
          <children>
-            <TextField fx:id="searchTextField" alignment="BASELINE_RIGHT" minWidth="100.0" prefWidth="120.0" />
-            <ImageView fitHeight="28.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="64.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@image/лупа.jpg" />
                </image>
             </ImageView>
+            <TextField fx:id="searchTextField" alignment="BASELINE_RIGHT" minWidth="100.0" prefWidth="130.0" />
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_CENTER" layoutX="527.0" layoutY="7.0" prefHeight="28.0" prefWidth="105.0" AnchorPane.bottomAnchor="665.0" AnchorPane.leftAnchor="527.0" AnchorPane.rightAnchor="718.0" AnchorPane.topAnchor="7.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="7.0" layoutY="-4.0">
          <children>
-            <Label text="Pacjenci  " />
-            <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="135.0" fitWidth="1059.0" pickOnBounds="true">
                <image>
-                  <Image url="@image/pacjenci.png" />
+                  <Image url="@image/proba.jpg" />
                </image>
             </ImageView>
          </children>
       </HBox>
+      <VBox alignment="BASELINE_CENTER" layoutX="1099.0" layoutY="14.0" prefHeight="75.0" prefWidth="210.0" spacing="20.0" AnchorPane.bottomAnchor="611.0" AnchorPane.leftAnchor="1099.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label alignment="BASELINE_LEFT" lineSpacing="10.0" prefHeight="38.0" prefWidth="169.0" text="Aktualnie zalogowany:" underline="true" />
+            <Label text="Label" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

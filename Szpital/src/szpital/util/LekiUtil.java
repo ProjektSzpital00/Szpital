@@ -10,10 +10,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Badania;
 import szpital.model.Leki;
+import szpital.model.RodzajeBadan;
+import szpital.model.RodzajeLekow;
 
 public class LekiUtil {
 	private static ObservableList<Leki> lekiList = FXCollections.observableArrayList();
-	
+	private static ObservableList<RodzajeLekow> rodzajeLekowList = FXCollections.observableArrayList();
+        
 	public static ObservableList<Leki> getLekiList(Integer id) throws SQLException, ClassNotFoundException{
 		
 		try {
@@ -39,6 +42,30 @@ public class LekiUtil {
 		return lekiList;
 	}
 	
+        public static ObservableList<RodzajeLekow> getRodzajeLekowList() throws ClassNotFoundException, SQLException {
+
+		try {
+			rodzajeLekowList.removeAll(rodzajeLekowList);
+			Statement stmt = Laczenie.getStatement();
+
+			String query = "select * from Leki;";
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				RodzajeLekow lek = new RodzajeLekow(rs.getInt("Leki.id"), rs.getString("Leki.nazwa"));
+				rodzajeLekowList.add(lek);
+			}
+		} catch (ClassNotFoundException ex) {
+                    ex.printStackTrace();
+			//throw ex;
+		} catch (SQLException ex) {
+                    ex.printStackTrace();
+			//throw new SQLException("Błąd zapytania", ex);
+		}
+
+		return rodzajeLekowList;
+	}
+        
+        
 	public void addLek(Integer idLeku, Integer idPacjenata, Leki leki) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();

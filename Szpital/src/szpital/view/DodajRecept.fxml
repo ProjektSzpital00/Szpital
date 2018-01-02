@@ -30,53 +30,53 @@
          </rowConstraints>
          <children>
             <Label text="Imie">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+               <GridPane.margin>
+                  <Insets left="55.0" />
+               </GridPane.margin>
             </Label>
             <Label text="Nazwisko" GridPane.rowIndex="1">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
+               <GridPane.margin>
+                  <Insets left="25.0" />
+               </GridPane.margin>
             </Label>
-            <ChoiceBox prefHeight="20.0" prefWidth="120.0" GridPane.columnIndex="1">
+            <ChoiceBox prefHeight="30.0" prefWidth="145.0" GridPane.columnIndex="1">
                <GridPane.margin>
-                  <Insets left="30.0" />
+                  <Insets left="5.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <ChoiceBox prefHeight="20.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ChoiceBox prefHeight="30.0" prefWidth="145.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="30.0" />
+                  <Insets left="5.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <TextArea prefHeight="91.0" prefWidth="203.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextArea prefHeight="91.0" prefWidth="203.0" promptText="Wpisz receptę" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </TextArea>
             <Label text="Recept" GridPane.rowIndex="2">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-            </Label>
-            <Label prefHeight="25.0" prefWidth="79.0" text="Leki" GridPane.rowIndex="3">
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-            </Label>
-            <ChoiceBox prefHeight="20.0" prefWidth="120.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="30.0" />
+                  <Insets left="40.0" />
+               </GridPane.margin>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="35.0" text="Leki" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="60.0" />
+               </GridPane.margin>
+            </Label>
+            <ChoiceBox prefHeight="30.0" prefWidth="145.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="5.0" />
                </GridPane.margin>
             </ChoiceBox>
-            <TextArea prefHeight="53.0" prefWidth="246.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <TextArea prefHeight="53.0" prefWidth="246.0" promptText="Dodatkowa informacja" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
             </TextArea>
             <HBox GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
-                  <Button mnemonicParsing="false" text="OK">
+                  <Button mnemonicParsing="false" styleClass="buttonOK" text="OK">
                      <HBox.margin>
                         <Insets left="40.0" top="10.0" />
                      </HBox.margin>
@@ -88,14 +88,14 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" text="Cancel">
+                  <Button mnemonicParsing="false" styleClass="buttonCANCEL" text="Cancel">
                      <HBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </HBox.margin>
                      <graphic>
                         <ImageView fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@image/cancel.jpg" />
+                              <Image url="@image/cancel.png" />
                            </image>
                         </ImageView>
                      </graphic>

@@ -1,18 +1,23 @@
 package szpital.view;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Badania;
 import szpital.model.Leki;
 import szpital.model.Pacjent;
 import szpital.util.BadaniaUtil;
 import szpital.util.LekiUtil;
+import szpital.util.Utils;
 
 public class LekiController 
 {
@@ -50,23 +55,15 @@ public class LekiController
     
      public void ladujListe(Integer i)
     {
-       // if(badaniaList == null)
-       // {
+       
             try {    
-                
                 lekiList = LekiUtil.getLekiList(i);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
                 Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
             }
-       // }
-       /*
-        for(Badania b: badaniaList)
-        {
-            System.out.println(b.getWynikBadania());
-        }
-        */
+       
         nazwaLeku.setCellValueFactory(cellData->cellData.getValue().getNazwa());
         //imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImieNazwisko());
         dataOd.setCellValueFactory(cellData->cellData.getValue().getOdTermin());
@@ -84,7 +81,8 @@ public class LekiController
     @FXML
     public void dodajLek()
     {
-        
+        Leki lek = null;
+        wczytajAddLekScreen(lek, "Dodaj nowe badanie");
     }
     
     @FXML
@@ -92,6 +90,41 @@ public class LekiController
     {
         
     }
+    
+    
+    private void wczytajAddLekScreen(Leki lek, String stageTitle)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("AddLeki.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle(stageTitle);
+        
+            Scene scene = new Scene(anchorPane);
+            dialogStage.setScene(scene);
+            
+            AddLekiController addLekiController = loader.getController();
+            addLekiController.setLekiController(this);
+            addLekiController.setStage(dialogStage);
+            //addLekiController.setLek(lek);
+            addLekiController.setZaznaczonyPacjent(idPacjenta);
+            addLekiController.setWybranyPacjent(wybranyPacjent);
+           // System.out.println(wybranyPacjent.getImie());
+            
+            
+            //addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
+            //addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
+            addLekiController.setListaLekow();
+            dialogStage.showAndWait();
+        }
+        catch (IllegalStateException | IOException exc) 
+        {
+            Utils.alertWyswietl(exc);
+        }
+    }
+    
     
     
     public void setRejestracjaController(LekarzController lekarzController) 

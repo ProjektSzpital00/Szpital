@@ -24,6 +24,7 @@ and open the template in the editor.
     -fx-background-color: whitesmoke;
     -fx-border-color:#87CEFA;
     -fx-padding: 5;
+    -fx-border-radius: 10;
     
 }
 .table-view .column-header .label {
@@ -36,6 +37,14 @@ and open the template in the editor.
 .table-view:focused .table-row-cell:filled:focused:selected {
     -fx-background-color: -fx-focus-color;
 }
+.table-view:hover{
+    -fx-background-color:white;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-font-size: 9pt;
+     -fx-effect: innershadow(one-pass-box, white, 5, 0.3, 1, 1); 
+    
+}
 
 
 .button {
@@ -47,6 +56,16 @@ and open the template in the editor.
     -fx-font-size: 8pt;
     -fx-text-fill: black;
     -fx-background-insets: 0 0 0 0, 0, 1,2 ;
+     -fx-effect: innershadow(one-pass-box, white, 5, 0.3, 1, 1);
+}
+
+.buttonOK{-fx-background-color: white;
+    -fx-border-color: #9ACD32;
+ -fx-effect: innershadow(one-pass-box, white, 5, 0.3, 1, 1);}
+.buttonCANCEL{
+    -fx-background-color: white;
+    -fx-border-color: #FF6347;
+     -fx-effect: innershadow(one-pass-box, white, 5, 0.3, 1, 1);
 }
 
 .button:hover {
@@ -54,27 +73,72 @@ and open the template in the editor.
     -fx-border-color: black;
     -fx-text-fill: black;
     -fx-font-size: 9pt;
+    -fx-effect: innershadow(one-pass-box, white, 5, 0.3, 1, 1);
+    
+  
 }
 
 .button:pressed, .button:default:hover:pressed {
   -fx-background-color: white;
   -fx-text-fill: black;
+   -fx-effect: innershadow(one-pass-box, white, 5, 0.3, 1, 1);
 }
 
 
 .text-field {
     -fx-font-size: 8pt;
     -fx-font-family: "Segoe UI Semibold";
+     -fx-effect: innershadow(one-pass-box, gray, 5, 0.3, 1, 1);
 }
 
 .choice-box{
     -fx-background-color: white;
+     -fx-effect: innershadow(one-pass-box, gray, 5, 0.3, 1, 1);
    
     }
 .choice-box .label{
     -fx-text-fill:black;
-    -fx-font-size: 10pt;
-    -fx-font-size:10px;
+    -fx-font-size: 12pt;
+    -fx-font-size:12px;
     -fx-font-family:'Arial Narrow';
     -fx-font-weight: bold;
     }
+ .tab-pane .tab
+{
+    -fx-background-color: white;
+
+}
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-opacity: 0;
+}
+
+.tab-pane
+{
+    -fx-tab-min-width:90px;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+.tab-pane .tab
+{
+    -fx-background-color: #e6e6e6;
+
+}
+
+.tab-pane .tab:selected
+{
+    -fx-background-color: #87CEFA;
+}
+
+.tab .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: black;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label { 
+    -fx-alignment: CENTER;
+    -fx-text-fill: black;
+}

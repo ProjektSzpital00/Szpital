@@ -34,50 +34,50 @@
          <children>
             <Label text="Imie">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="55.0" />
                </GridPane.margin>
             </Label>
             <Label text="Nazwisko" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="22.0" />
                </GridPane.margin>
             </Label>
             <Label text="Pesel" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="55.0" />
                </GridPane.margin>
             </Label>
             <Label text="Grupa krwi" GridPane.rowIndex="3">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="17.0" />
                </GridPane.margin>
             </Label>
             <Label text="Lekarz" GridPane.rowIndex="4">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="48.0" />
                </GridPane.margin>
             </Label>
             <Label text="Oddział" GridPane.rowIndex="5">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="38.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="imieField" GridPane.columnIndex="1">
+            <TextField fx:id="imieField" prefHeight="30.0" prefWidth="178.0" promptText="Imie" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="80.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="nazwiskoField" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="nazwiskoField" prefHeight="30.0" prefWidth="178.0" promptText="Nazwisko" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="80.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="peselField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="peselField" prefHeight="30.0" prefWidth="178.0" promptText="Pesel" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="80.0" />
                </GridPane.margin>
             </TextField>
-            <ChoiceBox fx:id="lekarz" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <ChoiceBox fx:id="lekarz" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -85,7 +85,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
-            <ChoiceBox fx:id="oddzial" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <ChoiceBox fx:id="oddzial" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -93,7 +93,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
-            <ChoiceBox fx:id="grKrwii" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <ChoiceBox fx:id="grKrwii" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -103,27 +103,27 @@
             </ChoiceBox>
             <Label text="Sala" GridPane.rowIndex="6">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="60.0" />
                </GridPane.margin>
             </Label>
             <Label text="Miejsce" GridPane.rowIndex="7">
                <GridPane.margin>
-                  <Insets left="20.0" />
+                  <Insets left="40.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="sala" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <ChoiceBox fx:id="sala" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <padding>
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
-            <ChoiceBox fx:id="nrLozka" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <ChoiceBox fx:id="nrLozka" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <padding>
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <children>
-                  <Button mnemonicParsing="false" onAction="#ok" text="Ok">
+                  <Button mnemonicParsing="false" onAction="#ok" prefHeight="28.0" prefWidth="89.0" styleClass="buttonOK" text="Ok">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
@@ -135,14 +135,14 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#cancel" text="Cancel">
+                  <Button mnemonicParsing="false" onAction="#cancel" styleClass="buttonCANCEL" text="Cancel">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
                      <graphic>
                         <ImageView fitHeight="14.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@image/cancel.jpg" />
+                              <Image url="@image/cancel.png" />
                            </image>
                         </ImageView>
                      </graphic>
