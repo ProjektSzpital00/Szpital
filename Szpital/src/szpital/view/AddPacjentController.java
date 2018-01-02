@@ -214,8 +214,7 @@ public class AddPacjentController
             lekarz.getSelectionModel().select(this.lekarzList.get(0));
     }
 
-    public void setOddzialyList(ObservableList<Oddzial> oddzialyList) 
-    {
+    public void setOddzialyList(ObservableList<Oddzial> oddzialyList) throws SQLException, ClassNotFoundException {
         this.oddzialyList = FXCollections.observableArrayList();
         for(Oddzial o : oddzialyList)
             this.oddzialyList.add(o.getNazwaOddzialu().getValue());
@@ -224,6 +223,8 @@ public class AddPacjentController
             oddzial.getSelectionModel().select(pacjent.getOddzial().getValue());
         else
             oddzial.getSelectionModel().select(this.oddzialyList.get(0));
+
+        setSala();
     }
     
     public void setGrKrwii()
@@ -242,8 +243,9 @@ public class AddPacjentController
         sala.getItems().clear();
         salaList = FXCollections.observableArrayList();
         salaList.clear();
-        salaList.addAll(miejscaUtil.getSaleList(1));
+        salaList.addAll(miejscaUtil.getSaleList( miejscaUtil.IdOddzialu(oddzial.getValue())));
         sala.setItems(salaList);
+        setNrMiejsce();
     }
 
     public void setNrMiejsce() throws SQLException, ClassNotFoundException {

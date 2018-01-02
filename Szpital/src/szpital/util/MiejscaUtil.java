@@ -13,7 +13,7 @@ public class MiejscaUtil {
     private static ObservableList<Miejsca> MiejscatList = FXCollections.observableArrayList();
     private static ObservableList<String> SaleList = FXCollections.observableArrayList();
     private static ObservableList<String> LozkaList = FXCollections.observableArrayList();
-
+    private static ObservableList<String> IdOddanialu = FXCollections.observableArrayList();
     public static ObservableList<Miejsca> getMiejscatList () throws SQLException, ClassNotFoundException {
 
         try{
@@ -56,7 +56,7 @@ public class MiejscaUtil {
             }
         }catch (SQLException ex)
         {
-            throw new SQLException("Błąd zapytania", ex);
+            throw new SQLException("Błąd zapytania1", ex);
         }
         catch (ClassNotFoundException ex)
         {
@@ -73,7 +73,7 @@ public class MiejscaUtil {
             Statement stmt = Laczenie.getStatement();
 
             String query = "select Lozka.Id from SaleSzpitalne join Lozka on SaleSzpitalne.Id=Lozka.Id where Lozka.wolne = true and SaleSzpitalne.id_Oddzialu= "+idOddzialu+";";
-
+           // System.out.println(query);
             ResultSet rs= stmt.executeQuery(query);
 
             while (rs.next()) {
@@ -84,7 +84,7 @@ public class MiejscaUtil {
 
         }catch (SQLException ex)
         {
-            throw new SQLException("Błąd zapytania", ex);
+            throw new SQLException("Błąd zapytania2", ex);
         }
         catch (ClassNotFoundException ex)
         {
@@ -92,5 +92,27 @@ public class MiejscaUtil {
         }
 
         return LozkaList;
+    }
+
+    public Integer IdOddzialu (String nazwaOddzialu) throws SQLException, ClassNotFoundException {
+        IdOddanialu.clear();
+        try{
+            Statement stmt = Laczenie.getStatement();
+
+            String query = "select id from Oddzialy where Nazwa= '"+nazwaOddzialu+"';";
+
+            ResultSet rs= stmt.executeQuery(query);
+            while (rs.next()) {
+                IdOddanialu.add(rs.getString("id"));
+            }
+        }catch (SQLException ex)
+        {
+            throw new SQLException("Błąd zapytania3", ex);
+        }
+        catch (ClassNotFoundException ex)
+        {
+            throw ex;
+        }
+        return Integer.parseInt(IdOddanialu.get(0));
     }
 }
