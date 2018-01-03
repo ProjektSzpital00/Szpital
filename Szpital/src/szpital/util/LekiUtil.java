@@ -18,7 +18,7 @@ public class LekiUtil {
     private static ObservableList<RodzajeLekow> rodzajeLekowList = FXCollections.observableArrayList();
 
     public static ObservableList<Leki> getLekiList(Integer id) throws SQLException, ClassNotFoundException{
-
+            lekiList.removeAll(lekiList);
             try {
                     Statement stmt = Laczenie.getStatement();
                     String query = "Select LekiPacjentow.id, LekiPacjentow.id_pacjenta, Leki.nazwa, LekiPacjentow.od_termin, LekiPacjentow.do_temin, LekiPacjentow.dawkowanie from LekiPacjentow " + 
@@ -64,33 +64,16 @@ public class LekiUtil {
 
             return rodzajeLekowList;
     }
-
-    /*
-    public void addLek(Integer idLeku, Integer idPacjenata, Leki leki) throws SQLException {
-            try {
-                    Statement stmt = Laczenie.getStatement();
-
-                    String query = "Insert LekiPacjentow(id_leku, id_pacjenta, od_termin, do_temin, dawkowanie) " + 
-                                    "values ("+idLeku.intValue()+","+idPacjenata.intValue()+
-                                    ",'"+leki.getOdTermin().toString()+"','"+leki.getDoTermin().toString()
-                                    +"','"+leki.getDawkowanie().toString()+"');";
-            } catch (SQLException ex) {
-                    throw new SQLException("Błąd zapytania", ex);
-            } catch (ClassNotFoundException ex) {
-                    Utils.alertWyswietl(ex);
-            }
-    }
-    */
-    /*
+    
     public static void addLekPacjenta(Statement statement, Leki lek) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
-			// badania.setId_Pacjenta(new SimpleIntegerProperty(2));
-			String query = "insert LekiPacjentow (id_leku, id_pacjenta, od_termin, do_termin, dawkowanie) " + "values ('"
-					+ lek.getId() + "','" + badania.getId_Pacjenta().getValue() + "'," + "'"
-					+ badania.getDataBadania().getValue() + "','" + badania.getWynikBadania().getValue() + "');";
+			
+			String query = "insert LekiPacjentow (id_leku, id_pacjenta, od_termin, do_temin, dawkowanie) " + "values ('"
+					+ lek.getIdNazwaLeku().intValue() + "','" + lek.getIdPacjenta().getValue() + "'," + "'"
+					+ lek.getOdTermin().getValue() + "','" + lek.getDoTermin().getValue() + "','" + lek.getDawkowanie().getValue()  + "');";
 
-			// System.out.println(badania.getId().getValue());
+			
 			stmt.executeUpdate(query);
 		} catch (SQLException ex) {
 			throw new SQLException("Błąd zapytania", ex);
@@ -98,5 +81,5 @@ public class LekiUtil {
 			Utils.alertWyswietl(ex);
 		}
 	}
-    */
+    
 }
