@@ -7,6 +7,7 @@ import javafx.scene.chart.PieChart.Data;
 
 public class Leki {
 	private IntegerProperty id;
+        private IntegerProperty idPacjenta;
 	private StringProperty nazwa;
 	private Date odTermin;
         private StringProperty sOdTermin;
@@ -14,7 +15,7 @@ public class Leki {
         private StringProperty sDoTermin;
 	private StringProperty dawkowanie;
 	
-	public Leki(Integer id, String nazwa, Date odTermin, Date doTermin, String dawkowanie) {
+	public Leki(Integer id, Integer idPacjenta, String nazwa, Date odTermin, Date doTermin, String dawkowanie) {
 		this.id=new SimpleIntegerProperty(id);
 		this.nazwa=new SimpleStringProperty(nazwa);
 		this.odTermin=odTermin;

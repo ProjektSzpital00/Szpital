@@ -92,6 +92,66 @@ public class AddLekiController
     
     */
     
+    
+    public void ok()
+    {
+        boolean walidacja_nazwaLeku = false;
+        boolean walidacja_dataOd = false;
+        boolean walidacja_opisDo = false;
+        boolean walidacja_dawkowanie = false;
+        
+        StringBuffer komunikat = new StringBuffer();
+        
+        
+        if(nazwaLeku.getValue() != null)
+        {
+            walidacja_nazwaLeku = true;
+        }
+        else
+        {
+            komunikat.append("- Nazwa leku nie zostala wybrana\n");
+        }
+        
+        if(dataOd.getValue() != null)
+        {
+            walidacja_dataOd = true;
+        }
+        else
+        {
+            komunikat.append("- Data rozpoczecia przyjmowania leku nie zostala wybrana\n");
+        }
+        
+        if(dataDo.getValue() != null)
+        {
+            walidacja_dataOd = true;
+        }
+        else
+        {
+            komunikat.append("- Data zakonczenia przyjmowania leku nie zostala wybrana\n");
+        }
+        
+        
+        
+        if(!dawkowanie.getText().isEmpty())
+        {
+            walidacja_dawkowanie = true;
+        }
+        else
+        {
+            komunikat.append("- Pole dawkowanie nie może pozostać puste");
+        }
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     public Integer getZaznaczonyPacjent() {
         return zaznaczonyPacjent;
     }

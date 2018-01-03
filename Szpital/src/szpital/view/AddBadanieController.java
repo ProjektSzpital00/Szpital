@@ -132,10 +132,6 @@ public class AddBadanieController
         }
         
         
-    
-        
-            
-        
         if(walidacja_nazwaBadania && walidacja_data  && walidacja_opis)
         {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -159,7 +155,7 @@ public class AddBadanieController
                 {
                     if(rb.getNazwa().getValue().equals(s))
                     {
-                        System.err.println("Wpisuje");
+                        //System.err.println("Wpisuje");
                         tmp = rb.getId().intValue();
                     }
                 }
