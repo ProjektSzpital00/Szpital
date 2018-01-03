@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <AnchorPane maxHeight="650.0" maxWidth="350.0" minHeight="650.0" minWidth="350.0" prefHeight="650.0" prefWidth="350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
    <children>
       <GridPane alignment="CENTER" layoutX="242.0" layoutY="160.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -112,12 +111,12 @@
                   <Insets left="40.0" />
                </GridPane.margin>
             </Label>
-            <ChoiceBox fx:id="sala" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <ChoiceBox fx:id="sala" onMouseClicked="#setSala" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <padding>
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
-            <ChoiceBox fx:id="nrLozka" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <ChoiceBox fx:id="nrLozka" onMouseClicked="#setNrMiejsce" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <padding>
                   <Insets bottom="5.0" top="5.0" />
                </padding>
