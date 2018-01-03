@@ -47,7 +47,7 @@ public class MiejscaUtil {
             Statement stmt = Laczenie.getStatement();
 
             String query = "select SaleSzpitalne.id " +
-                    "from SaleSzpitalne join Lozka on SaleSzpitalne.Id=Lozka.Id where Lozka.wolne = true and SaleSzpitalne.id_Oddzialu= "+idSali.toString()+";";
+                    "from SaleSzpitalne join Lozka on SaleSzpitalne.Id=Lozka.Id where SaleSzpitalne.id_Oddzialu= "+idSali.toString()+";";
 
             ResultSet rs = stmt.executeQuery(query);
 
@@ -72,7 +72,7 @@ public class MiejscaUtil {
         try{
             Statement stmt = Laczenie.getStatement();
 
-            String query = "select Lozka.Id from SaleSzpitalne join Lozka on SaleSzpitalne.Id=Lozka.Id where Lozka.wolne = true and SaleSzpitalne.id_Oddzialu= "+idOddzialu+";";
+            String query = "select Lozka.Id from Lozka where Lozka.wolne = true and id_Sali=  "+idOddzialu+";";
            // System.out.println(query);
             ResultSet rs= stmt.executeQuery(query);
 
@@ -114,5 +114,20 @@ public class MiejscaUtil {
             throw ex;
         }
         return Integer.parseInt(IdOddanialu.get(0));
+    }
+
+    public void ZmiannaStatusuLozka (Integer status, Integer idLozka) throws SQLException, ClassNotFoundException {
+        try{
+            Statement stmt = Laczenie.getStatement();
+
+            String query ="update Lozka set wolne = "+ status.toString()+"where id = "+idLozka+";";
+            stmt.executeQuery(query);
+
+        }catch (SQLException ex)
+        {
+            throw new SQLException("Błąd zapytania", ex);
+        }catch (ClassNotFoundException ex){
+            throw ex;
+        }
     }
 }
