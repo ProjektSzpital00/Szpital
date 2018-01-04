@@ -304,7 +304,11 @@ public class AddPacjentController
         Integer idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
         for(SalaPacjent sP : salaAllList)
         {
-            if(sP.getIdOddzialu().getValue().equals(idOddzialu))
+            if(sP.getIdOddzialu().getValue().equals(0))
+            {
+                this.salaPacjentList.add(sP.getNazwa().getValue());
+            }
+            else if(sP.getIdOddzialu().getValue().equals(idOddzialu))
             {
                 this.salaPacjentList.add(sP.getNazwa().getValue());
             }
