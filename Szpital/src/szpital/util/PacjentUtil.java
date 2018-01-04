@@ -4,9 +4,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Pacjent;
+import szpital.model.SalaPacjent;
 
 public class PacjentUtil 
 {
@@ -43,6 +45,18 @@ public class PacjentUtil
                 }
                 pacjentList.add(p);
             }
+            
+            for(Pacjent pp : pacjentList)
+            {
+                for(SalaPacjent sP : SalaPacjentUtil.getSalaPacjentList())
+                {
+                    if(pp.getNrSali().getValue().equals(sP.getIdSali().getValue()))
+                    {
+                        pp.setNazwaSali(new SimpleStringProperty(sP.getNazwa().getValue()));
+                        break;
+                    }
+                }
+            }
 
         } 
         catch (SQLException ex) 
@@ -72,7 +86,7 @@ public class PacjentUtil
                             + "Values('" + pacjent.getImie().getValue() + "', '" + pacjent.getNazwisko().getValue() + "', '"
                             + pacjent.getPesel().getValue() + "', " + pacjent.getIdLekarza().getValue() + ", "
                             + pacjent.getIdOddzialu().getValue() + ", '" + pacjent.getGrKrwii().getValue() + "', "
-                            + pacjent.getNr_sali().getValue()+","+pacjent.getNr_lozka().getValue()+");";
+                            + pacjent.getNrSali().getValue()+","+pacjent.getNrLozka().getValue()+");";
             stmt.executeUpdate(query);
 
         } 
@@ -95,7 +109,7 @@ public class PacjentUtil
             String query = "UPDATE Pacjenci" + " SET imie='" + pacjent.getImie().getValue() + "', nazwisko='"
                             + pacjent.getNazwisko().getValue() + "', pesel='" + pacjent.getPesel().getValue() + "', id_lekarza="
                             + pacjent.getIdLekarza().getValue() + ", id_oddzialu=" + pacjent.getIdOddzialu().getValue()
-                            + ", gr_krwi='" + pacjent.getGrKrwii().getValue() + "', nr_sali="+ pacjent.getNr_sali().getValue()+",nr_lozka="+pacjent.getNr_lozka().getValue()
+                            + ", gr_krwi='" + pacjent.getGrKrwii().getValue() + "', nr_sali="+ pacjent.getNrSali().getValue()+",nr_lozka="+pacjent.getNrLozka().getValue()
                             + " WHERE id=" + pacjent.getIdPacjenta().getValue() + ";";
             System.out.println(query);
             stmt.executeUpdate(query);

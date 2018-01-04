@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.Optional;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,9 +15,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import szpital.model.Lekarz;
-import szpital.model.Miejsca;
+import szpital.model.Lozko;
 import szpital.model.Oddzial;
 import szpital.model.Pacjent;
+import szpital.model.SalaPacjent;
 import szpital.util.*;
 
 public class AddPacjentController 
@@ -23,11 +26,13 @@ public class AddPacjentController
     private Stage dialoStage;
     private Pacjent pacjent;
     private RejestracjaController rejestracjaController;
+    private ObservableList <SalaPacjent> salaAllList;
+    private ObservableList <Lozko> lozkoAllList;
     private ObservableList <String> lekarzList;
     private ObservableList <String> oddzialyList;
     private ObservableList <String> grKrwiiList;
-    private ObservableList <String> salaList;
-    private ObservableList <String> nrLozkaList;
+    private ObservableList <String> salaPacjentList;
+    private ObservableList <Integer> lozkaList;
     
     @FXML
     private TextField imieField;
@@ -51,7 +56,7 @@ public class AddPacjentController
     private ChoiceBox <String> sala;
     
     @FXML
-    private ChoiceBox <String> nrLozka;
+    private ChoiceBox <Integer> nrLozka;
 
     
     @FXML
@@ -65,6 +70,7 @@ public class AddPacjentController
     {
         Integer idLekarza;
         Integer idOddzialu;
+        Integer idSali;
          
         try 
         {
@@ -83,8 +89,8 @@ public class AddPacjentController
                                 + "Gr Krwi:\t\t\t"+grKrwii.getSelectionModel().getSelectedItem()+"\n"
                                 + "Lekarz:\t\t\t"+lekarz.getSelectionModel().getSelectedItem()+"\n"
                                 + "Oddzial:\t\t\t"+oddzial.getSelectionModel().getSelectedItem()+"\n"
-                                + "nr sali:\t\t\t"+sala.getSelectionModel().getSelectedItem()+"\n"
-                                + "nr lóżka:\t\t\t"+nrLozka.getSelectionModel().getSelectedItem()+"\n"
+                                + "Sala:\t\t\t\t"+sala.getSelectionModel().getSelectedItem()+"\n"
+                                + "Nr łóżka:\t\t\t"+nrLozka.getSelectionModel().getSelectedItem()+"\n"
                     );
 
                     Optional<ButtonType> result = alert.showAndWait();
@@ -110,10 +116,15 @@ public class AddPacjentController
 
                         pacjent.setGrKrwii(new SimpleStringProperty(grKrwii.getSelectionModel().getSelectedItem()));
 
-                        pacjent.setNr_sali(new SimpleIntegerProperty(Integer.valueOf(sala.getValue())));
-                        pacjent.setNr_lozka(new SimpleIntegerProperty(Integer.valueOf(nrLozka.getValue())));
+                        temp = sala.getSelectionModel().getSelectedItem();
+                        idSali = SalaPacjentUtil.searchSalaPacjentId(Laczenie.getStatement(), temp);
+                        pacjent.setNrSali(new SimpleIntegerProperty(idSali));
+                        
+                        pacjent.setNrLozka(new SimpleIntegerProperty(nrLozka.getSelectionModel().getSelectedItem()));
 
                         PacjentUtil.updatePacjent(Laczenie.getStatement(), pacjent);
+                        if(idSali.equals(0))
+                            LozkoUtil.zmiannaStatusuLozka(0, idSali);
                         PacjentUtil.clearPacjentList();
                         rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
                         dialoStage.close();
@@ -150,14 +161,19 @@ public class AddPacjentController
                             idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), t[1], t[0]);
 
                         temp = oddzial.getSelectionModel().getSelectedItem();
-                        idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);  
+                        idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
+                        
+                        temp = sala.getSelectionModel().getSelectedItem();
+                        idSali = SalaPacjentUtil.searchSalaPacjentId(Laczenie.getStatement(), temp);
                         
                         pacjent = new Pacjent(null, imieField.getText(), nazwiskoField.getText(), peselField.getText(), 
                                 idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, 
                                 oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem(),
-                                Integer.valueOf(sala.getSelectionModel().getSelectedItem()),Integer.valueOf(nrLozka.getSelectionModel().getSelectedItem()));
+                                idSali, nrLozka.getSelectionModel().getSelectedItem());
                         
                         PacjentUtil.addPacjent(Laczenie.getStatement(), pacjent);
+                        if(!idSali.equals(0))
+                            LozkoUtil.zmiannaStatusuLozka(0, idSali);
                         PacjentUtil.clearPacjentList();
                         rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
                         dialoStage.close();
@@ -173,6 +189,50 @@ public class AddPacjentController
         {
             Utils.alertWyswietl(ex);
         }
+    }
+    
+    public void init(ObservableList<Lozko> lozkoList, ObservableList<SalaPacjent> salaList)
+    {
+        this.lozkoAllList = lozkoList;
+        this.salaAllList = salaList;
+    }
+    
+    public void init2()
+    {
+        oddzial.valueProperty().addListener(new ChangeListener<String>()
+        {
+            @Override
+            public void changed(ObservableValue observable, String oldValue, String newValue)
+            {
+                salaPacjentList.clear();
+                try
+                {
+                    setSalaPacjentList();
+                }
+                catch (SQLException | ClassNotFoundException exc) 
+                {
+                    Utils.alertWyswietl(exc);
+                }
+                lozkaList.clear();
+            }
+        });
+        
+        sala.valueProperty().addListener(new ChangeListener<String>()
+        {
+            @Override
+            public void changed(ObservableValue observable, String oldValue, String newValue)
+            {
+                lozkaList.clear();
+                try
+                {
+                    setLozkaList();
+                }
+                catch (SQLException | ClassNotFoundException exc) 
+                {
+                    Utils.alertWyswietl(exc);
+                }
+            }
+        });
     }
     
     public void setStage(Stage dialoStage) 
@@ -214,7 +274,8 @@ public class AddPacjentController
             lekarz.getSelectionModel().select(this.lekarzList.get(0));
     }
 
-    public void setOddzialyList(ObservableList<Oddzial> oddzialyList) throws SQLException, ClassNotFoundException {
+    public void setOddzialyList(ObservableList<Oddzial> oddzialyList)
+    {
         this.oddzialyList = FXCollections.observableArrayList();
         for(Oddzial o : oddzialyList)
             this.oddzialyList.add(o.getNazwaOddzialu().getValue());
@@ -223,8 +284,6 @@ public class AddPacjentController
             oddzial.getSelectionModel().select(pacjent.getOddzial().getValue());
         else
             oddzial.getSelectionModel().select(this.oddzialyList.get(0));
-
-        setSala();
     }
     
     public void setGrKrwii()
@@ -238,7 +297,82 @@ public class AddPacjentController
             grKrwii.getSelectionModel().select(grKrwiiList.get(0));
     }
     
-    public void setSala() throws SQLException, ClassNotFoundException {
+    public void setSalaPacjentList() throws SQLException, ClassNotFoundException
+    {
+        this.salaPacjentList = FXCollections.observableArrayList();
+        String temp = oddzial.getSelectionModel().getSelectedItem();
+        Integer idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
+        for(SalaPacjent sP : salaAllList)
+        {
+            if(sP.getIdOddzialu().getValue().equals(idOddzialu))
+            {
+                this.salaPacjentList.add(sP.getNazwa().getValue());
+            }
+        }
+        sala.setItems(this.salaPacjentList);
+        if(pacjent != null)
+        {
+            for(SalaPacjent sP : salaAllList)
+            {
+                if(sP.getIdSali().getValue().equals(pacjent.getNrSali().getValue()))
+                {
+                    sala.getSelectionModel().select(sP.getNazwa().getValue());
+                    break;
+                }
+            }
+        }
+        else
+            sala.getSelectionModel().select(this.salaPacjentList.get(0));
+    }
+    
+    public void setLozkaList() throws SQLException, ClassNotFoundException
+    {
+        this.lozkaList = FXCollections.observableArrayList();
+        String temp = sala.getSelectionModel().getSelectedItem();
+        Integer idSali = SalaPacjentUtil.searchSalaPacjentId(Laczenie.getStatement(), temp);
+        
+        for(Lozko l : lozkoAllList)
+        {
+            if(l.getIdSali().getValue().equals(idSali))
+            {
+                if(pacjent != null)
+                {
+                    if(l.getCzyWolne().getValue().equals(1) || l.getIdLozka().getValue().equals(pacjent.getNrLozka().getValue()))
+                    {
+                        this.lozkaList.add(l.getIdLozka().getValue());
+                    }
+                }
+                else
+                {
+                    if(l.getCzyWolne().getValue().equals(1))
+                    {
+                        this.lozkaList.add(l.getIdLozka().getValue());
+                    }
+                }
+                
+            }
+        }
+        if(!lozkaList.isEmpty())
+        {
+            nrLozka.setItems(lozkaList);
+            if(pacjent != null)
+            {
+                nrLozka.getSelectionModel().select(pacjent.getNrLozka().getValue());
+            }
+            else
+                nrLozka.getSelectionModel().select(this.lozkaList.get(0));
+        }
+        else
+        {
+            lozkaList.add(0);
+            nrLozka.setItems(lozkaList);
+        }
+    }
+    
+    /*
+    
+    public void setSala() throws SQLException, ClassNotFoundException 
+    {
         MiejscaUtil miejscaUtil = new MiejscaUtil();
         sala.getItems().clear();
         salaList = FXCollections.observableArrayList();
@@ -248,7 +382,8 @@ public class AddPacjentController
         setNrMiejsce();
     }
 
-    public void setNrMiejsce() throws SQLException, ClassNotFoundException {
+    public void setNrMiejsce() throws SQLException, ClassNotFoundException 
+    {
         MiejscaUtil miejscaUtil = new MiejscaUtil();
         nrLozka.getItems().clear();
         nrLozkaList = FXCollections.observableArrayList();
@@ -256,4 +391,6 @@ public class AddPacjentController
         nrLozkaList.addAll(miejscaUtil.getLozkaList(sala.getValue()));
         nrLozka.setItems(nrLozkaList);
     }
+
+    */
 }

@@ -16,14 +16,15 @@ public class Pacjent
     private IntegerProperty idOddzialu;
     private StringProperty oddzial;
     private StringProperty grKrwii;
-    private IntegerProperty nr_sali;
-    private IntegerProperty nr_lozka;
+    private IntegerProperty nrSali;
+    private StringProperty nazwaSali;
+    private IntegerProperty nrLozka;
     
     public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz, 
-            Integer idOddzialu, String oddzial, String grKrwii,Integer nr_sali, Integer nr_lozka) 
+            Integer idOddzialu, String oddzial, String grKrwii,Integer nrSali, Integer nrLozka) 
     {
         if(idPacjenta != null)
-        this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
+            this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
         this.imie = new SimpleStringProperty(imie);
         this.nazwisko = new SimpleStringProperty(nazwisko);
         this.pesel = new SimpleStringProperty(pesel);
@@ -32,8 +33,8 @@ public class Pacjent
         this.idOddzialu = new SimpleIntegerProperty(idOddzialu);
         this.oddzial = new SimpleStringProperty(oddzial);
         this.grKrwii = new SimpleStringProperty(grKrwii);
-        this.nr_sali = new SimpleIntegerProperty(nr_sali);
-        this.nr_lozka = new SimpleIntegerProperty(nr_lozka);
+        this.nrSali = new SimpleIntegerProperty(nrSali);
+        this.nrLozka = new SimpleIntegerProperty(nrLozka);
     }
     
     public IntegerProperty getIdPacjenta() 
@@ -126,20 +127,33 @@ public class Pacjent
         this.grKrwii = grKrwii;
     }
 
-	public IntegerProperty getNr_sali() {
-		return nr_sali;
-	}
+    public IntegerProperty getNrSali() 
+    {
+        return nrSali;
+    }
 
-	public void setNr_sali(IntegerProperty nr_sali) {
-		this.nr_sali = nr_sali;
-	}
+    public void setNrSali(IntegerProperty nrSali) 
+    {
+        this.nrSali = nrSali;
+    }
 
-	public IntegerProperty getNr_lozka() {
-		return nr_lozka;
-	}
+    public StringProperty getNazwaSali() 
+    {
+        return nazwaSali;
+    }
 
-	public void setNr_lozka(IntegerProperty nr_lozka) {
-		this.nr_lozka = nr_lozka;
-	}
+    public void setNazwaSali(StringProperty nazwaSali) 
+    {
+        this.nazwaSali = nazwaSali;
+    }
     
+    public IntegerProperty getNrLozka() 
+    {
+        return nrLozka;
+    }
+
+    public void setNrLozka(IntegerProperty nrLozka) 
+    {
+        this.nrLozka = nrLozka;
+    }
 }

@@ -86,8 +86,8 @@ public class LekarzController
         ColumnPesel.setCellValueFactory(cellData->cellData.getValue().getPesel());
         ColumnOddzial.setCellValueFactory(cellData->cellData.getValue().getOddzial());
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
-        ColumnSala.setCellValueFactory(cellData->cellData.getValue().getNr_sali().asObject());
-        ColumnMiejsce.setCellValueFactory(cellData->cellData.getValue().getNr_lozka().asObject());
+        ColumnSala.setCellValueFactory(cellData->cellData.getValue().getNrSali().asObject());
+        ColumnMiejsce.setCellValueFactory(cellData->cellData.getValue().getNrLozka().asObject());
         
         
         ColumnSalaR.setCellValueFactory(cellData -> cellData.getValue().getSala());

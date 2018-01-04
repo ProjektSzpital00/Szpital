@@ -24,9 +24,11 @@ import szpital.util.BadaniaUtil;
 import szpital.util.Laczenie;
 import szpital.util.LekarzUtil;
 import szpital.util.LekiUtil;
+import szpital.util.LozkoUtil;
 import szpital.util.PacjentUtil;
 import szpital.util.Utils;
 import szpital.util.OddzialUtil;
+import szpital.util.SalaPacjentUtil;
 import szpital.util.Wypis;
 
 public class RejestracjaController 
@@ -64,7 +66,7 @@ public class RejestracjaController
     private TableColumn<Pacjent, String> ColumnGrKrwii;
     
     @FXML
-    private TableColumn<Pacjent, Integer> ColumnSala;
+    private TableColumn<Pacjent, String> ColumnSala;
     
     @FXML
     private TableColumn<Pacjent, Integer> ColumnNrLozka;
@@ -81,8 +83,8 @@ public class RejestracjaController
         ColumnLekarz.setCellValueFactory(cellData->cellData.getValue().getLekarz());
         ColumnOddzial.setCellValueFactory(cellData->cellData.getValue().getOddzial());
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
-        ColumnSala.setCellValueFactory(cellData -> cellData.getValue().getNr_sali().asObject());
-        ColumnNrLozka.setCellValueFactory(cellData -> cellData.getValue().getNr_lozka().asObject());
+        ColumnSala.setCellValueFactory(cellData -> cellData.getValue().getNazwaSali());
+        ColumnNrLozka.setCellValueFactory(cellData -> cellData.getValue().getNrLozka().asObject());
     }
     
     @FXML
@@ -267,8 +269,12 @@ public class RejestracjaController
             addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
             addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
             addPacjentController.setGrKrwii();
-            addPacjentController.setSala();
-            addPacjentController.setNrMiejsce();
+            addPacjentController.init(LozkoUtil.getLozkoList(), SalaPacjentUtil.getSalaPacjentList());
+            addPacjentController.setSalaPacjentList();
+            addPacjentController.setLozkaList();
+            addPacjentController.init2();
+            //addPacjentController.setSala();
+            //addPacjentController.setNrMiejsce();
             
             dialogStage.showAndWait();
         }
@@ -337,7 +343,6 @@ public class RejestracjaController
         });
     }
     
-	
     public void setLoginController(LoginController log)
     {
         this.log = log;
