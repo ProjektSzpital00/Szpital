@@ -67,7 +67,7 @@
             </DatePicker>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="90.0" styleClass="buttonOK" text="Ok">
+                  <Button mnemonicParsing="false" onAction="#ok" prefHeight="28.0" prefWidth="90.0" styleClass="buttonOK" text="Ok">
                      <graphic>
                         <ImageView fitHeight="15.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>

@@ -159,14 +159,14 @@ public class AddBadanieController
                         tmp = rb.getId().intValue();
                     }
                 }
-                System.out.println(tmp);
+                //System.out.println(tmp);
                 
                
                
                 
                 if(this.badanie == null)
                 {
-                     Badania noweBadanie = new Badania(-1,tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
+                    Badania noweBadanie = new Badania(-1,tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
                     System.out.println("Nowe");
                     BadaniaUtil.addBadanie(Laczenie.getStatement(),noweBadanie);
                 }
