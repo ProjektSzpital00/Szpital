@@ -18,11 +18,11 @@
             <state relative-caret-position="340">
               <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding>
-                <marker date="1514684862013" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
-                <marker date="1514684862013" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
-                <marker date="1514684862013" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
-                <marker date="1514684862013" expanded="true" signature="5062:5093" ph="delete from " />
-                <marker date="1514684862013" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
+                <marker date="1515005886790" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
+                <marker date="1515005886790" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
+                <marker date="1515005886790" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
+                <marker date="1515005886790" expanded="true" signature="5062:5093" ph="delete from " />
+                <marker date="1515005886790" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
               </folding>
             </state>
           </provider>
@@ -31,7 +31,7 @@
       <file leaf-file-name="AddPacjentController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/szpital/view/AddPacjentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
+            <state relative-caret-position="3978">
               <caret line="256" column="38" lean-forward="false" selection-start-line="256" selection-start-column="38" selection-end-line="256" selection-end-column="38" />
               <folding />
             </state>
@@ -41,19 +41,19 @@
       <file leaf-file-name="MiejscaUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="130" column="9" lean-forward="true" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
+            <state relative-caret-position="719">
+              <caret line="130" column="9" lean-forward="false" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1514945240951" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-                <marker date="1514945240951" expanded="true" signature="1780:1801" ph="select SaleS... " />
-                <marker date="1514945240951" expanded="true" signature="1780:1920" ph="select SaleS... " />
-                <marker date="1514945240951" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-                <marker date="1514945240951" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-                <marker date="1514945240951" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-                <marker date="1514945240951" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
-                <marker date="1514945240951" expanded="true" signature="3993:4018" ph="update Lozka... " />
-                <marker date="1514945240951" expanded="true" signature="3993:4051" ph="update Lozka... " />
+                <marker date="1515005886789" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
+                <marker date="1515005886789" expanded="true" signature="1780:1801" ph="select SaleS... " />
+                <marker date="1515005886789" expanded="true" signature="1780:1920" ph="select SaleS... " />
+                <marker date="1515005886789" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
+                <marker date="1515005886789" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
+                <marker date="1515005886789" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
+                <marker date="1515005886789" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
+                <marker date="1515005886789" expanded="true" signature="3993:4018" ph="update Lozka... " />
+                <marker date="1515005886789" expanded="true" signature="3993:4051" ph="update Lozka... " />
               </folding>
             </state>
           </provider>
@@ -134,6 +134,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -178,9 +179,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -320,14 +320,16 @@
       <workItem from="1514652030032" duration="17307000" />
       <workItem from="1514898605609" duration="6139000" />
       <workItem from="1514937681383" duration="3844000" />
+      <workItem from="1515005920078" duration="217000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27290000" />
+    <option name="totallyTimeSpent" value="27507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -338,11 +340,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25108695" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25108695" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18695652" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14925373" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15085287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -374,11 +376,72 @@
         <state relative-caret-position="340">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding>
-            <marker date="1514684862013" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1514684862013" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
-            <marker date="1514684862013" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
-            <marker date="1514684862013" expanded="true" signature="5062:5093" ph="delete from " />
-            <marker date="1514684862013" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
+            <marker date="1515005886790" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
+            <marker date="1515005886790" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
+            <marker date="1515005886790" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
+            <marker date="1515005886790" expanded="true" signature="5062:5093" ph="delete from " />
+            <marker date="1515005886790" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/view/AddPacjentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4352">
+          <caret line="256" column="38" lean-forward="false" selection-start-line="256" selection-start-column="38" selection-end-line="256" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1262#1263#0" expanded="true" />
+            <element signature="e#1303#1304#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/model/Pacjent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="130" column="9" lean-forward="true" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1515005886789" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="1780:1801" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1920" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
+            <marker date="1515005886789" expanded="true" signature="3993:4018" ph="update Lozka... " />
+            <marker date="1515005886789" expanded="true" signature="3993:4051" ph="update Lozka... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/PacjentUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <marker date="1515005886790" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
+            <marker date="1515005886790" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
+            <marker date="1515005886790" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
+            <marker date="1515005886790" expanded="true" signature="5062:5093" ph="delete from " />
+            <marker date="1515005886790" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
           </folding>
         </state>
       </provider>
@@ -389,15 +452,15 @@
           <caret line="75" column="13" lean-forward="false" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1514945240951" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1514945240951" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1514945240951" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
-            <marker date="1514945240951" expanded="true" signature="3993:4018" ph="update Lozka... " />
-            <marker date="1514945240951" expanded="true" signature="3993:4051" ph="update Lozka... " />
+            <marker date="1515005886789" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="1780:1801" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1920" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
+            <marker date="1515005886789" expanded="true" signature="3993:4018" ph="update Lozka... " />
+            <marker date="1515005886789" expanded="true" signature="3993:4051" ph="update Lozka... " />
           </folding>
         </state>
       </provider>
@@ -435,11 +498,11 @@
         <state relative-caret-position="340">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding>
-            <marker date="1514684862013" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1514684862013" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
-            <marker date="1514684862013" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
-            <marker date="1514684862013" expanded="true" signature="5062:5093" ph="delete from " />
-            <marker date="1514684862013" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
+            <marker date="1515005886790" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
+            <marker date="1515005886790" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
+            <marker date="1515005886790" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
+            <marker date="1515005886790" expanded="true" signature="5062:5093" ph="delete from " />
+            <marker date="1515005886790" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
           </folding>
         </state>
       </provider>
@@ -450,15 +513,15 @@
           <caret line="76" column="51" lean-forward="true" selection-start-line="76" selection-start-column="51" selection-end-line="76" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1514945240951" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1514945240951" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1514945240951" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
-            <marker date="1514945240951" expanded="true" signature="3993:4018" ph="update Lozka... " />
-            <marker date="1514945240951" expanded="true" signature="3993:4051" ph="update Lozka... " />
+            <marker date="1515005886789" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="1780:1801" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1920" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
+            <marker date="1515005886789" expanded="true" signature="3993:4018" ph="update Lozka... " />
+            <marker date="1515005886789" expanded="true" signature="3993:4051" ph="update Lozka... " />
           </folding>
         </state>
       </provider>
@@ -506,11 +569,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding>
-            <marker date="1513208958891" expanded="true" signature="785:1142" ph="select Badan... BadaniaPacjentow" />
-            <marker date="1513208958891" expanded="true" signature="1904:1925" ph="select * fro... Badania" />
-            <marker date="1513208958891" expanded="true" signature="2505:2803" ph="update Badan... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -539,18 +598,18 @@
         <state relative-caret-position="340">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
           <folding>
-            <marker date="1514684862013" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1514684862013" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
-            <marker date="1514684862013" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
-            <marker date="1514684862013" expanded="true" signature="5062:5093" ph="delete from " />
-            <marker date="1514684862013" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
+            <marker date="1515005886790" expanded="true" signature="606:1009" ph="SELECT Pacje... Pacjenci" />
+            <marker date="1515005886790" expanded="true" signature="2863:3415" ph="insert into Pacjenci... " />
+            <marker date="1515005886790" expanded="true" signature="3911:4456" ph="UPDATE Pacje... " />
+            <marker date="1515005886790" expanded="true" signature="5062:5093" ph="delete from " />
+            <marker date="1515005886790" expanded="true" signature="5708:5746" ph="SELECT id FR... Pacjenci" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/szpital/view/AddPacjentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
+        <state relative-caret-position="3978">
           <caret line="256" column="38" lean-forward="false" selection-start-line="256" selection-start-column="38" selection-end-line="256" selection-end-column="38" />
           <folding />
         </state>
@@ -558,19 +617,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="130" column="9" lean-forward="true" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
+        <state relative-caret-position="719">
+          <caret line="130" column="9" lean-forward="false" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1514945240951" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1514945240951" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1514945240951" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1514945240951" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
-            <marker date="1514945240951" expanded="true" signature="3993:4018" ph="update Lozka... " />
-            <marker date="1514945240951" expanded="true" signature="3993:4051" ph="update Lozka... " />
+            <marker date="1515005886789" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="1780:1801" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1920" ph="select SaleS... " />
+            <marker date="1515005886789" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
+            <marker date="1515005886789" expanded="true" signature="3314:3370" ph="select id fr... Oddzialy" />
+            <marker date="1515005886789" expanded="true" signature="3993:4018" ph="update Lozka... " />
+            <marker date="1515005886789" expanded="true" signature="3993:4051" ph="update Lozka... " />
           </folding>
         </state>
       </provider>
