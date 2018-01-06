@@ -10,41 +10,38 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="700.0" prefWidth="1350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LekarzController">
    <children>
-      <VBox alignment="BASELINE_RIGHT" layoutX="1102.0" layoutY="24.0" spacing="20.0" AnchorPane.bottomAnchor="667.0" AnchorPane.leftAnchor="1102.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="24.0">
+      <VBox alignment="BASELINE_RIGHT" layoutX="1127.0" layoutY="24.0" prefHeight="98.0" prefWidth="199.0" spacing="20.0" AnchorPane.bottomAnchor="716.0" AnchorPane.leftAnchor="1127.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="24.0">
          <children>
-            <Label alignment="BASELINE_LEFT" lineSpacing="10.0" prefHeight="38.0" prefWidth="169.0" text="Aktualnie zalogowany:" underline="true" />
-            <Label fx:id="ktoZalogowany" alignment="BASELINE_LEFT" prefHeight="26.0" prefWidth="190.0" text="Label" />
+            <Label alignment="CENTER" lineSpacing="10.0" prefHeight="38.0" prefWidth="169.0" text="Aktualnie zalogowany:" underline="true" />
+            <Label fx:id="ktoZalogowany" alignment="CENTER" prefHeight="25.0" prefWidth="170.0" text="Label" textAlignment="CENTER" textOverrun="CLIP" />
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </VBox>
-      <HBox alignment="BASELINE_RIGHT" layoutX="519.0" prefHeight="113.0" prefWidth="1087.0" AnchorPane.bottomAnchor="677.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="0.0">
+      <HBox alignment="BASELINE_RIGHT" layoutX="10.0" layoutY="-7.0" prefHeight="193.0" prefWidth="1085.0" AnchorPane.bottomAnchor="652.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="277.0" AnchorPane.topAnchor="-7.0">
          <children>
-            <ImageView fitHeight="148.0" fitWidth="1087.0" pickOnBounds="true">
+            <ImageView fitHeight="171.0" fitWidth="1091.0" pickOnBounds="true">
                <image>
                   <Image url="@image/doctor.jpg" />
                </image>
             </ImageView>
          </children>
       </HBox>
-      <TabPane layoutX="1.0" layoutY="91.0" prefHeight="717.0" prefWidth="1098.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="91.0">
+      <TabPane layoutX="1.0" layoutY="107.0" prefHeight="715.0" prefWidth="1102.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="107.0">
         <tabs>
           <Tab text="Moje Pacjenci">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="640.0" prefWidth="1269.0">
                      <children>
-                        <VBox alignment="BOTTOM_LEFT" layoutY="-1.0" prefHeight="413.0" prefWidth="1096.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                        <VBox alignment="BOTTOM_LEFT" layoutY="-1.0" prefHeight="413.0" prefWidth="1096.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <TableView fx:id="tabelaPacjentow" minWidth="700.0" prefHeight="478.0" prefWidth="1096.0">
+                              <TableView fx:id="tabelaPacjentow" minWidth="700.0" prefHeight="461.0" prefWidth="1096.0">
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                  </columnResizePolicy>
@@ -78,7 +75,7 @@
                               </TableView>
                            </children>
                         </VBox>
-                        <VBox alignment="BOTTOM_LEFT" layoutX="17.0" layoutY="460.0" prefHeight="202.0" prefWidth="500.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="460.0">
+                        <VBox alignment="BOTTOM_LEFT" layoutX="17.0" layoutY="498.0" prefHeight="164.0" prefWidth="502.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="498.0">
                            <children>
                               <TableView maxHeight="161.0" maxWidth="500.0" minHeight="155.0" minWidth="220.0" prefHeight="161.0" prefWidth="300.0">
                                 <columns>
@@ -91,7 +88,7 @@
                               </TableView>
                            </children>
                         </VBox>
-                        <HBox alignment="BOTTOM_RIGHT" layoutX="219.0" layoutY="468.0" prefHeight="32.0" prefWidth="98.0" spacing="10.0" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="781.0" AnchorPane.topAnchor="468.0">
+                        <HBox alignment="BOTTOM_LEFT" layoutX="219.0" layoutY="468.0" prefHeight="32.0" prefWidth="130.0" spacing="10.0" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="749.0" AnchorPane.topAnchor="468.0">
                            <children>
                               <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -101,9 +98,9 @@
                               <Label alignment="BASELINE_LEFT" prefHeight="26.0" prefWidth="58.0" text="Dyżury" />
                            </children>
                         </HBox>
-                        <HBox alignment="BOTTOM_RIGHT" layoutX="730.0" layoutY="465.0" prefHeight="32.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="191.0" AnchorPane.leftAnchor="730.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="465.0">
+                        <HBox alignment="BOTTOM_LEFT" layoutX="730.0" layoutY="465.0" prefHeight="32.0" prefWidth="201.0" spacing="10.0" AnchorPane.bottomAnchor="191.0" AnchorPane.leftAnchor="730.0" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="465.0">
                            <children>
-                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="32.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@image/rezerwacja.2.png" />
                                  </image>
@@ -115,11 +112,11 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Untitled Tab 2">
+          <Tab text="Pacjenci oddziału">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="tabelaPacjentow1" layoutX="8.0" minWidth="700.0" prefHeight="547.0" prefWidth="1079.0" AnchorPane.bottomAnchor="141.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tabelaPacjentow1" layoutX="8.0" minWidth="700.0" prefHeight="640.0" prefWidth="1092.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="0.0">
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
@@ -140,49 +137,9 @@
           </Tab>
         </tabs>
       </TabPane>
-      <GridPane alignment="BASELINE_RIGHT" layoutX="1121.0" layoutY="149.0" prefHeight="278.0" prefWidth="227.0" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="1121.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="149.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="51.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="136.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <VBox alignment="BOTTOM_RIGHT" layoutX="1176.0" layoutY="746.0" prefHeight="32.0" prefWidth="153.0" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="1176.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="746.0">
          <children>
-            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#badania" prefWidth="130.0" text="Badania" GridPane.columnIndex="1" />
-            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#leki" prefHeight="28.0" prefWidth="130.0" text="Przyjmowane leki" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#dodajRezerwacjeSali" prefWidth="130.0" text="Dodaj rezerwacje" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ImageView fitHeight="43.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@image/badania.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@image/leki.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </ImageView>
-            <ImageView fitHeight="53.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
-               <image>
-                  <Image url="@image/rezerwacja.png" />
-               </image>
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </ImageView>
-         </children>
-      </GridPane>
-      <VBox alignment="BOTTOM_RIGHT" layoutX="1170.0" layoutY="765.0" prefHeight="32.0" prefWidth="153.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="1170.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="765.0">
-         <children>
-            <Button alignment="BASELINE_RIGHT" minWidth="100.0" mnemonicParsing="false" onAction="#logout" prefHeight="32.0" prefWidth="134.0" text="Wyloguj się">
+            <Button alignment="BASELINE_RIGHT" minWidth="134.0" mnemonicParsing="false" onAction="#logout" prefHeight="32.0" prefWidth="134.0" text="Wyloguj się">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -193,5 +150,35 @@
             </Button>
          </children>
       </VBox>
+      <HBox alignment="BASELINE_RIGHT" layoutX="1150.0" layoutY="293.0" prefHeight="56.0" prefWidth="189.0" spacing="10.0" AnchorPane.bottomAnchor="479.0" AnchorPane.leftAnchor="1150.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="293.0">
+         <children>
+            <ImageView fitHeight="47.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/rezerwacja.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" minWidth="130.0" mnemonicParsing="false" onAction="#dodajRezerwacjeSali" prefWidth="130.0" text="Dodaj rezerwacje" />
+         </children>
+      </HBox>
+      <HBox alignment="BASELINE_RIGHT" layoutX="1150.0" layoutY="216.0" prefHeight="46.0" prefWidth="189.0" spacing="10.0" AnchorPane.bottomAnchor="566.0" AnchorPane.leftAnchor="1150.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="216.0">
+         <children>
+            <ImageView fitHeight="49.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/leki.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" minWidth="130.0" mnemonicParsing="false" onAction="#leki" prefHeight="28.0" prefWidth="130.0" text="Przyjmowane leki" />
+         </children>
+      </HBox>
+      <HBox alignment="BASELINE_RIGHT" layoutX="1150.0" layoutY="150.0" prefHeight="46.0" prefWidth="189.0" spacing="10.0" AnchorPane.bottomAnchor="632.0" AnchorPane.leftAnchor="1150.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="150.0">
+         <children>
+            <ImageView fitHeight="43.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/badania.png" />
+               </image>
+            </ImageView>
+            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#badania" prefWidth="130.0" text="Badania" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

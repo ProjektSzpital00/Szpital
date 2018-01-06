@@ -141,6 +141,12 @@ public class BadaniaController
         
             Scene scene = new Scene(anchorPane);
             dialogStage.setScene(scene);
+            dialogStage.setMinHeight(400);
+            dialogStage.setMinWidth(450);
+            dialogStage.setHeight(400);
+            dialogStage.setWidth(450);
+            dialogStage.setMaxHeight(400);
+            dialogStage.setMaxWidth(450);
             
             AddBadanieController addBadanieController = loader.getController();
             addBadanieController.setBadanieController(this);

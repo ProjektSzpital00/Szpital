@@ -101,6 +101,12 @@ public class LekiController
             
             Stage dialogStage = new Stage();
             dialogStage.setTitle(stageTitle);
+            dialogStage.setMinHeight(400);
+            dialogStage.setMinWidth(400);
+            dialogStage.setHeight(400);
+            dialogStage.setWidth(400);
+            dialogStage.setMaxHeight(400);
+            dialogStage.setMaxWidth(400);
         
             Scene scene = new Scene(anchorPane);
             dialogStage.setScene(scene);
