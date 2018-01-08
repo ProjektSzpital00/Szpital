@@ -169,17 +169,17 @@ public class LoginController
         }
     }
 
-    private void setOrdynatorController(Account account)
-    {
+    private void setOrdynatorController(Account account) throws SQLException, ClassNotFoundException {
         try
         {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("OrdynatorScreen.fxml"));
             AnchorPane anchorPane = loader.load();
             
-            LekarzController lekarzController = loader.getController();
-            lekarzController.setAccount(account);
-            lekarzController.setLoginController(this);
-            
+            OrdynatorController ordynatorController = loader.getController();
+            ordynatorController.setAccount(account);
+            ordynatorController.setLoginController(this);
+            ordynatorController.setPacjentList(PacjentUtil.getPacjentList());
+            ordynatorController.setRezerwacjeSal();
             setScreen(anchorPane);
         }
         catch(IllegalStateException ex)

@@ -79,9 +79,6 @@ public class MiejscaUtil {
             while (rs.next()) {
                 LozkaList.add(rs.getString("Lozka.Id"));
             }
-
-
-
         }catch (SQLException ex)
         {
             throw new SQLException("Błąd zapytania2", ex);
@@ -90,7 +87,6 @@ public class MiejscaUtil {
         {
             throw ex;
         }
-
         return LozkaList;
     }
 

@@ -137,7 +137,7 @@ public class LekarzController
                 dialogStage.setScene(scene);
 
                 BadaniaController badaniaController = loader.getController();
-                badaniaController.setRejestracjaController(this);
+                badaniaController.setRejestracjaController1(this);
                 badaniaController.setStage(dialogStage);
                 badaniaController.setWybranyPacjent(wybranyPacjent);
                 //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
