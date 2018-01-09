@@ -3,6 +3,8 @@ package szpital.view;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Observable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,6 +24,7 @@ import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
 import szpital.util.RezerwacjaUtil;
 import szpital.util.SalaUtil;
+import szpital.util.StatystykaUtil;
 import szpital.util.Utils;
 
 public class LekarzController 
@@ -75,6 +78,47 @@ public class LekarzController
     
     @FXML
     private Label ktoZalogowany;
+    
+    /*
+    @FXML
+    public void statystyka() throws SQLException, ClassNotFoundException
+    {
+        try
+            {
+
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("stat.fxml"));
+
+                AnchorPane anchorPane = loader.load();
+
+                Stage dialogStage = new Stage();
+                dialogStage.setTitle("Statystyka");
+
+                Scene scene = new Scene(anchorPane);
+                dialogStage.setScene(scene);
+                /*
+                BadaniaController badaniaController = loader.getController();
+                badaniaController.setRejestracjaController(this);
+                badaniaController.setStage(dialogStage);
+                badaniaController.setWybranyPacjent(wybranyPacjent);
+               
+                //badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
+                
+                dialogStage.showAndWait();
+            }
+            catch (IllegalStateException | IOException exc) 
+            {
+                Utils.alertWyswietl(exc);
+            }
+
+        
+        
+        
+        
+        System.out.println("stat");
+        StatystykaUtil.getStatystykaList();
+    }
+    */
+    
     
     
     @FXML
@@ -140,7 +184,7 @@ public class LekarzController
                 badaniaController.setRejestracjaController(this);
                 badaniaController.setStage(dialogStage);
                 badaniaController.setWybranyPacjent(wybranyPacjent);
-                //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
+               
                 badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
                 
                 dialogStage.showAndWait();

@@ -118,5 +118,6 @@
             <Label text="Label" />
          </children>
       </VBox>
+      <Button layoutX="1173.0" layoutY="427.0" mnemonicParsing="false" onAction="#statystyka" text="Statystyki" />
    </children>
 </AnchorPane>

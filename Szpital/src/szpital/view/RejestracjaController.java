@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -29,6 +30,7 @@ import szpital.util.PacjentUtil;
 import szpital.util.Utils;
 import szpital.util.OddzialUtil;
 import szpital.util.SalaPacjentUtil;
+import szpital.util.StatystykaUtil;
 import szpital.util.Wypis;
 
 public class RejestracjaController 
@@ -70,6 +72,8 @@ public class RejestracjaController
     
     @FXML
     private TableColumn<Pacjent, Integer> ColumnNrLozka;
+    
+    
     
     
     @FXML
@@ -342,6 +346,38 @@ public class RejestracjaController
             }
         });
     }
+    
+    @FXML
+    public void statystyka() throws SQLException, ClassNotFoundException
+    {
+        try
+            {
+
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Statystyki.fxml"));
+
+                AnchorPane anchorPane = loader.load();
+
+                Stage dialogStage = new Stage();
+                dialogStage.setTitle("Statystyka");
+
+                Scene scene = new Scene(anchorPane);
+                dialogStage.setScene(scene);
+                
+                dialogStage.showAndWait();
+            }
+            catch (IllegalStateException | IOException exc) 
+            {
+                Utils.alertWyswietl(exc);
+            }
+
+        
+        
+        
+        
+        //System.out.println("stat");
+        StatystykaUtil.getStatystykaList();
+    }
+    
     
     public void setLoginController(LoginController log)
     {
