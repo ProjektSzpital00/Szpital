@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -81,7 +82,7 @@ public class RezerwacjaSaliController
             {
                 godzinyList.add(i+":00:00");
             }
-        }     
+        }   
     }
     
     @FXML
@@ -369,6 +370,21 @@ public class RezerwacjaSaliController
                 setRezerwacjeList();
             }
         });
+        
+        datePicker.setDayCellFactory(picker -> new DateCell() 
+        {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) 
+            {
+                super.updateItem(date, empty);
+                if(date.isBefore(LocalDate.now()))
+                {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
+            }
+        });
+        datePicker.setEditable(false);
     }
 
     public void setStage(Stage dialoStage) 
