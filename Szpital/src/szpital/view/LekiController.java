@@ -47,6 +47,7 @@ public class LekiController
     private Pacjent wybranyPacjent;
     
     private LekarzController lekarzController;
+    private OrdynatorController ordynatorController;
     
     
     
@@ -131,7 +132,12 @@ public class LekiController
     {
         this.lekarzController = lekarzController;
     }
-    
+
+    public void setRejestracjaControllerOrdynator(OrdynatorController ordynatorController)
+    {
+        this.ordynatorController = ordynatorController;
+    }
+
     public void setStage(Stage dialoStage) 
     {
         this.dialoStage = dialoStage;

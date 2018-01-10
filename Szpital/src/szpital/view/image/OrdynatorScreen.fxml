@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1350.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LekarzController">
+   <children>
+      <VBox alignment="BASELINE_RIGHT" layoutX="1102.0" layoutY="24.0" spacing="20.0" AnchorPane.bottomAnchor="667.0" AnchorPane.leftAnchor="1102.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="24.0">
+         <children>
+            <Label alignment="BASELINE_LEFT" lineSpacing="10.0" prefHeight="38.0" prefWidth="169.0" text="Aktualnie zalogowany:" underline="true" />
+            <Label fx:id="ktoZalogowany" alignment="BASELINE_LEFT" prefHeight="26.0" prefWidth="190.0" text="Label" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+      <HBox alignment="BASELINE_RIGHT" layoutX="519.0" prefHeight="113.0" prefWidth="1087.0" AnchorPane.bottomAnchor="677.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="148.0" fitWidth="1087.0" pickOnBounds="true">
+               <image>
+                  <Image url="@image/doctor.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <TabPane layoutX="1.0" layoutY="91.0" prefHeight="717.0" prefWidth="1098.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="275.0" AnchorPane.topAnchor="91.0">
+        <tabs>
+          <Tab text="Moje Pacjenci">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="640.0" prefWidth="1269.0">
+                     <children>
+                        <VBox alignment="BOTTOM_LEFT" layoutY="-1.0" prefHeight="413.0" prefWidth="1096.0" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+                           <children>
+                              <TableView fx:id="tabelaPacjentow" minWidth="700.0" prefHeight="478.0" prefWidth="1096.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <columns>
+                                    <TableColumn fx:id="ColumnIdPacjenta" prefWidth="75.0" text="ID" />
+                                    <TableColumn fx:id="ColumnImie" prefWidth="75.0" text="Imie" />
+                                    <TableColumn fx:id="ColumnNazwisko" prefWidth="75.0" text="Nazwisko" />
+                                    <TableColumn fx:id="ColumnPesel" prefWidth="75.0" text="Pesel" />
+                                    <TableColumn fx:id="ColumnGrKrwii" prefWidth="75.0" text="Gr_Krwi" />
+                                    <TableColumn fx:id="ColumnOddzial" prefWidth="75.0" text="Oddział" />
+                                    <TableColumn fx:id="ColumnSala" prefWidth="75.0" text="Sala" />
+                                    <TableColumn fx:id="ColumnMiejsce" prefWidth="75.0" text="Miejsce" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_LEFT" layoutX="548.0" layoutY="493.0" prefHeight="166.0" prefWidth="544.0" AnchorPane.bottomAnchor="29.0" AnchorPane.leftAnchor="548.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="493.0">
+                           <children>
+                              <TableView fx:id="tabelaRezerwacji" maxHeight="172.0" maxWidth="600.0" minHeight="152.0" minWidth="250.0" prefHeight="160.0" prefWidth="300.0">
+                                 <columns>
+                                    <TableColumn fx:id="ColumnSalaR" prefWidth="75.0" text="Sala" />
+                                    <TableColumn fx:id="ColumnDataR" prefWidth="75.0" text="Termin" />
+                                    <TableColumn fx:id="ColumnInformacjaR" prefWidth="75.0" text="Informacja" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_LEFT" layoutX="17.0" layoutY="460.0" prefHeight="202.0" prefWidth="500.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="579.0" AnchorPane.topAnchor="460.0">
+                           <children>
+                              <TableView maxHeight="161.0" maxWidth="500.0" minHeight="155.0" minWidth="220.0" prefHeight="161.0" prefWidth="300.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="Data" />
+                                  <TableColumn prefWidth="75.0" text="Godzina" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <HBox alignment="BOTTOM_RIGHT" layoutX="219.0" layoutY="468.0" prefHeight="32.0" prefWidth="98.0" spacing="10.0" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="781.0" AnchorPane.topAnchor="468.0">
+                           <children>
+                              <ImageView fitHeight="44.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@image/dyzury.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="BASELINE_LEFT" prefHeight="26.0" prefWidth="58.0" text="Dyżury" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_RIGHT" layoutX="730.0" layoutY="465.0" prefHeight="32.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="191.0" AnchorPane.leftAnchor="730.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="465.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@image/rezerwacja.2.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="BASELINE_LEFT" prefHeight="26.0" prefWidth="117.0" text="Rezerwacja sali" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tabelaPacjentow1" layoutX="8.0" minWidth="700.0" prefHeight="547.0" prefWidth="1079.0" AnchorPane.bottomAnchor="141.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="0.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn fx:id="ColumnIdPacjenta1" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="ColumnImie1" prefWidth="75.0" text="Imie" />
+                              <TableColumn fx:id="ColumnNazwisko1" prefWidth="75.0" text="Nazwisko" />
+                              <TableColumn fx:id="ColumnPesel1" prefWidth="75.0" text="Pesel" />
+                              <TableColumn fx:id="ColumnGrKrwii1" prefWidth="75.0" text="Gr_Krwi" />
+                              <TableColumn fx:id="ColumnOddzial1" prefWidth="75.0" text="Oddział" />
+                              <TableColumn fx:id="ColumnSala1" prefWidth="75.0" text="Sala" />
+                              <TableColumn fx:id="ColumnMiejsce1" prefWidth="75.0" text="Miejsce" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <GridPane alignment="BASELINE_RIGHT" layoutX="1121.0" layoutY="149.0" prefHeight="278.0" prefWidth="227.0" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="1121.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="149.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="51.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="136.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="94.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#badania" prefWidth="130.0" text="Badania" GridPane.columnIndex="1" />
+            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#leki" prefHeight="28.0" prefWidth="130.0" text="Przyjmowane leki" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#dodajRezerwacjeSali" prefWidth="130.0" text="Dodaj rezerwacje" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ImageView fitHeight="43.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/badania.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@image/leki.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@image/rezerwacja.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </ImageView>
+         </children>
+      </GridPane>
+      <VBox alignment="BOTTOM_RIGHT" layoutX="1170.0" layoutY="765.0" prefHeight="32.0" prefWidth="153.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="1170.0" AnchorPane.rightAnchor="51.0" AnchorPane.topAnchor="765.0">
+         <children>
+            <Button alignment="BASELINE_RIGHT" minWidth="100.0" mnemonicParsing="false" onAction="#logout" prefHeight="32.0" prefWidth="134.0" text="Wyloguj się">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/exit.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

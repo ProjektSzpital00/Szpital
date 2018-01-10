@@ -55,6 +55,8 @@ public class BadaniaController
     private Pacjent wybranyPacjent;
     
     private LekarzController lekarzController;
+
+    private OrdynatorController ordynatorController;
     
     
     public void setBadaniaList()
@@ -113,9 +115,9 @@ public class BadaniaController
         }
     }
     
-    public void setRejestracjaController(LekarzController lekarzController) 
+    public void setRejestracjaController(OrdynatorController ordynatorController)
     {
-        this.lekarzController = lekarzController;
+        this.ordynatorController = ordynatorController;
     }
     
     public void setId(Integer i)
@@ -127,7 +129,11 @@ public class BadaniaController
     {
         this.dialoStage = dialoStage;
     }
-    
+
+    public void setRejestracjaController1(LekarzController lekarzController)
+    {
+        this.lekarzController = lekarzController;
+    }
     
     private void wczytajAddBadanieScreen(Badania badanie, String stageTitle)
     {
@@ -161,6 +167,8 @@ public class BadaniaController
             Utils.alertWyswietl(exc);
         }
     }
+
+
 
     /**
      * @return the wybranyPacjent
