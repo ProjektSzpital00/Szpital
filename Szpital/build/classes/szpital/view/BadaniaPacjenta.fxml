@@ -21,9 +21,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <HBox alignment="BASELINE_RIGHT" layoutX="460.0" layoutY="476.0" prefHeight="32.0" prefWidth="217.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="476.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="460.0" layoutY="476.0" prefHeight="32.0" prefWidth="217.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="476.0">
          <children>
-          <Button mnemonicParsing="false" onAction="#dodajBadanie" prefHeight="32.0" prefWidth="108.0" styleClass="buttonOK" text="Dodaj">
+          <Button maxHeight="32.0" maxWidth="108.0" minHeight="32.0" minWidth="108.0" mnemonicParsing="false" onAction="#dodajBadanie" prefHeight="32.0" prefWidth="108.0" styleClass="buttonOK" text="Dodaj">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -32,7 +32,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" onAction="#editBadanie" prefWidth="100.0" styleClass="buttonCANCEL" text="Edit..">
+            <Button maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#editBadanie" prefWidth="100.0" styleClass="buttonCANCEL" text="Edit..">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -30,6 +30,10 @@ public class MainProgram extends Application
             Scene scene = new Scene(anchorPane);
 
             primaryStage.setScene(scene);
+            primaryStage.setMaxHeight(320);
+            primaryStage.setMaxWidth(310);
+            primaryStage.setMinHeight(320);
+            primaryStage.setMinWidth(310);
             primaryStage.show();
         }
         catch(IOException | IllegalStateException ex)

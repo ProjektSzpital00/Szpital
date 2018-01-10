@@ -262,7 +262,12 @@ public class RejestracjaController
             
             Stage dialogStage = new Stage();
             dialogStage.setTitle(stageTitle);
-        
+            dialogStage.setHeight(650);
+            dialogStage.setWidth(350);
+            dialogStage.setMinHeight(650);
+            dialogStage.setMinWidth(350);
+            dialogStage.setMaxHeight(650);
+            dialogStage.setMaxWidth(350);
             Scene scene = new Scene(anchorPane);
             dialogStage.setScene(scene);
             

@@ -148,6 +148,7 @@ public class LekarzController
         LekarzUtil.clearLekarzList();
         OddzialUtil.clearOddzialyList();
         log.setLoginScreen();
+        
     }
     
     public void setAccount(Account account)
@@ -257,6 +258,12 @@ public class LekarzController
 
             Scene scene = new Scene(anchorPane);
             dialogStage.setScene(scene);
+            dialogStage.setMinHeight(500);
+            dialogStage.setMinWidth(680);
+            dialogStage.setHeight(500);
+            dialogStage.setWidth(680);
+            dialogStage.setMaxHeight(500);
+            dialogStage.setMaxWidth(680);
 
             RezerwacjaSaliController rezerwacjaSaliController = loader.getController();
             rezerwacjaSaliController.setLekarzController(this);
