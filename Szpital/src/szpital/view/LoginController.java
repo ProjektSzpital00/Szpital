@@ -199,7 +199,17 @@ public class LoginController
             ordynatorController.setLoginController(this);
             ordynatorController.setPacjentList(PacjentUtil.getPacjentList());
             ordynatorController.setRezerwacjeSal();
-            setScreen(anchorPane);
+           // setScreen(anchorPane);
+             Scene scene = new Scene(anchorPane);
+            primaryStage.centerOnScreen();
+            primaryStage.setWidth(1400);
+            primaryStage.setHeight(800);
+            primaryStage.setMinWidth(1350);
+            primaryStage.setMinHeight(800);
+            primaryStage.setMaxWidth(1500);
+            primaryStage.setMaxHeight(750);
+            primaryStage.setScene(scene);
+            primaryStage.show();
         }
         catch(IllegalStateException ex)
         {
