@@ -48,22 +48,22 @@ public class SalaUtil
         salaList.clear();
     }
     
-    public static void addSala(Statement statement, Sala sala)
+    public static void addSala(Sala sala)
     {
         
     }
     
-    public static void updateSala(Statement statement, Sala sala)
+    public static void updateSala(Sala sala)
     {
         
     }
     
-    public static void deleteSala(Statement statement, Integer idSali)
+    public static void deleteSala(Integer idSali)
     {
         
     }
     
-    public static Integer searchSalaId(Statement statement, String nazwaSali)
+    public static Integer searchSalaId(String nazwaSali)
     {
         Integer ip = null;
         

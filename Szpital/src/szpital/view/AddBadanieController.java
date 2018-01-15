@@ -168,7 +168,7 @@ public class AddBadanieController
                 {
                     Badania noweBadanie = new Badania(-1,tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
                     System.out.println("Nowe");
-                    BadaniaUtil.addBadanie(Laczenie.getStatement(),noweBadanie);
+                    BadaniaUtil.addBadanie(noweBadanie);
                 }
                 else
                 {

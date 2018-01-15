@@ -185,7 +185,7 @@ public class AddLekiController
                 //System.out.println("Nowe lek");
          
                  
-                LekiUtil.addLekPacjenta(Laczenie.getStatement(), lekPacjenta);
+                LekiUtil.addLekPacjenta(lekPacjenta);
                 
                 lekiController.ladujListe(wybranyPacjent.getIdPacjenta().intValue());
                 dialoStage.close();

@@ -49,22 +49,22 @@ public class OddzialUtil
         oddzialList.clear();
     }
     
-    public static void addOddzial(Statement statement, Oddzial oddzial)
+    public static void addOddzial(Oddzial oddzial)
     {
         
     }
     
-    public static void updateOddzial(Statement statement, Oddzial oddzial)
+    public static void updateOddzial(Oddzial oddzial)
     {
         
     }
     
-    public static void deleteOddzial(Statement statement, IntegerProperty idOddzialu)
+    public static void deleteOddzial(IntegerProperty idOddzialu)
     {
         
     }
     
-    public static Integer searchOddzialId(Statement statement, String nazwaOddzialu)
+    public static Integer searchOddzialId(String nazwaOddzialu)
     {
         Integer ip = null;
         

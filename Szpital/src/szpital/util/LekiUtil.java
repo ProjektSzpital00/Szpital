@@ -65,7 +65,7 @@ public class LekiUtil {
             return rodzajeLekowList;
     }
     
-    public static void addLekPacjenta(Statement statement, Leki lek) throws SQLException {
+    public static void addLekPacjenta(Leki lek) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
 			

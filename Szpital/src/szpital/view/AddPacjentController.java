@@ -103,26 +103,26 @@ public class AddPacjentController
                         String temp = lekarz.getSelectionModel().getSelectedItem();
                         String [] t = temp.split(" ");
                         if(t.length < 2)
-                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), " ", t[0]);
+                            idLekarza = LekarzUtil.searchLekarzId(" ", t[0]);
                         else
-                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), t[1], t[0]);
+                            idLekarza = LekarzUtil.searchLekarzId(t[1], t[0]);
                         pacjent.setIdLekarza(new SimpleIntegerProperty(idLekarza));
                         pacjent.setLekarz(new SimpleStringProperty(temp));
 
                         temp = oddzial.getSelectionModel().getSelectedItem();
-                        idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
+                        idOddzialu = OddzialUtil.searchOddzialId(temp);
                         pacjent.setIdOddzialu(new SimpleIntegerProperty(idOddzialu));
                         pacjent.setOddzial(new SimpleStringProperty(oddzial.getSelectionModel().getSelectedItem()));
 
                         pacjent.setGrKrwii(new SimpleStringProperty(grKrwii.getSelectionModel().getSelectedItem()));
 
                         temp = sala.getSelectionModel().getSelectedItem();
-                        idSali = SalaPacjentUtil.searchSalaPacjentId(Laczenie.getStatement(), temp);
+                        idSali = SalaPacjentUtil.searchSalaPacjentId(temp);
                         pacjent.setNrSali(new SimpleIntegerProperty(idSali));
                         
                         pacjent.setNrLozka(new SimpleIntegerProperty(nrLozka.getSelectionModel().getSelectedItem()));
 
-                        PacjentUtil.updatePacjent(Laczenie.getStatement(), pacjent);
+                        PacjentUtil.updatePacjent(pacjent);
                         if(idSali.equals(0))
                             LozkoUtil.zmiannaStatusuLozka(0, idSali);
                         PacjentUtil.clearPacjentList();
@@ -156,22 +156,22 @@ public class AddPacjentController
                         String temp = lekarz.getSelectionModel().getSelectedItem();
                         String [] t = temp.split(" ");
                         if(t.length < 2)
-                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), " ", t[0]);
+                            idLekarza = LekarzUtil.searchLekarzId(" ", t[0]);
                         else
-                            idLekarza = LekarzUtil.searchLekarzId(Laczenie.getStatement(), t[1], t[0]);
+                            idLekarza = LekarzUtil.searchLekarzId(t[1], t[0]);
 
                         temp = oddzial.getSelectionModel().getSelectedItem();
-                        idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
+                        idOddzialu = OddzialUtil.searchOddzialId(temp);
                         
                         temp = sala.getSelectionModel().getSelectedItem();
-                        idSali = SalaPacjentUtil.searchSalaPacjentId(Laczenie.getStatement(), temp);
+                        idSali = SalaPacjentUtil.searchSalaPacjentId(temp);
                         
                         pacjent = new Pacjent(null, imieField.getText(), nazwiskoField.getText(), peselField.getText(), 
                                 idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, 
                                 oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem(),
                                 idSali, nrLozka.getSelectionModel().getSelectedItem());
                         
-                        PacjentUtil.addPacjent(Laczenie.getStatement(), pacjent);
+                        PacjentUtil.addPacjent(pacjent);
                         if(!idSali.equals(0))
                             LozkoUtil.zmiannaStatusuLozka(0, idSali);
                         PacjentUtil.clearPacjentList();
@@ -301,7 +301,7 @@ public class AddPacjentController
     {
         this.salaPacjentList = FXCollections.observableArrayList();
         String temp = oddzial.getSelectionModel().getSelectedItem();
-        Integer idOddzialu = OddzialUtil.searchOddzialId(Laczenie.getStatement(), temp);
+        Integer idOddzialu = OddzialUtil.searchOddzialId(temp);
         for(SalaPacjent sP : salaAllList)
         {
             if(sP.getIdOddzialu().getValue().equals(0))
@@ -333,7 +333,7 @@ public class AddPacjentController
     {
         this.lozkaList = FXCollections.observableArrayList();
         String temp = sala.getSelectionModel().getSelectedItem();
-        Integer idSali = SalaPacjentUtil.searchSalaPacjentId(Laczenie.getStatement(), temp);
+        Integer idSali = SalaPacjentUtil.searchSalaPacjentId(temp);
         
         for(Lozko l : lozkoAllList)
         {

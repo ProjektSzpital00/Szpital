@@ -48,22 +48,22 @@ public class SalaPacjentUtil
         salaPacjentList.clear();
     }
     
-    public static void addSalaPacjent(Statement statement, SalaPacjent salaPacjent)
+    public static void addSalaPacjent(SalaPacjent salaPacjent)
     {
         
     }
     
-    public static void updateSalaPacjent(Statement statement, SalaPacjent salaPacjent)
+    public static void updateSalaPacjent(SalaPacjent salaPacjent)
     {
         
     }
     
-    public static void deleteSalaPacjent(Statement statement, Integer idSalaPacjent)
+    public static void deleteSalaPacjent(Integer idSalaPacjent)
     {
         
     }
     
-    public static Integer searchSalaPacjentId(Statement statement, String nazwaSali)
+    public static Integer searchSalaPacjentId(String nazwaSali)
     {
         Integer ip = null;
         

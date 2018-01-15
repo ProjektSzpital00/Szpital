@@ -16,11 +16,6 @@ public class Rezerwacja
     StringProperty terminData;
     StringProperty terminCzas;
     StringProperty informacja;
-
-    public Rezerwacja(String czas)
-    {
-        this.terminCzas = new SimpleStringProperty(czas);
-    }
     
     public Rezerwacja(String data, String czas, Integer idSali, String sala)
     {

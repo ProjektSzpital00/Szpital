@@ -70,17 +70,17 @@ public class LozkoUtil
         lozkoList.clear();
     }
     
-    public static void addLozkoList(Statement statement, Lozko lozko)
+    public static void addLozkoList(Lozko lozko)
     {
         
     }
     
-    public static void updateLozkoList(Statement statement, Lozko lozko)
+    public static void updateLozkoList(Lozko lozko)
     {
         
     }
     
-    public static void deleteLozkoList(Statement statement, Integer idLozka)
+    public static void deleteLozkoList(Integer idLozka)
     {
         
     }

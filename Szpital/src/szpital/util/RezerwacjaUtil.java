@@ -125,7 +125,7 @@ public class RezerwacjaUtil
         rezerwcjaList2.clear();
     }
     
-    public static void addRezerwacja(Statement statement, Rezerwacja rezerwacja) throws SQLException
+    public static void addRezerwacja(Rezerwacja rezerwacja) throws SQLException
     {
         try 
         {
@@ -151,7 +151,7 @@ public class RezerwacjaUtil
         }
     }
     
-    public static void updateRezerwacja(Statement statement, Rezerwacja rezerwacja) throws SQLException
+    public static void updateRezerwacja(Rezerwacja rezerwacja) throws SQLException
     {
         try 
         {
@@ -173,7 +173,7 @@ public class RezerwacjaUtil
         }
     }
     
-    public static void deleteRezerwacja(Statement statement, Integer idRezerwacji)
+    public static void deleteRezerwacja(Integer idRezerwacji)
     {
         try 
         {
@@ -195,7 +195,7 @@ public class RezerwacjaUtil
         }
     }
     
-    public static Integer searchRezerwacjaId(Statement statement, String termin)
+    public static Integer searchRezerwacjaId(String termin)
     {
         Integer ip = null;
         

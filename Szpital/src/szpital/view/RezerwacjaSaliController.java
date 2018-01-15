@@ -127,7 +127,7 @@ public class RezerwacjaSaliController
                     if (result.get() == ButtonType.OK)
                     {
                         r.setIdRezerwującego(new SimpleIntegerProperty(ordynatorController.getAccount().getId_lekarza()));
-                        RezerwacjaUtil.addRezerwacja(Laczenie.getStatement(), r);
+                        RezerwacjaUtil.addRezerwacja(r);
                         RezerwacjaUtil.clearRezerwacjaList();
                         setRezerwacjeList();
                         RezerwacjaUtil.clearRezerwacjaList2();
@@ -145,7 +145,7 @@ public class RezerwacjaSaliController
                 }
                 dialoStage.close();
             }
-            catch (SQLException | ClassNotFoundException  ex) 
+            catch (SQLException ex) 
             {
                 Utils.alertWyswietl(ex);
             }
@@ -194,7 +194,7 @@ public class RezerwacjaSaliController
                     if (result.get() == ButtonType.OK)
                     {
                         r.setIdRezerwującego(new SimpleIntegerProperty(lekarzController.getAccount().getId_lekarza()));
-                        RezerwacjaUtil.addRezerwacja(Laczenie.getStatement(), r);
+                        RezerwacjaUtil.addRezerwacja(r);
                         RezerwacjaUtil.clearRezerwacjaList();
                         setRezerwacjeList();
                         RezerwacjaUtil.clearRezerwacjaList2();
@@ -212,7 +212,7 @@ public class RezerwacjaSaliController
                 }
                 dialoStage.close();
             }
-            catch (SQLException | ClassNotFoundException  ex)
+            catch (SQLException ex)
             {
                 Utils.alertWyswietl(ex);
             }
@@ -243,43 +243,36 @@ public class RezerwacjaSaliController
         }
         else
         {
-            try
+            for(Rezerwacja r : tempList3)
             {
-                for(Rezerwacja r : tempList3)
-                {
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Potwierdzenie operacji");
-                    alert.setHeaderText("Usunięcie rezerwacji");
-                    alert.setContentText("Czy chcesz usunąć następującą rezerwację: \n\n"
-                            + "Data:\t\t\t\t"+r.getTerminData().getValue()+"\n"
-                            + "Godzina:\t\t\t\t"+r.getTerminCzas().getValue()+"\n"
-                            + "Sala:\t\t\t\t\t"+r.getSala().getValue()+"\n");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Potwierdzenie operacji");
+                alert.setHeaderText("Usunięcie rezerwacji");
+                alert.setContentText("Czy chcesz usunąć następującą rezerwację: \n\n"
+                        + "Data:\t\t\t\t"+r.getTerminData().getValue()+"\n"
+                        + "Godzina:\t\t\t\t"+r.getTerminCzas().getValue()+"\n"
+                        + "Sala:\t\t\t\t\t"+r.getSala().getValue()+"\n");
 
-                    Optional<ButtonType> result = alert.showAndWait();
-                    if (result.get() == ButtonType.OK)
-                    {
-                        RezerwacjaUtil.deleteRezerwacja(Laczenie.getStatement(), RezerwacjaUtil.searchRezerwacjaId(Laczenie.getStatement(), r.getTermin().getValue()));
-                        RezerwacjaUtil.clearRezerwacjaList();
-                        setRezerwacjeList();
-                        RezerwacjaUtil.clearRezerwacjaList2();
-                        lekarzController.setRezerwacjeSal();
-                        alert.close();
-                        alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Potwierdzenie dokonania operacji");
-                        alert.setHeaderText("Pomyślnie usunięto rezerwacje");
-                        alert.showAndWait();   
-                    }
-                    else
-                    {
-                        alert.close();
-                    }  
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK)
+                {
+                    RezerwacjaUtil.deleteRezerwacja(RezerwacjaUtil.searchRezerwacjaId(r.getTermin().getValue()));
+                    RezerwacjaUtil.clearRezerwacjaList();
+                    setRezerwacjeList();
+                    RezerwacjaUtil.clearRezerwacjaList2();
+                    lekarzController.setRezerwacjeSal();
+                    alert.close();
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Potwierdzenie dokonania operacji");
+                    alert.setHeaderText("Pomyślnie usunięto rezerwacje");
+                    alert.showAndWait();   
                 }
-                dialoStage.close();
+                else
+                {
+                    alert.close();
+                }  
             }
-            catch (SQLException | ClassNotFoundException  ex) 
-            {
-                Utils.alertWyswietl(ex);
-            }
+            dialoStage.close();
         }
     }
 
@@ -307,43 +300,36 @@ public class RezerwacjaSaliController
         }
         else
         {
-            try
+            for(Rezerwacja r : tempList3)
             {
-                for(Rezerwacja r : tempList3)
-                {
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Potwierdzenie operacji");
-                    alert.setHeaderText("Usunięcie rezerwacji");
-                    alert.setContentText("Czy chcesz usunąć następującą rezerwację: \n\n"
-                            + "Data:\t\t\t\t"+r.getTerminData().getValue()+"\n"
-                            + "Godzina:\t\t\t\t"+r.getTerminCzas().getValue()+"\n"
-                            + "Sala:\t\t\t\t\t"+r.getSala().getValue()+"\n");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Potwierdzenie operacji");
+                alert.setHeaderText("Usunięcie rezerwacji");
+                alert.setContentText("Czy chcesz usunąć następującą rezerwację: \n\n"
+                        + "Data:\t\t\t\t"+r.getTerminData().getValue()+"\n"
+                        + "Godzina:\t\t\t\t"+r.getTerminCzas().getValue()+"\n"
+                        + "Sala:\t\t\t\t\t"+r.getSala().getValue()+"\n");
 
-                    Optional<ButtonType> result = alert.showAndWait();
-                    if (result.get() == ButtonType.OK)
-                    {
-                        RezerwacjaUtil.deleteRezerwacja(Laczenie.getStatement(), RezerwacjaUtil.searchRezerwacjaId(Laczenie.getStatement(), r.getTermin().getValue()));
-                        RezerwacjaUtil.clearRezerwacjaList();
-                        setRezerwacjeList();
-                        RezerwacjaUtil.clearRezerwacjaList2();
-                        ordynatorController.setRezerwacjeSal();
-                        alert.close();
-                        alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.setTitle("Potwierdzenie dokonania operacji");
-                        alert.setHeaderText("Pomyślnie usunięto rezerwacje");
-                        alert.showAndWait();
-                    }
-                    else
-                    {
-                        alert.close();
-                    }
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK)
+                {
+                    RezerwacjaUtil.deleteRezerwacja(RezerwacjaUtil.searchRezerwacjaId(r.getTermin().getValue()));
+                    RezerwacjaUtil.clearRezerwacjaList();
+                    setRezerwacjeList();
+                    RezerwacjaUtil.clearRezerwacjaList2();
+                    ordynatorController.setRezerwacjeSal();
+                    alert.close();
+                    alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Potwierdzenie dokonania operacji");
+                    alert.setHeaderText("Pomyślnie usunięto rezerwacje");
+                    alert.showAndWait();
                 }
-                dialoStage.close();
+                else
+                {
+                    alert.close();
+                }
             }
-            catch (SQLException | ClassNotFoundException  ex)
-            {
-                Utils.alertWyswietl(ex);
-            }
+            dialoStage.close();
         }
     }
 

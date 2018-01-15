@@ -58,7 +58,7 @@ public class OrdynatorUtil
         ordynatorList.clear();
     }
 
-    public static Integer searchOrdynatorId(Statement statement, String imie, String nazwisko)
+    public static Integer searchOrdynatorId(String imie, String nazwisko)
     {
         Integer ip = null;
 

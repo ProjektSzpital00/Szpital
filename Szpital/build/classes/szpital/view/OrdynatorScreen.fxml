@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.OrdynatorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.OrdynatorController">
    <children>
       <TabPane layoutX="27.0" layoutY="147.0" prefHeight="553.0" prefWidth="1114.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="236.0" AnchorPane.topAnchor="147.0">
          <tabs>
@@ -176,7 +176,7 @@
                   <Image url="@image/plan.png" />
                </image>
             </ImageView>
-            <Button contentDisplay="CENTER" minWidth="130.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="130.0" text="  Planowanie&#10;    dyzurów" />
+            <Button contentDisplay="CENTER" minWidth="130.0" mnemonicParsing="false" onAction="#dyzury" prefHeight="28.0" prefWidth="130.0" text="  Planowanie&#10;    dyzurów" />
          </children>
       </HBox>
       <Button alignment="BASELINE_RIGHT" layoutX="1180.0" layoutY="635.0" minWidth="130.0" mnemonicParsing="false" onAction="#logout" prefWidth="134.0" text="Wyloguj się">

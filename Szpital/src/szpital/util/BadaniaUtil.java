@@ -86,7 +86,7 @@ public class BadaniaUtil {
         }
     }
 
-	public static void addBadanie(Statement statement, Badania badania) throws SQLException {
+	public static void addBadanie(Badania badania) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
 			// badania.setId_Pacjenta(new SimpleIntegerProperty(2));

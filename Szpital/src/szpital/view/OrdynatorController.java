@@ -213,6 +213,35 @@ public class OrdynatorController
             Utils.alertWyswietl(exc);
         }
     }
+    
+    @FXML
+    public void dyzury()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("DyzuryScreen.fxml"));
+
+            AnchorPane anchorPane = loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Organizacja dyżurów");
+
+            Scene scene = new Scene(anchorPane);
+            dialogStage.setScene(scene);
+
+            DyzuryController dyzuryController = loader.getController();
+            dyzuryController.setOrdynatorController(this);
+            dyzuryController.setStage(dialogStage);
+            dyzuryController.setDate();
+            dyzuryController.init();
+
+            dialogStage.showAndWait();
+        }
+        catch (IllegalStateException | IOException exc)
+        {
+            Utils.alertWyswietl(exc);
+        }
+    }
 
     public void setRezerwacjeSal()
     {

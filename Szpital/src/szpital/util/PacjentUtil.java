@@ -76,7 +76,7 @@ public class PacjentUtil
         pacjentList.clear();
     }
 
-    public static void addPacjent(Statement statement, Pacjent pacjent) throws SQLException 
+    public static void addPacjent(Pacjent pacjent) throws SQLException 
     {
         try 
         {
@@ -100,7 +100,7 @@ public class PacjentUtil
         }
     }
 
-    public static void updatePacjent(Statement statement, Pacjent pacjent) throws SQLException 
+    public static void updatePacjent(Pacjent pacjent) throws SQLException 
     {
         try 
         {
@@ -125,7 +125,7 @@ public class PacjentUtil
         }
     }
 
-    public static void deletePacjent(Statement statement, IntegerProperty idPacjenta) 
+    public static void deletePacjent(IntegerProperty idPacjenta) 
     {
         try 
         {
@@ -147,7 +147,7 @@ public class PacjentUtil
         }
     }
 
-    public static Integer searchPacjentId(Statement statement, String Pesel) 
+    public static Integer searchPacjentId(String Pesel) 
     {
         Integer ip = null;
 
