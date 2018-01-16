@@ -58,6 +58,9 @@ public class AddPacjentController
     @FXML
     private ChoiceBox <Integer> nrLozka;
 
+    @FXML
+    private TextField mailField;
+
     
     @FXML
     private void cancel()
@@ -91,6 +94,7 @@ public class AddPacjentController
                                 + "Oddzial:\t\t\t"+oddzial.getSelectionModel().getSelectedItem()+"\n"
                                 + "Sala:\t\t\t\t"+sala.getSelectionModel().getSelectedItem()+"\n"
                                 + "Nr łóżka:\t\t\t"+nrLozka.getSelectionModel().getSelectedItem()+"\n"
+                                + "Mail:\t\t\t"+mailField.getText()+"\n"
                     );
 
                     Optional<ButtonType> result = alert.showAndWait();
@@ -122,6 +126,8 @@ public class AddPacjentController
                         
                         pacjent.setNrLozka(new SimpleIntegerProperty(nrLozka.getSelectionModel().getSelectedItem()));
 
+                        pacjent.setMail(new SimpleStringProperty(mailField.getText()));
+
                         PacjentUtil.updatePacjent(Laczenie.getStatement(), pacjent);
                         if(idSali.equals(0))
                             LozkoUtil.zmiannaStatusuLozka(0, idSali);
@@ -148,7 +154,11 @@ public class AddPacjentController
                             + "Pesel:\t\t\t"+peselField.getText()+"\n"
                             + "Gr Krwi:\t\t\t"+grKrwii.getSelectionModel().getSelectedItem()+"\n"
                             + "Lekarz:\t\t\t"+lekarz.getSelectionModel().getSelectedItem()+"\n"
-                            + "Oddzial:\t\t\t"+oddzial.getSelectionModel().getSelectedItem());
+                            + "Oddzial:\t\t\t"+oddzial.getSelectionModel().getSelectedItem()+"\n"
+                            + "Sala:\t\t\t\t"+sala.getSelectionModel().getSelectedItem()+"\n"
+                            + "Nr łóżka:\t\t\t"+nrLozka.getSelectionModel().getSelectedItem()+"\n"
+                            + "Mail:\t\t\t"+mailField.getText()+"\n")
+                    ;
 
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.get() == ButtonType.OK)
@@ -169,7 +179,7 @@ public class AddPacjentController
                         pacjent = new Pacjent(null, imieField.getText(), nazwiskoField.getText(), peselField.getText(), 
                                 idLekarza, lekarz.getSelectionModel().getSelectedItem(), idOddzialu, 
                                 oddzial.getSelectionModel().getSelectedItem(), grKrwii.getSelectionModel().getSelectedItem(),
-                                idSali, nrLozka.getSelectionModel().getSelectedItem());
+                                idSali, nrLozka.getSelectionModel().getSelectedItem(), mailField.getText());
                         
                         PacjentUtil.addPacjent(Laczenie.getStatement(), pacjent);
                         if(!idSali.equals(0))
@@ -248,6 +258,7 @@ public class AddPacjentController
             imieField.setText(pacjent.getImie().getValue());
             nazwiskoField.setText(pacjent.getNazwisko().getValue());
             peselField.setText(pacjent.getPesel().getValue());
+            mailField.setText(pacjent.getMail().getValue());
         }
         else
         {
