@@ -16,7 +16,7 @@ public class DyzurUtil
 {
     private static ObservableList<Dyzur> dyzurList = FXCollections.observableArrayList();
     
-    public static ObservableList<Dyzur> getdyzurList(Integer idPersonelu) throws SQLException, ClassNotFoundException
+    public static ObservableList<Dyzur> getdyzurList() throws SQLException, ClassNotFoundException
     { 
         if(dyzurList.isEmpty())
         {
@@ -60,6 +60,72 @@ public class DyzurUtil
                         for(Pielegniarka p : PielegniarkaUtil.getPielegniarkaList())
                         {
                             if(d.getIdPielęgniarki().getValue().equals(p.getIdPielegniarki().getValue()))
+                            {
+                                d.setPielegniarkaDyzurujaca(new SimpleStringProperty(p.getNazwisko().getValue()+" "+p.getImie().getValue()));
+                                d.setIdOddzialu(new SimpleIntegerProperty(p.getIdOddzialu().getValue()));
+                                d.setOddzial(new SimpleStringProperty(p.getOddzial().getValue()));
+                            }
+                        }
+                    }
+                }
+                catch(SQLException ex)
+                {
+                    throw new SQLException("Błąd zapytania (Select DyzurUtil)", ex);
+                }
+            } 
+            catch (SQLException | ClassNotFoundException ex) 
+            {
+                throw ex;
+            }
+        }
+        
+        return dyzurList;
+    }
+    
+    public static ObservableList<Dyzur> getdyzurList(String oddzialu) throws SQLException, ClassNotFoundException
+    { 
+        if(dyzurList.isEmpty())
+        {
+            try 
+            {
+                Statement stmt = Laczenie.getStatement();
+
+                try 
+                {
+                    String query = "SELECT * FROM DyzuryLekarzy";
+                    ResultSet rs = stmt.executeQuery(query);
+                    while (rs.next())
+                    {
+                        Dyzur d = new Dyzur(rs.getInt("id"), rs.getString("data_od"), rs.getString("data_do"), rs.getInt("id_lekarza"), true);
+                        dyzurList.add(d);
+                    }
+                    
+                    for(Dyzur d : dyzurList)
+                    {
+                        for(Lekarz l : LekarzUtil.getLekarzList())
+                        {
+                            if((d.getIdLekarza().getValue().equals(l.getIdLekarza().getValue())) && (l.getOddzial().getValue().equals(oddzialu)))
+                            {
+                                d.setLekarzDyzurujacy(new SimpleStringProperty(l.getNazwisko().getValue()+" "+l.getImie().getValue()));
+                                d.setIdOddzialu(new SimpleIntegerProperty(l.getIdOddzialu().getValue()));
+                                d.setOddzial(new SimpleStringProperty(l.getOddzial().getValue()));
+                            }
+                        }
+                    }
+                    
+                    query = "SELECT * FROM DyzuryPielegniarek";
+                    rs = stmt.executeQuery(query);
+                    while (rs.next())
+                    {
+                        Dyzur d = new Dyzur(rs.getInt("id"), rs.getString("data_od"), rs.getString("data_do"), rs.getInt("id_pielegniarki"), false);
+                        dyzurList.add(d);
+                    }
+                    
+                    for(Dyzur d : dyzurList)
+                    {
+                        for(Pielegniarka p : PielegniarkaUtil.getPielegniarkaList())
+                        {
+                            if((d.getIdPielęgniarki().getValue().equals(p.getIdPielegniarki().getValue())) && (p.getOddzial().getValue().equals(oddzialu)))
                             {
                                 d.setPielegniarkaDyzurujaca(new SimpleStringProperty(p.getNazwisko().getValue()+" "+p.getImie().getValue()));
                                 d.setIdOddzialu(new SimpleIntegerProperty(p.getIdOddzialu().getValue()));

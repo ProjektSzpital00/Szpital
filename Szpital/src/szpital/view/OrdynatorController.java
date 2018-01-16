@@ -233,11 +233,12 @@ public class OrdynatorController
             dyzuryController.setOrdynatorController(this);
             dyzuryController.setStage(dialogStage);
             dyzuryController.setDate();
+            dyzuryController.setOddzialyList(OddzialUtil.getOddzialList());
             dyzuryController.init();
 
             dialogStage.showAndWait();
         }
-        catch (IllegalStateException | IOException exc)
+        catch (SQLException | ClassNotFoundException | IllegalStateException | IOException exc)
         {
             Utils.alertWyswietl(exc);
         }

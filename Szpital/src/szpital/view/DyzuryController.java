@@ -1,8 +1,12 @@
 package szpital.view;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -12,15 +16,15 @@ import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import szpital.model.Dyzur;
+import szpital.model.Oddzial;
+import szpital.util.Utils;
 
 public class DyzuryController 
 {
     private Stage dialogStage;
     private OrdynatorController ordynatorController;
-    private ObservableList <String> oddzialList;
-    private HashMap <String, Integer> oddzialIdList;
+    private ObservableList <String> oddzialyList;
     private ObservableList <Dyzur> dyzurList;
-    private ArrayList <String> godzinyList;
     
     @FXML
     private DatePicker datePicker;
@@ -82,30 +86,6 @@ public class DyzuryController
     
     public void init()
     {
-        /*
-        datePicker.valueProperty().addListener(new ChangeListener<LocalDate>()
-        {
-            @Override
-            public void changed(ObservableValue observable, LocalDate oldValue, LocalDate newValue)
-            {
-                RezerwacjaUtil.clearRezerwacjaList();
-                rezerwacjaList.clear();
-                setRezerwacjeList();
-            }
-        });
-        
-        choiceBoxSale.valueProperty().addListener(new ChangeListener<String>()
-        {
-            @Override
-            public void changed(ObservableValue observable, String oldValue, String newValue)
-            {
-                RezerwacjaUtil.clearRezerwacjaList();
-                rezerwacjaList.clear();
-                setRezerwacjeList();
-            }
-        });
-        */
-        
         datePicker.setDayCellFactory(picker -> new DateCell() 
         {
             @Override
@@ -120,6 +100,23 @@ public class DyzuryController
             }
         });
         datePicker.setEditable(false);
+        
+        choiceBoxOddzial.valueProperty().addListener(new ChangeListener<String>()
+        {
+            @Override
+            public void changed(ObservableValue observable, String oldValue, String newValue)
+            {
+                //dyzurList.clear();
+                try
+                {
+                    setDyzurList();
+                }
+                catch (SQLException | ClassNotFoundException exc) 
+                {
+                    Utils.alertWyswietl(exc);
+                }
+            }
+        });
     }
     
     public void setStage(Stage dialoStage) 
@@ -135,5 +132,20 @@ public class DyzuryController
     public void setDate()
     {
         datePicker.setValue(LocalDate.now());
+    }
+    
+    public void setDyzurList() throws SQLException, ClassNotFoundException
+    {
+        
+    }
+    
+    public void setOddzialyList(ObservableList<Oddzial> oddzialyList)
+    {
+        this.oddzialyList = FXCollections.observableArrayList();
+        for(Oddzial o : oddzialyList)
+            if(!(o.getNazwaOddzialu().getValue().equals("nieznany")))
+                this.oddzialyList.add(o.getNazwaOddzialu().getValue());
+        choiceBoxOddzial.setItems(this.oddzialyList);
+        choiceBoxOddzial.getSelectionModel().select(this.oddzialyList.get(0));
     }
 }
