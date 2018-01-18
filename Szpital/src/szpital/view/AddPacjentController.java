@@ -28,7 +28,8 @@ public class AddPacjentController
     private RejestracjaController rejestracjaController;
     private ObservableList <SalaPacjent> salaAllList;
     private ObservableList <Lozko> lozkoAllList;
-    private ObservableList <String> lekarzList;
+    private ObservableList <Lekarz> lekarzList;
+    private ObservableList <String> lekarzOddzialList;
     private ObservableList <String> oddzialyList;
     private ObservableList <String> grKrwiiList;
     private ObservableList <String> salaPacjentList;
@@ -191,10 +192,11 @@ public class AddPacjentController
         }
     }
     
-    public void init(ObservableList<Lozko> lozkoList, ObservableList<SalaPacjent> salaList)
+    public void init(ObservableList<Lozko> lozkoList, ObservableList<SalaPacjent> salaList, ObservableList<Lekarz> lekarzList)
     {
         this.lozkoAllList = lozkoList;
         this.salaAllList = salaList;
+        this.lekarzList = lekarzList;
     }
     
     public void init2()
@@ -207,13 +209,14 @@ public class AddPacjentController
                 salaPacjentList.clear();
                 try
                 {
+                    setLekarzOddzialList();
                     setSalaPacjentList();
+                    setLozkaList();
                 }
                 catch (SQLException | ClassNotFoundException exc) 
                 {
                     Utils.alertWyswietl(exc);
                 }
-                lozkaList.clear();
             }
         });
         
@@ -233,6 +236,8 @@ public class AddPacjentController
                 }
             }
         });
+        
+        this.lekarzOddzialList = FXCollections.observableArrayList();
     }
     
     public void setStage(Stage dialoStage) 
@@ -261,17 +266,18 @@ public class AddPacjentController
     {
         this.rejestracjaController = rejestracjaController;
     }
-
-    public void setLekarzList(ObservableList<Lekarz> lekarzList) 
-    {       
-        this.lekarzList = FXCollections.observableArrayList();
+    
+    public void setLekarzOddzialList()
+    {
+        lekarzOddzialList = FXCollections.observableArrayList();
         for(Lekarz l : lekarzList)
-            this.lekarzList.add(l.getNazwisko().getValue()+" "+l.getImie().getValue());
-        lekarz.setItems(this.lekarzList);
+            if(l.getOddzial().getValue().equals(oddzial.getSelectionModel().getSelectedItem()))
+                lekarzOddzialList.add(l.getNazwisko().getValue()+" "+l.getImie().getValue());
+        lekarz.setItems(lekarzOddzialList);
         if(pacjent != null)
             lekarz.getSelectionModel().select(pacjent.getLekarz().getValue());   
         else
-            lekarz.getSelectionModel().select(this.lekarzList.get(0));
+            lekarz.getSelectionModel().select(lekarzOddzialList.get(0));
     }
 
     public void setOddzialyList(ObservableList<Oddzial> oddzialyList)
@@ -333,11 +339,12 @@ public class AddPacjentController
     {
         this.lozkaList = FXCollections.observableArrayList();
         String temp = sala.getSelectionModel().getSelectedItem();
+        Integer idOddzialu = OddzialUtil.searchOddzialId(oddzial.getSelectionModel().getSelectedItem());
         Integer idSali = SalaPacjentUtil.searchSalaPacjentId(temp);
         
         for(Lozko l : lozkoAllList)
         {
-            if(l.getIdSali().getValue().equals(idSali))
+            if(l.getIdOddzialu().getValue().equals(idOddzialu) && l.getIdSali().getValue().equals(idSali))
             {
                 if(pacjent != null)
                 {
@@ -372,29 +379,4 @@ public class AddPacjentController
             nrLozka.setItems(lozkaList);
         }
     }
-    
-    /*
-    
-    public void setSala() throws SQLException, ClassNotFoundException 
-    {
-        MiejscaUtil miejscaUtil = new MiejscaUtil();
-        sala.getItems().clear();
-        salaList = FXCollections.observableArrayList();
-        salaList.clear();
-        salaList.addAll(miejscaUtil.getSaleList( miejscaUtil.IdOddzialu(oddzial.getValue())));
-        sala.setItems(salaList);
-        setNrMiejsce();
-    }
-
-    public void setNrMiejsce() throws SQLException, ClassNotFoundException 
-    {
-        MiejscaUtil miejscaUtil = new MiejscaUtil();
-        nrLozka.getItems().clear();
-        nrLozkaList = FXCollections.observableArrayList();
-        nrLozkaList.clear();
-        nrLozkaList.addAll(miejscaUtil.getLozkaList(sala.getValue()));
-        nrLozka.setItems(nrLozkaList);
-    }
-
-    */
 }

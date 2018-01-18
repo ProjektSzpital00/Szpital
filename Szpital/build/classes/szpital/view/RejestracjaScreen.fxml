@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RejestracjaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RejestracjaController">
    <children>
       <TableView fx:id="tabela" layoutX="160.0" layoutY="132.0" prefHeight="507.0" prefWidth="1059.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="132.0">
         <columns>
@@ -83,7 +83,7 @@
       <VBox alignment="BASELINE_CENTER" layoutX="1099.0" layoutY="14.0" prefHeight="75.0" prefWidth="210.0" spacing="20.0" AnchorPane.bottomAnchor="611.0" AnchorPane.leftAnchor="1099.0" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="14.0">
          <children>
             <Label alignment="BASELINE_LEFT" lineSpacing="10.0" prefHeight="38.0" prefWidth="169.0" text="Aktualnie zalogowany:" underline="true" />
-            <Label text="Label" />
+            <Label fx:id="ktoZalogowanyLabel" text="Label" />
          </children>
       </VBox>
       <HBox alignment="BOTTOM_RIGHT" layoutX="1106.0" layoutY="405.0" prefHeight="43.0" prefWidth="183.0" spacing="10.0" AnchorPane.bottomAnchor="252.0" AnchorPane.leftAnchor="1106.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="405.0">

@@ -125,7 +125,6 @@ public class OrdynatorController
                 badaniaController.setRejestracjaController(this);
                 badaniaController.setStage(dialogStage);
                 badaniaController.setWybranyPacjent(wybranyPacjent);
-                //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
                 badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
 
                 dialogStage.showAndWait();
@@ -165,7 +164,6 @@ public class OrdynatorController
                 lekiController.setRejestracjaControllerOrdynator(this);
                 lekiController.setStage(dialogStage);
                 lekiController.setWybranyPacjent(wybranyPacjent);
-                //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
                 lekiController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
 
                 dialogStage.showAndWait();
@@ -234,6 +232,7 @@ public class OrdynatorController
             dyzuryController.setStage(dialogStage);
             dyzuryController.setDate();
             dyzuryController.setOddzialyList(OddzialUtil.getOddzialList());
+            dyzuryController.setDyzurList();
             dyzuryController.init();
 
             dialogStage.showAndWait();

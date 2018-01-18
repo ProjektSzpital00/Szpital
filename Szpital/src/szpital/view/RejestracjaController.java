@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -21,7 +22,6 @@ import javafx.stage.Stage;
 import szpital.model.Account;
 import szpital.model.Pacjent;
 import szpital.util.BadaniaUtil;
-import szpital.util.Laczenie;
 import szpital.util.LekarzUtil;
 import szpital.util.LekiUtil;
 import szpital.util.LozkoUtil;
@@ -72,7 +72,8 @@ public class RejestracjaController
     @FXML
     private TableColumn<Pacjent, Integer> ColumnNrLozka;
     
-    
+    @FXML
+    private Label ktoZalogowanyLabel;
     
     
     @FXML
@@ -274,15 +275,13 @@ public class RejestracjaController
             addPacjentController.setRejestracjaController(this);
             addPacjentController.setStage(dialogStage);
             addPacjentController.setPacjent(pacjent);
-            addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
             addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
             addPacjentController.setGrKrwii();
-            addPacjentController.init(LozkoUtil.getLozkoList(), SalaPacjentUtil.getSalaPacjentList());
+            addPacjentController.init(LozkoUtil.getLozkoList(), SalaPacjentUtil.getSalaPacjentList(), LekarzUtil.getLekarzList());
             addPacjentController.setSalaPacjentList();
             addPacjentController.setLozkaList();
+            addPacjentController.setLekarzOddzialList();
             addPacjentController.init2();
-            //addPacjentController.setSala();
-            //addPacjentController.setNrMiejsce();
             
             dialogStage.showAndWait();
         }
@@ -295,6 +294,7 @@ public class RejestracjaController
     public void setAccount(Account account)
     {
         this.account = account;
+        ktoZalogowanyLabel.setText(account.getImie() + " " + account.getNazwisko());
     }
     
     public void setPacjentList(ObservableList<Pacjent> pacjentList) 

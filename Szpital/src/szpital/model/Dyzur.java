@@ -21,6 +21,15 @@ public class Dyzur
     StringProperty terminDataDo;
     StringProperty terminCzasDo;
     
+    public Dyzur(Integer idOsobyDyzurujacej, Boolean czyLekarz, String terminOd, String terminDo) 
+    {
+        if(czyLekarz)
+            this.idLekarza = new SimpleIntegerProperty(idOsobyDyzurujacej);
+        else
+            this.idPielęgniarki = new SimpleIntegerProperty(idOsobyDyzurujacej);
+        this.terminOd = new SimpleStringProperty(terminOd);
+        this.terminDo = new SimpleStringProperty(terminDo);
+    }
     
     public Dyzur(Integer idDyzuru, String terminOd, String terminDo, Integer idOsobyDyzurujacej, Boolean czyLekarz)
     {
