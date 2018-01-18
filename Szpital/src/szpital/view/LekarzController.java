@@ -149,6 +149,7 @@ public class LekarzController
         OddzialUtil.clearOddzialyList();
         log.setLoginScreen();
         
+        
     }
     
     public void setAccount(Account account)

@@ -21,16 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Account;
 import szpital.model.Pacjent;
-import szpital.util.BadaniaUtil;
-import szpital.util.LekarzUtil;
-import szpital.util.LekiUtil;
-import szpital.util.LozkoUtil;
-import szpital.util.PacjentUtil;
-import szpital.util.Utils;
-import szpital.util.OddzialUtil;
-import szpital.util.SalaPacjentUtil;
-import szpital.util.StatystykaUtil;
-import szpital.util.Wypis;
+import szpital.util.*;
 
 public class RejestracjaController 
 {
@@ -288,6 +279,47 @@ public class RejestracjaController
         catch (IllegalStateException | IOException | SQLException | ClassNotFoundException exc) 
         {
             Utils.alertWyswietl(exc);
+        }
+    }
+
+    private void wczytajAddMail(String stageTitle, Integer id)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("AddMail.fxml"));
+            AnchorPane anchorPane = loader.load();
+            MailUtil mailUtil = new MailUtil();
+
+            Stage dialogStage = new Stage();
+            Scene scene = new Scene(anchorPane);
+            dialogStage.setScene(scene);
+            dialogStage.setTitle(mailUtil.getMail(id));
+
+            AddMailController addMailController = loader.getController();
+            addMailController.setRejestracjaController(this, id);
+            addMailController.setStage(dialogStage);
+
+            dialogStage.showAndWait();
+        }
+        catch (IllegalStateException | IOException exc)
+        {
+            Utils.alertWyswietl(exc);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void sendMail(){
+        Pacjent wybranyPacjent = tabela.getSelectionModel().getSelectedItem();
+        if(wybranyPacjent != null)
+        {
+            wczytajAddMail("wyślij mail", wybranyPacjent.getIdPacjenta().getValue());
+        }
+        else {
+        Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta dla którego chcesz wydrukować");
         }
     }
     

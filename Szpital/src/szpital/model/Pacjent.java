@@ -19,9 +19,10 @@ public class Pacjent
     private IntegerProperty nrSali;
     private StringProperty nazwaSali;
     private IntegerProperty nrLozka;
-    
-    public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz, 
-            Integer idOddzialu, String oddzial, String grKrwii,Integer nrSali, Integer nrLozka) 
+    private StringProperty mail;
+
+    public Pacjent(Integer idPacjenta, String imie, String nazwisko, String pesel, Integer idLekarza, String lekarz,
+                   Integer idOddzialu, String oddzial, String grKrwii, Integer nrSali, Integer nrLozka, String mail)
     {
         if(idPacjenta != null)
             this.idPacjenta = new SimpleIntegerProperty(idPacjenta);
@@ -35,6 +36,7 @@ public class Pacjent
         this.grKrwii = new SimpleStringProperty(grKrwii);
         this.nrSali = new SimpleIntegerProperty(nrSali);
         this.nrLozka = new SimpleIntegerProperty(nrLozka);
+        this.mail = new SimpleStringProperty(mail);
     }
     
     public IntegerProperty getIdPacjenta() 
@@ -156,4 +158,8 @@ public class Pacjent
     {
         this.nrLozka = nrLozka;
     }
+
+    public StringProperty getMail() { return mail; }
+
+    public void setMail(StringProperty mail) { this.mail =mail; }
 }

@@ -142,3 +142,14 @@ and open the template in the editor.
     -fx-alignment: CENTER;
     -fx-text-fill: black;
 }
+.combo-box{
+     -fx-background-color: white;
+     -fx-effect: innershadow(one-pass-box, gray, 5, 0.3, 1, 1);
+}
+.combo-box .label{
+    -fx-text-fill:black;
+    -fx-font-size: 12pt;
+    -fx-font-size:12px;
+    -fx-font-family:'Arial Narrow';
+    -fx-font-weight: bold;
+    }

@@ -30,6 +30,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <Label text="Imie">
@@ -60,6 +61,24 @@
             <Label text="Oddział" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets left="38.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Sala" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="60.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Miejsce" GridPane.rowIndex="7">
+               <GridPane.margin>
+                  <Insets left="40.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Mail" GridPane.rowIndex="8">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets left="60.0" />
                </GridPane.margin>
             </Label>
             <TextField fx:id="imieField" prefHeight="30.0" prefWidth="178.0" promptText="Imie" GridPane.columnIndex="1">
@@ -101,16 +120,6 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
-            <Label text="Sala" GridPane.rowIndex="6">
-               <GridPane.margin>
-                  <Insets left="60.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Miejsce" GridPane.rowIndex="7">
-               <GridPane.margin>
-                  <Insets left="40.0" />
-               </GridPane.margin>
-            </Label>
             <ChoiceBox fx:id="sala" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <padding>
                   <Insets bottom="5.0" top="5.0" />
@@ -121,7 +130,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <children>
                   <Button mnemonicParsing="false" onAction="#ok" prefHeight="28.0" prefWidth="89.0" styleClass="buttonOK" text="Ok">
                      <HBox.margin>
@@ -155,6 +164,11 @@
                   <Insets left="30.0" />
                </padding>
             </HBox>
+            <TextField fx:id="mailField" prefHeight="30.0" prefWidth="178.0" promptText="Mail" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <GridPane.margin>
+                  <Insets right="80.0" />
+               </GridPane.margin>
+            </TextField>
          </children>
       </GridPane>
    </children>

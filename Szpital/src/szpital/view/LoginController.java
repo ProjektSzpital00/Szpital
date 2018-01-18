@@ -125,17 +125,16 @@ public class LoginController
             rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
 
            /// setScreen(anchorPane);
-           //Dodalam 
-             primaryStage.close();
-        
+          
+              primaryStage.close();
              Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
-            primaryStage.setWidth(1400);
+            primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
-            primaryStage.setMinWidth(1350);
+            primaryStage.setMinWidth(1390);
             primaryStage.setMinHeight(800);
-            primaryStage.setMaxWidth(1500);
-            primaryStage.setMaxHeight(750);
+            primaryStage.setMaxWidth(1390);
+            primaryStage.setMaxHeight(800);
             primaryStage.setScene(scene);
             primaryStage.show();
         }
@@ -163,17 +162,15 @@ public class LoginController
             lekarzController.setPacjentList(PacjentUtil.getPacjentList());
             lekarzController.setRezerwacjeSal();
             
-           // setScreen(anchorPane);
-            primaryStage.close();
-        
+              primaryStage.close();
              Scene scene = new Scene(splitPane);
             primaryStage.centerOnScreen();
-            primaryStage.setWidth(1400);
+            primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
-            primaryStage.setMinWidth(1350);
+            primaryStage.setMinWidth(1390);
             primaryStage.setMinHeight(800);
-            primaryStage.setMaxWidth(1500);
-            primaryStage.setMaxHeight(750);
+            primaryStage.setMaxWidth(1390);
+            primaryStage.setMaxHeight(800);
             primaryStage.setScene(scene);
             primaryStage.show();
         }
@@ -200,14 +197,15 @@ public class LoginController
             ordynatorController.setPacjentList(PacjentUtil.getPacjentList());
             ordynatorController.setRezerwacjeSal();
            // setScreen(anchorPane);
+            primaryStage.close();
              Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
-            primaryStage.setWidth(1400);
+            primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
-            primaryStage.setMinWidth(1350);
+            primaryStage.setMinWidth(1390);
             primaryStage.setMinHeight(800);
-            primaryStage.setMaxWidth(1500);
-            primaryStage.setMaxHeight(750);
+            primaryStage.setMaxWidth(1390);
+            primaryStage.setMaxHeight(800);
             primaryStage.setScene(scene);
             primaryStage.show();
         }
@@ -293,11 +291,12 @@ public class LoginController
             AnchorPane anchorPane = loader.load();
             
             LoginController loginController = loader.getController();
-            loginController.setStage(primaryStage); 
+            loginController.setStage(primaryStage);
             primaryStage.setMaxHeight(320);
             primaryStage.setMaxWidth(310);
             primaryStage.setMinHeight(320);
-            primaryStage.setMinWidth(310);
+            primaryStage.setMinWidth(310); 
+            primaryStage.centerOnScreen();
             loginController.setScreen(anchorPane);
         }
         catch(IllegalStateException ex)
