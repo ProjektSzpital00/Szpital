@@ -53,12 +53,7 @@
                   <Insets left="17.0" />
                </GridPane.margin>
             </Label>
-            <Label text="Lekarz" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets left="48.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Oddział" GridPane.rowIndex="5">
+            <Label text="Oddział" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets left="38.0" />
                </GridPane.margin>
@@ -96,15 +91,7 @@
                   <Insets right="80.0" />
                </GridPane.margin>
             </TextField>
-            <ChoiceBox fx:id="lekarz" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <padding>
-                  <Insets bottom="5.0" top="5.0" />
-               </padding>
-            </ChoiceBox>
-            <ChoiceBox fx:id="oddzial" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <ChoiceBox fx:id="lekarz" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -169,6 +156,16 @@
                   <Insets right="80.0" />
                </GridPane.margin>
             </TextField>
+            <ChoiceBox fx:id="oddzial" prefHeight="33.0" prefWidth="180.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </ChoiceBox>
+            <Label text="Lekarz" GridPane.rowIndex="5">
+               <GridPane.margin>
+                  <Insets left="40.0" />
+               </GridPane.margin>
+            </Label>
          </children>
       </GridPane>
    </children>
