@@ -2,7 +2,6 @@ package szpital.view;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,12 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Account;
 import szpital.model.Dyzur;
-import szpital.model.Pacjent;
 import szpital.util.DyzurUtil;
-import szpital.model.Oddzial;
 import szpital.model.Pacjent;
-import szpital.model.Rezerwacja;
-import szpital.util.LekarzUtil;
 import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
 import szpital.util.PielegniarkaUtil;
@@ -36,7 +31,6 @@ public class PielegniarkaController
     @FXML
     TableView<Pacjent> tabelaPacjentow;
     
-<<<<<<< HEAD
     @FXML
     private TableColumn<Pacjent, Integer> ColumnIdPacjenta;
     

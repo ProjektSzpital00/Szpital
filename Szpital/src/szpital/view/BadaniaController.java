@@ -6,7 +6,6 @@
 package szpital.view;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 
 import java.util.logging.Level;
@@ -21,10 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Badania;
 import szpital.model.Pacjent;
-import szpital.model.Pielegniarka;
 import szpital.util.BadaniaUtil;
-import szpital.util.LekarzUtil;
-import szpital.util.OddzialUtil;
 import szpital.util.Utils;
 
 /**
@@ -52,7 +48,7 @@ public class BadaniaController
     @FXML
     private TableColumn<Badania, String> wynikBadania;
     
-    private Integer idPacjenta; // do pobierania danych z bazy(setter)
+    private Integer idPacjenta;
     private Pacjent wybranyPacjent;
     
     private LekarzController lekarzController;
@@ -60,20 +56,14 @@ public class BadaniaController
 
     private OrdynatorController ordynatorController;
     
-    private PielegniarkaController pielegniarkaController;
-    
     
     public void setBadaniaList()
     {
     
     }
     
-    
-    
     public void ladujListe(Integer i)
     {
-       // if(badaniaList == null)
-       // {
             try {    
                 
                 badaniaList = BadaniaUtil.getBadaniaList(i);
@@ -82,13 +72,7 @@ public class BadaniaController
             } catch (SQLException ex) {
                 Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
             }
-       // }
-       /*
-        for(Badania b: badaniaList)
-        {
-            System.out.println(b.getWynikBadania());
-        }
-        */
+            
         nazwaBadania.setCellValueFactory(cellData->cellData.getValue().getNazwaBadania());
         imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImieNazwisko());
         dataBadania.setCellValueFactory(cellData->cellData.getValue().getDataBadania());
@@ -173,11 +157,6 @@ public class BadaniaController
             addBadanieController.setBadanie(badanie);
             addBadanieController.setZaznaczonyPacjent(idPacjenta);
             addBadanieController.setWybranyPacjent(wybranyPacjent);
-           // System.out.println(wybranyPacjent.getImie());
-            
-            
-            //addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
-            //addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
             addBadanieController.setListaBadan();
             dialogStage.showAndWait();
         }
@@ -188,21 +167,11 @@ public class BadaniaController
     }
 
 
-
-    /**
-     * @return the wybranyPacjent
-     */
     public Pacjent getWybranyPacjent() {
         return wybranyPacjent;
     }
 
-    /**
-     * @param wybranyPacjent the wybranyPacjent to set
-     */
     public void setWybranyPacjent(Pacjent wybranyPacjent) {
         this.wybranyPacjent = wybranyPacjent;
-    }
-    
-    
-    
+    } 
 }
