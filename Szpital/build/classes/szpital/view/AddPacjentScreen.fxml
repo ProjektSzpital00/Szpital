@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="650.0" maxWidth="379.0" minHeight="650.0" minWidth="350.0" prefHeight="650.0" prefWidth="370.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
+<AnchorPane maxHeight="650.0" maxWidth="379.0" minHeight="650.0" minWidth="350.0" prefHeight="650.0" prefWidth="370.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
    <children>
       <GridPane alignment="CENTER" layoutX="242.0" layoutY="160.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
