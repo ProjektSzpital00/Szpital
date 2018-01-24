@@ -155,7 +155,7 @@ public class PielegniarkaController
                 Scene scene = new Scene(anchorPane);
                 dialogStage.setScene(scene);
 
-                LekiController lekiController = loader.getController();
+                LekiPielegniarkaController lekiController = loader.getController();
                 lekiController.setPielegniarkaController(this);
                 lekiController.setStage(dialogStage);
                 lekiController.setWybranyPacjent(wybranyPacjent);

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RejestracjaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="700.0" prefWidth="1350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RejestracjaController">
    <children>
       <HBox alignment="CENTER" layoutX="5.0" layoutY="132.0" AnchorPane.bottomAnchor="61.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="286.0" AnchorPane.topAnchor="132.0">
          <children>
@@ -48,7 +48,7 @@
             </Button>
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" layoutX="712.0" layoutY="652.0" prefHeight="34.0" prefWidth="349.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="712.0" AnchorPane.rightAnchor="289.0" AnchorPane.topAnchor="652.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="403.0" layoutY="652.0" prefHeight="34.0" prefWidth="349.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="403.0" AnchorPane.rightAnchor="598.0" AnchorPane.topAnchor="652.0">
          <children>
             <Label alignment="CENTER_RIGHT" minWidth="120.0" prefHeight="25.0" prefWidth="210.0" text="Drukowanie wypisu pacjenta" />
             <Button minWidth="100.0" mnemonicParsing="false" onAction="#drukuj" prefHeight="22.0" prefWidth="120.0" text="Drukuj">
@@ -90,17 +90,17 @@
             <Label fx:id="ktoZalogowanyLabel" text="Label" />
          </children>
       </VBox>
-      <HBox alignment="BOTTOM_RIGHT" layoutX="1106.0" layoutY="471.0" prefHeight="37.0" prefWidth="183.0" spacing="10.0" AnchorPane.bottomAnchor="192.0" AnchorPane.leftAnchor="1106.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="471.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="849.0" layoutY="652.0" prefHeight="34.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="849.0" AnchorPane.rightAnchor="332.0" AnchorPane.topAnchor="652.0">
          <children>
             <ImageView fitHeight="36.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@image/statystyka.png" />
                </image>
             </ImageView>
-            <Button minWidth="120.0" mnemonicParsing="false" onAction="#statystyka" prefWidth="120.0" text="Statystyka" />
+            <Button minWidth="120.0" mnemonicParsing="false" onAction="#statystyka" prefHeight="34.0" prefWidth="120.0" text="Statystyka" />
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" layoutX="1120.0" layoutY="204.0" prefHeight="37.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="459.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="204.0">
+      <HBox alignment="BASELINE_RIGHT" layoutX="1120.0" layoutY="204.0" prefHeight="51.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="445.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="204.0">
          <children>
             <ImageView fitHeight="37.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -113,7 +113,7 @@
             <Button minWidth="120.0" mnemonicParsing="false" onAction="#addPacjent" prefWidth="120.0" text="Nowy pacjent" />
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" layoutX="1120.0" layoutY="273.0" prefHeight="37.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="273.0">
+      <HBox alignment="BASELINE_RIGHT" layoutX="1120.0" layoutY="273.0" prefHeight="51.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="376.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="273.0">
          <children>
             <ImageView fitHeight="36.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -123,7 +123,7 @@
             <Button minWidth="120.0" mnemonicParsing="false" onAction="#editPacjent" prefHeight="27.0" prefWidth="120.0" text="Edit.." />
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" layoutX="1136.0" layoutY="342.0" prefHeight="31.0" prefWidth="153.0" spacing="10.0" AnchorPane.bottomAnchor="327.0" AnchorPane.leftAnchor="1136.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="342.0">
+      <HBox alignment="BASELINE_RIGHT" layoutX="1136.0" layoutY="342.0" prefHeight="45.0" prefWidth="153.0" spacing="10.0" AnchorPane.bottomAnchor="313.0" AnchorPane.leftAnchor="1136.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="342.0">
          <children>
             <ImageView fitHeight="33.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -133,7 +133,7 @@
             <Button minWidth="120.0" mnemonicParsing="false" onAction="#deletePacjent" prefWidth="120.0" text="Usuń" />
          </children>
       </HBox>
-      <HBox alignment="BOTTOM_RIGHT" layoutX="1120.0" layoutY="410.0" prefHeight="31.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="259.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="410.0">
+      <HBox alignment="BASELINE_RIGHT" layoutX="1120.0" layoutY="410.0" prefHeight="45.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="410.0">
          <children>
             <ImageView fitHeight="31.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>

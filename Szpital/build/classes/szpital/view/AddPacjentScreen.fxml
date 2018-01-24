@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="650.0" maxWidth="350.0" minHeight="650.0" minWidth="350.0" prefHeight="650.0" prefWidth="350.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
+<AnchorPane maxHeight="650.0" maxWidth="379.0" minHeight="650.0" minWidth="350.0" prefHeight="650.0" prefWidth="370.0" styleClass="backgroud" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddPacjentController">
    <children>
       <GridPane alignment="CENTER" layoutX="242.0" layoutY="160.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="113.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="401.0" minWidth="10.0" prefWidth="258.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="125.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="401.0" minWidth="10.0" prefWidth="245.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -117,7 +117,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </padding>
             </ChoiceBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+            <HBox prefHeight="59.0" prefWidth="245.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
                <children>
                   <Button mnemonicParsing="false" onAction="#ok" prefHeight="28.0" prefWidth="89.0" styleClass="buttonOK" text="Ok">
                      <HBox.margin>
@@ -147,9 +147,6 @@
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
-               <padding>
-                  <Insets left="30.0" />
-               </padding>
             </HBox>
             <TextField fx:id="mailField" prefHeight="30.0" prefWidth="180.0" promptText="Mail" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <GridPane.margin>
