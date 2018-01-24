@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="395.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddMailController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="395.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.AddMailController">
    <children>
       <TextArea fx:id="text" layoutX="19.0" layoutY="14.0" prefHeight="174.0" prefWidth="364.0" promptText="Wpisz text do maila" AnchorPane.bottomAnchor="83.0" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="14.0" />
       <Button layoutX="85.0" layoutY="219.0" mnemonicParsing="false" onAction="#send" prefHeight="32.0" prefWidth="99.0" styleClass="buttonOK" text="Send" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="85.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="219.0">

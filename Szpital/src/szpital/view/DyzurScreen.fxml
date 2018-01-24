@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="541.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="541.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <DatePicker layoutX="82.0" layoutY="50.0" prefHeight="32.0" prefWidth="163.0" promptText="Wybierz datę" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="50.0" />
       <ChoiceBox layoutX="302.0" layoutY="50.0" prefHeight="32.0" prefWidth="163.0" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="76.0" AnchorPane.topAnchor="50.0" />

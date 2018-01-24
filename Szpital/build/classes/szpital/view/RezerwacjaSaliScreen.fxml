@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="450.0" maxWidth="650.0" minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="650.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RezerwacjaSaliController">
+<AnchorPane maxHeight="450.0" maxWidth="650.0" minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="650.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.RezerwacjaSaliController">
    <children>
       <Label alignment="TOP_LEFT" layoutX="247.0" layoutY="8.0" prefHeight="25.0" prefWidth="244.0" text="Rezerwacja sal zabiegowych" AnchorPane.bottomAnchor="417.0" AnchorPane.leftAnchor="247.0" AnchorPane.rightAnchor="159.0" AnchorPane.topAnchor="8.0" />
       <HBox layoutX="14.0" layoutY="39.0" prefHeight="32.0" prefWidth="355.0" spacing="30.0" AnchorPane.bottomAnchor="379.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="281.0" AnchorPane.topAnchor="39.0">

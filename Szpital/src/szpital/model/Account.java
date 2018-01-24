@@ -12,6 +12,7 @@ public class Account
     private String stanowisko;
     private Integer id_personel;
     private Integer id_lekarza;
+    private Integer id_oddzialu;
     private String imie;
     private String nazwisko;
         
@@ -34,7 +35,7 @@ public class Account
                 
                 if(stanowisko.equals("lekarz") || stanowisko.equals("ordynator"))
                 {
-                    query = "SELECT id, imie, nazwisko\n" +
+                    query = "SELECT id, imie, nazwisko, id_oddzialu\n" +
                             "FROM Lekarze\n" +
                             "WHERE pesel = "+pesel;
                     rs = stmt.executeQuery(query);
@@ -43,11 +44,12 @@ public class Account
                         id_lekarza = rs.getInt("id");
                         imie = rs.getString("imie");
                         nazwisko = rs.getString("nazwisko");
+                        id_oddzialu = rs.getInt("id_oddzialu");
                     }
                 }
                 else
                 {
-                    query = "SELECT id, imie, nazwisko\n" +
+                    query = "SELECT id, imie, nazwisko, id_oddzialu\n" +
                             "FROM Personel\n" +
                             "WHERE pesel = "+pesel;
                     rs = stmt.executeQuery(query);
@@ -56,6 +58,7 @@ public class Account
                         id_personel = rs.getInt("id");
                         imie = rs.getString("imie");
                         nazwisko = rs.getString("nazwisko");
+                        id_oddzialu = rs.getInt("id_oddzialu");
                     }
                 }
             }
@@ -99,5 +102,15 @@ public class Account
     public String getNazwisko() 
     {
         return nazwisko;
+    }
+
+    public Integer getId_oddzialu() 
+    {
+        return id_oddzialu;
+    }
+
+    public void setId_oddzialu(Integer id_oddzialu) 
+    {
+        this.id_oddzialu = id_oddzialu;
     }
 }

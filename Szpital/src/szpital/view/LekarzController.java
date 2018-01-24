@@ -2,9 +2,6 @@ package szpital.view;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Observable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,16 +12,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 import szpital.model.Account;
+import szpital.model.Dyzur;
 import szpital.model.Pacjent;
 import szpital.model.Rezerwacja;
+import szpital.util.DyzurUtil;
 import szpital.util.LekarzUtil;
 import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
 import szpital.util.RezerwacjaUtil;
 import szpital.util.SalaUtil;
-import szpital.util.StatystykaUtil;
 import szpital.util.Utils;
 
 public class LekarzController 
@@ -33,6 +30,7 @@ public class LekarzController
     private LoginController log;
     private ObservableList<Pacjent> pacjentList;
     private ObservableList <Rezerwacja> rezerwacjaList;
+    private ObservableList <Dyzur> dyzuryList;
     
     @FXML
     TableView<Pacjent> tabelaPacjentow;
@@ -74,52 +72,17 @@ public class LekarzController
     @FXML
     private TableColumn<Rezerwacja, String> ColumnInformacjaR;
     
-    
-    
+    @FXML
+    private TableView<Dyzur> tabelaDyzurow;
+
+    @FXML
+    private TableColumn<Dyzur, String> ColumnDyzurData;
+
+    @FXML
+    private TableColumn<Dyzur, String> ColumnDyzurGodzina;
+
     @FXML
     private Label ktoZalogowany;
-    
-    /*
-    @FXML
-    public void statystyka() throws SQLException, ClassNotFoundException
-    {
-        try
-            {
-
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("stat.fxml"));
-
-                AnchorPane anchorPane = loader.load();
-
-                Stage dialogStage = new Stage();
-                dialogStage.setTitle("Statystyka");
-
-                Scene scene = new Scene(anchorPane);
-                dialogStage.setScene(scene);
-                /*
-                BadaniaController badaniaController = loader.getController();
-                badaniaController.setRejestracjaController(this);
-                badaniaController.setStage(dialogStage);
-                badaniaController.setWybranyPacjent(wybranyPacjent);
-               
-                //badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
-                
-                dialogStage.showAndWait();
-            }
-            catch (IllegalStateException | IOException exc) 
-            {
-                Utils.alertWyswietl(exc);
-            }
-
-        
-        
-        
-        
-        System.out.println("stat");
-        StatystykaUtil.getStatystykaList();
-    }
-    */
-    
-    
     
     @FXML
     private void initialize()
@@ -139,6 +102,9 @@ public class LekarzController
         ColumnInformacjaR.setCellValueFactory(cellData->cellData.getValue().getInformacja());
         
         ColumnDataR.setSortType(TableColumn.SortType.ASCENDING);
+        
+        ColumnDyzurData.setCellValueFactory(cellData -> cellData.getValue().getTerminDataOd());
+        ColumnDyzurGodzina.setCellValueFactory(cellData->cellData.getValue().getTerminCzasOd());
     }
     
     @FXML
@@ -148,8 +114,6 @@ public class LekarzController
         LekarzUtil.clearLekarzList();
         OddzialUtil.clearOddzialyList();
         log.setLoginScreen();
-        
-        
     }
     
     public void setAccount(Account account)
@@ -183,7 +147,7 @@ public class LekarzController
                 dialogStage.setScene(scene);
 
                 BadaniaController badaniaController = loader.getController();
-                badaniaController.setRejestracjaController1(this);
+                badaniaController.setLekarzController(this);
                 badaniaController.setStage(dialogStage);
                 badaniaController.setWybranyPacjent(wybranyPacjent);
                
@@ -223,19 +187,16 @@ public class LekarzController
                 dialogStage.setScene(scene);
 
                 LekiController lekiController = loader.getController();
-                lekiController.setRejestracjaController(this);
+                lekiController.setLekarzController(this);
                 lekiController.setStage(dialogStage);
                 lekiController.setWybranyPacjent(wybranyPacjent);
-                //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
                 lekiController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
                 
                 dialogStage.showAndWait();
             }
             catch (IllegalStateException | IOException exc) 
             {
-                exc.printStackTrace();
                 Utils.alertWyswietl(exc);
-                //System.out.println(exc);
             }
         }
         else
@@ -292,6 +253,21 @@ public class LekarzController
         
        
         tabelaPacjentow.setItems(this.pacjentList);
+    }
+    
+    public void setDyzuryTabelka()
+    {
+        try
+        {
+            DyzurUtil.clearDyzurList2();
+            dyzuryList = DyzurUtil.getDyzurList(account.getId_lekarza(), true);
+            tabelaDyzurow.setItems(dyzuryList);
+            tabelaDyzurow.getSortOrder().add(ColumnDyzurData);
+        }
+        catch(SQLException | ClassNotFoundException ex)
+        {
+            Utils.alertWyswietl(ex);
+        } 
     }
     
     public void setRezerwacjeSal()

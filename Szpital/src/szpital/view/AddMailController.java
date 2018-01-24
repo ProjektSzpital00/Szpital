@@ -7,9 +7,11 @@ import szpital.model.Mail;
 import szpital.util.MailUtil;
 
 import java.sql.SQLException;
+import szpital.util.Utils;
 
 
-public class AddMailController {
+public class AddMailController 
+{
     private Stage dialoStage;
     private RejestracjaController rejestracjaController;
     private Integer id;
@@ -24,10 +26,12 @@ public class AddMailController {
     }
 
     @FXML
-    public void send() throws SQLException, ClassNotFoundException {
+    public void send() throws SQLException, ClassNotFoundException 
+    {
         MailUtil mailUtil = new MailUtil();
         Mail mail = new Mail();
         mail.setMail(text.getText(), mailUtil.getMail(id));
+        Utils.informacjaWyswietl("Pomyślnie wysłano wiadomość E-Mail");
         cancel();
     }
 

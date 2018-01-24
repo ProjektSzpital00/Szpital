@@ -9,8 +9,6 @@ import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Optional;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,13 +18,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import szpital.model.Badania;
 import szpital.model.Leki;
 import szpital.model.Pacjent;
-import szpital.model.RodzajeBadan;
 import szpital.model.RodzajeLekow;
-import szpital.util.BadaniaUtil;
-import szpital.util.Laczenie;
 import szpital.util.LekiUtil;
 
 /**
@@ -66,37 +60,18 @@ public class AddLekiController
         this.dialoStage = dialoStage;
     }
 
-   
     public Leki getLek() 
     {
         return lek;
     }
-
-    /*
-    public void setLek(Leki lek) 
+    
+    @FXML
+    public void cancel()
     {
-       if(lek != null)
-        {
-            this.lek = lek;
-            
-            //System.out.println(badanie.getId());
-            
-            Date d = badanie.SQLgetDataBadania();
-            LocalDate ld = d.toLocalDate();
-            
-            dataBadania.setValue(ld);
-            opisBadania.setText(badanie.getWynikBadania().getValue());
-            nazwaBadania.setValue(badanie.getNazwaBadania().getValue());
-        }
-        else
-        {
-            
-        }
+        dialoStage.close();
     }
-    
-    */
-    
-    
+
+    @FXML
     public void ok() throws SQLException, ClassNotFoundException
     {
         boolean walidacja_nazwaLeku = false;
@@ -134,8 +109,6 @@ public class AddLekiController
             komunikat.append("- Data zakonczenia przyjmowania leku nie zostala wybrana\n");
         }
         
-        System.out.println(!dawkowanie.getText().isEmpty());
-        
         if(!dawkowanie.getText().isEmpty())
         {
             walidacja_dawkowanie = true;
@@ -145,23 +118,15 @@ public class AddLekiController
             komunikat.append("- Pole dawkowanie nie może pozostać puste");
         }
         
-        System.out.println(walidacja_dataOd);
-        System.err.println(walidacja_dawkowanie);
-        System.out.println(walidacja_nazwaLeku);
-        System.out.println(walidacja_dataDo);
-        
         if(walidacja_nazwaLeku && walidacja_dataOd  && walidacja_dataDo && walidacja_dawkowanie)
         {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            //System.out.println("weszlo");
             Optional<ButtonType> result = alert.showAndWait();
             alert.setTitle("Potwierdzenie operacji");
             alert.setHeaderText("Dodanie nowego leku");
             
             if(result.get() == ButtonType.OK)
             {
-                
-                
                 LocalDate locald = dataOd.getValue();
                 Date dateOd = Date.valueOf(locald);
         
@@ -169,29 +134,23 @@ public class AddLekiController
                 Date dateDo = Date.valueOf(locald);
                 
                 
-                 String s = nazwaLeku.getValue();
+                String s = nazwaLeku.getValue();
                 int tmp =0;
                 for(RodzajeLekow rb: rodzajeLekowList)
                 {
                     if(rb.getNazwa().getValue().equals(s))
                     {
-                        //System.err.println("Wpisuje");
                         tmp = rb.getId().intValue();
                     }
-                }
-                
+                }     
                 
                 Leki lekPacjenta = new Leki(-1, wybranyPacjent.getIdPacjenta().intValue(),"niewazne",tmp, dateOd, dateDo,dawkowanie.getText());
-                //System.out.println("Nowe lek");
-         
                  
                 LekiUtil.addLekPacjenta(lekPacjenta);
                 
                 lekiController.ladujListe(wybranyPacjent.getIdPacjenta().intValue());
                 dialoStage.close();
             }
-            
-        
         }
         else
         {
@@ -201,13 +160,8 @@ public class AddLekiController
             puste.setHeaderText("Dodanie nowego leku.");
             puste.setContentText(komunikat.toString());
             puste.showAndWait();
-        }
-        
-        
-        
-        
+        }    
     }
-    
     
     public Integer getZaznaczonyPacjent() {
         return zaznaczonyPacjent;
@@ -230,20 +184,14 @@ public class AddLekiController
             for(RodzajeLekow b:  rodzajeLekowList)
             {
                 listaLekow.addAll(b.getNazwa().getValue());
-                System.out.println(b.getNazwa().getValue());
             }
 
             nazwaLeku.setItems(listaLekow);
 
         } catch (ClassNotFoundException ex) {
-            //Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();
         } catch (SQLException ex) {
             ex.printStackTrace();
-            //Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }
-    
 }

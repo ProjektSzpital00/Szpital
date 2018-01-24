@@ -12,10 +12,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import szpital.model.Badania;
 import szpital.model.Leki;
 import szpital.model.Pacjent;
-import szpital.util.BadaniaUtil;
 import szpital.util.LekiUtil;
 import szpital.util.Utils;
 
@@ -48,13 +46,9 @@ public class LekiController
     
     private LekarzController lekarzController;
     private OrdynatorController ordynatorController;
+    private PielegniarkaController pielegniarkaController;
     
-    
-    
-    
-    
-    
-     public void ladujListe(Integer i)
+    public void ladujListe(Integer i)
     {
        
             try {    
@@ -70,14 +64,9 @@ public class LekiController
         dataOd.setCellValueFactory(cellData->cellData.getValue().getOdTermin());
         dataDo.setCellValueFactory(cellData->cellData.getValue().getDoTermin());
         dawkowanie.setCellValueFactory(cellData->cellData.getValue().getDawkowanie());
-        
-        
-        tabela.setItems(lekiList);
-    
+ 
+        tabela.setItems(lekiList);  
     }
-    
-    
-    
     
     @FXML
     public void dodajLek()
@@ -91,7 +80,6 @@ public class LekiController
     {
         
     }
-    
     
     private void wczytajAddLekScreen(Leki lek, String stageTitle)
     {
@@ -115,14 +103,8 @@ public class LekiController
             AddLekiController addLekiController = loader.getController();
             addLekiController.setLekiController(this);
             addLekiController.setStage(dialogStage);
-            //addLekiController.setLek(lek);
             addLekiController.setZaznaczonyPacjent(idPacjenta);
             addLekiController.setWybranyPacjent(wybranyPacjent);
-           // System.out.println(wybranyPacjent.getImie());
-            
-            
-            //addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
-            //addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
             addLekiController.setListaLekow();
             dialogStage.showAndWait();
         }
@@ -132,14 +114,17 @@ public class LekiController
         }
     }
     
-    
-    
-    public void setRejestracjaController(LekarzController lekarzController) 
+    public void setLekarzController(LekarzController lekarzController) 
     {
         this.lekarzController = lekarzController;
     }
+    
+    public void setPielegniarkaController(PielegniarkaController pielegniarkaController) 
+    {
+        this.pielegniarkaController = pielegniarkaController;
+    }
 
-    public void setRejestracjaControllerOrdynator(OrdynatorController ordynatorController)
+    public void setOrdynatorController(OrdynatorController ordynatorController)
     {
         this.ordynatorController = ordynatorController;
     }

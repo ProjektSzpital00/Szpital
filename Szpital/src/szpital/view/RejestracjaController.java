@@ -193,12 +193,29 @@ public class RejestracjaController
     }
     
     @FXML
-    public void logout()
+    public void statystyka() throws SQLException, ClassNotFoundException
     {
-        PacjentUtil.clearPacjentList();
-        LekarzUtil.clearLekarzList();
-        OddzialUtil.clearOddzialyList();
-        log.setLoginScreen();
+        try
+        {
+
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Statystyki.fxml"));
+
+            AnchorPane anchorPane = loader.load();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Statystyka");
+
+            Scene scene = new Scene(anchorPane);
+            dialogStage.setScene(scene);
+
+            dialogStage.showAndWait();
+        }
+        catch (IllegalStateException | IOException exc) 
+        {
+            Utils.alertWyswietl(exc);
+        }
+        
+        StatystykaUtil.getStatystykaList();
     }
     
     @FXML
@@ -222,11 +239,7 @@ public class RejestracjaController
                 if (result.get() == ButtonType.OK)
                 {
                     Wypis.wydrukuj(wybranyPacjent, BadaniaUtil.getBadaniaList(wybranyPacjent.getIdPacjenta().getValue()), LekiUtil.getLekiList(wybranyPacjent.getIdPacjenta().getValue()));
-                    Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
-                    alert2.setTitle("Potwierdzenie operacji");
-                    alert2.setHeaderText("Pomyślnie wydrukowano");
-                    alert2.setContentText("");
-                    alert2.showAndWait();
+                    Utils.informacjaWyswietl("Pomyślnie wydrukowano");
                 }
                 else
                 {
@@ -242,6 +255,29 @@ public class RejestracjaController
         {
             Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta dla którego chcesz wydrukować");
         }
+    }
+    
+     @FXML
+    public void sendMail()
+    {
+        Pacjent wybranyPacjent = tabela.getSelectionModel().getSelectedItem();
+        if(wybranyPacjent != null)
+        {
+            wczytajAddMail("wyślij mail", wybranyPacjent.getIdPacjenta().getValue());
+        }
+        else 
+        {
+            Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta dla którego chcesz wysłać maila");
+        }
+    }
+    
+    @FXML
+    public void logout()
+    {
+        PacjentUtil.clearPacjentList();
+        LekarzUtil.clearLekarzList();
+        OddzialUtil.clearOddzialyList();
+        log.setLoginScreen();
     }
     
     private void wczytajAddPacjentScreen(Pacjent pacjent, String stageTitle)
@@ -301,28 +337,12 @@ public class RejestracjaController
 
             dialogStage.showAndWait();
         }
-        catch (IllegalStateException | IOException exc)
+        catch (SQLException | IllegalStateException | IOException | ClassNotFoundException exc)
         {
             Utils.alertWyswietl(exc);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 
-    @FXML
-    public void sendMail(){
-        Pacjent wybranyPacjent = tabela.getSelectionModel().getSelectedItem();
-        if(wybranyPacjent != null)
-        {
-            wczytajAddMail("wyślij mail", wybranyPacjent.getIdPacjenta().getValue());
-        }
-        else {
-        Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta dla którego chcesz wydrukować");
-        }
-    }
-    
     public void setAccount(Account account)
     {
         this.account = account;
@@ -382,39 +402,7 @@ public class RejestracjaController
             }
         });
     }
-    
-    @FXML
-    public void statystyka() throws SQLException, ClassNotFoundException
-    {
-        try
-            {
 
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Statystyki.fxml"));
-
-                AnchorPane anchorPane = loader.load();
-
-                Stage dialogStage = new Stage();
-                dialogStage.setTitle("Statystyka");
-
-                Scene scene = new Scene(anchorPane);
-                dialogStage.setScene(scene);
-                
-                dialogStage.showAndWait();
-            }
-            catch (IllegalStateException | IOException exc) 
-            {
-                Utils.alertWyswietl(exc);
-            }
-
-        
-        
-        
-        
-        //System.out.println("stat");
-        StatystykaUtil.getStatystykaList();
-    }
-    
-    
     public void setLoginController(LoginController log)
     {
         this.log = log;

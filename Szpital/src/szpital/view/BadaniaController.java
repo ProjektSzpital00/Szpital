@@ -55,6 +55,7 @@ public class BadaniaController
     private Pacjent wybranyPacjent;
     
     private LekarzController lekarzController;
+    private PielegniarkaController pielegniarkaController;
 
     private OrdynatorController ordynatorController;
     
@@ -130,9 +131,14 @@ public class BadaniaController
         this.dialoStage = dialoStage;
     }
 
-    public void setRejestracjaController1(LekarzController lekarzController)
+    public void setLekarzController(LekarzController lekarzController)
     {
         this.lekarzController = lekarzController;
+    }
+    
+      public void setPielegniarkaController(PielegniarkaController pielegniarkaController)
+    {
+        this.pielegniarkaController = pielegniarkaController;
     }
     
     private void wczytajAddBadanieScreen(Badania badanie, String stageTitle)

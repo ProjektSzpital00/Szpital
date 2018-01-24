@@ -77,36 +77,62 @@ public class DyzuryController
     @FXML
     public void dodajDyzur()
     {
+        String lekarz1 = comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem();
+        String lekarz2 = comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem();
+        String pielegniarka11 = comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem();
+        String pielegniarka12 = comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem();
+        String pielegniarka21 = comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem();
+        String pielegniarka22 = comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem();
+        
         if(checkBoxPierwszyDyzur.isSelected() && checkBoxDrugiDyzur.isSelected())
         {
-            if(!comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem().equals(comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem()))
+            if(!lekarz1.equals(lekarz2))
             {
-                if(!comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem()) && !comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem()) && !comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()))
+                if(!pielegniarka11.equals(pielegniarka12) && !pielegniarka11.equals(pielegniarka21) && !pielegniarka11.equals(pielegniarka22))
                 {
-                    if(!comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem()) && !comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()) && !comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()))
+                    if(!pielegniarka12.equals(pielegniarka21) && !pielegniarka12.equals(pielegniarka22) && !pielegniarka21.equals(pielegniarka22))
                     {
-                        String [] temp = comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem().split(" ");
-                        Dyzur d1 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
-                        DyzurUtil.addLekarz(d1, true);
-                        temp = comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem().split(" ");
-                        Dyzur d2 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
-                        DyzurUtil.addLekarz(d2, true);
+                        if(!sprawdzCzyMaJuzDzisDyzur(lekarz1, true) && !sprawdzCzyMaJuzDzisDyzur(lekarz2, true) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka11, false) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka12, false) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka21, false) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka22, false))
+                        {
+                            String [] temp = lekarz1.split(" ");
+                            Dyzur d1 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
+                            DyzurUtil.addLekarz(d1, true);
+                            temp = lekarz2.split(" ");
+                            Dyzur d2 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
+                            DyzurUtil.addLekarz(d2, true);
 
-                        temp = comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem().split(" ");
-                        Dyzur d3 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
-                        DyzurUtil.addLekarz(d3, false);
-                        temp = comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem().split(" ");
-                        Dyzur d4 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
-                        DyzurUtil.addLekarz(d4, false);
-                        temp = comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem().split(" ");
-                        Dyzur d5 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
-                        DyzurUtil.addLekarz(d5, false);
-                        temp = comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem().split(" ");
-                        Dyzur d6 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
-                        DyzurUtil.addLekarz(d6, false);
-                        Utils.informacjaWyswietl("Pomyślnie dodano dyżury");
-                        dialogStage.close();
+                            temp = pielegniarka11.split(" ");
+                            Dyzur d3 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
+                            DyzurUtil.addLekarz(d3, false);
+                            temp = pielegniarka12.split(" ");
+                            Dyzur d4 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
+                            DyzurUtil.addLekarz(d4, false);
+                            temp = pielegniarka21.split(" ");
+                            Dyzur d5 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
+                            DyzurUtil.addLekarz(d5, false);
+                            temp = pielegniarka22.split(" ");
+                            Dyzur d6 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
+                            DyzurUtil.addLekarz(d6, false);
+                            Utils.informacjaWyswietl("Pomyślnie dodano dyżury");
+                            DyzurUtil.clearDyzurList2();
+                            ordynatorController.setDyzuryTabelka();
+                            dialogStage.close();
+                        }
+                        else
+                        {
+                            Utils.alertWyswietl("Błąd wyboru!", "Wybrano personel który ma już dyżur w tym dniu\nProszę zmienić wybór personelu");
+                        }
                     }
+                    else
+                    {
+                        Utils.alertWyswietl("Błąd wyboru!", "Wybrano te same pielegniarki dla dwóch dyżurów."
+                                + "Proszę zmienić wybór pielęgniarek");
+                    }
+                }
+                else
+                {
+                    Utils.alertWyswietl("Błąd wyboru!", "Wybrano te same pielegniarki dla dwóch dyżurów."
+                                + "Proszę zmienić wybór pielęgniarek");
                 }
             }
             else
@@ -117,54 +143,74 @@ public class DyzuryController
         }
         else if(checkBoxPierwszyDyzur.isSelected())
         {
-            if(!comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem()))
+            if(!pielegniarka11.equals(pielegniarka12))
             {
-                String [] temp = comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem().split(" ");
-                Dyzur d1 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
-                DyzurUtil.addLekarz(d1, true);
+                if(!sprawdzCzyMaJuzDzisDyzur(lekarz1, true) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka11, false) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka12, false))
+                {
+                    String [] temp = lekarz1.split(" ");
+                    Dyzur d1 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
+                    DyzurUtil.addLekarz(d1, true);
 
-                temp = comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem().split(" ");
-                Dyzur d2 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
-                DyzurUtil.addLekarz(d2, false);
-                temp = comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem().split(" ");
-                Dyzur d3 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
-                DyzurUtil.addLekarz(d3, false);
-                Utils.informacjaWyswietl("Pomyślnie dodano dyżur");
-                dialogStage.close();
+                    temp = pielegniarka11.split(" ");
+                    Dyzur d2 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
+                    DyzurUtil.addLekarz(d2, false);
+                    temp = pielegniarka12.split(" ");
+                    Dyzur d3 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 00:00:00", datePicker.getValue().toString()+" 08:00:00");
+                    DyzurUtil.addLekarz(d3, false);
+                    Utils.informacjaWyswietl("Pomyślnie dodano dyżur");
+                    DyzurUtil.clearDyzurList2();
+                    ordynatorController.setDyzuryTabelka();
+                    dialogStage.close();
+                }
+                else
+                {
+                    Utils.alertWyswietl("Błąd wyboru!", "Wybrano personel który ma już dyżur w tym dniu\nProszę zmienić wybór personelu");
+                }
             }
             else
             {
                 Utils.alertWyswietl("Błąd wyboru!", "Wybrano te same pielęgniarki dla dwóch dyżurów."
-                        + " Proszę zmienić wybór lekarzy");
+                        + " Proszę zmienić wybór pielęgniarek");
             }
         }
         else if(checkBoxDrugiDyzur.isSelected())
         {
-            if(!comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()))
+            if(!pielegniarka21.equals(pielegniarka22))
             {
-                String [] temp = comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem().split(" ");
-                Dyzur d1 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString() + " 16:00:00", datePicker.getValue().plusDays(1).toString() + " 00:00:00");
-                DyzurUtil.addLekarz(d1, true);
+                if(!sprawdzCzyMaJuzDzisDyzur(lekarz2, true) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka21, false) && !sprawdzCzyMaJuzDzisDyzur(pielegniarka22, false))
+                {
+                    String [] temp = lekarz2.split(" ");
+                    Dyzur d1 = new Dyzur(LekarzUtil.searchLekarzId(temp[1], temp[0]), true, datePicker.getValue().toString() + " 16:00:00", datePicker.getValue().plusDays(1).toString() + " 00:00:00");
+                    DyzurUtil.addLekarz(d1, true);
 
-                temp = comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem().split(" ");
-                Dyzur d2 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
-                DyzurUtil.addLekarz(d2, false);
-                temp = comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem().split(" ");
-                Dyzur d3 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
-                DyzurUtil.addLekarz(d3, false);
-                Utils.informacjaWyswietl("Pomyślnie dodano dyżur");
-                dialogStage.close();
+                    temp = pielegniarka21.split(" ");
+                    Dyzur d2 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
+                    DyzurUtil.addLekarz(d2, false);
+                    temp = pielegniarka22.split(" ");
+                    Dyzur d3 = new Dyzur(PielegniarkaUtil.searchPielegniarkaId(temp[1], temp[0]), false, datePicker.getValue().toString()+" 16:00:00", datePicker.getValue().plusDays(1).toString()+" 00:00:00");
+                    DyzurUtil.addLekarz(d3, false);
+                    Utils.informacjaWyswietl("Pomyślnie dodano dyżur");
+                    DyzurUtil.clearDyzurList2();
+                    ordynatorController.setDyzuryTabelka();
+                    dialogStage.close();
+                }
+                else
+                {
+                    Utils.alertWyswietl("Błąd wyboru!", "Wybrano personel który ma już dyżur w tym dniu\nProszę zmienić wybór personelu");
+                }
             }
             else
             {
                 Utils.alertWyswietl("Błąd wyboru!", "Wybrano te same pielęgniarki dla dwóch dyżurów."
-                        + " Proszę zmienić wybór lekarzy");
+                        + " Proszę zmienić wybór pielęgniarek");
             }
         }
         else
         {
             Utils.alertWyswietl("Nie wybrano dyżuru!", "Proszę wybrać który dyżur/y chcesz dodać");
         }
+        DyzurUtil.clearDyzurList2();
+        ordynatorController.setDyzuryTabelka();
     }
     
     @FXML
@@ -176,19 +222,47 @@ public class DyzuryController
             {
                 for(Dyzur d : DyzurUtil.getDyzurList())
                 {
-                    if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
-                    else if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                    if(d.getLekarzDyzurujacy() != null)
+                    {
+                        if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
+                        }
+                        else if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
+                        } 
+                    }
+                    else if(d.getPielegniarkaDyzurujaca() != null)
+                    {
+                        if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                        else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                        else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                        else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                    }
                 }
+                Utils.informacjaWyswietl("Pomyślnie usunięto dyżury");
+                DyzurUtil.clearDyzurList2();
+                ordynatorController.setDyzuryTabelka();
+                dialogStage.close();
             } 
             catch (SQLException | ClassNotFoundException ex) 
             {
@@ -201,13 +275,32 @@ public class DyzuryController
             {
                 for(Dyzur d : DyzurUtil.getDyzurList())
                 {
-                    if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                    if(d.getLekarzDyzurujacy() != null)
+                    {
+                        if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzPierwszyDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
+                        }
+                    }
+                    else if(d.getPielegniarkaDyzurujaca() != null)
+                    {
+                        if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1PierwszyDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                        else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2PierwszyDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                    }
                 }
+                Utils.informacjaWyswietl("Pomyślnie usunięto dyżury");
+                DyzurUtil.clearDyzurList2();
+                ordynatorController.setDyzuryTabelka();
+                dialogStage.close();
             } 
             catch (SQLException | ClassNotFoundException ex) 
             {
@@ -220,13 +313,32 @@ public class DyzuryController
             {
                 for(Dyzur d : DyzurUtil.getDyzurList())
                 {
-                    if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
-                    else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()))
-                        DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                    if(d.getLekarzDyzurujacy() != null)
+                    {
+                        if(d.getLekarzDyzurujacy().getValue().equals(comboBoxLekarzDrugiDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), true);
+                        }
+                    }
+                    else if(d.getPielegniarkaDyzurujaca() != null)
+                    {
+                        if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka1DrugiDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                        else if(d.getPielegniarkaDyzurujaca().getValue().equals(comboBoxPielegniarka2DrugiDyzur.getSelectionModel().getSelectedItem()))
+                        {
+                            if(d.getTerminDataOd().getValue().equals(datePicker.getValue().toString()))
+                                DyzurUtil.deleteDyzurPersonelu(d.getIdDyzuru(), false);
+                        }
+                    }
                 }
+                Utils.informacjaWyswietl("Pomyślnie usunięto dyżury");
+                DyzurUtil.clearDyzurList2();
+                ordynatorController.setDyzuryTabelka();
+                dialogStage.close();
             } 
             catch (SQLException | ClassNotFoundException ex) 
             {
@@ -305,6 +417,33 @@ public class DyzuryController
         });
     }
     
+    private boolean sprawdzCzyMaJuzDzisDyzur(String dyzurujacy, Boolean czyLekarz)
+    {
+        String currentDate = datePicker.getValue().toString();
+        for(Dyzur d : dyzurList)
+        {
+            if(d.getTerminDataDo().getValue().equals(currentDate))
+            {
+                if(czyLekarz && (d.getLekarzDyzurujacy() != null))
+                {
+                    if(d.getLekarzDyzurujacy().getValue().equals(dyzurujacy))
+                    {
+                        return true;
+                    }
+                }
+                else if(d.getPielegniarkaDyzurujaca() != null)
+                {
+                    if(d.getPielegniarkaDyzurujaca().getValue().equals(dyzurujacy))
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        
+        return false;
+    }
+    
     public void setStage(Stage dialoStage) 
     {
         this.dialogStage = dialoStage;
@@ -328,7 +467,6 @@ public class DyzuryController
         String wybranyOddzial = choiceBoxOddzial.getSelectionModel().getSelectedItem();
         String dzisiejszaData = datePicker.getValue().toString();
         
-        
         for(Lekarz l : LekarzUtil.getLekarzList())
         {
             if(l.getOddzial().getValue().equals(wybranyOddzial))
@@ -346,8 +484,10 @@ public class DyzuryController
                 dyzurTempList4.add(p.getNazwisko().getValue() + " " + p.getImie().getValue());
             }
         }
-
-        for(Dyzur d : DyzurUtil.getDyzurList())
+        
+        dyzurList = DyzurUtil.getDyzurList();
+        
+        for(Dyzur d : dyzurList)
         {
             if(d.getIdLekarza() != null && d.getOddzial().getValue().equals(wybranyOddzial))
             {
@@ -368,7 +508,7 @@ public class DyzuryController
             } 
             else if(d.getIdPielęgniarki()!= null && d.getOddzial().getValue().equals(wybranyOddzial))
             {
-                if(d.getTerminDataDo().getValue().equals(datePicker.getValue().minusDays(1).toString()))
+                if(d.getTerminDataOd().getValue().equals(datePicker.getValue().minusDays(1).toString()))
                 {
                     dyzurTempList3.remove(d.getPielegniarkaDyzurujaca().getValue());
                     dyzurTempList4.remove(d.getPielegniarkaDyzurujaca().getValue());
@@ -447,5 +587,12 @@ public class DyzuryController
                 this.oddzialyList.add(o.getNazwaOddzialu().getValue());
         choiceBoxOddzial.setItems(this.oddzialyList);
         choiceBoxOddzial.getSelectionModel().select(this.oddzialyList.get(0));
+        
+        dyzurList.clear();
+        dyzurTempList.clear();
+        dyzurTempList2.clear();
+        dyzurTempList3.clear();
+        dyzurTempList4.clear();
+        DyzurUtil.clearDyzurList();
     }
 }

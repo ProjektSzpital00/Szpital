@@ -10,7 +10,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -66,9 +65,6 @@ public class LoginController
                         case "pielegniarka":
                             setPielegniarkaController(account);
                             break;
-                        case "administracja":
-                            setAdministracjaController(account);
-                            break;
                         default:
                             Utils.alertWyswietl("Błąd!", "Konto bez przypisanego stanowiska.\n"
                                     + "Skontaktuj się z administratorem");
@@ -123,11 +119,9 @@ public class LoginController
             rejestracjaController.setAccount(account);
             rejestracjaController.setLoginController(this);
             rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
-
-           /// setScreen(anchorPane);
           
-              primaryStage.close();
-             Scene scene = new Scene(anchorPane);
+            primaryStage.close();
+            Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
             primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
@@ -161,9 +155,10 @@ public class LoginController
             lekarzController.setLoginController(this);
             lekarzController.setPacjentList(PacjentUtil.getPacjentList());
             lekarzController.setRezerwacjeSal();
+            lekarzController.setDyzuryTabelka();
             
-              primaryStage.close();
-             Scene scene = new Scene(splitPane);
+            primaryStage.close();
+            Scene scene = new Scene(splitPane);
             primaryStage.centerOnScreen();
             primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
@@ -185,7 +180,8 @@ public class LoginController
         }
     }
 
-    private void setOrdynatorController(Account account) throws SQLException, ClassNotFoundException {
+    private void setOrdynatorController(Account account) 
+    {
         try
         {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("OrdynatorScreen.fxml"));
@@ -196,9 +192,46 @@ public class LoginController
             ordynatorController.setLoginController(this);
             ordynatorController.setPacjentList(PacjentUtil.getPacjentList());
             ordynatorController.setRezerwacjeSal();
-           // setScreen(anchorPane);
+            ordynatorController.setDyzuryTabelka();
+            
             primaryStage.close();
-             Scene scene = new Scene(anchorPane);
+            Scene scene = new Scene(anchorPane);
+            primaryStage.centerOnScreen();
+            primaryStage.setWidth(1390);
+            primaryStage.setHeight(800);
+            primaryStage.setMinWidth(1390);
+            primaryStage.setMinHeight(800);
+            primaryStage.setMaxWidth(1390);
+            primaryStage.setMaxHeight(800);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }
+         catch(IllegalStateException ex)
+        {
+            Utils.alertWyswietl(ex);
+            exit();
+        }
+        catch (IOException | SQLException | ClassNotFoundException exc) 
+        {
+            Utils.alertWyswietl(exc);
+        }
+    }
+
+    private void setPielegniarkaController(Account account)
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PielegniarkaScreen.fxml"));
+            AnchorPane anchorPane = loader.load();
+            
+            PielegniarkaController pielegniarkaController = loader.getController();
+            pielegniarkaController.setAccount(account);
+            pielegniarkaController.setLoginController(this);
+            pielegniarkaController.setPacjentList(PacjentUtil.getPacjentList());
+            pielegniarkaController.setDyzuryTabelka();
+            
+            primaryStage.close();
+            Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
             primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
@@ -214,55 +247,7 @@ public class LoginController
             Utils.alertWyswietl(ex);
             exit();
         }
-        catch (IOException exc) 
-        {
-            Utils.alertWyswietl(exc);
-        }
-    }
-
-    private void setPielegniarkaController(Account account)
-    {
-        try
-        {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PielegniarkaScreen.fxml"));
-            AnchorPane anchorPane = loader.load();
-            
-            LekarzController lekarzController = loader.getController();
-            lekarzController.setAccount(account);
-            lekarzController.setLoginController(this);
-            
-            setScreen(anchorPane);
-        }
-        catch(IllegalStateException ex)
-        {
-            Utils.alertWyswietl(ex);
-            exit();
-        }
-        catch (IOException exc) 
-        {
-            Utils.alertWyswietl(exc);
-        }
-    }
-
-    private void setAdministracjaController(Account account)
-    {
-        try
-        {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("AdministracjaScreen.fxml"));
-            AnchorPane anchorPane = loader.load();
-            
-            LekarzController lekarzController = loader.getController();
-            lekarzController.setAccount(account);
-            lekarzController.setLoginController(this);
-            
-            setScreen(anchorPane);
-        }
-        catch(IllegalStateException ex)
-        {
-            Utils.alertWyswietl(ex);
-            exit();
-        }
-        catch (IOException exc) 
+        catch (IOException | SQLException | ClassNotFoundException exc) 
         {
             Utils.alertWyswietl(exc);
         }

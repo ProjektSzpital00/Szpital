@@ -3,6 +3,7 @@ package szpital.util;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -15,6 +16,7 @@ import szpital.model.Pielegniarka;
 public class DyzurUtil 
 {
     private static ObservableList<Dyzur> dyzurList = FXCollections.observableArrayList();
+    private static ObservableList<Dyzur> dyzurList2 = FXCollections.observableArrayList();
     
     public static ObservableList<Dyzur> getDyzurList() throws SQLException, ClassNotFoundException
     { 
@@ -148,9 +150,86 @@ public class DyzurUtil
         return dyzurList;
     }
     
+    public static ObservableList<Dyzur> getDyzurList(Integer idDyzurujacego, Boolean czyLekarz) throws SQLException, ClassNotFoundException
+    { 
+        if(dyzurList2.isEmpty())
+        {
+            try 
+            {
+                Statement stmt = Laczenie.getStatement();
+
+                try 
+                {
+                    if(czyLekarz)
+                    {
+                        String query = "SELECT * FROM DyzuryLekarzy WHERE id_lekarza = "+idDyzurujacego+" AND data_od > '"+LocalDate.now().toString()+"%';";
+                        ResultSet rs = stmt.executeQuery(query);
+                        while (rs.next())
+                        {
+                            Dyzur d = new Dyzur(rs.getInt("id"), rs.getString("data_od"), rs.getString("data_do"), rs.getInt("id_lekarza"), true);
+                            dyzurList2.add(d);
+                        }
+
+                        for(Dyzur d : dyzurList2)
+                        {
+                            for(Lekarz l : LekarzUtil.getLekarzList())
+                            {
+                                if(d.getIdLekarza() != null && d.getIdLekarza().getValue().equals(l.getIdLekarza().getValue()))
+                                {
+                                    d.setLekarzDyzurujacy(new SimpleStringProperty(l.getNazwisko().getValue()+" "+l.getImie().getValue()));
+                                    d.setIdOddzialu(new SimpleIntegerProperty(l.getIdOddzialu().getValue()));
+                                    d.setOddzial(new SimpleStringProperty(l.getOddzial().getValue()));
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        String query = "SELECT * FROM DyzuryPielegniarek WHERE id_pielegniarki = "+idDyzurujacego+" AND data_od > '"+LocalDate.now().toString()+"%';";
+                        ResultSet rs = stmt.executeQuery(query);
+                        while (rs.next())
+                        {
+                            Dyzur d = new Dyzur(rs.getInt("id"), rs.getString("data_od"), rs.getString("data_do"), rs.getInt("id_pielegniarki"), false);
+                            dyzurList2.add(d);
+                        }
+
+                        for(Dyzur d : dyzurList2)
+                        {
+                            for(Pielegniarka p : PielegniarkaUtil.getPielegniarkaList())
+                            {
+                                if(d.getIdPielęgniarki() != null && d.getIdPielęgniarki().getValue().equals(p.getIdPielegniarki().getValue()))
+                                {
+                                    d.setPielegniarkaDyzurujaca(new SimpleStringProperty(p.getNazwisko().getValue()+" "+p.getImie().getValue()));
+                                    d.setIdOddzialu(new SimpleIntegerProperty(p.getIdOddzialu().getValue()));
+                                    d.setOddzial(new SimpleStringProperty(p.getOddzial().getValue()));
+                                }
+                            }
+                        }
+                    }
+                }
+                catch(SQLException ex)
+                {
+                    throw new SQLException("Błąd zapytania (Select RezerwacjaUtil)", ex);
+                }
+            } 
+            catch (SQLException | ClassNotFoundException ex) 
+            {
+                throw ex;
+            }
+        }
+        
+        
+        return dyzurList2;
+    }
+    
     public static void clearDyzurList()
     {
         dyzurList.clear();
+    }
+    
+    public static void clearDyzurList2()
+    {
+        dyzurList2.clear();
     }
     
     public static void addLekarz(Dyzur dyzur, Boolean czyLekarz)
@@ -221,9 +300,9 @@ public class DyzurUtil
             {
                 String query;
                 if(czyLekarz)
-                    query = "delete from DyzuryLekarzy where id =" + idDyzuru;
+                    query = "delete from DyzuryLekarzy where id =" + idDyzuru.getValue();
                 else
-                    query = "delete from DyzuryPielegniarek where id =" + idDyzuru;
+                    query = "delete from DyzuryPielegniarek where id =" + idDyzuru.getValue();
                 stmt.executeUpdate(query);
             } 
             catch (SQLException ex) 

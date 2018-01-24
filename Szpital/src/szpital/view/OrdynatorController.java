@@ -17,6 +17,7 @@ import szpital.util.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import szpital.model.Dyzur;
 
 public class OrdynatorController 
 {
@@ -24,6 +25,7 @@ public class OrdynatorController
     private LoginController log;
     private ObservableList<Pacjent> pacjentList;
     private ObservableList <Rezerwacja> rezerwacjaList;
+    private ObservableList <Dyzur> dyzuryList;
 
     @FXML
     TableView<Pacjent> tabelaPacjentow;
@@ -66,6 +68,15 @@ public class OrdynatorController
 
     @FXML
     private TableColumn<Rezerwacja, String> ColumnInformacjaR;
+    
+    @FXML
+    private TableView<Dyzur> tabelaDyzurow;
+
+    @FXML
+    private TableColumn<Dyzur, String> ColumnDyzurData;
+
+    @FXML
+    private TableColumn<Dyzur, String> ColumnDyzurGodzina;
 
     @FXML
     private void initialize()
@@ -85,6 +96,9 @@ public class OrdynatorController
         ColumnInformacjaR.setCellValueFactory(cellData->cellData.getValue().getInformacja());
 
         ColumnDataR.setSortType(TableColumn.SortType.ASCENDING);
+        
+        ColumnDyzurData.setCellValueFactory(cellData -> cellData.getValue().getTerminDataOd());
+        ColumnDyzurGodzina.setCellValueFactory(cellData->cellData.getValue().getTerminCzasOd());
     }
 
     @FXML
@@ -161,7 +175,7 @@ public class OrdynatorController
                 dialogStage.setScene(scene);
 
                 LekiController lekiController = loader.getController();
-                lekiController.setRejestracjaControllerOrdynator(this);
+                lekiController.setOrdynatorController(this);
                 lekiController.setStage(dialogStage);
                 lekiController.setWybranyPacjent(wybranyPacjent);
                 lekiController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
@@ -172,7 +186,6 @@ public class OrdynatorController
             {
                 exc.printStackTrace();
                 Utils.alertWyswietl(exc);
-                //System.out.println(exc);
             }
         }
         else
@@ -255,6 +268,21 @@ public class OrdynatorController
         {
             Utils.alertWyswietl(ex);
         }
+    }
+    
+    public void setDyzuryTabelka()
+    {
+        try
+        {
+            DyzurUtil.clearDyzurList2();
+            dyzuryList = DyzurUtil.getDyzurList(account.getId_lekarza(), true);
+            tabelaDyzurow.setItems(dyzuryList);
+            tabelaDyzurow.getSortOrder().add(ColumnDyzurData);
+        }
+        catch(SQLException | ClassNotFoundException ex)
+        {
+            Utils.alertWyswietl(ex);
+        } 
     }
 
     public void setPacjentList(ObservableList<Pacjent> pacjentList)

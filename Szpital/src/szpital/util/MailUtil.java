@@ -1,10 +1,5 @@
 package szpital.util;
 
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import szpital.model.*;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;

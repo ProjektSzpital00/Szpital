@@ -7,10 +7,12 @@ import javafx.scene.control.TextField;
 
 public class Utils 
 {
-    public static void informacjaWyswietl(String contentText)
+    public static void informacjaWyswietl(String headerText)
     {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText(contentText);
+        alert.setTitle("Potwierdzenie operacji");
+        alert.setHeaderText(headerText);
+        alert.setContentText("");
         alert.showAndWait();
     }
     
