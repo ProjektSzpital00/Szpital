@@ -1,0 +1,4 @@
+80.211.205.68:3306
+Szpital2
+szpital
+haslo
