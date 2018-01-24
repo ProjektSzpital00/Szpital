@@ -124,10 +124,8 @@ public class LoginController
             rejestracjaController.setLoginController(this);
             rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
 
-           /// setScreen(anchorPane);
-          
-              primaryStage.close();
-             Scene scene = new Scene(anchorPane);
+            primaryStage.close();
+            Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
             primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
@@ -160,6 +158,7 @@ public class LoginController
             lekarzController.setAccount(account);
             lekarzController.setLoginController(this);
             lekarzController.setPacjentList(PacjentUtil.getPacjentList());
+            lekarzController.setPacjentListOddzial(PacjentUtil.getPacjentList());
             lekarzController.setRezerwacjeSal();
             
               primaryStage.close();
@@ -196,9 +195,8 @@ public class LoginController
             ordynatorController.setLoginController(this);
             ordynatorController.setPacjentList(PacjentUtil.getPacjentList());
             ordynatorController.setRezerwacjeSal();
-           // setScreen(anchorPane);
             primaryStage.close();
-             Scene scene = new Scene(anchorPane);
+            Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
             primaryStage.setWidth(1390);
             primaryStage.setHeight(800);

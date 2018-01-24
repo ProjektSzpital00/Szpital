@@ -2,12 +2,15 @@ package szpital.view;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
@@ -87,9 +90,28 @@ public class LekiController
     }
     
     @FXML
-    public void edytujLek()
+    public void usunLek()
     {
+        Leki wybranyLek = tabela.getSelectionModel().getSelectedItem();
         
+         if(wybranyLek != null)
+        {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Potwierdzenie operacji");
+            alert.setHeaderText("Usunięcie leku");
+            alert.setContentText("Czy na pewno chcesz usunąc wskazany lek?");
+            
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK)
+            {
+                LekiUtil.deletePacjent(wybranyLek.getId());
+            }
+        }
+        else
+        {
+            Utils.alertWyswietl("Nie wybrano leku!", "Proszę wybrać lek który chcesz usunac.");
+        }
+        ladujListe(wybranyPacjent.getIdPacjenta().intValue());
     }
     
     
@@ -115,14 +137,9 @@ public class LekiController
             AddLekiController addLekiController = loader.getController();
             addLekiController.setLekiController(this);
             addLekiController.setStage(dialogStage);
-            //addLekiController.setLek(lek);
             addLekiController.setZaznaczonyPacjent(idPacjenta);
             addLekiController.setWybranyPacjent(wybranyPacjent);
-           // System.out.println(wybranyPacjent.getImie());
-            
-            
-            //addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
-            //addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
+           
             addLekiController.setListaLekow();
             dialogStage.showAndWait();
         }

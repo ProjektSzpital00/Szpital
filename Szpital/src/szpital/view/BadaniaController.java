@@ -68,8 +68,6 @@ public class BadaniaController
     
     public void ladujListe(Integer i)
     {
-       // if(badaniaList == null)
-       // {
             try {    
                 
                 badaniaList = BadaniaUtil.getBadaniaList(i);
@@ -78,13 +76,6 @@ public class BadaniaController
             } catch (SQLException ex) {
                 Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
             }
-       // }
-       /*
-        for(Badania b: badaniaList)
-        {
-            System.out.println(b.getWynikBadania());
-        }
-        */
         nazwaBadania.setCellValueFactory(cellData->cellData.getValue().getNazwaBadania());
         imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImieNazwisko());
         dataBadania.setCellValueFactory(cellData->cellData.getValue().getDataBadania());
@@ -160,11 +151,7 @@ public class BadaniaController
             addBadanieController.setBadanie(badanie);
             addBadanieController.setZaznaczonyPacjent(idPacjenta);
             addBadanieController.setWybranyPacjent(wybranyPacjent);
-           // System.out.println(wybranyPacjent.getImie());
-            
-            
-            //addPacjentController.setLekarzList(LekarzUtil.getLekarzList());
-            //addPacjentController.setOddzialyList(OddzialUtil.getOddzialList());
+           
             addBadanieController.setListaBadan();
             dialogStage.showAndWait();
         }

@@ -202,7 +202,6 @@ public class AddBadanieController
     public void cancel()
     {
         dialoStage.close();
-        
     }
         
     

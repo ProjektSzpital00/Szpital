@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="310.0" maxWidth="300.0" minHeight="310.0" minWidth="300.0" prefHeight="310.0" prefWidth="300.0" styleClass="backgroud" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LoginController">
+<AnchorPane maxHeight="310.0" maxWidth="322.0" minHeight="310.0" minWidth="300.0" prefHeight="310.0" prefWidth="322.0" styleClass="backgroud" stylesheets="@login.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LoginController">
    <children>
       <HBox alignment="CENTER" layoutX="112.0" layoutY="14.0" AnchorPane.bottomAnchor="207.0" AnchorPane.leftAnchor="112.0" AnchorPane.rightAnchor="109.0" AnchorPane.topAnchor="14.0">
          <children>
@@ -22,14 +22,14 @@
       </HBox>
       <HBox alignment="CENTER" layoutX="50.0" layoutY="248.0" prefHeight="28.0" prefWidth="208.0" spacing="30.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="248.0">
          <children>
-            <Button alignment="BASELINE_RIGHT" maxHeight="28.0" maxWidth="90.0" mnemonicParsing="false" onAction="#logIn" prefHeight="28.0" prefWidth="79.0" scaleShape="false" text="Login" />
-            <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="28.0" prefWidth="87.0" text="Cancel" />
+            <Button alignment="BASELINE_RIGHT" maxHeight="28.0" maxWidth="91.0" mnemonicParsing="false" onAction="#logIn" prefHeight="28.0" prefWidth="83.0" scaleShape="false" text="Zaloguj" />
+            <Button alignment="BASELINE_CENTER" mnemonicParsing="false" onAction="#exit" prefHeight="28.0" prefWidth="87.0" text="Anuluj" />
          </children>
       </HBox>
       <VBox alignment="CENTER" layoutX="68.0" layoutY="120.0" prefHeight="114.0" prefWidth="165.0" spacing="40.0" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="120.0">
          <children>
-            <TextField fx:id="userId" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="165.0" promptText="Username" />
-            <PasswordField fx:id="password" prefHeight="25.0" prefWidth="165.0" promptText="User password" />
+            <TextField fx:id="userId" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="165.0" promptText="Pesel" />
+            <PasswordField fx:id="password" prefHeight="25.0" prefWidth="165.0" promptText="Hasło" />
          </children>
       </VBox>
    </children>

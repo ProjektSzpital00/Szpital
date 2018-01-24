@@ -71,31 +71,11 @@ public class AddLekiController
     {
         return lek;
     }
-
-    /*
-    public void setLek(Leki lek) 
+    
+    public void cancel()
     {
-       if(lek != null)
-        {
-            this.lek = lek;
-            
-            //System.out.println(badanie.getId());
-            
-            Date d = badanie.SQLgetDataBadania();
-            LocalDate ld = d.toLocalDate();
-            
-            dataBadania.setValue(ld);
-            opisBadania.setText(badanie.getWynikBadania().getValue());
-            nazwaBadania.setValue(badanie.getNazwaBadania().getValue());
-        }
-        else
-        {
-            
-        }
+        dialoStage.close();
     }
-    
-    */
-    
     
     public void ok() throws SQLException, ClassNotFoundException
     {
@@ -145,15 +125,11 @@ public class AddLekiController
             komunikat.append("- Pole dawkowanie nie może pozostać puste");
         }
         
-        System.out.println(walidacja_dataOd);
-        System.err.println(walidacja_dawkowanie);
-        System.out.println(walidacja_nazwaLeku);
-        System.out.println(walidacja_dataDo);
         
         if(walidacja_nazwaLeku && walidacja_dataOd  && walidacja_dataDo && walidacja_dawkowanie)
         {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            //System.out.println("weszlo");
+            
             Optional<ButtonType> result = alert.showAndWait();
             alert.setTitle("Potwierdzenie operacji");
             alert.setHeaderText("Dodanie nowego leku");
@@ -175,14 +151,13 @@ public class AddLekiController
                 {
                     if(rb.getNazwa().getValue().equals(s))
                     {
-                        //System.err.println("Wpisuje");
                         tmp = rb.getId().intValue();
                     }
                 }
                 
                 
                 Leki lekPacjenta = new Leki(-1, wybranyPacjent.getIdPacjenta().intValue(),"niewazne",tmp, dateOd, dateDo,dawkowanie.getText());
-                //System.out.println("Nowe lek");
+                
          
                  
                 LekiUtil.addLekPacjenta(lekPacjenta);
@@ -230,17 +205,17 @@ public class AddLekiController
             for(RodzajeLekow b:  rodzajeLekowList)
             {
                 listaLekow.addAll(b.getNazwa().getValue());
-                System.out.println(b.getNazwa().getValue());
+                
             }
 
             nazwaLeku.setItems(listaLekow);
 
         } catch (ClassNotFoundException ex) {
-            //Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
-            ex.printStackTrace();
+            Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
+           
         } catch (SQLException ex) {
-            ex.printStackTrace();
-            //Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
+           
+            Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 

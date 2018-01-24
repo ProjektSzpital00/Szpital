@@ -3,6 +3,7 @@ package szpital.util;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.beans.property.IntegerProperty;
 
 import org.omg.CORBA.PUBLIC_MEMBER;
 
@@ -81,5 +82,28 @@ public class LekiUtil {
 			Utils.alertWyswietl(ex);
 		}
 	}
+    
+    
+    public static void deletePacjent(IntegerProperty idLeku) 
+    {
+        try 
+        {
+            Statement stmt = Laczenie.getStatement();
+
+            try 
+            {
+                String query = "delete from LekiPacjentow where id =" + idLeku.getValue();
+                stmt.executeUpdate(query);
+            } 
+            catch (SQLException ex) 
+            {
+                throw new SQLException("Błąd zapytania (delete lek)", ex);
+            }
+        } 
+        catch (SQLException | ClassNotFoundException ex) 
+        {
+            Utils.alertWyswietl(ex);
+        }
+    }
     
 }
