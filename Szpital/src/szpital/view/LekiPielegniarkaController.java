@@ -80,7 +80,7 @@ public class LekiPielegniarkaController {
     
     }
      
-      public void setRejestracjaControllerPielegniarka(PielegniarkaController  pielegniarkaController) 
+      public void setPielegniarkaController(PielegniarkaController  pielegniarkaController) 
     {
         this.pielegniarkaController = pielegniarkaController;
     }
