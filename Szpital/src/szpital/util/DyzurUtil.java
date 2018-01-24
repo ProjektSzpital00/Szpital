@@ -162,7 +162,7 @@ public class DyzurUtil
                 {
                     if(czyLekarz)
                     {
-                        String query = "SELECT * FROM DyzuryLekarzy WHERE id_lekarza = "+idDyzurujacego+" AND data_od > '"+LocalDate.now().toString()+"%';";
+                        String query = "SELECT * FROM DyzuryLekarzy WHERE id_lekarza = "+idDyzurujacego+" AND data_od >= '"+LocalDate.now().toString()+"%';";
                         ResultSet rs = stmt.executeQuery(query);
                         while (rs.next())
                         {
@@ -185,7 +185,7 @@ public class DyzurUtil
                     }
                     else
                     {
-                        String query = "SELECT * FROM DyzuryPielegniarek WHERE id_pielegniarki = "+idDyzurujacego+" AND data_od > '"+LocalDate.now().toString()+"%';";
+                        String query = "SELECT * FROM DyzuryPielegniarek WHERE id_pielegniarki = "+idDyzurujacego+" AND data_od >= '"+LocalDate.now().toString()+"%';";
                         ResultSet rs = stmt.executeQuery(query);
                         while (rs.next())
                         {
