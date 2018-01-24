@@ -217,9 +217,9 @@ public class LoginController
         }
     }
 
-    private void setPielegniarkaController(Account account)
+    private void setPielegniarkaController(Account account) throws SQLException, ClassNotFoundException
     {
-        try
+       try
         {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PielegniarkaScreen.fxml"));
             AnchorPane anchorPane = loader.load();

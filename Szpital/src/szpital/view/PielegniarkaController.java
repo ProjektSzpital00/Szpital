@@ -2,6 +2,7 @@ package szpital.view;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,10 @@ import szpital.model.Account;
 import szpital.model.Dyzur;
 import szpital.model.Pacjent;
 import szpital.util.DyzurUtil;
+import szpital.model.Oddzial;
+import szpital.model.Pacjent;
+import szpital.model.Rezerwacja;
+import szpital.util.LekarzUtil;
 import szpital.util.OddzialUtil;
 import szpital.util.PacjentUtil;
 import szpital.util.PielegniarkaUtil;
@@ -31,6 +36,7 @@ public class PielegniarkaController
     @FXML
     TableView<Pacjent> tabelaPacjentow;
     
+<<<<<<< HEAD
     @FXML
     private TableColumn<Pacjent, Integer> ColumnIdPacjenta;
     
@@ -78,7 +84,6 @@ public class PielegniarkaController
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
         ColumnSala.setCellValueFactory(cellData->cellData.getValue().getNrSali().asObject());
         ColumnMiejsce.setCellValueFactory(cellData->cellData.getValue().getNrLozka().asObject());
-        
         ColumnDyzurData.setCellValueFactory(cellData -> cellData.getValue().getTerminDataOd());
         ColumnDyzurGodzina.setCellValueFactory(cellData->cellData.getValue().getTerminCzasOd());
     }
@@ -135,7 +140,6 @@ public class PielegniarkaController
         {
             Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego badania chcesz wyświetlić.");
         }
-        
     }
     
       @FXML
@@ -147,7 +151,7 @@ public class PielegniarkaController
             try
             {
 
-                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Leki.fxml"));
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("LekiPielegniarka.fxml"));
 
                 AnchorPane anchorPane = loader.load();
 
@@ -161,7 +165,6 @@ public class PielegniarkaController
                 lekiController.setPielegniarkaController(this);
                 lekiController.setStage(dialogStage);
                 lekiController.setWybranyPacjent(wybranyPacjent);
-                //System.out.println("Do badani contrroller idize " + wybranyPacjent.getIdPacjenta().getValue());
                 lekiController.ladujListe(wybranyPacjent.getIdPacjenta().getValue());
                 
                 dialogStage.showAndWait();
@@ -170,12 +173,11 @@ public class PielegniarkaController
             {
                 exc.printStackTrace();
                 Utils.alertWyswietl(exc);
-                //System.out.println(exc);
             }
         }
         else
         {
-            Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego badania chcesz wyświetlić.");
+            Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego leki chcesz wyświetlić.");
         }
     }
     
@@ -203,7 +205,7 @@ public class PielegniarkaController
             Utils.alertWyswietl(ex);
         } 
     }
-   
+
     public void setLoginController(LoginController log)
     {
         this.log = log;

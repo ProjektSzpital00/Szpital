@@ -21,6 +21,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import szpital.model.Badania;
 import szpital.model.Pacjent;
+import szpital.model.Pielegniarka;
 import szpital.util.BadaniaUtil;
 import szpital.util.LekarzUtil;
 import szpital.util.OddzialUtil;
@@ -58,6 +59,8 @@ public class BadaniaController
     private PielegniarkaController pielegniarkaController;
 
     private OrdynatorController ordynatorController;
+    
+    private PielegniarkaController pielegniarkaController;
     
     
     public void setBadaniaList()
@@ -121,6 +124,10 @@ public class BadaniaController
         this.ordynatorController = ordynatorController;
     }
     
+    public void setRejestracjaController1(PielegniarkaController pielegniarkaController)
+    {
+        this.pielegniarkaController = pielegniarkaController;
+    }
     public void setId(Integer i)
     {
         idPacjenta = i;

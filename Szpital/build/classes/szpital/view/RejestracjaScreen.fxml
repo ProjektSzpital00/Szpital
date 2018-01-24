@@ -37,7 +37,7 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" layoutX="1158.0" layoutY="655.0" prefHeight="31.0" prefWidth="131.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="1158.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="655.0">
          <children>
-            <Button minWidth="100.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="131.0" text="Wyloguj się">
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="130.0" text="Wyloguj się">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -90,17 +90,17 @@
             <Label fx:id="ktoZalogowanyLabel" text="Label" />
          </children>
       </VBox>
-      <HBox alignment="BASELINE_RIGHT" layoutX="1106.0" layoutY="392.0" prefHeight="43.0" prefWidth="183.0" spacing="10.0" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="1106.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="392.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="1106.0" layoutY="471.0" prefHeight="37.0" prefWidth="183.0" spacing="10.0" AnchorPane.bottomAnchor="192.0" AnchorPane.leftAnchor="1106.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="471.0">
          <children>
-            <ImageView fitHeight="46.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="36.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@image/statystyka.png" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#statystyka" prefWidth="120.0" text="Statystyki" />
+            <Button minWidth="120.0" mnemonicParsing="false" onAction="#statystyka" prefWidth="120.0" text="Statystyka" />
          </children>
       </HBox>
-      <HBox alignment="BASELINE_RIGHT" layoutX="1120.0" layoutY="196.0" prefHeight="45.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="459.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="196.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="1120.0" layoutY="204.0" prefHeight="37.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="459.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="204.0">
          <children>
             <ImageView fitHeight="37.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -113,7 +113,7 @@
             <Button minWidth="120.0" mnemonicParsing="false" onAction="#addPacjent" prefWidth="120.0" text="Nowy pacjent" />
          </children>
       </HBox>
-      <HBox alignment="BASELINE_RIGHT" layoutX="1120.0" layoutY="265.0" prefHeight="45.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="265.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="1120.0" layoutY="273.0" prefHeight="37.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="273.0">
          <children>
             <ImageView fitHeight="36.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -123,7 +123,7 @@
             <Button minWidth="120.0" mnemonicParsing="false" onAction="#editPacjent" prefHeight="27.0" prefWidth="120.0" text="Edit.." />
          </children>
       </HBox>
-      <HBox alignment="BASELINE_RIGHT" layoutX="1136.0" layoutY="335.0" prefHeight="45.0" prefWidth="153.0" spacing="10.0" AnchorPane.bottomAnchor="320.0" AnchorPane.leftAnchor="1136.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="335.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="1136.0" layoutY="342.0" prefHeight="31.0" prefWidth="153.0" spacing="10.0" AnchorPane.bottomAnchor="327.0" AnchorPane.leftAnchor="1136.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="342.0">
          <children>
             <ImageView fitHeight="33.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -133,7 +133,7 @@
             <Button minWidth="120.0" mnemonicParsing="false" onAction="#deletePacjent" prefWidth="120.0" text="Usuń" />
          </children>
       </HBox>
-      <HBox alignment="BASELINE_RIGHT" layoutX="1120.0" layoutY="464.0" prefHeight="37.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="199.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="464.0">
+      <HBox alignment="BOTTOM_RIGHT" layoutX="1120.0" layoutY="410.0" prefHeight="31.0" prefWidth="169.0" spacing="10.0" AnchorPane.bottomAnchor="259.0" AnchorPane.leftAnchor="1120.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="410.0">
          <children>
             <ImageView fitHeight="31.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
