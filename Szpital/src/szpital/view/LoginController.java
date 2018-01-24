@@ -231,7 +231,17 @@ public class LoginController
             lekarzController.setAccount(account);
             lekarzController.setLoginController(this);
             
-            setScreen(anchorPane);
+             primaryStage.close();
+             Scene scene = new Scene(anchorPane);
+            primaryStage.centerOnScreen();
+            primaryStage.setWidth(1390);
+            primaryStage.setHeight(800);
+            primaryStage.setMinWidth(1390);
+            primaryStage.setMinHeight(800);
+            primaryStage.setMaxWidth(1390);
+            primaryStage.setMaxHeight(800);
+            primaryStage.setScene(scene);
+            primaryStage.show();
         }
         catch(IllegalStateException ex)
         {
