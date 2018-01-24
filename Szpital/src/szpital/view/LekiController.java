@@ -48,6 +48,7 @@ public class LekiController
     
     private LekarzController lekarzController;
     private OrdynatorController ordynatorController;
+    private PielegniarkaController  pielegniarkaController ;
     
     
     
@@ -137,6 +138,11 @@ public class LekiController
     public void setRejestracjaController(LekarzController lekarzController) 
     {
         this.lekarzController = lekarzController;
+    }
+    
+     public void setRejestracjaControllerPielegniarka(PielegniarkaController  pielegniarkaController) 
+    {
+        this.pielegniarkaController = pielegniarkaController;
     }
 
     public void setRejestracjaControllerOrdynator(OrdynatorController ordynatorController)

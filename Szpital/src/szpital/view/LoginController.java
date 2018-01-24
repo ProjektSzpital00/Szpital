@@ -220,19 +220,20 @@ public class LoginController
         }
     }
 
-    private void setPielegniarkaController(Account account)
+    private void setPielegniarkaController(Account account) throws SQLException, ClassNotFoundException
     {
-        try
+       try
         {
             FXMLLoader loader = new FXMLLoader(this.getClass().getResource("PielegniarkaScreen.fxml"));
             AnchorPane anchorPane = loader.load();
             
-            LekarzController lekarzController = loader.getController();
-            lekarzController.setAccount(account);
-            lekarzController.setLoginController(this);
+            PielegniarkaController pielegniarkaController = loader.getController();
+            pielegniarkaController.setAccount(account);
+            pielegniarkaController.setPacjentList(PacjentUtil.getPacjentList());
+            pielegniarkaController.setLoginController(this);
             
-             primaryStage.close();
-             Scene scene = new Scene(anchorPane);
+            primaryStage.close();
+            Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
             primaryStage.setWidth(1390);
             primaryStage.setHeight(800);
@@ -242,8 +243,10 @@ public class LoginController
             primaryStage.setMaxHeight(800);
             primaryStage.setScene(scene);
             primaryStage.show();
+            
+           // setScreen(anchorPane);
         }
-        catch(IllegalStateException ex)
+       catch(IllegalStateException ex)
         {
             Utils.alertWyswietl(ex);
             exit();

@@ -13,12 +13,13 @@ and open the template in the editor.
      
 }
 .label {
-    -fx-font-size: 12pt;
+    -fx-font-size: 13pt;
     -fx-text-fill: black;
+    -fx-font-family: 'Times New Roman',serif;
     -fx-opacity: 0.6;
 }
 .table-view{
-    -fx-base:  #AFEEEE;
+    -fx-base:  #87CEEB;
     -fx-outline: solid #000;
     -fx-control-inner-background:whitesmoke;
     -fx-background-color: whitesmoke;
@@ -28,8 +29,8 @@ and open the template in the editor.
     
 }
 .table-view .column-header .label {
-    -fx-font-size: 10pt;
-   
+    -fx-font-size: 11pt;
+     -fx-font-family: 'Times New Roman',serif;
     -fx-text-fill: black;
     -fx-font-weight: normal;
     -fx-alignment: center;
@@ -88,7 +89,7 @@ and open the template in the editor.
 
 .text-field {
     -fx-font-size: 8pt;
-    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-family: 'Times New Roman';
      -fx-effect: innershadow(one-pass-box, gray, 5, 0.3, 1, 1);
 }
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" stylesheets="@HospitalSyle.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="szpital.view.LekiPielegniarkaController">
+   <children>
+      <TableView fx:id="tabela" layoutX="24.0" layoutY="56.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columns>
+            <TableColumn fx:id="nazwaLeku" prefWidth="75.0" text="Lek" />
+            <TableColumn fx:id="imiePacjenta" prefWidth="75.0" text="Pacjent" />
+            <TableColumn fx:id="dataOd" prefWidth="75.0" text="Od" />
+            <TableColumn fx:id="dataDo" prefWidth="75.0" text="Do" />
+            <TableColumn fx:id="dawkowanie" prefWidth="75.0" text="Dawkowanie" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

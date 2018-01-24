@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/GitHub/Szpital/Szpital/src/szpital/view/LekiController.java</file>
+            <file>file:/D:/GitHub/Szpital/Szpital/src/szpital/view/LekiPielegniarkaController.java</file>
+            <file>file:/D:/GitHub/Szpital/Szpital/src/szpital/view/PielegniarkaController.java</file>
+            <file>file:/D:/GitHub/Szpital/Szpital/src/szpital/view/HospitalSyle.css</file>
+            <file>file:/D:/GitHub/Szpital/Szpital/src/szpital/view/BadaniaController.java</file>
+            <file>file:/D:/GitHub/Szpital/Szpital/src/szpital/view/LoginController.java</file>
+        </group>
     </open-files>
 </project-private>
