@@ -72,7 +72,7 @@ public class BadaniaController
             } catch (SQLException ex) {
                 Logger.getLogger(BadaniaController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         nazwaBadania.setCellValueFactory(cellData->cellData.getValue().getNazwaBadania());
         imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImieNazwisko());
         dataBadania.setCellValueFactory(cellData->cellData.getValue().getDataBadania());
@@ -157,6 +157,7 @@ public class BadaniaController
             addBadanieController.setBadanie(badanie);
             addBadanieController.setZaznaczonyPacjent(idPacjenta);
             addBadanieController.setWybranyPacjent(wybranyPacjent);
+
             addBadanieController.setListaBadan();
             dialogStage.showAndWait();
         }

@@ -28,7 +28,7 @@
       </HBox>
       <VBox alignment="CENTER" layoutX="68.0" layoutY="120.0" prefHeight="114.0" prefWidth="165.0" spacing="40.0" AnchorPane.bottomAnchor="66.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="120.0">
          <children>
-            <TextField fx:id="userId" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="165.0" promptText="Nazwa użytkownika" />
+            <TextField fx:id="userId" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="165.0" promptText="Pesel" />
             <PasswordField fx:id="password" prefHeight="25.0" prefWidth="165.0" promptText="Hasło" />
          </children>
       </VBox>

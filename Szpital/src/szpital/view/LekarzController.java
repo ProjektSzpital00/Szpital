@@ -31,6 +31,7 @@ public class LekarzController
     private ObservableList<Pacjent> pacjentList;
     private ObservableList <Rezerwacja> rezerwacjaList;
     private ObservableList <Dyzur> dyzuryList;
+    private ObservableList<Pacjent> wszyscyZoddzialu;
     
     @FXML
     TableView<Pacjent> tabelaPacjentow;
@@ -61,6 +62,34 @@ public class LekarzController
     
     
     @FXML
+    TableView<Pacjent> tabelaWszystkichPacjentow;
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnIdPacjenta1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnImie1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnNazwisko1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnPesel1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnOddzial1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnGrKrwii1;
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnSala1;
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnMiejsce1;
+    
+    
+    @FXML
     private TableView<Rezerwacja> tabelaRezerwacji;
     
     @FXML
@@ -72,7 +101,6 @@ public class LekarzController
     @FXML
     private TableColumn<Rezerwacja, String> ColumnInformacjaR;
     
-    @FXML
     private TableView<Dyzur> tabelaDyzurow;
 
     @FXML
@@ -83,6 +111,8 @@ public class LekarzController
 
     @FXML
     private Label ktoZalogowany;
+
+    private int idDzialu;
     
     @FXML
     private void initialize()
@@ -95,6 +125,17 @@ public class LekarzController
         ColumnGrKrwii.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
         ColumnSala.setCellValueFactory(cellData->cellData.getValue().getNrSali().asObject());
         ColumnMiejsce.setCellValueFactory(cellData->cellData.getValue().getNrLozka().asObject());
+        
+        ColumnIdPacjenta1.setCellValueFactory(cellData -> cellData.getValue().getIdPacjenta().asObject());
+        ColumnImie1.setCellValueFactory(cellData->cellData.getValue().getImie());
+        ColumnNazwisko1.setCellValueFactory(cellData->cellData.getValue().getNazwisko());
+        ColumnPesel1.setCellValueFactory(cellData->cellData.getValue().getPesel());
+        ColumnOddzial1.setCellValueFactory(cellData->cellData.getValue().getOddzial());
+        ColumnGrKrwii1.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
+        ColumnSala1.setCellValueFactory(cellData->cellData.getValue().getNrSali().asObject());
+        ColumnMiejsce1.setCellValueFactory(cellData->cellData.getValue().getNrLozka().asObject());
+        
+        
         
         
         ColumnSalaR.setCellValueFactory(cellData -> cellData.getValue().getSala());
@@ -164,7 +205,6 @@ public class LekarzController
         {
             Utils.alertWyswietl("Nie wybrano pacjenta!", "Proszę wybrać pacjenta którego badania chcesz wyświetlić.");
         }
-        
     }
     
     @FXML
@@ -246,11 +286,12 @@ public class LekarzController
     public void setPacjentList(ObservableList<Pacjent> pacjentList) 
     {
         this.pacjentList = FXCollections.observableArrayList();
-        
         for(Pacjent p : pacjentList)
             if(p.getIdLekarza().getValue().equals(account.getId_lekarza()))
+            {
                 this.pacjentList.add(p);
-        
+                this.idDzialu = p.getIdOddzialu().intValue();
+            }
        
         tabelaPacjentow.setItems(this.pacjentList);
     }
@@ -268,6 +309,20 @@ public class LekarzController
         {
             Utils.alertWyswietl(ex);
         } 
+    }
+    
+    public void setPacjentListOddzial(ObservableList<Pacjent> pacjentList) 
+    {
+        this.wszyscyZoddzialu = FXCollections.observableArrayList();
+       
+        for(Pacjent p : pacjentList)
+        {
+            if(p.getIdOddzialu().getValue() == idDzialu)
+            {
+                this.wszyscyZoddzialu.add(p);
+            }
+        }
+        tabelaWszystkichPacjentow.setItems(this.wszyscyZoddzialu);
     }
     
     public void setRezerwacjeSal()

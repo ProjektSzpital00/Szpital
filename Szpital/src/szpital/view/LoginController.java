@@ -119,7 +119,7 @@ public class LoginController
             rejestracjaController.setAccount(account);
             rejestracjaController.setLoginController(this);
             rejestracjaController.setPacjentList(PacjentUtil.getPacjentList());
-          
+
             primaryStage.close();
             Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();
@@ -154,6 +154,7 @@ public class LoginController
             lekarzController.setAccount(account);
             lekarzController.setLoginController(this);
             lekarzController.setPacjentList(PacjentUtil.getPacjentList());
+            lekarzController.setPacjentListOddzial(PacjentUtil.getPacjentList());
             lekarzController.setRezerwacjeSal();
             lekarzController.setDyzuryTabelka();
             
@@ -193,7 +194,6 @@ public class LoginController
             ordynatorController.setPacjentList(PacjentUtil.getPacjentList());
             ordynatorController.setRezerwacjeSal();
             ordynatorController.setDyzuryTabelka();
-            
             primaryStage.close();
             Scene scene = new Scene(anchorPane);
             primaryStage.centerOnScreen();

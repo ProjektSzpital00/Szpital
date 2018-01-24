@@ -70,7 +70,7 @@ public class AddLekiController
     {
         dialoStage.close();
     }
-
+	
     @FXML
     public void ok() throws SQLException, ClassNotFoundException
     {
@@ -145,7 +145,7 @@ public class AddLekiController
                 }     
                 
                 Leki lekPacjenta = new Leki(-1, wybranyPacjent.getIdPacjenta().intValue(),"niewazne",tmp, dateOd, dateDo,dawkowanie.getText());
-                 
+
                 LekiUtil.addLekPacjenta(lekPacjenta);
                 
                 lekiController.ladujListe(wybranyPacjent.getIdPacjenta().intValue());

@@ -14,7 +14,6 @@
       <TableView fx:id="tabela" layoutX="14.0" layoutY="46.0" prefHeight="447.0" prefWidth="700.0" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
           <TableColumn fx:id="nazwaLeku" prefWidth="75.0" text="Lek" />
-          <TableColumn fx:id="imiePacjenta" prefWidth="75.0" text="Pacjent" />
             <TableColumn fx:id="dataOd" prefWidth="75.0" text="Od" />
             <TableColumn fx:id="dataDo" prefWidth="75.0" text="Do" />
             <TableColumn fx:id="dawkowanie" prefWidth="75.0" text="Dawkowanie" />
@@ -34,9 +33,9 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="100.0" styleClass="buttonCANCEL" text="Usuń">
+            <Button maxWidth="100.0" minWidth="100.0" mnemonicParsing="false" onAction="#usunLek" prefHeight="28.0" prefWidth="100.0" styleClass="buttonCANCEL" text="Usuń">
                <graphic>
-                  <ImageView fitHeight="19.0" fitWidth="22.0" onDragDetected="#edytujLek" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@image/delete2.png" />
                      </image>
