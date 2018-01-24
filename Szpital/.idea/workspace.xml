@@ -12,44 +12,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PacjentUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/szpital/util/PacjentUtil.java">
+      <file leaf-file-name="Laczenie.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/szpital/util/Laczenie.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="90" column="133" lean-forward="false" selection-start-line="90" selection-start-column="133" selection-end-line="90" selection-end-column="133" />
-              <folding>
-                <marker date="1516137159670" expanded="true" signature="691:1101" ph="SELECT Pacje... Pacjenci" />
-                <marker date="1516137159670" expanded="true" signature="3538:4059" ph="insert into Pacjenci... " />
-                <marker date="1516137159670" expanded="true" signature="3538:4095" ph="insert into Pacjenci... " />
-                <marker date="1516137159670" expanded="true" signature="3538:4130" ph="insert into Pacjenci... " />
-                <marker date="1516137159670" expanded="true" signature="4626:5094" ph="UPDATE Pacje... " />
-                <marker date="1516137159670" expanded="true" signature="4626:5210" ph="UPDATE Pacje... " />
-                <marker date="1516137159670" expanded="true" signature="5110:5210" ph="UPDATE Pacje... " />
-                <marker date="1516137159670" expanded="true" signature="5816:5847" ph="delete from " />
-                <marker date="1516137159670" expanded="true" signature="6462:6500" ph="SELECT id FR... Pacjenci" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pacjent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/szpital/model/Pacjent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="753">
-              <caret line="161" column="52" lean-forward="true" selection-start-line="161" selection-start-column="52" selection-end-line="161" selection-end-column="52" />
+            <state relative-caret-position="170">
+              <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="43" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AddPacjentController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/szpital/view/AddPacjentController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1832">
-              <caret line="158" column="28" lean-forward="false" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -102,8 +70,9 @@
         <option value="$PROJECT_DIR$/src/szpital/view/AddMailController.java" />
         <option value="$PROJECT_DIR$/src/szpital/view/RejestracjaController.java" />
         <option value="$PROJECT_DIR$/src/szpital/model/Pacjent.java" />
-        <option value="$PROJECT_DIR$/src/szpital/view/AddPacjentController.java" />
         <option value="$PROJECT_DIR$/src/szpital/util/PacjentUtil.java" />
+        <option value="$PROJECT_DIR$/src/szpital/view/AddPacjentController.java" />
+        <option value="$PROJECT_DIR$/src/szpital/util/Laczenie.java" />
       </list>
     </option>
   </component>
@@ -133,6 +102,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,9 +148,7 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,11 +305,12 @@
       <workItem from="1515979711287" duration="275000" />
       <workItem from="1516100977625" duration="16270000" />
       <workItem from="1516135083192" duration="2776000" />
+      <workItem from="1516810103325" duration="124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62514000" />
+    <option name="totallyTimeSpent" value="62638000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -358,7 +328,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18695652" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16204691" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16364606" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -387,39 +357,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <marker date="1515350539387" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="3310:3366" ph="select id fr... Oddzialy" />
-            <marker date="1515350539387" expanded="true" signature="3989:4014" ph="update Lozka... " />
-            <marker date="1515350539387" expanded="true" signature="3989:4047" ph="update Lozka... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/szpital/util/PacjentUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <marker date="1516137159670" expanded="true" signature="691:1101" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1516137159670" expanded="true" signature="3538:4059" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4095" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4130" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5094" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5110:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5816:5847" ph="delete from " />
-            <marker date="1516137159670" expanded="true" signature="6462:6500" ph="SELECT id FR... Pacjenci" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -433,18 +375,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1262#1263#0" expanded="false" />
-            <element signature="e#1303#1304#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/model/Pacjent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -453,39 +384,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1904">
-          <caret line="118" column="35" lean-forward="false" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="35" />
-          <folding>
-            <marker date="1515350539387" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="3310:3366" ph="select id fr... Oddzialy" />
-            <marker date="1515350539387" expanded="true" signature="3989:4014" ph="update Lozka... " />
-            <marker date="1515350539387" expanded="true" signature="3989:4047" ph="update Lozka... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/util/PacjentUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <marker date="1516137159670" expanded="true" signature="691:1101" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1516137159670" expanded="true" signature="3538:4059" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4095" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4130" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5094" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5110:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5816:5847" ph="delete from " />
-            <marker date="1516137159670" expanded="true" signature="6462:6500" ph="SELECT id FR... Pacjenci" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -499,18 +403,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1262#1263#0" expanded="false" />
-            <element signature="e#1303#1304#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/model/Pacjent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -519,72 +412,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2210">
-          <caret line="130" column="9" lean-forward="true" selection-start-line="130" selection-start-column="9" selection-end-line="130" selection-end-column="9" />
-          <folding>
-            <marker date="1515350539387" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="3310:3366" ph="select id fr... Oddzialy" />
-            <marker date="1515350539387" expanded="true" signature="3989:4014" ph="update Lozka... " />
-            <marker date="1515350539387" expanded="true" signature="3989:4047" ph="update Lozka... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/util/PacjentUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <marker date="1516137159670" expanded="true" signature="691:1101" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1516137159670" expanded="true" signature="3538:4059" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4095" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4130" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5094" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5110:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5816:5847" ph="delete from " />
-            <marker date="1516137159670" expanded="true" signature="6462:6500" ph="SELECT id FR... Pacjenci" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="75" column="13" lean-forward="false" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding>
-            <marker date="1515350539387" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="3310:3366" ph="select id fr... Oddzialy" />
-            <marker date="1515350539387" expanded="true" signature="3989:4014" ph="update Lozka... " />
-            <marker date="1515350539387" expanded="true" signature="3989:4047" ph="update Lozka... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1262#1263#0" expanded="false" />
-            <element signature="e#1303#1304#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/model/Pacjent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -607,50 +445,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding>
-            <marker date="1516137159670" expanded="true" signature="691:1101" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1516137159670" expanded="true" signature="3538:4059" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4095" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4130" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5094" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5110:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5816:5847" ph="delete from " />
-            <marker date="1516137159670" expanded="true" signature="6462:6500" ph="SELECT id FR... Pacjenci" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="76" column="51" lean-forward="true" selection-start-line="76" selection-start-column="51" selection-end-line="76" selection-end-column="51" />
-          <folding>
-            <marker date="1515350539387" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="3310:3366" ph="select id fr... Oddzialy" />
-            <marker date="1515350539387" expanded="true" signature="3989:4014" ph="update Lozka... " />
-            <marker date="1515350539387" expanded="true" signature="3989:4047" ph="update Lozka... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1262#1263#0" expanded="false" />
-            <element signature="e#1303#1304#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/model/Pacjent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -673,22 +473,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1262#1263#0" expanded="false" />
-            <element signature="e#1303#1304#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/model/Miejsca.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/view/image/OrdynatorScreen.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -703,9 +491,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -713,10 +498,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="31" column="67" lean-forward="true" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
-          <folding>
-            <marker date="1513010690186" expanded="true" signature="706:1079" ph="SELECT Lekar... Lekarze" />
-            <marker date="1513010690186" expanded="true" signature="3029:3105" ph="SELECT id FR... Lekarze" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -724,9 +505,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
           <caret line="36" column="63" lean-forward="false" selection-start-line="36" selection-start-column="63" selection-end-line="36" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -734,11 +512,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding>
-            <marker date="1513010690179" expanded="true" signature="559:838" ph="SELECT Stano... Konta" />
-            <marker date="1513010690179" expanded="true" signature="1193:1314" ph="SELECT id, i... Lekarze" />
-            <marker date="1513010690179" expanded="true" signature="1707:1829" ph="SELECT id, i... Personel" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -757,10 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="65" column="9" lean-forward="true" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
-          <folding>
-            <marker date="1515404430226" expanded="true" signature="710:1047" ph="SELECT Lekar... Lekarze" />
-            <marker date="1515404430226" expanded="true" signature="2668:2744" ph="SELECT id FR... Lekarze" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -768,7 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="134" column="49" lean-forward="true" selection-start-line="134" selection-start-column="49" selection-end-line="134" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,36 +544,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="471">
           <caret line="138" column="5" lean-forward="true" selection-start-line="138" selection-start-column="5" selection-end-line="138" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="24" column="52" lean-forward="true" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-          <folding>
-            <marker date="1515350539387" expanded="true" signature="823:1005" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="1780:1801" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1920" ph="select SaleS... " />
-            <marker date="1515350539387" expanded="true" signature="1780:1921" ph="select SaleS... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2642" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="2641:2658" ph="select Lozka... SaleSzpitalne" />
-            <marker date="1515350539387" expanded="true" signature="3310:3366" ph="select id fr... Oddzialy" />
-            <marker date="1515350539387" expanded="true" signature="3989:4014" ph="update Lozka... " />
-            <marker date="1515350539387" expanded="true" signature="3989:4047" ph="update Lozka... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/MiejscaUtil.java" />
     <entry file="file://$PROJECT_DIR$/src/szpital/util/SalaUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1377">
           <caret line="89" column="57" lean-forward="true" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
-          <folding>
-            <marker date="1513010690189" expanded="true" signature="646:664" ph="SELECT * FRO... Sale" />
-            <marker date="1513010690189" expanded="true" signature="1961:2010" ph="SELECT id FR... Sale" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -813,10 +559,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <marker date="1515402704126" expanded="true" signature="695:722" ph="SELECT * FRO... SaleSzpitalne" />
-            <marker date="1515402704126" expanded="true" signature="2101:2159" ph="SELECT id FR... SaleSzpitalne" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -824,18 +566,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4471">
           <caret line="292" column="7" lean-forward="false" selection-start-line="292" selection-start-column="7" selection-end-line="292" selection-end-column="7" />
-          <folding>
-            <marker date="1516100951138" expanded="true" signature="4674:4789" ph="{...}" />
-            <marker date="1516100951138" expanded="false" signature="4850:4865" ph=" { " />
-            <marker date="1516100951138" expanded="false" signature="4880:4886" ph=" }" />
-            <marker date="1516100951138" expanded="true" signature="4932:6215" ph="{...}" />
-            <marker date="1516100951138" expanded="true" signature="6258:7679" ph="{...}" />
-            <marker date="1516100951138" expanded="true" signature="7742:9011" ph="{...}" />
-            <marker date="1516100951138" expanded="true" signature="8360:9011" ph="{...}" />
-            <marker date="1516100951138" expanded="true" signature="9090:9393" ph="{...}" />
-            <marker date="1516100951138" expanded="true" signature="9438:9796" ph="{...}" />
-            <marker date="1516100951138" expanded="false" signature="9829:9845" ph=" { " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,7 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
           <caret line="101" column="75" lean-forward="false" selection-start-line="101" selection-start-column="75" selection-end-line="101" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -859,7 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-340">
           <caret line="33" column="49" lean-forward="true" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -867,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="13" column="41" lean-forward="false" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -875,10 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-          <folding>
-            <marker date="1515402704125" expanded="true" signature="769:788" ph="SELECT * FRO... Lozka" />
-            <marker date="1515402704125" expanded="true" signature="2966:3024" ph="UPDATE Lozka... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,7 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -894,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="1773" column="0" lean-forward="false" selection-start-line="1773" selection-start-column="0" selection-end-line="1773" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,9 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="15" column="67" lean-forward="false" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -912,7 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="297" column="0" lean-forward="false" selection-start-line="297" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -920,9 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="27" column="43" lean-forward="false" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -930,11 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="30" column="19" lean-forward="false" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1516132053095" expanded="true" signature="536:573" ph="Select email... Pacjenciwhere" />
-            <marker date="1516132053095" expanded="true" signature="536:574" ph="Select email... Pacjenciwhere" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -942,47 +651,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#217#218#0" expanded="false" />
-            <element signature="e#279#280#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/szpital/model/Pacjent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="161" column="52" lean-forward="true" selection-start-line="161" selection-start-column="52" selection-end-line="161" selection-end-column="52" />
+        <state relative-caret-position="1462">
+          <caret line="161" column="52" lean-forward="false" selection-start-line="161" selection-start-column="52" selection-end-line="161" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/szpital/util/PacjentUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
+        <state relative-caret-position="1343">
           <caret line="90" column="133" lean-forward="false" selection-start-line="90" selection-start-column="133" selection-end-line="90" selection-end-column="133" />
-          <folding>
-            <marker date="1516137159670" expanded="true" signature="691:1101" ph="SELECT Pacje... Pacjenci" />
-            <marker date="1516137159670" expanded="true" signature="3538:4059" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4095" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="3538:4130" ph="insert into Pacjenci... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5094" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="4626:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5110:5210" ph="UPDATE Pacje... " />
-            <marker date="1516137159670" expanded="true" signature="5816:5847" ph="delete from " />
-            <marker date="1516137159670" expanded="true" signature="6462:6500" ph="SELECT id FR... Pacjenci" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/szpital/view/AddPacjentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1832">
+        <state relative-caret-position="425">
           <caret line="158" column="28" lean-forward="false" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/szpital/util/Laczenie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
