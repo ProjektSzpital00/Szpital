@@ -101,6 +101,7 @@ public class LekarzController
     @FXML
     private TableColumn<Rezerwacja, String> ColumnInformacjaR;
     
+    @FXML
     private TableView<Dyzur> tabelaDyzurow;
 
     @FXML
