@@ -3,7 +3,6 @@ package szpital.util;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Oddzial;
@@ -47,21 +46,6 @@ public class OddzialUtil
     public static void clearOddzialyList()
     {
         oddzialList.clear();
-    }
-    
-    public static void addOddzial(Oddzial oddzial)
-    {
-        
-    }
-    
-    public static void updateOddzial(Oddzial oddzial)
-    {
-        
-    }
-    
-    public static void deleteOddzial(IntegerProperty idOddzialu)
-    {
-        
     }
     
     public static Integer searchOddzialId(String nazwaOddzialu)

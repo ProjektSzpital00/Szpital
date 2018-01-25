@@ -44,7 +44,7 @@ public class LekiController
     @FXML
     private TableColumn<Leki, String> dawkowanie;
     
-    private Integer idPacjenta; // do pobierania danych z bazy(setter)
+    private Integer idPacjenta;
     private Pacjent wybranyPacjent;
     
     private LekarzController lekarzController;
@@ -63,7 +63,6 @@ public class LekiController
             }
        
         nazwaLeku.setCellValueFactory(cellData->cellData.getValue().getNazwa());
-        //imiePacjenta.setCellValueFactory(cellData->cellData.getValue().getImieNazwisko());
         dataOd.setCellValueFactory(cellData->cellData.getValue().getOdTermin());
         dataDo.setCellValueFactory(cellData->cellData.getValue().getDoTermin());
         dawkowanie.setCellValueFactory(cellData->cellData.getValue().getDawkowanie());

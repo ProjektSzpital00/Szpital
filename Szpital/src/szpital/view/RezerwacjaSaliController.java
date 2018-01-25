@@ -22,7 +22,6 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import szpital.model.Rezerwacja;
 import szpital.model.Sala;
-import szpital.util.Laczenie;
 import szpital.util.RezerwacjaUtil;
 import szpital.util.Utils;
 

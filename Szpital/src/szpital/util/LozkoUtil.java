@@ -70,21 +70,6 @@ public class LozkoUtil
         lozkoList.clear();
     }
     
-    public static void addLozkoList(Lozko lozko)
-    {
-        
-    }
-    
-    public static void updateLozkoList(Lozko lozko)
-    {
-        
-    }
-    
-    public static void deleteLozkoList(Integer idLozka)
-    {
-        
-    }
-    
     public static void zmiannaStatusuLozka (Integer status, Integer idLozka) throws SQLException, ClassNotFoundException 
     {
         try

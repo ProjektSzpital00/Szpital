@@ -4,14 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.beans.property.IntegerProperty;
-
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import szpital.model.Badania;
 import szpital.model.Leki;
-import szpital.model.RodzajeBadan;
 import szpital.model.RodzajeLekow;
 
 public class LekiUtil {
@@ -57,10 +52,8 @@ public class LekiUtil {
                     }
             } catch (ClassNotFoundException ex) {
                 ex.printStackTrace();
-                    //throw ex;
             } catch (SQLException ex) {
                 ex.printStackTrace();
-                    //throw new SQLException("Błąd zapytania", ex);
             }
 
             return rodzajeLekowList;

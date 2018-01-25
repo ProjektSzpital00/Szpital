@@ -6,7 +6,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.scene.chart.PieChart.Data;
 
 public class Badania {
 	
@@ -26,7 +25,6 @@ public class Badania {
                 
 		public Badania(int id, String imiePacjenta,String nazwiskoPacjenta, String nazwaBadania, Date dataBadania, String wynikBadania) {
 			this.id=new SimpleIntegerProperty(id);
-                        //this.idPacjenta = new SimpleIntegerProperty(id); 
 			this.imiePacjenta=new SimpleStringProperty(imiePacjenta);
 			this.nazwiskoPacjenta=new SimpleStringProperty(nazwiskoPacjenta);
 			this.nazwaBadania=new SimpleStringProperty(nazwaBadania);
@@ -108,33 +106,19 @@ public class Badania {
 			this.wynikBadania = wynikBadania;
 		}
 
-    /**
-     * @return the imieNazwisko
-     */
     public StringProperty getImieNazwisko() {
         return imieNazwisko;
     }
 
-    /**
-     * @param imieNazwisko the imieNazwisko to set
-     */
     public void setImieNazwisko(StringProperty imieNazwisko) {
         this.imieNazwisko = imieNazwisko;
     }
 
-    /**
-     * @return the IdNazwaBadania
-     */
     public IntegerProperty getIdNazwaBadania() {
         return IdNazwaBadania;
     }
 
-    /**
-     * @param IdNazwaBadania the IdNazwaBadania to set
-     */
     public void setIdNazwaBadania(IntegerProperty IdNazwaBadania) {
         this.IdNazwaBadania = IdNazwaBadania;
-    }
-		
-		
+    }		
 }

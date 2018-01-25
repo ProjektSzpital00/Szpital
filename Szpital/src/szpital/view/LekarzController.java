@@ -62,7 +62,7 @@ public class LekarzController
     
     
     @FXML
-    TableView<Pacjent> tabelaWszystkichPacjentow;
+    private TableView<Pacjent> tabelaWszystkichPacjentow;
     
     @FXML
     private TableColumn<Pacjent, Integer> ColumnIdPacjenta1;

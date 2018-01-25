@@ -99,7 +99,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="541.0" prefWidth="1104.0">
                      <children>
-                        <TableView fx:id="tabelaPacjentow1" minWidth="700.0" prefHeight="496.0" prefWidth="1096.0">
+                        <TableView fx:id="tabelaWszystkichPacjentow" minWidth="700.0" prefHeight="496.0" prefWidth="1096.0">
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>

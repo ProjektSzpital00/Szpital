@@ -3,7 +3,6 @@ package szpital.model;
 import java.sql.Date;
 
 import javafx.beans.property.*;
-import javafx.scene.chart.PieChart.Data;
 
 public class Leki {
 	private IntegerProperty id;
@@ -81,30 +80,18 @@ public class Leki {
 		this.dawkowanie = dawkowanie;
 	}
 
-    /**
-     * @return the idPacjenta
-     */
     public IntegerProperty getIdPacjenta() {
         return idPacjenta;
     }
 
-    /**
-     * @param idPacjenta the idPacjenta to set
-     */
     public void setIdPacjenta(IntegerProperty idPacjenta) {
         this.idPacjenta = idPacjenta;
     }
 
-    /**
-     * @return the idNazwaLeku
-     */
     public IntegerProperty getIdNazwaLeku() {
         return idNazwaLeku;
     }
 
-    /**
-     * @param idNazwaLeku the idNazwaLeku to set
-     */
     public void setIdNazwaLeku(IntegerProperty idNazwaLeku) {
         this.idNazwaLeku = idNazwaLeku;
     }

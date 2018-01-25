@@ -58,21 +58,6 @@ public class LekarzUtil
         lekarzList.clear();
     }
     
-    public static void addLekarz(Lekarz lekarz)
-    {
-        
-    }
-    
-    public static void updateLekarz(Lekarz lekarz)
-    {
-        
-    }
-    
-    public static void deleteLekarz(IntegerProperty idLekarza)
-    {
-        
-    }
-    
     public static Integer searchLekarzId(String imie, String nazwisko)
     {
         Integer ip = null;

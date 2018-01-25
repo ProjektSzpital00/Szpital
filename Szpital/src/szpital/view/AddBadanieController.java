@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package szpital.view;
 
 import java.sql.Date;
@@ -14,7 +9,6 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
@@ -25,17 +19,10 @@ import szpital.model.Badania;
 import szpital.model.Pacjent;
 import szpital.model.RodzajeBadan;
 import szpital.util.BadaniaUtil;
-import szpital.util.Laczenie;
-import szpital.util.Utils;
 
-/**
- *
- * @author Bartek
- */
+
 public class AddBadanieController 
 {
-
-    
     private BadaniaController badaniaController;
     private Stage dialoStage;
     private Badania badanie;
@@ -53,7 +40,6 @@ public class AddBadanieController
     
     private Pacjent wybranyPacjent;
     private Integer zaznaczonyPacjent;
-    
     
     public void setBadanieController(BadaniaController badaniaController) 
     {
@@ -73,12 +59,9 @@ public class AddBadanieController
 
     public void setBadanie(Badania badanie) 
     {
-        //System.err.println(badanie != null);
         if(badanie != null)
         {
             this.badanie = badanie;
-            
-            //System.out.println(badanie.getId());
             
             Date d = badanie.SQLgetDataBadania();
             LocalDate ld = d.toLocalDate();
@@ -135,11 +118,10 @@ public class AddBadanieController
         if(walidacja_nazwaBadania && walidacja_data  && walidacja_opis)
         {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        
-            Optional<ButtonType> result = alert.showAndWait();
             alert.setTitle("Potwierdzenie operacji");
             alert.setHeaderText("Dodanie nowego pacjenta");
-            
+            Optional<ButtonType> result = alert.showAndWait();
+                     
             if(result.get() == ButtonType.OK)
             {
                 
@@ -155,15 +137,10 @@ public class AddBadanieController
                 {
                     if(rb.getNazwa().getValue().equals(s))
                     {
-                        //System.err.println("Wpisuje");
                         tmp = rb.getId().intValue();
                     }
                 }
-                //System.out.println(tmp);
-                
-               
-               
-                
+
                 if(this.badanie == null)
                 {
                     Badania noweBadanie = new Badania(-1,tmp, wybranyPacjent.getIdPacjenta().intValue(), date, opisBadania.getText());
@@ -177,14 +154,10 @@ public class AddBadanieController
                     BadaniaUtil.updateBadaniePacjenta(noweBadanie);
                 }
                 
-                
-               // FXMLLoader loader = new FXMLLoader(this.getClass().getResource("BadaniaPacjenta.fxml"));
-               // badaniaController = loader.getController();
                 badaniaController.ladujListe(wybranyPacjent.getIdPacjenta().intValue());
                 
                 dialoStage.close();
             }
-        
         }
         
         else
@@ -196,16 +169,13 @@ public class AddBadanieController
             puste.setContentText(komunikat.toString());
             puste.showAndWait();
         }
-
     }
         
     public void cancel()
     {
         dialoStage.close();
     }
-        
-    
-    
+ 
     public void setListaBadan()
     {
         try {
@@ -223,36 +193,20 @@ public class AddBadanieController
         } catch (SQLException ex) {
             Logger.getLogger(AddBadanieController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
     }
-    
-    
-    
-    /**
-     * @return the zaznaczonyPacjent
-     */
+
     public Integer getZaznaczonyPacjent() {
         return zaznaczonyPacjent;
     }
 
-    /**
-     * @param zaznaczonyPacjent the zaznaczonyPacjent to set
-     */
     public void setZaznaczonyPacjent(Integer zaznaczonyPacjent) {
         this.zaznaczonyPacjent = zaznaczonyPacjent;
     }
 
-    /**
-     * @return the wybranyPacjent
-     */
     public Pacjent getWybranyPacjent() {
         return wybranyPacjent;
     }
 
-    /**
-     * @param wybranyPacjent the wybranyPacjent to set
-     */
     public void setWybranyPacjent(Pacjent wybranyPacjent) {
         this.wybranyPacjent = wybranyPacjent;
     }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package szpital.view;
 
 import java.sql.Date;
@@ -15,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -22,11 +18,6 @@ import szpital.model.Leki;
 import szpital.model.Pacjent;
 import szpital.model.RodzajeLekow;
 import szpital.util.LekiUtil;
-
-/**
- *
- * @author Bartek
- */
 public class AddLekiController 
 {
     private LekiController lekiController;
@@ -63,6 +54,40 @@ public class AddLekiController
     public Leki getLek() 
     {
         return lek;
+    }
+    
+    @FXML
+    private void initialize()
+    {
+        dataOd.setDayCellFactory(picker -> new DateCell() 
+        {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) 
+            {
+                super.updateItem(date, empty);
+                if(date.isBefore(LocalDate.now()))
+                {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
+            }
+        });
+        dataOd.setEditable(false);
+        
+        dataDo.setDayCellFactory(picker -> new DateCell() 
+        {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) 
+            {
+                super.updateItem(date, empty);
+                if(date.isBefore(LocalDate.now()))
+                {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
+            }
+        });
+        dataDo.setEditable(false);
     }
     
     @FXML
@@ -121,10 +146,10 @@ public class AddLekiController
         if(walidacja_nazwaLeku && walidacja_dataOd  && walidacja_dataDo && walidacja_dawkowanie)
         {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            Optional<ButtonType> result = alert.showAndWait();
             alert.setTitle("Potwierdzenie operacji");
             alert.setHeaderText("Dodanie nowego leku");
-            
+            Optional<ButtonType> result = alert.showAndWait();
+ 
             if(result.get() == ButtonType.OK)
             {
                 LocalDate locald = dataOd.getValue();

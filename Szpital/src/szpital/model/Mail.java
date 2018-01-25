@@ -11,14 +11,14 @@ import java.util.Properties;
 
 public class Mail 
 {
-    private static String USER_NAME = "projektszpital92";  // GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = "haslo1234"; // GMail password
+    private static String USER_NAME = "projektszpital92";
+    private static String PASSWORD = "haslo1234";
 
     public static void setMail(String body, String toAdress) 
     {
         String from = USER_NAME;
         String pass = PASSWORD;
-        String[] to = { toAdress }; // list of recipient email addresses
+        String[] to = { toAdress };
         String subject = "Informacja szpital";
 
         sendFromGMail(from, pass, to, subject, body);

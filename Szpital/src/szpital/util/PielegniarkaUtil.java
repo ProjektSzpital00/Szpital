@@ -63,21 +63,6 @@ public class PielegniarkaUtil
         pielegniarkaList.clear();
     }
     
-    public static void addPielegniarka(Pielegniarka pielegniarka)
-    {
-        
-    }
-    
-    public static void updatePielegniarka(Pielegniarka pielegniarka)
-    {
-        
-    }
-    
-    public static void deletePielegniarka(IntegerProperty idPielegniarki)
-    {
-        
-    }
-    
     public static Integer searchPielegniarkaId(String imie, String nazwisko)
     {
         Integer ip = null;

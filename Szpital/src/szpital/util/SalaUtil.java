@@ -47,22 +47,7 @@ public class SalaUtil
     {
         salaList.clear();
     }
-    
-    public static void addSala(Sala sala)
-    {
-        
-    }
-    
-    public static void updateSala(Sala sala)
-    {
-        
-    }
-    
-    public static void deleteSala(Integer idSali)
-    {
-        
-    }
-    
+
     public static Integer searchSalaId(String nazwaSali)
     {
         Integer ip = null;

@@ -131,9 +131,6 @@ public class RezerwacjaUtil
         {
             Statement stmt = Laczenie.getStatement();
 
-            /*String query = "insert into RezerwacjeSali (id_sali, id_rezerwujacego, termin, informacja) "
-                            + "Values(" + rezerwacja.getIdSali().getValue() + ", " + rezerwacja.getIdRezerwującego().getValue() + ", '"
-                            + rezerwacja.getTermin().getValue() + "', '" + rezerwacja.getInformacja().getValue() + "');"; */
             String query = "insert into RezerwacjeSali (id_sali, id_rezerwujacego, termin) "
                             + "Values(" + rezerwacja.getIdSali().getValue() + ", " + rezerwacja.getIdRezerwującego().getValue() + ", '"
                             + rezerwacja.getTermin().getValue() + "');";

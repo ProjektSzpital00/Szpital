@@ -192,6 +192,7 @@ public class LoginController
             ordynatorController.setAccount(account);
             ordynatorController.setLoginController(this);
             ordynatorController.setPacjentList(PacjentUtil.getPacjentList());
+            ordynatorController.setPacjentListOddzial(PacjentUtil.getPacjentList());
             ordynatorController.setRezerwacjeSal();
             ordynatorController.setDyzuryTabelka();
             primaryStage.close();

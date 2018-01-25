@@ -3,12 +3,9 @@ package szpital.util;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javafx.beans.property.SimpleIntegerProperty;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import szpital.model.Badania;
-import szpital.model.Pacjent;
 import szpital.model.RodzajeBadan;
 
 public class BadaniaUtil {
@@ -89,12 +86,9 @@ public class BadaniaUtil {
 	public static void addBadanie(Badania badania) throws SQLException {
 		try {
 			Statement stmt = Laczenie.getStatement();
-			// badania.setId_Pacjenta(new SimpleIntegerProperty(2));
 			String query = "insert BadaniaPacjentow (id_badania, id_pacjenta, data, wynik) " + "values ('"
 					+ badania.getIdNazwaBadania().getValue() + "','" + badania.getId_Pacjenta().getValue() + "'," + "'"
 					+ badania.getDataBadania().getValue() + "','" + badania.getWynikBadania().getValue() + "');";
-
-			// System.out.println(badania.getId().getValue());
 			stmt.executeUpdate(query);
 		} catch (SQLException ex) {
 			throw new SQLException("Błąd zapytania", ex);

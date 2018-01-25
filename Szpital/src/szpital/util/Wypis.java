@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package szpital.util;
 
 import com.itextpdf.text.Chunk;
@@ -24,10 +19,6 @@ import szpital.model.Badania;
 import szpital.model.Leki;
 import szpital.model.Pacjent;
 
-/**
- *
- * @author Olya Lebert
- */
 public class Wypis {
      
   public static void wydrukuj(Pacjent pacjent,ObservableList<Badania> badania, ObservableList<Leki> leki) throws FileNotFoundException 
@@ -51,12 +42,10 @@ class CreateDocument{
             Font font = new Font(Font.FontFamily.COURIER, 14,Font.BOLD);
             Font font1 = new Font(Font.FontFamily.COURIER, 12,Font.NORMAL);
              
-             //nazwa Hospital
             Paragraph title=new Paragraph("Nazwa Szpitalu",font);
             title.setAlignment(Element.ALIGN_CENTER);
             document.add(title);
             
-            //Adress Hospital
             Paragraph adress=new Paragraph("Adress ",font1);
             adress.setAlignment(Element.ALIGN_CENTER);
             document.add(adress);
@@ -66,7 +55,6 @@ class CreateDocument{
             Chunk linebreak = new Chunk(separator);
             document.add(linebreak);
             
-            //nazwa wypisu
             Paragraph head=new Paragraph("KARTA INFORMACYJNA LECZENIA SZPITALNEGO",font);
             head.setAlignment(Element.ALIGN_CENTER);
             document.add(head);
@@ -76,11 +64,9 @@ class CreateDocument{
             t.setAlignment(Element.ALIGN_CENTER);
             t.setSpacingAfter(32);
             document.add(t);
-             
-            
+
             CreateTable obj = new CreateTable();
-           
-           
+
             document.add(obj.createImie(pacjent)); 
             document.add(obj.createNazwisko(pacjent));
             document.add(obj.createPesel(pacjent));
@@ -107,7 +93,7 @@ class CreateDocument{
         } 
         catch (Exception e) 
         {
-            // handle exception
+            
         }
 
 

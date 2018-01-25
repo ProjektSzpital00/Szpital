@@ -26,10 +26,16 @@ public class OrdynatorController
     private ObservableList<Pacjent> pacjentList;
     private ObservableList <Rezerwacja> rezerwacjaList;
     private ObservableList <Dyzur> dyzuryList;
+    private ObservableList<Pacjent> wszyscyZoddzialu;
+    
+    private int idDzialu;
 
     @FXML
-    TableView<Pacjent> tabelaPacjentow;
+    private TableView<Pacjent> tabelaPacjentow;
 
+    @FXML
+    private TableView<Pacjent> tabelaWszystkichPacjentow;
+    
     @FXML
     private TableColumn<Pacjent, Integer> ColumnIdPacjenta;
 
@@ -77,6 +83,30 @@ public class OrdynatorController
 
     @FXML
     private TableColumn<Dyzur, String> ColumnDyzurGodzina;
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnIdPacjenta1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnImie1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnNazwisko1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnPesel1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnOddzial1;
+    
+    @FXML
+    private TableColumn<Pacjent, String> ColumnGrKrwii1;
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnSala1;
+    
+    @FXML
+    private TableColumn<Pacjent, Integer> ColumnMiejsce1;
 
     @FXML
     private void initialize()
@@ -90,6 +120,14 @@ public class OrdynatorController
         ColumnSala.setCellValueFactory(cellData->cellData.getValue().getNrSali().asObject());
         ColumnMiejsce.setCellValueFactory(cellData->cellData.getValue().getNrLozka().asObject());
 
+         ColumnIdPacjenta1.setCellValueFactory(cellData -> cellData.getValue().getIdPacjenta().asObject());
+        ColumnImie1.setCellValueFactory(cellData->cellData.getValue().getImie());
+        ColumnNazwisko1.setCellValueFactory(cellData->cellData.getValue().getNazwisko());
+        ColumnPesel1.setCellValueFactory(cellData->cellData.getValue().getPesel());
+        ColumnOddzial1.setCellValueFactory(cellData->cellData.getValue().getOddzial());
+        ColumnGrKrwii1.setCellValueFactory(cellData->cellData.getValue().getGrKrwii());
+        ColumnSala1.setCellValueFactory(cellData->cellData.getValue().getNrSali().asObject());
+        ColumnMiejsce1.setCellValueFactory(cellData->cellData.getValue().getNrLozka().asObject());
 
         ColumnSalaR.setCellValueFactory(cellData -> cellData.getValue().getSala());
         ColumnDataR.setCellValueFactory(cellData->cellData.getValue().getTermin());
@@ -199,7 +237,7 @@ public class OrdynatorController
     {
         try
         {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("RezerwacjaSaliScreen.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("RezerwacjaSaliOrdynatorScreen.fxml"));
 
             AnchorPane anchorPane = loader.load();
 
@@ -209,13 +247,13 @@ public class OrdynatorController
             Scene scene = new Scene(anchorPane);
             dialogStage.setScene(scene);
 
-            RezerwacjaSaliController rezerwacjaSaliController = loader.getController();
-            rezerwacjaSaliController.setOrdynatorController(this);
-            rezerwacjaSaliController.setStage(dialogStage);
-            rezerwacjaSaliController.setSaleList(SalaUtil.getSalaList());
-            rezerwacjaSaliController.setDate();
-            rezerwacjaSaliController.setRezerwacjeList();
-            rezerwacjaSaliController.init();
+            RezerwacjaSaliOrdynatorController rezerwacjaSaliOrdynatorController = loader.getController();
+            rezerwacjaSaliOrdynatorController.setOrdynatorController(this);
+            rezerwacjaSaliOrdynatorController.setStage(dialogStage);
+            rezerwacjaSaliOrdynatorController.setSaleList(SalaUtil.getSalaList());
+            rezerwacjaSaliOrdynatorController.setDate();
+            rezerwacjaSaliOrdynatorController.setRezerwacjeList();
+            rezerwacjaSaliOrdynatorController.init();
 
             dialogStage.showAndWait();
         }
@@ -291,10 +329,26 @@ public class OrdynatorController
 
         for(Pacjent p : pacjentList)
             if(p.getIdLekarza().getValue().equals(account.getId_lekarza()))
+            {
                 this.pacjentList.add(p);
-
+                this.idDzialu = p.getIdOddzialu().intValue();
+            }
 
         tabelaPacjentow.setItems(this.pacjentList);
+    }
+    
+    public void setPacjentListOddzial(ObservableList<Pacjent> pacjentList) 
+    {
+        this.wszyscyZoddzialu = FXCollections.observableArrayList();
+       
+        for(Pacjent p : pacjentList)
+        {
+            if(p.getIdOddzialu().getValue() == idDzialu)
+            {
+                this.wszyscyZoddzialu.add(p);
+            }
+        }
+        tabelaWszystkichPacjentow.setItems(this.wszyscyZoddzialu);
     }
     
     public void setLoginController(LoginController log)

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package szpital.util;
 
 import java.sql.ResultSet;
@@ -10,13 +5,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import szpital.model.Lekarz;
 import szpital.model.Statystyka;
 
-/**
- *
- * @author Bartek
- */
 public class StatystykaUtil
 {
     private static ObservableList<Statystyka> StatystykaList = FXCollections.observableArrayList();
@@ -37,13 +27,8 @@ public class StatystykaUtil
                     ResultSet rs = stmt.executeQuery(query);
                     while (rs.next())
                     {
-                        //String imie = rs.getString("Lekarze.imie");
-                        //String pesel = rs.getString("Lekarze.pesel");
                         Statystyka s;
-                        
                         s = new Statystyka(rs.getString("Oddzialy.Nazwa"),rs.getString("SaleSzpitalne.Nazwa"),rs.getInt("Lozka.Id"), rs.getInt("Lozka.wolne"));
-                        
-                        
                         StatystykaList.add(s);
                     }
                 }
